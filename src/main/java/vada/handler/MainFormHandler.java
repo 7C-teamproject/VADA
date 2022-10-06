@@ -39,7 +39,7 @@ public class MainFormHandler implements CommandHandler {
 
 		request.setAttribute("list", list);
 		
-		return "jsp/mainForm.jsp";
+		return "/jsp/mainForm.jsp";
 	}
 	
 }

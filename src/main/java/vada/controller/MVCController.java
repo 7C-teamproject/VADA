@@ -57,6 +57,7 @@ public class MVCController extends HttpServlet {
 	}
 
 	public void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		String command = req.getRequestURI();
 		if (command.indexOf(req.getContextPath()) == 0) {
 			command = command.substring(req.getContextPath().length() + 1);
