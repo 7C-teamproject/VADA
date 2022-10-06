@@ -51,7 +51,7 @@
             
             <input type="submit" class="btn btn-primary pull-right" value="신고글 등록">
             <button type="button" class="btn btn-primary pull-right" onclick="history.back();">취소</button>
-            
+             
          </form>
          
       </div>
