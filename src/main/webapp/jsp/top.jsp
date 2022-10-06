@@ -13,12 +13,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
  
-<%
- 	CategoryService categoryService = new CategoryListDAOImpl();
- 	List<CategoryDTO> categoryDTOList = categoryService.listCategory();
- 	pageContext.setAttribute("categoryDTOList", categoryDTOList);
- %>
- 
+
 <!DOCTYPE html>
 <style>
 select {
@@ -146,19 +141,19 @@ label:before {
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                               <c:if test="${sessionScope.adminyn eq 'no'}" >
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/Vada/jsp/likeListForm.jsp">찜 목록</a></li>
-                                       <li><a class="dropdown-item" href="/Vada/jsp/userBuyListForm.jsp">구매 목록</a></li>
-                                       <li><a class="dropdown-item" href="/Vada/jsp/userInfoUpdateForm.jsp">회원정보 번경</a></li>
+                                    <li><a class="dropdown-item" href="/Vada/likeListForm.do">찜 목록</a></li>
+                                       <li><a class="dropdown-item" href="/Vada/userbuylistform.do">구매 목록</a></li>
+                                       <li><a class="dropdown-item" href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
                                      <li><hr class="dropdown-divider" /></li>
-                                     <li><a class="dropdown-item" href="/Vada/jsp/logOut.jsp">로그아웃</a></li>
+                                     <li><a class="dropdown-item" href="/Vada/logout.do">로그아웃</a></li>
                                 </ul>
                           </c:if>
                           <c:if test="${sessionScope.adminyn eq 'yes'}" >
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/Vada/jsp/adminManageUserForm.jsp">회원관리</a></li>
-                                       <li><a class="dropdown-item" href="/Vada/jsp/adminManageNotifyForm.jsp">신고글 목록</a></li>
+                                    <li><a class="dropdown-item" href="/Vada/adminmanageuserform.do">회원관리</a></li>
+                                       <li><a class="dropdown-item" href="/Vada/adminmanagenotifyform.do">신고글 목록</a></li>
                                      <li><hr class="dropdown-divider" /></li>
-                                     <li><a class="dropdown-item" href="/Vada/jsp/logOut.jsp">로그아웃</a></li>
+                                     <li><a class="dropdown-item" href="/Vada/logout.do">로그아웃</a></li>
                                 </ul>
                           </c:if>
                       </li>
