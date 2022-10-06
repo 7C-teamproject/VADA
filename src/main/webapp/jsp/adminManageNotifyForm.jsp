@@ -8,8 +8,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%
-   BoardListService notifyListService = new BoardListDAOImpl();
-   request.setAttribute("list", notifyListService.notifyListBoard());
+//    BoardListService notifyListService = new BoardListDAOImpl();
+//    request.setAttribute("list", notifyListService.notifyListBoard());
 %>
 
 <jsp:include page="top.jsp" />
@@ -52,7 +52,7 @@ th, td {
                   <c:forEach var="notifylistDTO" items="${list}" varStatus="stat">
                      <tr>
                         <td>${notifylistDTO.notifyuserid}</td>
-                        <td><a href="/Vada/jsp/notifyDetail.jsp?notifyid=${notifylistDTO.notifyid}">${notifylistDTO.notifyreason}</a></td>
+                        <td><a href="/Vada/notifydetail.do?notifyid=${notifylistDTO.notifyid}">${notifylistDTO.notifyreason}</a></td>
                         <td>${notifylistDTO.notifydate}</td>
                      </tr>
                   </c:forEach>
@@ -62,7 +62,7 @@ th, td {
             
          </div>
       </div>
-      <a href="/Vada/jsp/adminManageUserForm.jsp">회원 목록 이동</a>
+      <a href="/Vada/adminmanageuserform.do">회원 목록 이동</a>
    </div>
 
 </main>

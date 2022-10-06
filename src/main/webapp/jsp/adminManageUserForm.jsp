@@ -26,18 +26,18 @@ th, td {
 
 
 <%
-ManagerService managerService = new ManagerDAOImpl();
+// ManagerService managerService = new ManagerDAOImpl();
 
-//	String useridparam = "YEO";
-String userid = (String)session.getAttribute("userid") == null ? "" : request.getParameter("userid");
-if(userid=="") {
-	System.out.println("관리자로 로그인 해야함");
-	response.sendRedirect("/Vava/jsp/adminLoginForm.jsp");
-}
+// //	String useridparam = "YEO";
+// String userid = (String)session.getAttribute("userid") == null ? "" : request.getParameter("userid");
+// if(userid=="") {
+// 	System.out.println("관리자로 로그인 해야함");
+// 	response.sendRedirect("/Vava/jsp/adminLoginForm.jsp");
+// }
 
-List<UserDTO> list = managerService.listBoard(); // TODO useridparam 필요한지 확인
+// List<UserDTO> list = managerService.listBoard(); // TODO useridparam 필요한지 확인
 
-	pageContext.setAttribute("list", list);
+// 	pageContext.setAttribute("list", list);
 	
 %>
 
@@ -54,7 +54,7 @@ List<UserDTO> list = managerService.listBoard(); // TODO useridparam 필요한�
 			</div>
 			<div class="card-body">
 			
-				<form action="/Vada/jsp/blackListProc.jsp" method="Post">
+				<form action="/Vada/blacklistproc.do" method="Post">
 				
 					<table>
 						<colgroup>
@@ -108,7 +108,7 @@ List<UserDTO> list = managerService.listBoard(); // TODO useridparam 필요한�
 				
 			</div>
 		</div>
-			<a href = "/Vada/jsp/adminManageNotifyForm.jsp">신고글 관리페이지 이동</a>
+			<a href = "/Vada/adminmanagenotifyform.jsp">신고글 관리페이지 이동</a>
 	</div>
 
 </main>

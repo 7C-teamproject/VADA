@@ -48,63 +48,6 @@
 }
 </style>
 
-<%
-String productnum = (String) request.getParameter("productnum");
-System.out.println("productnum ==============> " + productnum);
-
-ProductpriceDTO productpriceDTO = new ProductpriceDTO();
-BoardDTO boardDTO = new BoardDTO();
-CategoryDTO categoryDTO = new CategoryDTO();
-
-BoardViewService boardViewService = new BoardViewDAOImpl();
-
-Map<String, Object> map = boardViewService.viewBoard(Integer.parseInt(productnum));
-System.out.println("map ==============> " + map);
-
-boardDTO = (BoardDTO) map.get("boardDTO");
-
-productpriceDTO = (ProductpriceDTO) map.get("ProductpriceDTO");
-categoryDTO = (CategoryDTO) map.get("categoryDTO");
-
-List list1 = (List) map.get("imglist1");
-List list2 = (List) map.get("imglist2");
-List list3 = (List) map.get("imglist3");
-
-pageContext.setAttribute("boardDTO", boardDTO);
-String reserveText = "판매중";
-if (!boardDTO.getBuyerid().equals("default")) {
-	reserveText = "판매완료";
-} else {
-	if (boardDTO.getReservation().equals("yes")) {
-		reserveText = "판매예약";
-	} else {
-		reserveText = "판매중";
-	}
-}
-pageContext.setAttribute("reserveText", reserveText);
-
-pageContext.setAttribute("productpriceDTO", productpriceDTO);
-
-pageContext.setAttribute("categoryDTO", categoryDTO);
-
-pageContext.setAttribute("imglist1", list1); // imgsname만 있는 리스트
-pageContext.setAttribute("imglist2", list2); // imgcname만 있는 리스트
-pageContext.setAttribute("imglist3", list3); // imgsize만 있는 리스트
-
-pageContext.setAttribute("sellerid", boardDTO.getSellerid());
-pageContext.setAttribute("buyerid", boardDTO.getBuyerid());
-
-//구매완료 판매완료 제목에 추가 
-System.out.println("boardDTO ===========================> " + boardDTO);
-
-pageContext.setAttribute("productpriceDTO", productpriceDTO);
-System.out.println("productpriceDTO ===========================> " + productpriceDTO);
-
-pageContext.setAttribute("categoryDTO", categoryDTO);
-System.out.println("categoryDTO ===========================> " + categoryDTO);
-
-pageContext.setAttribute("reserveText", reserveText);
-%>
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -113,7 +56,7 @@ pageContext.setAttribute("reserveText", reserveText);
 
 	<div style="margin-left: 25%">
 
-		<form action="/Vada/jsp/boardUpdateForm.jsp" method="post">
+		<form action="/Vada/boardupdateform.do" method="post">
 			<input type="hidden" name="productnum" value="${boardDTO.productnum}" />
 
 
@@ -161,20 +104,18 @@ pageContext.setAttribute("reserveText", reserveText);
 			<div class="row">
 				<div class="col-md-6">
 					<a class="btn btn-secondary" style="float: right"
-						href="javascript:confirmCommand('/Vada/jsp/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
+						href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 						신고</a><br /> <br /> <br />
-					<%
-					// TODO EL로 바꿔야함
-					%>
+				
 					<c:if
 						test="${sessionScope.userid ne boardDTO.sellerid and boardDTO.reserveid eq 'default'}">
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/jsp/reserveProc.jsp?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
+							href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
 
 					</c:if>
 					<c:if test="${sessionScope.userid eq boardDTO.reserveid}">
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/jsp/reserveProc.jsp?productnum=${boardDTO.productnum}&command=cancel','예약취소');">예약취소</a>
+							href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약취소');">예약취소</a>
 						<br />
 					</c:if>
 					<br /> <br />
@@ -213,11 +154,11 @@ pageContext.setAttribute("reserveText", reserveText);
 
 							<script src="/Vada/js/common.js"></script>
 							<a class="btn btn-secondary"
-								href="javascript:confirmCommand('/Vada/jsp/boardDeleteProc.jsp?productnum=${boardDTO.productnum}','게시글 삭제');">글
+								href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
 								삭제</a>
 							<c:if test="${empty boardDTO.soldoutdate and boardDTO.reservation eq 'yes'}">
 								<a class="btn btn-secondary" style="color: yellow"
-									href="javascript:confirmCommand('/Vada/jsp/soldOutProc.jsp?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a>
+									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a>
 							</c:if>
 						</c:if>
 						<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
@@ -225,13 +166,13 @@ pageContext.setAttribute("reserveText", reserveText);
 							<a href="#" class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
 							<a class="btn btn-secondary"
 								style="float: right; margin-right: 5px;"
-								href="javascript:confirmCommand('/Vada/jsp/addLikeProc.jsp?productnum=${boardDTO.productnum}','찜');">찜하기</a>
+								href="javascript:confirmCommand('/Vada/addLikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
 						</c:if>
 					</p>
 				</div>
 			</div>
 		</form>
-		<a href="/Vada/jsp/mainForm.jsp" class="btn btn-secondary">메인 화면으로
+		<a href="/Vada/mainform.do" class="btn btn-secondary">메인 화면으로
 			돌아가기</a>
 
 	</div>
