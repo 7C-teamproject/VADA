@@ -166,7 +166,7 @@ label:before {
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="/Vada/jsp/mainForm.jsp">
+                            <a class="nav-link" href="/Vada/mainForm.do">
                                 <div class="sb-nav-link-icon"></div>
                                 중고거래
                             </a>

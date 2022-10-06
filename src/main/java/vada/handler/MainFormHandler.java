@@ -1,5 +1,6 @@
 package vada.handler;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,13 @@ public class MainFormHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
+		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		// 검색어 파라미터
 		String bCateParam = request.getParameter("bCate") == null ? "" : request.getParameter("bCate");
