@@ -20,43 +20,6 @@
 <jsp:setProperty name="imgDTO" property="*" />
 <jsp:setProperty name="categoryDTO" property="*" />
  
-<%
-	System.out.println("boardUpdateForm.jsp===============================");
-	
-	System.out.println("boardDTO===============================" + boardDTO);
-	System.out.println("productpriceDTO===============================" + productpriceDTO);
-	System.out.println("imgDTO===============================" + imgDTO);
-	
-	
-	
-	
-	
-	List imgcnamelist = new ArrayList();
-	List imgsizelist = new ArrayList();
-
-	for(int i=0; i<3; i++) {
-		String imgcname = (String) request.getParameter("imgcname"+ String.valueOf(i));
-		String imgsize = (String) request.getParameter("imgsize"+ String.valueOf(i));
-		
-		imgcnamelist.add(imgcname);
-		imgsizelist.add(imgsize);
-		
-	}
-	
-	pageContext.setAttribute("imgcnamelist", imgcnamelist);
-	pageContext.setAttribute("imgsizelist", imgsizelist);
-	
-	CategoryService categoryService = new CategoryListDAOImpl();
-	List<CategoryDTO> categoryDTOList = categoryService.listCategory();
-	pageContext.setAttribute("categoryDTOList", categoryDTOList);
-
-%>
- 
-
-<%
-
-
-%>
 <jsp:include page="top.jsp" />
 <main>
    <div class="container">

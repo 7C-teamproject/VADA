@@ -40,10 +40,10 @@ public class FileUploadServlet extends HttpServlet {
 
 		String command = req.getParameter("command"); 
 		if (command.equals("write")) {
-			process(req, resp, "/jsp/boardWriteProc.jsp", "IMG_UPLOAD_DIR");
+			process(req, resp, "/boardwriteproc.do", "IMG_UPLOAD_DIR");
 		} 
 		else if(command.equals("notifyWrite")) {
-			process(req, resp,"/jsp/notifyWriteProc.jsp","NOTIFY_IMG_UPLOAD_DIR");
+			process(req, resp,"/notifywriteproc.do","NOTIFY_IMG_UPLOAD_DIR");
 		}
 		
 		else if (command.equals("update")) {  // 게시글 수정일 때
@@ -64,7 +64,7 @@ public class FileUploadServlet extends HttpServlet {
 			
 			System.out.println("여기까지 오나요??"+req.getParameter("productnum"));
 			
-			process(req, resp, "/jsp/boardUpdateProc.jsp", "IMG_UPLOAD_DIR");
+			process(req, resp, "/boardupdateproc.do", "IMG_UPLOAD_DIR");
 			
 			
 		} // else if

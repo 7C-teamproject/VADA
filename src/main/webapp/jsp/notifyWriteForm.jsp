@@ -30,7 +30,7 @@
                <tbody>
                   <tr>
                      <td style="float: left">신고 게시물 :
-                        <a href="/Vada/jsp/boardDetailForm.jsp?productnum=${param.productnum}" >${param.title}</a>
+                        <a href="/Vada/boarddetailform.do?productnum=${param.productnum}" >${param.title}</a>
                      </td>
                   </tr>
                   <tr>

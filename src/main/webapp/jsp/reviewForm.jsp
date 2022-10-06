@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row">
 			<form method="post"
-				action="/Vada/jsp/reviewProc.jsp?productnum=${param.productnum}">
+				action="/Vada/reviewproc.do?productnum=${param.productnum}">
 
 				<table class="table table-stripped"
 					style="text-align: center; boarder: 1px solid #dddddd">
@@ -46,7 +46,7 @@
 					</tbody>
 				</table>
 	<script src="/Vada/js/common.js"></script>
-            <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('/Vada/jsp/reviewProc.jsp?productnum=${param.productnum}','후기작성');">
+            <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('/Vada/reviewproc.do?productnum=${param.productnum}','후기작성');">
              <button type="button" class="btn btn-primary pull-right" onclick="history.back();">구매목록</button>
 				<button type="button" class="btn btn-primary pull-right"
 					onclick="history.back();">구매목록</button>

@@ -257,7 +257,7 @@ main {
                </div>
                <div id="productprice" class="product-name">가격 : ${item.productprice}</div>
                <div class="product-price">
-                  <a href="/Vada/jsp/boardDetailForm.jsp?productnum=${item.productnum}">${item.title}</a>
+                  <a href="/Vada/boarddetailform.jsp?productnum=${item.productnum}">${item.title}</a>
                </div> 
                <c:set var="sysYear">
                   <fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd hh:mm:ss" />
@@ -266,7 +266,7 @@ main {
                   <c:out value="${sysYear}" />
                   
                   <script src="/Vada/js/common.js"></script>
-                     <a class="btn btn-secondary"  style="float: right;" href="javascript:confirmCommand('/Vada/jsp/likeListDeleteProc.jsp?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
+                     <a class="btn btn-secondary"  style="float: right;" href="javascript:confirmCommand('/Vada/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
                </div>
                
             </li>

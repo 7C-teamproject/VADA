@@ -51,5 +51,4 @@ public class SearchIDProcHandler implements CommandHandler {
 		}
 		return "loginform.do";
 	}
-
 }

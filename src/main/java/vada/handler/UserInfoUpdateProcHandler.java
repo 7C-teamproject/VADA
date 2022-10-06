@@ -43,7 +43,7 @@ public class UserInfoUpdateProcHandler implements CommandHandler {
 //	    RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/loginForm.jsp");
 //		dispatcher.forward(request, response);
 
-		return "/loginform.do";
+		return "/jsp/loginForm.jsp";
 	}
 
 }

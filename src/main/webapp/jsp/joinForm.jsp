@@ -11,11 +11,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<%
- 	CategoryService categoryService = new CategoryListDAOImpl();
- 	List<CategoryDTO> categoryDTOList = categoryService.listCategory();
- 	pageContext.setAttribute("categoryDTOList", categoryDTOList);
- %>
 
 <style>
 select {
@@ -92,7 +87,7 @@ label {
 
 <main>
 
-	<form name="join_form" action="/Vada/jsp/joinProc.jsp" method="post">
+	<form name="join_form" action="/Vada/joinProc.do" method="post">
 		<div>
 			<label>아이디<input type="text" name="userid" id="uid"></label>
 			<button type="button" onclick="id_check();">중복확인</button>

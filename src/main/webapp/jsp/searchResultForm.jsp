@@ -13,18 +13,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<%
-
-   String cate1 = request.getParameter("categories1") == null ? "" : request.getParameter("categories1");
-   String cate2 = request.getParameter("categories2") == null ? "" : request.getParameter("categories2");
-   String searchText = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
-   
-   List<Map> list = new BoardSeachListDAOImpl().listBoard(cate1, cate2, searchText);// 사용자가 입력한 검색어에 해당하는 결과를 가진 리스트
-
-   pageContext.setAttribute("list", list);
-   
-%>
-
 <jsp:include page="top.jsp" />
 
 <style>
@@ -252,7 +240,7 @@ a {
 
       </ul>
 
-	<a href="/Vada/jsp/mainForm.jsp" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
+	<a href="/Vada/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
    </div>
 
 </main>

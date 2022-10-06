@@ -156,7 +156,7 @@ form .field input:focus::placeholder {
       <div class="title-text"></div>
       <div class="form-container">
       
-      <form action = "/Vada/jsp/searchIDProc.jsp">
+      <form action = "/Vada/searchidproc.jsp">
          <div class="slide-controls">
             <label for="searchid" class="searchid">아이디 찾기</label>
          </div>

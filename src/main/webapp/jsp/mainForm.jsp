@@ -263,7 +263,7 @@ main {
 						${item.productprice}</div>
 					<div class="product-price">
 						<a
-							href="/Vada/jsp/boardDetailForm.jsp?productnum=${item.productnum}">${item.title}</a>
+							href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
 					</div> <c:set var="sysYear">
 						<fmt:formatDate value="${item.wdate}"
 							pattern="yyyy-MM-dd hh:mm:ss" />
@@ -279,7 +279,7 @@ main {
 
 	</div>
 
-	<a id="write" href="/Vada/jsp/boardWriteForm.jsp">글 등록</a>
+	<a id="write" href="/Vada/boardwriteform.do">글 등록</a>
 	
 
 </main>

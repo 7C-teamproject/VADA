@@ -10,12 +10,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
- 
-<%
- 	CategoryService categoryService = new CategoryListDAOImpl();
- 	List<CategoryDTO> categoryDTOList = categoryService.listCategory();
- 	pageContext.setAttribute("categoryDTOList", categoryDTOList);
- %>
 
 <jsp:include page="top.jsp" />
 

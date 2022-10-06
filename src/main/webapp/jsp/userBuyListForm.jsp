@@ -7,15 +7,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%
-BuyListSerive buylistService = new BuyListDAOImpl();
-
-List list = buylistService.buylistadd((String) session.getAttribute("userid"));
-
-System.out.println("@@@@@@@@@@@" + list.size());
-
-pageContext.setAttribute("list", list);
-%>
 
 <jsp:include page="top.jsp" />
 
@@ -65,7 +56,7 @@ th, td {
 				</table>
 			</div>
 		</div>
-		<a href="/Vada/jsp/mainForm.jsp" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
+		<a href="/Vada/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
 	</div>
 
 </main>
