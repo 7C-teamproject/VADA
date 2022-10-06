@@ -34,7 +34,7 @@ public class AddLikeProcHandler implements CommandHandler {
 		for (Object a : list) {
 			if ((int) a == productnum) {
 				add = false; // 0
-			}
+			} 
 		}
 
 		if (add) {
