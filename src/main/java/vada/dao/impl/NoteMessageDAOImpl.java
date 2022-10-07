@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import vada.dao.NoteMessageDAO;
 import vada.dto.NoteMessageDTO;
 
-public class NoteMessageDAOImpl extends BoardDAOImpl {
+public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO{
 
    public int insertMessage(NoteMessageDTO noteMessageDTO) {
 
@@ -17,7 +18,7 @@ public class NoteMessageDAOImpl extends BoardDAOImpl {
       int result = 0;
       try {
 
-         String sql = "insert into note_message (notefromuserid, notetouserid, message, m_date) values(?, ?, ?, now())";
+         String sql = "insert into notemessage (notefromuserid, notetouserid, message, m_date) values(?, ?, ?, now())";
 
          pstmt = conn.prepareStatement(sql);
 
@@ -45,7 +46,7 @@ public class NoteMessageDAOImpl extends BoardDAOImpl {
       
       try {
 
-         String sql = " select * from note_message";
+         String sql = " select * from notemessage ";
 //         NoteMessageDTO dto = new NoteMessageDTO();
 
          pstmt = conn.prepareStatement(sql);

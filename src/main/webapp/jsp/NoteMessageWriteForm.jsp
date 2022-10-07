@@ -3,13 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
    <div>
-      <form action="/Vada/MessageServiceCon" method="post">
+      <form action="/Vada/MessageServlet" method="post">
          <input type="hidden" name="productnum" value="${param.productnum}" />
          <input type="hidden" name="sellerid" value="${param.sellerid}" />
          

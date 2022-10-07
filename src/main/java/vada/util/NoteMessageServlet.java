@@ -12,19 +12,18 @@ import javax.servlet.http.HttpSession;
 import vada.dao.impl.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
 
-@WebServlet("/MessageServiceCon")
-public class MessageServiceCon extends HttpServlet {
+@WebServlet("/MessageServlet")
+public class NoteMessageServlet extends HttpServlet {
 
    @Override
    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-	   HttpSession session = req.getSession();
+	  HttpSession session = req.getSession();
 	   
       String notefromuserid = (String) session.getAttribute("userid");
       String notetouserid = "testid1";
       String message = req.getParameter("message");
          
-      
       System.out.println(notefromuserid);
       System.out.println(notetouserid);
       System.out.println(message);
@@ -40,7 +39,7 @@ public class MessageServiceCon extends HttpServlet {
          System.out.println("메시지 전송 실패");
       }
       
-      resp.sendRedirect("/Vada/jsp/chatmain.jsp");
+      resp.sendRedirect("/Vada/jsp/NoteMessageListForm.jsp");
       
    }
 

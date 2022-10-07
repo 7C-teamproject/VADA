@@ -9,6 +9,8 @@
 <%@ page import="vada.service.BoardViewService"%>
 <%@ page import="vada.dao.impl.BoardViewDAOImpl"%>
 <%@ page import="vada.dao.BoardDAO"%>
+<%@page import="vada.dto.NoteMessageDTO"%>
+<%@page import="vada.dao.impl.NoteMessageDAOImpl"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -163,7 +165,7 @@
 						<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 
 							<a href="#" class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
-							<a href="/Vada/jsp/messageForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a>
+							<a href="/Vada/jsp/NoteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a>
 							<a class="btn btn-secondary"
 								style="float: right; margin-right: 5px;"
 								href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>

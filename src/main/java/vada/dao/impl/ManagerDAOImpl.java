@@ -10,6 +10,7 @@ import java.util.Map;
 
 import vada.constants.VADAConstants;
 import vada.dao.ManagerDAO;
+import vada.dao.NoteMessageDAO;
 import vada.dto.BoardDTO;
 import vada.dto.ProductpriceDTO;
 import vada.dto.UserDTO;
