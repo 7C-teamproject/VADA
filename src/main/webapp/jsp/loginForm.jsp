@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-<jsp:include page="top.jsp" />
+<%-- <jsp:include page="top.jsp" /> --%>
 
 <style>
 * {
@@ -12,10 +12,10 @@
 }
 
 html, body {
-   display: grid;
-   height: 100%;
-   width: 100%;
-   place-items: center;
+	display: grid;
+	height: 100%; 
+	width: 100%; 
+	place-items: center;
 }
 
 ::selection {
@@ -25,7 +25,7 @@ html, body {
 
 .wrapper {
    overflow: hidden;
-   max-width: 390px;
+   width: 400px;
    background: #fff;
    padding: 30px;
    border-radius: 15px;
@@ -150,10 +150,12 @@ form .field input:focus::placeholder {
    
 </script>
 
-<main>
-
-   <div class="wrapper">
-      <div class="title-text"></div>
+<html>
+	<head>
+	</head>
+	<body>
+	<h1>VADA</h1>
+	<div class="wrapper">
       <div class="form-container">
          <div class="slide-controls">
             <label for="login" class="slide login">Login</label>
@@ -190,7 +192,9 @@ form .field input:focus::placeholder {
          </div>
       </div>
    </div>
-   
-</main>
+	
+	</body>
 
-<jsp:include page="bottom.jsp" />
+
+</html>
+
