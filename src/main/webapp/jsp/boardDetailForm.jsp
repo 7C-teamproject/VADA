@@ -24,7 +24,7 @@
 }
 
 .swiper-container {
-	height: 200px;
+	height: 350px;
 	width: 630px;
 	position: relative;
 	overflow: hidden;
@@ -44,6 +44,7 @@
 .swiper-slide img {
 	max-width: 100%;
 	height: auto;
+	padding : 0px 120px 0px 120px;
 	display: block;
 }
 </style>
