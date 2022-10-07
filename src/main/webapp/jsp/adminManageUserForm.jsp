@@ -50,7 +50,7 @@ th, td {
 		</ol>
 		<div class="card mb-4">
 			<div class="card-header">
-				<i class="fas fa-table me-1"></i> 회원목록
+				<i class="fas fa-table me-1"></i> 회원 목록
 			</div>
 			<div class="card-body">
 			

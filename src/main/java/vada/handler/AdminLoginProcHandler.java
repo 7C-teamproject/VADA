@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.LoginDAOImpl;
 import vada.dto.UserDTO;
@@ -13,8 +14,9 @@ import vada.service.LoginService;
 public class AdminLoginProcHandler implements CommandHandler {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) {
+	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
+		HttpSession session = request.getSession();
 		String userid = request.getParameter("aduserid");
 		String userpw = request.getParameter("aduserpw");
 
@@ -36,8 +38,8 @@ public class AdminLoginProcHandler implements CommandHandler {
 
 			if (userid.equals(dbuserid) && userpw.equals(dbuserpw)) {
 
-				request.setAttribute("adminyn", dbadminyn);
-				request.setAttribute("userid", userid);
+				session.setAttribute("adminyn", dbadminyn);
+				session.setAttribute("userid", userid);
 				System.out.println("adminyn===========>" + dbadminyn);
 
 			} else {
