@@ -141,7 +141,7 @@
 					<br /> <br />
 					<p>
 
-						<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
+						<c:if test="${sessionScope.userid eq boardDTO.sellerid or sessionScope.adminyn eq 'yes'}">
 							<input type="button" class="btn btn-secondary"
 								onclick="this.form.submit()" value="글 수정">
 
