@@ -57,7 +57,7 @@
           <tr>
           		<td>${status.index}</td>
           		<td>${item.notefromuserid}</td>
-          		<td>${item.notetouserid }</td>
+          		<td>${item.notetouserid }</td>  
           		<td>${item.message }</td>
           		<td>${item.m_date }</td>
              </tr>
