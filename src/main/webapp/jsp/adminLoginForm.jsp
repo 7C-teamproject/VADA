@@ -162,7 +162,7 @@ form .field input:focus::placeholder {
 	<div class="wrapper">
       <div class="form-container">
          <div class="slide-controls">
-            <label for="login" class="slide login">Login</label>
+            <label for="login" class="slide login">Admin Login</label>
          </div>
 			<div class="form-inner">
 			
