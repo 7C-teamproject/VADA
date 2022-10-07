@@ -62,7 +62,7 @@ public class BoardUpdateProcHandler implements CommandHandler {
 		boardDTO.setTitle(request.getParameter("title"));
 		boardDTO.setContent(request.getParameter("content"));
 		boardDTO.setProductnum(Integer.parseInt(request.getParameter("productnum")));
-		categoryDTO.setCategoryname(request.getParameter("bcategorynum2"));
+		boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum2")));
 		productpriceDTO.setProductprice(Integer.parseInt(request.getParameter("productprice")));
 		
 		
@@ -95,22 +95,22 @@ public class BoardUpdateProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 		
-		if(result==0) {
-			System.out.println("게시글 수정 안 됨((실패)) 이미지는 모름");
-		} else {
-			System.out.println("게시글 수정 완료 이미지는 모름");
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/boardDetailForm.jsp");
-			try {
-				dispatcher.forward(request, response);
-			} catch (ServletException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		if(result==0) {
+//			System.out.println("게시글 수정 안 됨((실패)) 이미지는 모름");
+//		} else {
+//			System.out.println("게시글 수정 완료 이미지는 모름");
+//			
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/boardDetailForm.jsp");
+//			try {
+//				dispatcher.forward(request, response);
+//			} catch (ServletException | IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 	
 
-		return "/mainformindex.do";
+		return "/boarddetailform.do?productnum="+productnum;
 	}
 
 }

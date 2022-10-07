@@ -89,19 +89,19 @@ public class BoardUpdateDAOImpl extends BoardDAOImpl implements BoardUpdateDAO {
 		}
 		
 		finally {
-			if (pstmt3 != null) {
-				closeConnection(pstmt3, conn);
-			}
-			if (pstmt2 != null) {
-				closeConnection(pstmt2, conn);
-			}
-			if (pstmt1 != null) {
-				closeConnection(pstmt1, conn);
-			}
 			try {
 				conn.setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}
+			if (pstmt3 != null) {
+				closeConnection(pstmt3, getConnection());
+			}
+			if (pstmt2 != null) {
+				closeConnection(pstmt2, getConnection());
+			}
+			if (pstmt1 != null) {
+				closeConnection(pstmt1, conn);
 			}
 
 		}

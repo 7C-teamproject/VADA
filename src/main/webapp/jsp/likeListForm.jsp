@@ -277,7 +277,7 @@ main {
                <c:if test="${fn:length(list) == 0}" >
                     <h3 style="text-align: center;">찜 목록이 없어요~</h3><br /><br /><br /><br />
                </c:if>
-                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/mainform.do'">메인으로 돌아가기</button>
+                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/jsp/mainformindex.jsp'">메인으로 돌아가기</button>
       </ul>
       
    </div>

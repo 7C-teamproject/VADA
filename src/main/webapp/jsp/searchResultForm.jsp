@@ -240,7 +240,7 @@ a {
 
       </ul>
 
-	<a href="/Vada/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
+	<a href="/Vada/jsp/mainformindex.jsp" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
    </div>
 
 </main>
