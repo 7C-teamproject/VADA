@@ -248,7 +248,7 @@ main {
       <ul class="row" id="test">
 
          <c:set var="listSize" value="${list.size()}" />
-      `<c:if test="${fn:length(list) != 0}" >
+      <c:if test="${fn:length(list) != 0}" >
          <c:forEach var="item" items="${list}" varStatus="stat">
          
             <li id="listid" class="cell">
