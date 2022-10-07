@@ -17,8 +17,8 @@ public class LoginProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
 		HttpSession session = request.getSession();
-		String userid = request.getParameter("userid");
-		String userpw = request.getParameter("userpw");
+		String userid = (String) request.getParameter("userid");
+		String userpw = (String) request.getParameter("userpw");
 		
 		LoginService loginService = new LoginDAOImpl();
 		
@@ -29,6 +29,7 @@ public class LoginProcHandler implements CommandHandler {
 		String dbuserpw = null;
 		String dbusernickname = null;
 		String adminyn = null;
+		
 		
 		for (UserDTO userDTO : list) {
 			dbuserid = userDTO.getUserid();
@@ -49,12 +50,13 @@ public class LoginProcHandler implements CommandHandler {
 			session.setAttribute("usernickname", dbusernickname);
 			session.setAttribute("userid", userid);
 			session.setAttribute("adminyn", adminyn);
-		} else { // 로그인 실패 시
-			script.println("<script>");
-			script.println("alert('로그인 실패')");
-			script.println("history.back()");
-			script.println("</script>");
 			
+		} else { // 로그인 실패 시
+//			script.println("<script>");
+//			script.println("alert('로그인 실패')");
+//			script.println("history.back()");
+//			script.println("</script>");
+//			
 		}
 		return "/mainform.do";
 	}

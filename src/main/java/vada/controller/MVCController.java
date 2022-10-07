@@ -57,7 +57,7 @@ public class MVCController extends HttpServlet {
 	}
 
 	public void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
+		resp.setCharacterEncoding("utf-8");
 		String command = req.getRequestURI();
 		if (command.indexOf(req.getContextPath()) == 0) {
 			command = command.substring(req.getContextPath().length() + 1);
@@ -70,6 +70,7 @@ public class MVCController extends HttpServlet {
 			ex.printStackTrace();
 		}
 		if (viewPage != null) {
+			System.out.println("@@@@@@@@@@"+viewPage);
 			RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
 			dispatcher.forward(req, resp);
 		}

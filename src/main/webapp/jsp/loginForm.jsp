@@ -161,7 +161,7 @@ form .field input:focus::placeholder {
          
          <div class="form-inner">
          
-            <form action="/Vada/loginproc.do" class="login">
+            <form method="post" action="/Vada/loginproc.do" class="login">
                <div class="field">
                   <input type="text" name="userid" placeholder="ID" required>
                </div>
@@ -173,7 +173,6 @@ form .field input:focus::placeholder {
                   <a href="/Vada/adminloginform.do">관리자용 로그인</a>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/jsp/searchIDForm.jsp">아이디 찾기</a>
                   <a href="/Vada/searchidform.do">아이디 찾기</a>
                </div>
                 <div class="pass-link">

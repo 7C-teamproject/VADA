@@ -63,21 +63,16 @@
 			<!-- 	이미지 슬라이드 -->
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					<c:forEach var="item1" items="${imglist1}" varStatus="status">
+					<c:forEach var="item" items="${imglist1}" varStatus="status">
 						<div class="swiper-slide">
-							<img style="width:100%; height:100%;" src="../${item1}" name="img">
+							<img style="width: 100%; height: 100%;" src="../${item}"
+								name="img"> <input type="hidden"
+								name="imgcname${status.index}" value="${imglist2[status.index]}" />
+							<input type="hidden" name="imgsize${status.index}"
+								value="${imglist3[status.index]}" />
 						</div>
 					</c:forEach>
 
-					<c:forEach var="item2" items="${imglist2}" varStatus="status">
-						<input type="hidden" name="imgcname${status.index}"
-							value="${item2}" />
-					</c:forEach>
-
-					<c:forEach var="item3" items="${imglist3}" varStatus="status">
-						<input type="hidden" name="imgsize${status.index}"
-							value="${item3}" />
-					</c:forEach>
 				</div>
 				<div class="swiper-pagination"></div>
 				<div class="swiper-button-next"></div>
@@ -106,7 +101,7 @@
 					<a class="btn btn-secondary" style="float: right"
 						href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 						신고</a><br /> <br /> <br />
-				
+
 					<c:if
 						test="${sessionScope.userid ne boardDTO.sellerid and boardDTO.reserveid eq 'default'}">
 						<a class="btn btn-secondary" style="float: right"
@@ -132,31 +127,33 @@
 							value="${productpriceDTO.productprice}" />
 					</h3>
 					<br />
-					
+
 					<h3>(${reserveText})</h3>
-					
-					<c:if test="${!empty boardDTO.review}}">
-					<h3>리뷰 : ${boardDTO.review}</h3>
-					<h3>
-						별점 :
 
-						<c:forEach var="i" begin="1" end="${boardDTO.reviewscore}">   
+					<c:if test="${!empty boardDTO.review}">
+						<h3>리뷰 : ${boardDTO.review}</h3>
+						<h3>
+							별점 :
+
+							<c:forEach var="i" begin="1" end="${boardDTO.reviewscore}">   
 						 <span style="color: FFF064; font-size: xx-large;">★</span>
-						</c:forEach>
+							</c:forEach>
 
-					</h3>
+						</h3>
 					</c:if>
 					<br /> <br />
 					<p>
 
 						<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
-							<input type="button" class="btn btn-secondary" onclick ="this.form.submit()" value="글 수정">
+							<input type="button" class="btn btn-secondary"
+								onclick="this.form.submit()" value="글 수정">
 
 							<script src="/Vada/js/common.js"></script>
 							<a class="btn btn-secondary"
 								href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
 								삭제</a>
-							<c:if test="${empty boardDTO.soldoutdate and boardDTO.reservation eq 'yes'}">
+							<c:if
+								test="${empty boardDTO.soldoutdate and boardDTO.reservation eq 'yes'}">
 								<a class="btn btn-secondary" style="color: yellow"
 									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a>
 							</c:if>
@@ -166,14 +163,13 @@
 							<a href="#" class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
 							<a class="btn btn-secondary"
 								style="float: right; margin-right: 5px;"
-								href="javascript:confirmCommand('/Vada/addLikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
+								href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
 						</c:if>
 					</p>
 				</div>
 			</div>
 		</form>
-		<a href="/Vada/mainform.do" class="btn btn-secondary">메인 화면으로
-			돌아가기</a>
+		<a href="/Vada/mainform.do" class="btn btn-secondary">메인 화면으로 돌아가기</a>
 
 	</div>
 

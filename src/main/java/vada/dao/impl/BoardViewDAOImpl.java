@@ -74,7 +74,6 @@ public class BoardViewDAOImpl extends BoardDAOImpl implements BoardViewDAO {
 				boardDTO.setSellerid(rs1.getString("sellerid"));	//TODO 고쳤음@
 				boardDTO.setReserveid(rs1.getString("reserveid"));
 				boardDTO.setSoldoutdate(rs1.getTimestamp("soldoutdate"));
-				boardDTO.setReview(rs1.getString("review"));
 				
 				boardDTO.setReview(rs1.getString("review"));
 				boardDTO.setReviewscore(rs1.getInt("reviewscore"));

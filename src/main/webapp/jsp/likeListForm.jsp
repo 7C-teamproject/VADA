@@ -257,7 +257,7 @@ main {
                </div>
                <div id="productprice" class="product-name">가격 : ${item.productprice}</div>
                <div class="product-price">
-                  <a href="/Vada/boarddetailform.jsp?productnum=${item.productnum}">${item.title}</a>
+                  <a href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
                </div> 
                <c:set var="sysYear">
                   <fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd hh:mm:ss" />
@@ -277,7 +277,7 @@ main {
                <c:if test="${fn:length(list) == 0}" >
                     <h3 style="text-align: center;">찜 목록이 없어요~</h3><br /><br /><br /><br />
                </c:if>
-                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/jsp/mainForm.jsp'">메인으로 돌아가기</button>
+                    <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/mainform.do'">메인으로 돌아가기</button>
       </ul>
       
    </div>

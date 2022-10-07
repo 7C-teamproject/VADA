@@ -13,7 +13,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
  
-
+<%
+ 	CategoryService categoryService = new CategoryListDAOImpl();
+ 	List<CategoryDTO> categoryDTOList = categoryService.listCategory();
+ 	pageContext.setAttribute("categoryDTOList", categoryDTOList);
+ %>
+ 
 <!DOCTYPE html>
 <style>
 select {
@@ -141,7 +146,7 @@ label:before {
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                               <c:if test="${sessionScope.adminyn eq 'no'}" >
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/Vada/likeListForm.do">찜 목록</a></li>
+                                    <li><a class="dropdown-item" href="/Vada/likeListform.do">찜 목록</a></li>
                                        <li><a class="dropdown-item" href="/Vada/userbuylistform.do">구매 목록</a></li>
                                        <li><a class="dropdown-item" href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
                                      <li><hr class="dropdown-divider" /></li>
