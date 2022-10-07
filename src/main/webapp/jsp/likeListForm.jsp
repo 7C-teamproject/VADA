@@ -255,7 +255,7 @@ main {
                <div class="img-box">
                   <img class=imgfile src="${item.imgsname}" alt="">
                </div>
-               <div id="productprice" class="product-name">가격 : ${item.productprice}</div>
+               <h4>가격 :  <fmt:formatNumber value="${item.productprice}" pattern="#,###" />원</h4>
                <div class="product-price">
                   <a href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
                </div> 

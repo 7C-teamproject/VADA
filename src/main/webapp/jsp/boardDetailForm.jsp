@@ -13,6 +13,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -122,7 +123,11 @@
 					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
 					<br />
 					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
-					<h3>가격 :${productpriceDTO.productprice} <input type="hidden" name="productprice" value="${productpriceDTO.productprice}"/></h3>
+					<h3>가격 :  <fmt:formatNumber value="${productpriceDTO.productprice}" pattern="#,###" />원</h3>
+					
+					
+					
+					
 					<br />
 
 					<h3>(${reserveText})</h3>
@@ -158,6 +163,7 @@
 						<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 
 							<a href="#" class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
+							<a href="/Vada/jsp/messageForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a>
 							<a class="btn btn-secondary"
 								style="float: right; margin-right: 5px;"
 								href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>

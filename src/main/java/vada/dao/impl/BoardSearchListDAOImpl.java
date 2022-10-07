@@ -18,7 +18,7 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
    public List<Map> listBoard(String cate1, String cate2, String searchText) throws Exception {
       
 
-      String prependSQL = VADAConstants.props.getProperty("SEARCH_VADA_LIST_SQL"); //select * from board 
+      String prependSQL = VADAConstants.props.getProperty("LIST_SQL"); //select * from board 
       
       StringBuffer whereSQLBuffer = new StringBuffer();
       
@@ -64,6 +64,7 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
          map.put("productnum", rs.getInt("productnum"));
          map.put("wdate", rs.getTimestamp("wdate"));
          map.put("imgsname", rs.getString("imgsname"));
+         map.put("productprice", rs.getInt("productprice"));
          
          list.add(map);
          

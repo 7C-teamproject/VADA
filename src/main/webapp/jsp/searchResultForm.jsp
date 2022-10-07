@@ -2,10 +2,10 @@
    pageEncoding="UTF-8"%>
    
 <%@ page import="java.util.Map"%>
+<%@ page import="vada.dto.ProductpriceDTO"%>
 <%@ page import="vada.service.BoardSearchListService"%>
 <%@ page import="vada.dao.impl.BoardListDAOImpl"%>
 <%@ page import="vada.service.BoardListService"%>
-<%@ page import="vada.dao.impl.BoardSeachListDAOImpl"%>
 <%@ page import="vada.dto.BoardDTO"%>
 <%@ page import="java.util.List"%>
 
@@ -216,9 +216,10 @@ a {
                <img class=imgfile src="${item.imgsname}" alt="">
                
                </div>
-               <div id="productnum" class="product-name">${item.productnum}</div>
-               
+              <div id="productprice" class="product-name">가격 : ${item.productprice}</div>
                <div class="product-price">
+               가격 :  <fmt:formatNumber value="${item.productprice}" pattern="#,###" />원
+               
                <a href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
                </div> <c:set var="sysYear">
                   <fmt:formatDate value="${item.wdate}"
