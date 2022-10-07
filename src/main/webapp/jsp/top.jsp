@@ -167,7 +167,7 @@ label:before {
 								목록</a></li>
 						<li><a class="dropdown-item" href="/Vada/userbuylistform.do">구매
 								목록</a></li>
-						<li><a class="dropdown-item" href="/Vada/jsp/NoteMessageListForm.jsp">쪽지함</a></li>	
+						<li><a class="dropdown-item" href="/Vada/notemessagelistform.do">쪽지함</a></li>	
 						<li><a class="dropdown-item"
 							href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
 					</c:if>

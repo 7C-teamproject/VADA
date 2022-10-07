@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.NoteMessageDAOImpl;
+import vada.dto.BoardDTO;
 import vada.dto.NoteMessageDTO;
 
 @WebServlet("/MessageServlet")
@@ -21,7 +22,8 @@ public class NoteMessageServlet extends HttpServlet {
 	  HttpSession session = req.getSession();
 	   
       String notefromuserid = (String) session.getAttribute("userid");
-      String notetouserid = "testid1";
+      String notetouserid = req.getParameter("sellerid");
+      int productnum = Integer.parseInt(req.getParameter("productnum"));
       String message = req.getParameter("message");
          
       System.out.println(notefromuserid);
