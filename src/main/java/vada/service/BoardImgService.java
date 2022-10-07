@@ -13,9 +13,7 @@ public interface BoardImgService extends BoardService {
 
 	public abstract int writeBoardImg(int imgproductnum, ImgDTO boardImgDTO) throws Exception;
 
-	public abstract int deleteBoardImg(int imgnum) throws Exception;
-	
-	public abstract int deleteBoardImgs(int userid) throws Exception;
+	public abstract int deleteBoardImg(int imgproductnum) throws Exception;
 	
 	public abstract int updateBoardImg(int userid, List<ImgDTO> list) throws Exception;
 	

@@ -26,6 +26,8 @@ public class BoardUpdateProcHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
+		System.out.println("updateprochandler @@@@" + request.getParameter("bcategorynum2"));
+		
 		int productnum = Integer.parseInt(request.getParameter("productnum"));
 		
 		// 기존 이미지 삭제(DB)

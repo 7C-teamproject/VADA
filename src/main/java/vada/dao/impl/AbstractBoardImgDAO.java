@@ -9,7 +9,7 @@ import vada.service.BoardImgService;
 public abstract class AbstractBoardImgDAO extends BoardDAOImpl implements BoardImgService {
 
 	@Override
-	public int deleteBoardImg(int imgnum) throws Exception {
+	public int deleteBoardImg(int imgproductnum) throws Exception {
 		return 0;
 		
 	}@Override
@@ -28,11 +28,7 @@ public abstract class AbstractBoardImgDAO extends BoardDAOImpl implements BoardI
 	public int writeBoardImg(int imgproductnum, ImgDTO boardImgDTO) throws Exception {
 		return 0;
 	}
-	
-	@Override
-	public int deleteBoardImgs(int userid) throws Exception {
-		return 0;
-	}
+
 	public int notifyWriteBoardImg(int notifyid, NotifyimgDTO notifyImgDTO) throws Exception {
 		return 0;
 	}//내꺼

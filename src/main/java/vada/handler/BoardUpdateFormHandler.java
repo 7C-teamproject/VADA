@@ -25,7 +25,8 @@ public class BoardUpdateFormHandler implements CommandHandler {
 			List imgsizelist = new ArrayList();
 			BoardDTO boardDTO = new BoardDTO();
 		   ProductpriceDTO productpriceDTO = new ProductpriceDTO();
-		      
+		   
+		   System.out.println("boardupdateformhandler - 여기까지 오나요??"+request.getParameter("productnum"));
 		   boardDTO.setProductnum(Integer.parseInt(request.getParameter("productnum")));
 		   boardDTO.setTitle(request.getParameter("title"));
 		   boardDTO.setContent(request.getParameter("content"));
@@ -59,7 +60,7 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		request.setAttribute("categoryDTOList", categoryDTOList);
 
 
-		return "jsp/boardUpdateForm.jsp";
+		return "/jsp/boardUpdateForm.jsp";
 	}
 
 }

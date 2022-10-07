@@ -9,12 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
-
-
-<jsp:setProperty name="boardDTO" property="*" />
-<jsp:setProperty name="productpriceDTO" property="*" />
-<jsp:setProperty name="imgDTO" property="*" />
-<jsp:setProperty name="categoryDTO" property="*" />
  
 <jsp:include page="top.jsp" />
 <main>
@@ -44,7 +38,7 @@
                      
                       
                           <select name="bcategorynum" id="ca1" >
-                            <option value="500" >전체</option>
+                            <option value="1000" >전체</option>
                             <c:forEach var="categoryDTO" items="${categoryDTOList}">
                                 <c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
                               <option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
@@ -53,7 +47,7 @@
                      </select> &nbsp;&nbsp;
                      
                      <select name="bcategorynum2" id="ca2" >
-                            <option value="500" >전체</option>
+                            <option value="1000" >전체</option>
                      </select> &nbsp;&nbsp;
                      
                      <script src="http://code.jquery.com/jquery-latest.js"></script>

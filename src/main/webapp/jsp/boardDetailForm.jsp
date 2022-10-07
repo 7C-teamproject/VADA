@@ -121,7 +121,7 @@
 					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
 					<br />
 					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
-					<h3>가격 : ${productpriceDTO.productprice}</h3>
+					<h3>가격 :${productpriceDTO.productprice} <input type="hidden" name="productprice" value="${productpriceDTO.productprice}"/></h3>
 					<br />
 
 					<h3>(${reserveText})</h3>

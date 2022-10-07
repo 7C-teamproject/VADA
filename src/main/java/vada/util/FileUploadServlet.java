@@ -88,7 +88,7 @@ public class FileUploadServlet extends HttpServlet {
 						uploadDir.mkdir();
 
 					String uploadFileName = "";
-					uploadFileName = uploadDir.getPath() + "/" + RandomStringUtils.random(100, true, true)+".png";
+					uploadFileName = uploadDir.getPath() + "/" + RandomStringUtils.random(100, true, true).substring(0, 10)+".png";
 
 					imgsnameList.add(uploadFileName);
 

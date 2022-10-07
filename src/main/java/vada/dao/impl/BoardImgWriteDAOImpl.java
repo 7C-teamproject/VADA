@@ -31,9 +31,9 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 
 		closeConnection(pstmt, conn);
 
-//		if(result==0) {
-//			System.out.println("디비에 안 들어감");
-//		} 
+		if(result==0) {
+			System.out.println("디비에 안 들어감");
+		} 
 
 		return result;
 
