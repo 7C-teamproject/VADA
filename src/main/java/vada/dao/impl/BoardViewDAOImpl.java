@@ -133,6 +133,12 @@ public class BoardViewDAOImpl extends BoardDAOImpl implements BoardViewDAO {
 		if (rs1 != null) {
 			closeConnection(rs1, pstmt1, conn);
 		}
+		try {
+			conn.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	return map;

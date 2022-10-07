@@ -8,7 +8,7 @@ public class NotifyWriteFormHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 	
-		return "/notifywriteform.do";
+		return "/jsp/notifyWriteForm.jsp";
 	}
 
 }

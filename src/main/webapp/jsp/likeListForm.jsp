@@ -253,7 +253,7 @@ main {
          
             <li id="listid" class="cell">
                <div class="img-box">
-                  <img class=imgfile src="../${item.imgsname}" alt="">
+                  <img class=imgfile src="${item.imgsname}" alt="">
                </div>
                <div id="productprice" class="product-name">가격 : ${item.productprice}</div>
                <div class="product-price">

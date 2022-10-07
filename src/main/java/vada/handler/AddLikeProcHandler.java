@@ -45,7 +45,7 @@ public class AddLikeProcHandler implements CommandHandler {
 			}
 		}
 
-		return "/likeListForm.do";
+		return "/likelistform.do";
 	}
 
 }

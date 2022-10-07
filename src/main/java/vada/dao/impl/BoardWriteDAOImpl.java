@@ -54,13 +54,13 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 		Connection conn = getConnection();
 		
-		if (conn != null) {
-			try {
-				conn.setAutoCommit(false);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+//		if (conn != null) {
+//			try {
+//				conn.setAutoCommit(false);
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		
 		PreparedStatement pstmt = null;
 		
@@ -79,7 +79,7 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 		
 		closeConnection(pstmt, conn);
 
-		return result; // notifyid 리턴함
+		return result;
 		
 	}
 	

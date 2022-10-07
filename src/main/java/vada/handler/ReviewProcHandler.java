@@ -25,7 +25,7 @@ public class ReviewProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 		
-		return "boarddetailform.do";
+		return "/boarddetailform.do";
 	}
 
 }

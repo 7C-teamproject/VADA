@@ -88,13 +88,13 @@ label:before {
             
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
-            		action="/searchresultform.do" method="post">
+            		action="/Vada/searchresultform.do" method="post">
 
                 <div class="input-group" style="line-height: 20px">
                 <p style="color: white; margin-top: 15px;">카테고리 :</p>&nbsp;&nbsp;
                 		<lable style="margin-top: 12px">
               				<select name="categories1" id="categories1" onchange="changeSelect1();" >
-                				<option value="500" >전체</option>
+                				<option value="1000" >전체</option>
                 				<c:forEach var="categoryDTO" items="${categoryDTOList}">
 	           						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
 										<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
@@ -103,7 +103,7 @@ label:before {
 							</select> &nbsp;&nbsp;
 							
 							<select name="categories2" id="categories2" >
-                				<option value="500" >전체</option>
+                				<option value="1000" >전체</option>
 							</select> &nbsp;&nbsp;
 							
 							<script src="http://code.jquery.com/jquery-latest.js"></script>

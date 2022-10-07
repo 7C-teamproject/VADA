@@ -22,11 +22,11 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
       
       StringBuffer whereSQLBuffer = new StringBuffer();
       
-      if(cate1.equals("100")) { // 전체 검색(카테고리1을 선택 안 했을 때)
+      if(cate1.equals("1000")) { // 전체 검색(카테고리1을 선택 안 했을 때)
          whereSQLBuffer.append(" and 1=1 ");
       }
       
-      else if(cate2.equals("100")) { // 100, 200, 300.....category(대분류) // 카테고리 1은 선택하고 카테고리2를 선택 안 했을 때
+      else if(cate2.equals("1000")) { // 100, 200, 300.....category(대분류) // 카테고리 1은 선택하고 카테고리2를 선택 안 했을 때
          whereSQLBuffer.append(" and bcategorynum like '");
          String cate1prepend = cate1.substring(0, 2);
          whereSQLBuffer.append(cate1prepend);

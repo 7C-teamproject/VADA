@@ -38,7 +38,9 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 			userDTO.setEmail(result.getString("email"));
 			userDTO.setNickname(result.getString("nickname"));
 			userDTO.setDetailaddress(result.getString("detailaddress"));
+//			userDTO.setInterestcategorynum(result.getInt("interestcategorynum"));
 			
+//			System.out.println("@@@@@@@@@@@@@"+result.getInt("interestcategorynum"));
 		}
 		
 		closeConnection(result, pstmt, conn);
@@ -59,17 +61,17 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_USERINFO_UADATE_SQL"));
 		//UPDATE_USERINFO_UADATE_SQL=update user  set  userid=?, userpw=?, address=?, name=?, tel=?, email=?, nickname=?,
 		//													detailaddress =?  where  userid =?
-		
+		System.out.println("@@@@@@@@@@@@@@@"+userDTO.getName());
 		System.out.println("UserDTO =========>" + userDTO);
-		pstmt.setString(1, userDTO.getUserid());
-		pstmt.setString(2, userDTO.getUserpw());
-		pstmt.setString(3, userDTO.getAddress());
-		pstmt.setString(4, userDTO.getName());
-		pstmt.setString(5, userDTO.getTel());
-		pstmt.setString(6, userDTO.getEmail());
-		pstmt.setString(7, userDTO.getNickname());
-		pstmt.setString(8, userDTO.getDetailaddress());
-		pstmt.setString(9, userid);
+		pstmt.setString(1, userDTO.getUserpw());
+		pstmt.setString(2, userDTO.getAddress());
+		pstmt.setString(3, userDTO.getName());
+		pstmt.setString(4, userDTO.getTel());
+		pstmt.setString(5, userDTO.getEmail());
+		pstmt.setString(6, userDTO.getNickname());
+		pstmt.setString(7, userDTO.getDetailaddress());
+		pstmt.setString(8, userid);
+		
 		
 		result = pstmt.executeUpdate();
 		closeConnection(pstmt, conn);

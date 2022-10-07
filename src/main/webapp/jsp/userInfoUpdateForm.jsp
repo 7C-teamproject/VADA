@@ -1,11 +1,3 @@
-<%@page import="vada.dto.UserDTO"%>
-<%@page import="vada.dao.UserInfoUpdateDAO"%>
-<%@page import="vada.dao.impl.UserInfoUpdateDAOImpl"%>
-<%@page import="vada.service.UserInfoUpdateservice"%>
-<%@page import="vada.dto.CategoryDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="vada.dao.impl.CategoryListDAOImpl"%>
-<%@page import="vada.service.CategoryService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -96,10 +88,10 @@ label {
 			<button type="button" onclick="id_check();">중복확인</button>
 		</div>
 		<div>
-			<label>비밀번호<input type="password" name="userpw" id="pwd" placeholder="영문자+숫자+특수문자 조합"></label>
+			<label>비밀번호<input type="password" name="userpw" id="pwd" placeholder="영문자+숫자+특수문자 조합" value="${userDTO.userpw}"/></label>
 		</div>
 		<div>
-			<label>비밀번호 재확인<input type="password" name="pwd" id="repwd"></label>
+			<label>비밀번호 재확인<input type="password" name="pwd" id="repwd" value="${userDTO.userpw}"></label>
 		</div>
 		<div>
 			<label>이름<input type="text" name="name" id="uname" value="${userDTO.name}"></label>
@@ -131,7 +123,7 @@ label {
 		<div>
 			<lable>관심 카테고리 
 				<select name="ca1" id="cate1" >
-                	<option value="all" >전체</option>
+                	<option value="1000" >전체</option>
                 	<c:forEach var="categoryDTO" items="${categoryDTOList}">
 	           			<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
 							<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
@@ -139,8 +131,8 @@ label {
 					</c:forEach>
 				</select> &nbsp;&nbsp;
 							
-				<select name="bcategorynum" id="cate2" >
-                	<option value="all" >전체</option>
+				<select name="interestcategorynum" id="interestcategorynum" >
+                	<option value="1000" >전체</option>
 				</select> &nbsp;&nbsp;
 							
 				<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -148,7 +140,7 @@ label {
 					$(document).ready(function() {
 						$("#cate1").change(function(){
 										
-							$('#cate2').children('option:not(:first)').remove();
+							$('#interestcategorynum').children('option:not(:first)').remove();
 									
 							var categoryappend = $(this).val().substring(0, 2);
 										
@@ -157,7 +149,7 @@ label {
 							var categorynum = "${item.categorynum}";
 												
 								if(categorynum.match("^"+categoryappend) && categorynum!=$(this).val()) {
-									$('#cate2').append($('<option>', {
+									$('#interestcategorynum').append($('<option>', {
 								        value: ${item.categorynum},
 								        text : '${item.categoryname}'
 								    }));

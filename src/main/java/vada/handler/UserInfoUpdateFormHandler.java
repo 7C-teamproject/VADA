@@ -21,6 +21,7 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 		HttpSession session = request.getSession();
 		
 		UserDTO userDTO = new UserDTO();
+		
 	 	CategoryService categoryService = new CategoryListDAOImpl();
 	 	
 	 	List<CategoryDTO> categoryDTOList = null;
@@ -45,7 +46,7 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 		}
 	 	
 	 	request.setAttribute("userDTO", userDTO);
-		return "userinfoupdateform.do";
+		return "/jsp/userInfoUpdateForm.jsp";
 	}
 
 }

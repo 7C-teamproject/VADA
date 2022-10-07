@@ -213,7 +213,7 @@ a {
          <c:forEach var="item" items="${list}" varStatus="stat">
             <li id="listid" class="cell">
                <div class="img-box">
-               <img class=imgfile src="../${item.imgsname}" alt="">
+               <img class=imgfile src="${item.imgsname}" alt="">
                
                </div>
                <div id="productnum" class="product-name">${item.productnum}</div>

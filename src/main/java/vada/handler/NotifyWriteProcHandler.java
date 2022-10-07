@@ -30,14 +30,22 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		NotifylistDTO notifyDTO = new NotifylistDTO();
 		notifyDTO.setNotifyreason(request.getParameter("notifyreason"));
 		
-		int notifyid = 0;
+		int result = 0; // DB 작성완료시 0<result
 		try {
-			notifyid = notifyWriteService.notifyWriteBoard(notifyDTO, notifyProductNum, userid);
+			result = notifyWriteService.notifyWriteBoard(notifyDTO, notifyProductNum, userid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-
+		
+		int notifyid = 0;
+		try {
+			notifyid = notifyWriteService.get_Notifyid();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		BoardImgService notifyImgService = new BoardImgWriteDAOImpl();
 		Collection<Part> parts = null;
 		try {
@@ -57,15 +65,15 @@ public class NotifyWriteProcHandler implements CommandHandler {
 				notifyImgDTO.setNotifyimgnum(listIndex + 1);
 				notifyImgDTO.setNotifyimgsize((int) part.getSize());
 				try {
-			notifyImgService.notifyWriteBoardImg(notifyid, notifyImgDTO);
+					notifyImgService.notifyWriteBoardImg(notifyid, notifyImgDTO);
 				} catch (Exception ex) {
-			ex.printStackTrace();
+					ex.printStackTrace();
 				}
 				listIndex++;
 			}
 		}
 
-		return "mainform.do";
+		return "/jsp/mainformindex.jsp";
 	}
 
 }
