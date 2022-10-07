@@ -28,7 +28,7 @@ public class AdminLoginProcHandler implements CommandHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		for (UserDTO userDTO : list) {
 			String dbuserid = userDTO.getUserid();
 			String dbuserpw = userDTO.getUserpw();
@@ -40,16 +40,15 @@ public class AdminLoginProcHandler implements CommandHandler {
 				request.setAttribute("userid", userid);
 				System.out.println("adminyn===========>" + dbadminyn);
 
-				return "/adminmanageuserform.do";
 			} else {
-				script.println("<script>");
-				script.println("alert('로그인 실패')");
-				script.println("history.back()");
-				script.println("</script>");
+//				script.println("<script>");
+//				script.println("alert('로그인 실패')");
+//				script.println("history.back()");
+//				script.println("</script>");
 			}
 		}
 
-		return "";
+		return "/adminmanageuserform.do";
 	}
 
 }

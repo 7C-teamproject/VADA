@@ -89,11 +89,6 @@ public class BoardUpdateDAOImpl extends BoardDAOImpl implements BoardUpdateDAO {
 		}
 		
 		finally {
-			try {
-				conn.setAutoCommit(true);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 			if (pstmt3 != null) {
 				closeConnection(pstmt3, getConnection());
 			}
@@ -103,6 +98,12 @@ public class BoardUpdateDAOImpl extends BoardDAOImpl implements BoardUpdateDAO {
 			if (pstmt1 != null) {
 				closeConnection(pstmt1, conn);
 			}
+			try {
+				conn.setAutoCommit(true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
 
 		}
 		

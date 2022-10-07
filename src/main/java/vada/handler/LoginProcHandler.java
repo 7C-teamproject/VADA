@@ -43,22 +43,20 @@ public class LoginProcHandler implements CommandHandler {
 			}
 		}
 		
-		PrintWriter script = response.getWriter();
-		
+		String url = "";
 		if (flag) { // 로그인 성공 시
 
 			session.setAttribute("usernickname", dbusernickname);
 			session.setAttribute("userid", userid);
 			session.setAttribute("adminyn", adminyn);
+			url = "/mainform.do";
 			
 		} else { // 로그인 실패 시
-//			script.println("<script>");
-//			script.println("alert('로그인 실패')");
-//			script.println("history.back()");
-//			script.println("</script>");
 //			
+			url = "jsp/failedLogin.jsp";
 		}
-		return "/mainform.do";
+		
+		return url;
 	}
 	
 	
