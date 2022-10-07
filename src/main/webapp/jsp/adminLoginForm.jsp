@@ -177,6 +177,9 @@ form .field input:focus::placeholder {
 						<div class="btn-layer"></div>
 						<input type="submit" value="Login">
 					</div>
+					<div class="signup-link">
+                		<a href="/Vada/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
+					</div>
 			</form>
 					
 		    </div>
