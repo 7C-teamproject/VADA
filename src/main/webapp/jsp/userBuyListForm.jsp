@@ -49,7 +49,7 @@ th, td {
 								<td>${boardDTO.soldoutdate}</td>
 								<td>
 			 <script src="/Vada/js/common.js"></script>
-   <a class="btn btn-secondary"  style="float: right;" href="javascript:confirmCommand('/Vada/jsp/reviewForm.jsp?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>
+   <a class="btn btn-secondary"  style="float: right;" href="javascript:confirmCommand('/Vada/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>
 							</tr>
 						</c:forEach>
 					</tbody>

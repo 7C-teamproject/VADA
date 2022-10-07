@@ -106,7 +106,7 @@
 				</div>
 			</div>
 
-		<a href="/Vada/adminmanagenotifyForm.do" class="btn btn-secondary" >신고글 목록</a>
+		<a href="/Vada/adminmanagenotifyform.do" class="btn btn-secondary" >신고글 목록</a>
 		
 	</div>
 	

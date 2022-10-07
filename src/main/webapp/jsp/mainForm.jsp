@@ -232,10 +232,6 @@ main {
 </style>
 
 <main>
-	<%
-	System.out.println("usernickname=========>" + session.getAttribute("usernickname"));
-	System.out.println("userid=========>" + session.getAttribute("userid"));
-	%>
 
 	<div class="list con">
 		<div class="container">

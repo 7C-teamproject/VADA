@@ -219,7 +219,7 @@ a {
                <div id="productnum" class="product-name">${item.productnum}</div>
                
                <div class="product-price">
-               <a href="/Vada/jsp/boardDetailForm.jsp?productnum=${item.productnum}">${item.title}</a>
+               <a href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
                </div> <c:set var="sysYear">
                   <fmt:formatDate value="${item.wdate}"
                      pattern="yyyy-MM-dd hh:mm:ss" />
