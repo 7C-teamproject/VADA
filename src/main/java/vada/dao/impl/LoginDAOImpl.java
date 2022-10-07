@@ -37,7 +37,7 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
          userDTO.setNickname(rs.getString("nickname"));
          userDTO.setAdminyn(rs.getString("adminyn"));
          userDTO.setBlackyn(rs.getString("blackyn"));
-         
+         userDTO.setCurrentip(rs.getString("currentip"));
          list.add(userDTO);
       }
 

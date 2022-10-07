@@ -1,8 +1,25 @@
+<%@page import="vada.dto.ChatmsgDTO"%>
+<%@page import="vada.dao.ChatDAO"%>
+<%@page import="vada.dao.impl.ChatDAOImpl"%>
+<%@page import="vada.service.ChatService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="top.jsp" />
 
+<jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  />
+
+<jsp:setProperty name="ktuserchatroomDTO" property="*" />
+
+<%
+ChatService chatService =new ChatDAOImpl();
+
+
+chatService.ktchatroom(7);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
+
+pageContext.setAttribute("ktuserchatroomDTO",ktuserchatroomDTO);
+
+%>
 <main>
 
 	<div class="container-fluid px-4">
@@ -28,7 +45,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>nick1(id1)</td>
+							<td>nick1(id1)  ${ktuserchatroomDTO.ktuserid}</td>
 							<td>date1</td>
 						</tr>
 
