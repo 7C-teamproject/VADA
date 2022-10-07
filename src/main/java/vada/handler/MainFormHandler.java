@@ -15,16 +15,9 @@ public class MainFormHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
 		// 검색어 파라미터
-		String bCateParam = request.getParameter("bCate") == null ? "" : request.getParameter("bCate");
-		String searchTextParam = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
+//		String bCateParam = request.getParameter("bCate") == null ? "" : request.getParameter("bCate");
+//		String searchTextParam = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
 
 		// 게시글 출력
 		BoardListService boardListService = new BoardListDAOImpl();
@@ -32,14 +25,14 @@ public class MainFormHandler implements CommandHandler {
 		List<Map> list = null;
 		
 		try {
-			list = boardListService.listBoard(bCateParam, searchTextParam);
+			list = boardListService.listBoard();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		request.setAttribute("list", list);
 		
-		return "/jsp/mainForm.jsp";
+		return "jsp/mainForm.jsp";
 	}
 	
 }

@@ -14,21 +14,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
-<%
-// 검색어 파라미터
-String bCateParam = request.getParameter("bCate") == null ? "" : request.getParameter("bCate");
-String searchTextParam = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
-
-// 게시글 출력
-BoardListService boardListService = new BoardListDAOImpl();
-
-List<Map> list = boardListService.listBoard(bCateParam, searchTextParam);
-
-pageContext.setAttribute("list", list);
-%>
-
-<jsp:include page="top.jsp" />
+<jsp:include page="top.jsp" flush="true"/>
 
 <style>
 @charset "UTF-8";

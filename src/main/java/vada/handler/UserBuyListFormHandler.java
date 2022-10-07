@@ -27,7 +27,7 @@ public class UserBuyListFormHandler implements CommandHandler {
 		}
 
 		request.setAttribute("list", list);
-		return "/userbuylistform.do";
+		return "jsp/userBuyListForm.jsp";
 	}
 
 }

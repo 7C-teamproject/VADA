@@ -9,9 +9,7 @@ import vada.service.BoardListService;
 
 public interface BoardListDAO extends BoardListService {
 	
-	public abstract List<Map> listBoard(String searchCate, String searchTextParam) throws Exception;	
-	
-	public abstract int countAttachFiles(int bid) throws Exception;
+	public abstract List<Map> listBoard() throws Exception;	
 	
 	public List<NotifylistDTO> notifyListBoard() throws Exception;
 
