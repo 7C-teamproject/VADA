@@ -22,7 +22,7 @@ public class LogOutHandler implements CommandHandler {
 		script.println("history.back()");
 		script.println("</script>");
 		
-		return "/jsp/loginFrom.jsp";
+		return "/jsp/loginForm.jsp";
 	}
 
 }
