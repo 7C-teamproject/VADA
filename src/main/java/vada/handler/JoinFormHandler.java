@@ -23,7 +23,7 @@ public class JoinFormHandler implements CommandHandler {
 		}
 		request.setAttribute("categoryDTOList", categoryDTOList);
 
-		return "jsp/joinForm.jsp";
+		return "/jsp/joinForm.jsp";
 	}
   
 }
