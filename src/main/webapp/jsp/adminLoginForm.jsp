@@ -6,7 +6,6 @@
 <%@ page import="vada.util.ConnectionManager"%>
 <%@ page import="java.sql.Connection"%>
 
-<jsp:include page="top.jsp" />
 
 <style>
 * {
@@ -30,7 +29,7 @@ html, body {
 
 .wrapper {
 	overflow: hidden;
-	max-width: 390px;
+	width: 400px;
 	background: #fff;
 	padding: 30px;
 	border-radius: 15px;
@@ -155,18 +154,19 @@ form .field input:focus::placeholder {
 	
 </script>
 
-<main>
-
+<html>
+	<head>
+	</head>
+	<body>
+	<h1 style="color:red;">VADA</h1>
 	<div class="wrapper">
-		<div class="title-text"></div>
-		<div class="form-container">
-			<div class="slide-controls">
-				<label for="login" class="slide login">관리자 Login</label>
-			</div>
+      <div class="form-container">
+         <div class="slide-controls">
+            <label for="login" class="slide login">Login</label>
+         </div>
 			<div class="form-inner">
 			
-				<form action="/Vada/adminloginProc.do" class="login">
-				
+			<form method="post" action="/Vada/adminloginproc.do" class="login">				
 					<div class="field">
 						<input type="text" name="aduserid" placeholder="ID" required>
 					</div>
@@ -177,12 +177,14 @@ form .field input:focus::placeholder {
 						<div class="btn-layer"></div>
 						<input type="submit" value="Login">
 					</div>
+			</form>
 					
-				</form>
-			</div>
-		</div>
-	</div>
+		    </div>
+      </div>
+   </div>
 	
-</main>
+	</body>
 
-<jsp:include page="bottom.jsp" />
+
+</html>
+
