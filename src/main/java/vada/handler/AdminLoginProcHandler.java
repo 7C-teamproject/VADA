@@ -14,7 +14,7 @@ import vada.service.LoginService;
 public class AdminLoginProcHandler implements CommandHandler {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String process(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
 		String userid = request.getParameter("aduserid");
@@ -31,26 +31,24 @@ public class AdminLoginProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 		
+		String url = "";
 		for (UserDTO userDTO : list) {
 			String dbuserid = userDTO.getUserid();
 			String dbuserpw = userDTO.getUserpw();
 			String dbadminyn = userDTO.getAdminyn();
 
 			if (userid.equals(dbuserid) && userpw.equals(dbuserpw)) {
-
+				url = "/adminmanageuserform.do";
 				session.setAttribute("adminyn", dbadminyn);
 				session.setAttribute("userid", userid);
 				System.out.println("adminyn===========>" + dbadminyn);
 
 			} else {
-//				script.println("<script>");
-//				script.println("alert('로그인 실패')");
-//				script.println("history.back()");
-//				script.println("</script>");
+				url = "/jsp/adminfailedLogin.jsp";
 			}
 		}
 
-		return "/adminmanageuserform.do";
+		return url;
 	}
 
 }

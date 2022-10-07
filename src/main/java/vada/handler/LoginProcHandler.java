@@ -53,7 +53,7 @@ public class LoginProcHandler implements CommandHandler {
 			
 		} else { // 로그인 실패 시
 //			
-			url = "jsp/failedLogin.jsp";
+			url = "/jsp/failedLogin.jsp";
 		}
 		
 		return url;

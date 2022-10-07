@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-<jsp:include page="top.jsp" />
+<%-- <jsp:include page="top.jsp" /> --%>
 
 <style>
 * {
@@ -12,10 +12,10 @@
 }
 
 html, body {
-   display: grid;
-   height: 100%;
-   width: 100%;
-   place-items: center;
+	display: grid;
+	height: 100%; 
+	width: 100%; 
+	place-items: center;
 }
 
 ::selection {
@@ -25,7 +25,7 @@ html, body {
 
 .wrapper {
    overflow: hidden;
-   max-width: 390px;
+   width: 400px;
    background: #fff;
    padding: 30px;
    border-radius: 15px;
@@ -150,42 +150,44 @@ form .field input:focus::placeholder {
    
 </script>
 
-<main>
-
-   <div class="wrapper">
-      <div class="title-text"></div>
+<html>
+	<head>
+	</head>
+	<body>
+	<h1>VADA</h1>
+	<div class="wrapper">
       <div class="form-container">
-      
-      <form action = "/Vada/searchidproc.jsp">
          <div class="slide-controls">
-            <label for="searchid" class="searchid">아이디 찾기</label>
+            <label for="searchid" class="slide login">Find ID</label>
          </div>
-         <label>이메일 : <input type="text" name="email" id="email_id">@</label>
-         <input type="text" name="email_add" id="email_add"> 
-           <select name="email_sel" id="email_sel" onchange="change_email();">
-           
-				<option value="">직접입력</option>
-				<option value="naver.com">naver.com</option>
-				<option value="gmail.com">gmail.com</option>
-				<option value="nate.com">nate.com</option>
-			</select>
-			<div>
-			<label>이름 : <input type="text" name="name" id="uname"></label>
-		</div>
-         <button type="submit" value="searchid">아이디 찾기</button>
-			<button type="submit" value="취소">취소</button>
-			<div class="signup-link">
+         
+         <div class="form-inner">
+         
+            <form method="post" action="/Vada/searchidproc.do" class="searchid">
+               <div class="field">
+                  <input type="text" name="email_id" placeholder="email" required>
+               </div>
+               <div class="field">
+                  <input type="text" name="username" placeholder="이름"
+                     required>
+               </div>
+               <div class="pass-link">
                   <a href="/Vada/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
                </div>
-
-			</form>
+               <div class="field btn">
+                  <div class="btn-layer"></div>
+                  <input type="submit" value="아이디 찾기">
+               </div>
+                
+            </form>
 
          </div>
-         
-         
       </div>
    </div>
-   
-</main>
+	
+	</body>
 
-<jsp:include page="bottom.jsp" />
+
+</html>
+
+
