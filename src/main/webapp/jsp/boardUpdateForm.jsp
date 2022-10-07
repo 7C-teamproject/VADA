@@ -10,10 +10,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 
-<jsp:useBean id="boardDTO" class="vada.dto.BoardDTO"  />
-<jsp:useBean id="productpriceDTO" class="vada.dto.ProductpriceDTO"  />
-<jsp:useBean id="imgDTO" class="vada.dto.ImgDTO"  />
-<jsp:useBean id="categoryDTO" class="vada.dto.CategoryDTO"/>
 
 <jsp:setProperty name="boardDTO" property="*" />
 <jsp:setProperty name="productpriceDTO" property="*" />

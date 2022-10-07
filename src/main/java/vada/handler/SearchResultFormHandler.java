@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardSeachListDAOImpl;
+import vada.dao.impl.BoardSearchListDAOImpl;
 
 public class SearchResultFormHandler implements CommandHandler {
 
@@ -18,14 +18,14 @@ public class SearchResultFormHandler implements CommandHandler {
 
 		List<Map> list = null;
 		try {
-			list = new BoardSeachListDAOImpl().listBoard(cate1, cate2, searchText);
+			list = new BoardSearchListDAOImpl().listBoard(cate1, cate2, searchText);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}// 사용자가 입력한 검색어에 해당하는 결과를 가진
 																							// 리스트
 
-		request.setAttribute("list", list);
-		return "/searchresultform.do";
+		request.setAttribute("list", list); 
+		return "jsp/searchResultForm.jsp";
 	}
 
 }

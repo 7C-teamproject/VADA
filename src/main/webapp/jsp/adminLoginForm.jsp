@@ -165,7 +165,7 @@ form .field input:focus::placeholder {
 			</div>
 			<div class="form-inner">
 			
-				<form action="/Vada/adminLoginProc.do" class="login">
+				<form action="/Vada/adminloginProc.do" class="login">
 				
 					<div class="field">
 						<input type="text" name="aduserid" placeholder="ID" required>
