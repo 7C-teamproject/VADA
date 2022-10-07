@@ -15,6 +15,6 @@ public String process(HttpServletRequest request, HttpServletResponse response) 
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	return "/adminmanagenotifyform.do";
+	return "/Vada/adminmanagenotifyform.jsp";
 }
 }
