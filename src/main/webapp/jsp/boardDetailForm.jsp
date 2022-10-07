@@ -115,7 +115,7 @@
 					</c:if>
 					<br /> <br />
 					<h3>
-						제목 : <input type="text" name="title" value="${boardDTO.title}" />
+						제목 : ${boardDTO.title}<input type="hidden" name="title" value="${boardDTO.title}" />
 					</h3>
 
 					<h3>내용</h3>
