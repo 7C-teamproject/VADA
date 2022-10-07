@@ -108,7 +108,7 @@ public class BoardUpdateProcHandler implements CommandHandler {
 		}
 	
 
-		return "/mainForm.do";
+		return "/mainformindex.do";
 	}
 
 }

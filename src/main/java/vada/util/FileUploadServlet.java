@@ -72,7 +72,6 @@ public class FileUploadServlet extends HttpServlet {
 	} // dopost
 	
 	private void process(HttpServletRequest req, HttpServletResponse resp, String dispatchURI, String imgDir) {
-	
 		try {
 			Collection<Part> parts = req.getParts();
 			List<String> imgsnameList = new ArrayList<String>();

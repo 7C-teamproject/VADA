@@ -25,7 +25,6 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 		pstmt.setString(2, boardDTO.getTitle());
 		pstmt.setString(3, boardDTO.getContent());
 		pstmt.setInt(4, boardDTO.getBcategorynum());
-		pstmt.setString(5, boardDTO.getBuyerid());
 
 		int result = pstmt.executeUpdate();
 		

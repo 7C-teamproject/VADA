@@ -24,8 +24,12 @@ public class BoardWriteProcHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-
+		
 		BoardDTO boardDTO = new BoardDTO();
+		boardDTO.setSellerid(request.getParameter("sellerid"));
+		boardDTO.setTitle(request.getParameter("title"));
+		boardDTO.setContent("content");
+		boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum")));
 		
 		HttpSession session = request.getSession();
 		
@@ -109,7 +113,7 @@ public class BoardWriteProcHandler implements CommandHandler {
 			}
 		   }
 		
-		return "/mainForm.do";
+		return "/jsp/mainformindex.jsp";
 	}
 
 }

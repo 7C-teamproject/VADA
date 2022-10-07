@@ -88,7 +88,7 @@ label:before {
             
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
-            		action="searchResultForm.jsp" method="post">
+            		action="/searchresultform.do" method="post">
 
                 <div class="input-group" style="line-height: 20px">
                 <p style="color: white; margin-top: 15px;">카테고리 :</p>&nbsp;&nbsp;
@@ -146,7 +146,7 @@ label:before {
                           <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                               <c:if test="${sessionScope.adminyn eq 'no'}" >
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/Vada/likeListform.do">찜 목록</a></li>
+                                    <li><a class="dropdown-item" href="/Vada/likelistform.do">찜 목록</a></li>
                                        <li><a class="dropdown-item" href="/Vada/userbuylistform.do">구매 목록</a></li>
                                        <li><a class="dropdown-item" href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
                                      <li><hr class="dropdown-divider" /></li>

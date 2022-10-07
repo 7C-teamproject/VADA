@@ -11,14 +11,14 @@ public class BoardDeleteProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		int productnum = Integer.parseInt((String) request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
-
+		
 		try {
 			new BoardDeleteDAOImpl().deleteBoard(productnum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return "/mainForm.do";
+		return "/mainform.do";
 		
 	}
 

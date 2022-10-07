@@ -65,11 +65,10 @@
 				<div class="swiper-wrapper">
 					<c:forEach var="item" items="${imglist1}" varStatus="status">
 						<div class="swiper-slide">
-							<img style="width: 100%; height: 100%;" src="../${item}"
-								name="img"> <input type="hidden"
-								name="imgcname${status.index}" value="${imglist2[status.index]}" />
-							<input type="hidden" name="imgsize${status.index}"
-								value="${imglist3[status.index]}" />
+							<img style="width: 100%; height: 100%;" src="${item}" name="img">
+							<input type="hidden" name="imgcname${status.index}"
+								value="${imglist2[status.index]}" /> <input type="hidden"
+								name="imgsize${status.index}" value="${imglist3[status.index]}" />
 						</div>
 					</c:forEach>
 
@@ -119,13 +118,10 @@
 					</h3>
 
 					<h3>내용</h3>
-					<textarea style="width: 100%" name="content">${boardDTO.content}</textarea>
+					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
 					<br />
 					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
-					<h3>
-						가격 : <input type="text" name="productprice"
-							value="${productpriceDTO.productprice}" />
-					</h3>
+					<h3>가격 : ${productpriceDTO.productprice}</h3>
 					<br />
 
 					<h3>(${reserveText})</h3>
