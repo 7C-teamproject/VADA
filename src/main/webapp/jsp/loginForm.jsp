@@ -172,7 +172,7 @@ form .field input:focus::placeholder {
                      required>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/adminloginform.do">관리자용 로그인</a>
+                  <a href="/Vada/jsp/adminLoginForm.jsp">관리자용 로그인</a>
                </div>
                <div class="pass-link">
                   <a href="/Vada/searchidform.do">아이디 찾기</a>
