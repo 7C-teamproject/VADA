@@ -110,7 +110,7 @@ public class BoardUpdateProcHandler implements CommandHandler {
 //		}
 	
 
-		return "/boarddetailform.do?productnum="+productnum;
+		return "/jsp/mainformindex.jsp?productnum="+productnum;
 	}
 
 }
