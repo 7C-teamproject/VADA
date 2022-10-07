@@ -158,35 +158,27 @@ form .field input:focus::placeholder {
 	<div class="wrapper">
       <div class="form-container">
          <div class="slide-controls">
-            <label for="login" class="slide login">Login</label>
+            <label for="searchid" class="slide login">Find Password</label>
          </div>
          
          <div class="form-inner">
          
-            <form method="post" action="/Vada/loginproc.do" class="login">
+            <form method="post" action="/Vada/searchpwproc.do" class="searchid">
                <div class="field">
-                  <input type="text" name="userid" placeholder="ID" required>
+                  <input type="text" name="email_id" placeholder="ID" required>
                </div>
                <div class="field">
-                  <input type="password" name="userpw" placeholder="Password"
+                  <input type="text" name="username" placeholder="email"
                      required>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/jsp/adminLoginForm.jsp">관리자용 로그인</a>
-               </div>
-               <div class="pass-link">
-                  <a href="/Vada/jsp/searchIDForm2.jsp">아이디 찾기</a>
-               </div>
-                <div class="pass-link">
-                  <a href="/Vada/jsp/searchPWForm2.jsp">비밀번호 찾기</a>
+                  <a href="/Vada/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
                </div>
                <div class="field btn">
                   <div class="btn-layer"></div>
-                  <input type="submit" value="Login">
+                  <input type="submit" value="비밀번호 찾기">
                </div>
-               <div class="signup-link">
-                  <a href="/Vada/joinform.do">회원가입 하기</a>
-               </div>
+                
             </form>
 
          </div>
@@ -197,4 +189,5 @@ form .field input:focus::placeholder {
 
 
 </html>
+
 

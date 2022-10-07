@@ -108,7 +108,7 @@ th, td {
 				
 			</div>
 		</div>
-			<a href = "/Vada/adminmanagenotifyform.jsp">신고글 관리페이지 이동</a>
+			<a href = "/Vada/adminmanagenotifyform.do">신고글 관리페이지 이동</a>
 	</div>
 
 </main>

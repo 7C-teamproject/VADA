@@ -33,7 +33,7 @@ public class BlackListProcHandler implements CommandHandler {
 			System.out.println("buyerid====>" + buyerid + "  blackyn====>" + blackyn);
 		}
 
-		return "/adminManageUserForm.do";
+		return "/adminmanageuserform.do";
 
 	}
 }

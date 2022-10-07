@@ -40,7 +40,7 @@ public class AdminLoginProcHandler implements CommandHandler {
 				request.setAttribute("userid", userid);
 				System.out.println("adminyn===========>" + dbadminyn);
 
-				return "jsp/adminManageUserForm.jsp";
+				return "/adminmanageuserform.do";
 			} else {
 				script.println("<script>");
 				script.println("alert('로그인 실패')");
