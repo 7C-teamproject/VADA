@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="vada.dto.KtuserchatroomDTO"%>
 <%@page import="vada.dto.ChatmsgDTO"%>
 <%@page import="vada.dao.ChatDAO"%>
 <%@page import="vada.dao.impl.ChatDAOImpl"%>
@@ -7,17 +9,19 @@
 
 <jsp:include page="top.jsp" />
 
-<jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  />
+<%-- <jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  /> --%>
 
-<jsp:setProperty name="ktuserchatroomDTO" property="*" />
+<%-- <jsp:setProperty name="ktuserchatroomDTO" property="*" /> --%>
 
 <%
 ChatService chatService =new ChatDAOImpl();
 
+KtuserchatroomDTO ktuserchatroomDTO = new KtuserchatroomDTO();
 
-chatService.ktchatroom(7);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
+List<KtuserchatroomDTO> list = 
+//ktuserchatroomDTO= chatService.ktchatroomList(productnum);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
 
-pageContext.setAttribute("ktuserchatroomDTO",ktuserchatroomDTO);
+pageContext.setAttribute("chatService",chatService);
 
 %>
 <main>
@@ -50,7 +54,7 @@ pageContext.setAttribute("ktuserchatroomDTO",ktuserchatroomDTO);
 						</tr>
 
 						<tr>
-							<td>nick2(id2)</td>
+							<td>nick2(id2)  ${ktuserchatroomDTO.sellerid}</td>
 							<td>date2</td>
 						</tr>
 						<tr>
