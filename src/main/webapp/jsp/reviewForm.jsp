@@ -21,8 +21,7 @@
 					<thead>
 						<tr>
 							<th colspan="2"
-								style="background-color: #eeeeee; text-align: center;">후기글
-								작성</th>
+								style="background-color: #eeeeee; text-align: center;">후기글 작성</th>
 						</tr>
 					</thead>
 
@@ -48,8 +47,6 @@
 	<script src="/Vada/js/common.js"></script>
             <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('/Vada/reviewproc.do?productnum=${param.productnum}','후기작성');">
              <button type="button" class="btn btn-primary pull-right" onclick="history.back();">구매목록</button>
-				<button type="button" class="btn btn-primary pull-right"
-					onclick="history.back();">구매목록</button>
 			</form>
 		</div>
 	</div>

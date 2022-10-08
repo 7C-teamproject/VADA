@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-    
     
 <!DOCTYPE html>
 <html>
@@ -12,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
    <div>
       <div>
         
@@ -39,8 +36,6 @@
              </tr>
             </c:if>
             </c:forEach>
-            
-            
      </table>
      
      <br /><br />
@@ -64,9 +59,10 @@
             </c:if>
             </c:forEach>
             
-            
      </table>
    </div>
+   <br /><br />
+   <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/jsp/mainformindex.jsp'">메인으로 돌아가기</button>
 
 
 </body>

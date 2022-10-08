@@ -8,7 +8,7 @@ public class ReviewFormHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
-		return "reviewform.do";
+		return "/jsp/reviewForm.jsp";
 	}
 
 }
