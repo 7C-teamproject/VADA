@@ -19,10 +19,10 @@ public class UserBuyListFormHandler implements CommandHandler {
 		BuyListSerive buylistService = new BuyListDAOImpl();
 
 		List list = null;
+		
 		try {
 			list = buylistService.buylistadd((String) session.getAttribute("userid"));
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		}
 

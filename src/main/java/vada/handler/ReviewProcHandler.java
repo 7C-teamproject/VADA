@@ -13,16 +13,24 @@ public class ReviewProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		BoardReviewService boardReviewService = new BoardReviewDAOImpl();
+		
 		BoardDTO boardDTO = new BoardDTO();
+		
 		int productnum = Integer.parseInt(request.getParameter("productnum"));
 		 
 		boardDTO.setReview(request.getParameter("review"));
 		boardDTO.setReviewscore(Integer.parseInt(request.getParameter("reviewscore")));
 		boardDTO.setProductnum(productnum);
 		
-		
+		int result = 0;
 		try {
-			int result = boardReviewService.reviewBoard(boardDTO);
+			result = boardReviewService.reviewBoard(boardDTO);
+			
+			if(result != 0) {
+				System.out.println("후기글 DB에 저장 성공");
+			} else {
+				System.out.println("후기글 DB에 저장 실패");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

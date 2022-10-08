@@ -33,7 +33,8 @@ public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 			boardDTO.setTitle(rs.getString("title"));
 			boardDTO.setSoldoutdate(rs.getTimestamp("soldoutdate"));
 			boardDTO.setProductnum(rs.getInt("productnum"));
-			
+			boardDTO.setReview(rs.getString("review"));
+
 			list.add(boardDTO);
 		}
 		

@@ -14,6 +14,10 @@
 th, td {
 	border: 1px solid #000000;
 	text-align: center;
+	margin-left: 15%;
+}
+table {
+	width: 100%;
 }
 </style>
 
@@ -23,7 +27,6 @@ th, td {
 		<h1 class="mt-4">구매 목록</h1>
 		<ol class="breadcrumb mb-4">
 		</ol>
-
 		<div class="card mb-4">
 			<div class="card-header">
 				<i class="fas fa-table me-1"></i> Buy List
@@ -31,9 +34,9 @@ th, td {
 			<div class="card-body">
 				<table>
 					<colgroup>
-						<col width="3000px" />
-						<col width="600px" />
-						<col width="160px" />
+						<col width="50%" />
+						<col width="20%" />
+						<col width="30%" />
 					</colgroup>
 					<thead>
 						<tr>
@@ -48,9 +51,16 @@ th, td {
 								<td>${boardDTO.title}</td>
 								<td>${boardDTO.soldoutdate}</td>
 								<td>
-			 <script src="/Vada/js/common.js"></script>
-   <a class="btn btn-secondary"  style="float: right;" 
-   href="javascript:confirmCommand('/Vada/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>
+									<script src="/Vada/js/common.js"></script>
+									<c:if test="${boardDTO.review eq null}">
+										<a class="btn btn-secondary"  style="float: right;"
+											href="javascript:confirmCommand('/Vada/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>									
+									</c:if>
+									<c:if test="${boardDTO.review ne null}">
+										<a class="btn btn-secondary"  style="float: right;"
+											href="javascript:confirmCommand('/Vada/boarddetailform.do?productnum=${boardDTO.productnum}','해당 게시글로 이동');">작성한 후기 보러가기</a>									
+									</c:if>
+								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
