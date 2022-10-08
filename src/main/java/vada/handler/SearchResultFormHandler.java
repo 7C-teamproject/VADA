@@ -18,7 +18,7 @@ public class SearchResultFormHandler implements CommandHandler {
 
 		List<Map> list = null;
 		try {
-			list = new BoardSearchListDAOImpl().listBoard(cate1, cate2, searchText);
+			list = new BoardSearchListDAOImpl().searchBoard(cate1, cate2, searchText);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}// 사용자가 입력한 검색어에 해당하는 결과를 가진

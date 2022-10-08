@@ -10,6 +10,6 @@ import vada.service.BuyListSerive;
 
 public interface BuyListDAO extends BuyListSerive {
 	
-	public abstract List<BoardDTO> buylistadd(String userid) throws Exception; 
+	public abstract List<BoardDTO> buyList(String userid) throws Exception; 
 
 }

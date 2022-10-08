@@ -24,7 +24,7 @@ public class ReviewProcHandler implements CommandHandler {
 		
 		int result = 0;
 		try {
-			result = boardReviewService.reviewBoard(boardDTO);
+			result = boardReviewService.updateBoardReview(boardDTO);
 			
 			if(result != 0) {
 				System.out.println("후기글 DB에 저장 성공");

@@ -1,5 +1,6 @@
 package vada.dao.impl;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -9,9 +10,12 @@ import vada.dto.BoardDTO;
 
 public class BoardReviewDAOImpl extends BoardDAOImpl implements BoardReviewDAO {
 
-	public int reviewBoard(BoardDTO boardDTO) throws Exception {
+	public int updateBoardReview(BoardDTO boardDTO) throws Exception {
 
-		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("REVIEW_SQL"));
+		Connection conn = getConnection();
+
+		// update board set review=?, reviewscore=? where productnum=?
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_BOARD_REVIEW_SQL"));
 
 		pstmt.setString(1, boardDTO.getReview());
 		pstmt.setInt(2, boardDTO.getReviewscore());
@@ -19,8 +23,10 @@ public class BoardReviewDAOImpl extends BoardDAOImpl implements BoardReviewDAO {
 
 		int result = pstmt.executeUpdate();
 
-		pstmt.close();
-		System.out.println("새로운 리뷰작성 "); 
+		closeConnection(pstmt, conn);
+
 		return result;
-	}
-}
+		
+	} // updateBoardReview
+	
+} // class

@@ -26,7 +26,7 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 	 	
 	 	List<CategoryDTO> categoryDTOList = null;
 		try {
-			categoryDTOList = categoryService.listCategory();
+			categoryDTOList = categoryService.getCategoryList();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

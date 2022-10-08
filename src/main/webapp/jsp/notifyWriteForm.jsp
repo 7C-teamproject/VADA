@@ -1,7 +1,7 @@
 <%@page import="vada.dao.impl.BoardListDAOImpl"%>
 <%@page import="vada.service.BoardListService"%>
 <%@page import="java.util.List"%>
-<%@page import="vada.dao.impl.BoardViewDAOImpl"%>
+<%@page import="vada.dao.impl.BoardDetailDAOImpl"%>
 <%@page import="java.util.Map"%>
 <%@page import="vada.dto.BoardDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

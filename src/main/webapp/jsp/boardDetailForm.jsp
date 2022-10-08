@@ -1,56 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page import="java.util.List"%>
-<%@ page import="vada.dto.CategoryDTO"%>
-<%@ page import="java.util.Map"%>
-<%@ page import="vada.dto.ProductpriceDTO"%> 
-<%@ page import="vada.dto.BoardDTO"%>
-<%@ page import="vada.service.BoardViewService"%>
-<%@ page import="vada.dao.impl.BoardViewDAOImpl"%>
-<%@ page import="vada.dao.BoardDAO"%>
-<%@page import="vada.dto.NoteMessageDTO"%>
-<%@page import="vada.dao.impl.NoteMessageDAOImpl"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 <jsp:include page="top.jsp" />
-
-<style>
-.container>img {
-	width: 10%;
-}
-
-.swiper-container {
-	height: 350px;
-	width: 630px;
-	position: relative;
-	overflow: hidden;
-	list-style: none;
-	z-index: 1;
-	padding-bottom: 30px;
-}
-
-.swiper-slide {
-	text-align: center;
-	/* 	display: flex; /* 내용을 중앙정렬 하기위해 flex 사용 */ */
-	align-items: center; /* 위아래 기준 중앙정렬 */
-	justify-content: center; /* 좌우 기준 중앙정렬 */
-	display: inline;
-}
-
-.swiper-slide img {
-	max-width: 100%;
-	height: auto;
-	padding : 0px 120px 0px 120px;
-	display: block;
-}
-</style>
 
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -63,16 +20,15 @@
 		<form action="/Vada/boardupdateform.do" method="post">
 			<input type="hidden" name="productnum" value="${boardDTO.productnum}" />
 
-
 			<!-- 	이미지 슬라이드 -->
-			<div class="swiper-container">
+			<div class="swiper-container" onclick="swiper()">
 				<div class="swiper-wrapper">
-					<c:forEach var="item" items="${imglist1}" varStatus="status">
+					<c:forEach var="item" items="${imgsnameList}" varStatus="status">
 						<div class="swiper-slide">
-							<img style="width: 100%; height: 100%;" src="${item}" name="img">
+							<img style="width: 100%; height: 100%;" src="/Vada/img${item}" name="img">
 							<input type="hidden" name="imgcname${status.index}"
-								value="${imglist2[status.index]}" /> <input type="hidden"
-								name="imgsize${status.index}" value="${imglist3[status.index]}" />
+								value="${imgcnameList[status.index]}" /> <input type="hidden"
+								name="imgsize${status.index}" value="${imgsizeList[status.index]}" />
 						</div>
 					</c:forEach>
 
@@ -127,9 +83,9 @@
 					<h3>내용</h3>
 					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
 					<br />
-					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
+					<h3>카테고리 : ${categoryDTO.categoryname}</h3><input type="hidden" name="bcategorynum" value="${categoryDTO.categoryname}" />
 					<h3>가격 :  <fmt:formatNumber value="${productpriceDTO.productprice}" pattern="#,###" />원</h3>
-					
+					<input type="hidden" name="productprice" value="${productpriceDTO.productprice}" />
 					<br />
 
 					<!-- 판매중/예약중/판매완료 상태 텍스트 출력 -->
@@ -187,7 +143,10 @@
 				</div>
 			</div>
 		</form>
-		<a href="/Vada/jsp/mainformindex.jsp" class="btn btn-secondary">메인 화면으로 돌아가기</a>
+		
+		<div>		
+			<a href="/Vada/jsp/mainformindex.jsp" class="btn btn-secondary">메인 화면으로 돌아가기</a>
+		</div>
 
 	</div>
 

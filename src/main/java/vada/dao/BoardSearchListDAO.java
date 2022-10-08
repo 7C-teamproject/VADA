@@ -11,7 +11,7 @@ public interface BoardSearchListDAO extends BoardSearchListService{
    
 //   public abstract int countAttachFiles(int bid) throws Exception;
    
-   public List<Map> listBoard(String cate1, String cate2, String searchText)throws Exception;
+   public List<Map> searchBoard(String level1Category, String level2Category, String searchText)throws Exception;
    
 //   public abstract int countBoard(Map<String, String> searchCriteria) throws Exception;
 

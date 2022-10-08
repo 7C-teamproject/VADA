@@ -1,10 +1,8 @@
 package vada.handler;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,9 +13,7 @@ import vada.dao.impl.BoardProductNumDAOImpl;
 import vada.dao.impl.BoardWriteDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.ImgDTO;
-import vada.service.BoardFileService;
 import vada.service.BoardImgService;
-import vada.service.BoardProductNumService;
 import vada.service.BoardWriteService;
 
 public class BoardWriteProcHandler implements CommandHandler {
@@ -29,13 +25,18 @@ public class BoardWriteProcHandler implements CommandHandler {
 
 		BoardDTO boardDTO = new BoardDTO();
 
-		boardDTO.setSellerid((String)session.getAttribute("userid"));
+		boardDTO.setSellerid((String) session.getAttribute("userid"));
 		boardDTO.setTitle(request.getParameter("title"));
 		boardDTO.setContent(request.getParameter("content"));
-		boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum")));
+
+		if (request.getParameter("bcategorynum2").equals("1000")) {
+			boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum")));
+		} else {
+			boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum2")));
+		}
 
 		BoardWriteService boardWriteService = new BoardWriteDAOImpl();
-		BoardImgService boardImgService = new BoardImgWriteDAOImpl();
+		BoardImgService boardImgWriteService = new BoardImgWriteDAOImpl();
 
 		int result = 0;
 		int productNum = 0;
@@ -43,19 +44,19 @@ public class BoardWriteProcHandler implements CommandHandler {
 		int listIndex = 0;
 		ImgDTO imgDTO = null;
 		List<String> imgsnameList = (List<String>) request.getAttribute("imgsnameList");
-		
+
 		try {
 
-			// 제품 테이블 작성
+			// 게시글 데이터 DB에 저장
 			result = boardWriteService.writeBoard(boardDTO);
 
-			// 가장 마지막에 작성된 제품아이디 가져오기
+			// 가장 마지막에 작성된 게시글 번호 가져오기
 			productNum = new BoardProductNumDAOImpl().getProductNum();
 
-			// 가격 테이블 작성
+			// 게시글의 가격 데이터 DB에 저장
 			boardWriteService.writePrice(productNum, Integer.parseInt(request.getParameter("productprice")));
 
-			// 이미지 파일 처리 및 작성
+			// 게시글의 이미지 데이터 DB에 저장
 			parts = request.getParts();
 
 			for (Part part : parts) {
@@ -67,25 +68,25 @@ public class BoardWriteProcHandler implements CommandHandler {
 					imgDTO.setImgsize((int) part.getSize());
 					imgDTO.setImgnum(listIndex + 1);
 
-					boardImgService.writeBoardImg(productNum, imgDTO);
-					
+					boardImgWriteService.writeBoardImg(productNum, imgDTO);
+
 					listIndex++;
 				}
 
 			}
-			
+
 			// 게시글 작성 시 이미지를 선택하지 않았을 때 default 이미지로 DB에 저장
 			if (listIndex == 0) {
 				imgDTO = new ImgDTO();
-				imgDTO.setImgcname("defaultcname");
+				imgDTO.setImgcname("no-image.jpg");
 				imgDTO.setImgsname("img/no-image.jpg");
 				imgDTO.setImgsize(1);
 				imgDTO.setImgnum(1);
-				
-				boardImgService.writeBoardImg(productNum, imgDTO);
-				
+
+				boardImgWriteService.writeBoardImg(productNum, imgDTO);
+
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

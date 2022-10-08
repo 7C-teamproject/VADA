@@ -17,7 +17,7 @@ public class JoinFormHandler implements CommandHandler {
 		CategoryService categoryService = new CategoryListDAOImpl();
 		List<CategoryDTO> categoryDTOList = null;
 		try {
-			categoryDTOList = categoryService.listCategory();
+			categoryDTOList = categoryService.getCategoryList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

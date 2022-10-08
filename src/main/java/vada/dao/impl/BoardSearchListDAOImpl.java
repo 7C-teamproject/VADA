@@ -14,65 +14,71 @@ import vada.dto.BoardDTO;
 
 public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchListDAO {
 
-   @Override
-   public List<Map> listBoard(String cate1, String cate2, String searchText) throws Exception {
-      
+	@Override
+	public List<Map> searchBoard(String level1Category, String level2Category, String searchText) throws Exception {
 
-      String prependSQL = VADAConstants.props.getProperty("LIST_SQL"); //select * from board 
-      
-      StringBuffer whereSQLBuffer = new StringBuffer();
-      
-      if(cate1.equals("1000")) { // 전체 검색(카테고리1을 선택 안 했을 때)
-         whereSQLBuffer.append(" and 1=1 ");
-      }
-      
-      else if(cate2.equals("1000")) { // 100, 200, 300.....category(대분류) // 카테고리 1은 선택하고 카테고리2를 선택 안 했을 때
-         whereSQLBuffer.append(" and bcategorynum like '");
-         String cate1prepend = cate1.substring(0, 2);
-         whereSQLBuffer.append(cate1prepend);
-         whereSQLBuffer.append("%' ");
-      }
-      
-      else { // 100, 101, 102, 200, 201 .....(소분류) // 카테고리1 카테고리2를 모두 선택했을 때
-         whereSQLBuffer.append(" and bcategorynum like '");
-         whereSQLBuffer.append(cate2);
-         whereSQLBuffer.append("%' ");
-      }
-      
-      if (searchText != null) { // 검색어가 있으면 아래
-         whereSQLBuffer.append(" and title like '%");
-         whereSQLBuffer.append(searchText);
-         whereSQLBuffer.append("%' ");
-      }
-      
-      String searchQuery = whereSQLBuffer.toString();
-            
-      Connection conn = getConnection();
-      PreparedStatement pstmt = conn.prepareStatement(prependSQL + searchQuery);
-      
-      ResultSet rs = pstmt.executeQuery();
-      
-      List<Map> list = new ArrayList<Map>();
-      
-      while (rs.next()) {
-         
-         BoardDTO boardDTO = new BoardDTO();
-         
-         Map<String, Object> map = new HashMap<String, Object>();
-         
-         map.put("title", rs.getString("title"));
-         map.put("productnum", rs.getInt("productnum"));
-         map.put("wdate", rs.getTimestamp("wdate"));
-         map.put("imgsname", rs.getString("imgsname"));
-         map.put("productprice", rs.getInt("productprice"));
-         
-         list.add(map);
-         
-      }
-      
-      closeConnection(rs, pstmt, conn);
-      
-      return list;
+		StringBuffer whereSQLBuffer = new StringBuffer();
 
-    }
-}
+		// 전체 검색(카테고리1을 선택 안 했을 때)
+		if (level1Category.equals("1000")) { 
+			whereSQLBuffer.append(" and 1=1 ");
+		}
+
+		// 카테고리 1은 선택하고 카테고리2를 선택 안 했을 때
+		else if (level2Category.equals("1000")) {
+			whereSQLBuffer.append(" and bcategorynum like '");
+			String cate1prepend = level1Category.substring(0, 2);
+			whereSQLBuffer.append(cate1prepend);
+			whereSQLBuffer.append("%' ");
+		}
+
+		// 카테고리1 카테고리2를 모두 선택했을 때
+		else { 
+			whereSQLBuffer.append(" and bcategorynum like '");
+			whereSQLBuffer.append(level2Category);
+			whereSQLBuffer.append("%' ");
+		}
+
+		// 검색어가 있을 때 게시글 제목에 해당 검색어가 포함된 게시글 가져옴
+		if (searchText != null) { 
+			whereSQLBuffer.append(" and title like '%");
+			whereSQLBuffer.append(searchText);
+			whereSQLBuffer.append("%' ");
+		}
+		
+		whereSQLBuffer.append(" order by wdate desc ");
+
+		String searchQuery = whereSQLBuffer.toString();
+
+		Connection conn = getConnection();
+		
+		// select * from board
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_IMG_PRICE_SQL") + searchQuery);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		List<Map> boardList = new ArrayList<Map>();
+
+		while (rs.next()) {
+
+			BoardDTO boardDTO = new BoardDTO();
+
+			Map<String, Object> boardMap = new HashMap<String, Object>();
+
+			boardMap.put("title", rs.getString("title"));
+			boardMap.put("productnum", rs.getInt("productnum"));
+			boardMap.put("wdate", rs.getTimestamp("wdate"));
+			boardMap.put("imgsname", rs.getString("imgsname"));
+			boardMap.put("productprice", rs.getInt("productprice"));
+
+			boardList.add(boardMap);
+
+		}
+
+		closeConnection(rs, pstmt, conn);
+
+		return boardList;
+
+	} // searchBoard
+	
+} // class

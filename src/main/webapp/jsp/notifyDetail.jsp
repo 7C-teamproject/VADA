@@ -1,6 +1,6 @@
 <%@page import="vada.dto.NotifylistDTO"%>
-<%@page import="vada.dao.impl.BoardViewDAOImpl"%>
-<%@page import="vada.service.BoardViewService"%>
+<%@page import="vada.dao.impl.BoardDetailDAOImpl"%>
+<%@page import="vada.service.BoardDetailService"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page import="vada.dao.impl.BoardListDAOImpl"%>

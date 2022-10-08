@@ -9,7 +9,7 @@ import vada.service.BoardListService;
 
 public interface BoardListDAO extends BoardListService {
 	
-	public abstract List<Map> listBoard() throws Exception;	
+	public abstract List<Map> getBoardList() throws Exception;	
 	
 	public List<NotifylistDTO> notifyListBoard() throws Exception;
 

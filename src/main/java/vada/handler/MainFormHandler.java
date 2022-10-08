@@ -15,22 +15,18 @@ public class MainFormHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		// 검색어 파라미터
-//		String bCateParam = request.getParameter("bCate") == null ? "" : request.getParameter("bCate");
-//		String searchTextParam = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
-
 		// 게시글 출력
 		BoardListService boardListService = new BoardListDAOImpl();
 
-		List<Map> list = null;
+		List<Map> boardList = null;
 		
 		try {
-			list = boardListService.listBoard();
+			boardList = boardListService.getBoardList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("list", list);
+		request.setAttribute("boardList", boardList);
 		
 		return "jsp/mainForm.jsp";
 	}

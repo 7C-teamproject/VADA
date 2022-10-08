@@ -7,6 +7,6 @@ import vada.dto.BoardDTO;
 
 public interface BuyListSerive extends BoardService {
 
-	public abstract List<BoardDTO> buylistadd(String userid) throws Exception; 
+	public abstract List<BoardDTO> buyList(String userid) throws Exception; 
 	
 }

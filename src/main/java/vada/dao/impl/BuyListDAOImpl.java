@@ -14,31 +14,35 @@ import vada.dto.BoardDTO;
 public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 
 	@Override
-	public List<BoardDTO> buylistadd(String userid) throws Exception {
+	public List<BoardDTO> buyList(String userid) throws Exception {
 
 		Connection conn = getConnection();
 
-		String sql = VADAConstants.props.getProperty("BUY_LIST_SQL");
+		// select * from board where buyerid=? 
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + " where buyerid=? ");
 
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userid);
 
-		pstmt.setString(1,userid);
 		ResultSet rs = pstmt.executeQuery();
-		
+
 		BoardDTO boardDTO = null;
-		List<BoardDTO> list = new ArrayList<BoardDTO>();
-		while(rs.next()) {
-			boardDTO = new BoardDTO();
+		List<BoardDTO> boardList = new ArrayList<BoardDTO>();
+		
+		while (rs.next()) {
 			
+			boardDTO = new BoardDTO();
+
 			boardDTO.setTitle(rs.getString("title"));
 			boardDTO.setSoldoutdate(rs.getTimestamp("soldoutdate"));
 			boardDTO.setProductnum(rs.getInt("productnum"));
 			boardDTO.setReview(rs.getString("review"));
 
-			list.add(boardDTO);
+			boardList.add(boardDTO);
+			
 		}
-		
-		return list;
-	}
+
+		return boardList;
+	
+	} // buyList
 
 } // class

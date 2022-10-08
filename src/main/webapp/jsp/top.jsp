@@ -1,22 +1,19 @@
-<%@page import="vada.dto.CategoryDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="vada.dao.impl.CategoryListDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ page import="vada.service.CategoryService"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="java.sql.DriverManager"%>
-<%@ page import="java.sql.Connection"%>
+	
+<%@page import="vada.dao.impl.CategoryListDAOImpl"%>
+<%@page import="vada.dto.CategoryDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="vada.service.CategoryService"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%
-CategoryService categoryService = new CategoryListDAOImpl();
-List<CategoryDTO> categoryDTOList = categoryService.listCategory();
-pageContext.setAttribute("categoryDTOList", categoryDTOList);
+	CategoryService categoryService = new CategoryListDAOImpl();
+	List<CategoryDTO> categoryDTOList = categoryService.getCategoryList();
+	pageContext.setAttribute("categoryDTOList", categoryDTOList);
 %>
 
 <!DOCTYPE html>
@@ -108,7 +105,7 @@ label:before {
 				<p style="color: white; margin-top: 15px;">카테고리 :</p>
 				&nbsp;&nbsp;
 				<lable style="margin-top: 12px"> <select name="categories1"
-					id="categories1" onchange="changeSelect1();">
+					id="categories1">
 					<option value="1000">전체</option>
 					<c:forEach var="categoryDTO" items="${categoryDTOList}">
 						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}">

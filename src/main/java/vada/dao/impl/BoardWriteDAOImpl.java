@@ -16,10 +16,15 @@ import vada.util.ConnectionManager;
 
 public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+
 	@Override
 	public int writeBoard(BoardDTO boardDTO) throws Exception {
-		
-		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("WRITE_SQL"));
+
+		conn = getConnection();
+
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("INSERT_BOARD_SQL"));
 
 		pstmt.setString(1, boardDTO.getSellerid());
 		pstmt.setString(2, boardDTO.getTitle());
@@ -27,33 +32,37 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 		pstmt.setInt(4, boardDTO.getBcategorynum());
 
 		int result = pstmt.executeUpdate();
-		
-		closeConnection(pstmt, getConnection());
-		
+
+		closeConnection(pstmt, conn);
+
 		return result;
 
 	} // writeBoard
-	
+
 	@Override
-	public void writePrice(int productnum, int productprice) throws Exception {
+	public int writePrice(int productnum, int productprice) throws Exception {
+		
+		conn = getConnection();
 
-		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("PRICE_WRITE_SQL"));
-
+		// insert into productprice (productpricenum, productprice, productpriceupdatedate) values (?, ?, now()) 
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("INSERT_PRODUCTPRICE_SQL"));
+		
 		pstmt.setInt(1, productnum);
 		pstmt.setInt(2, productprice);
 
 		int result = pstmt.executeUpdate();
-		
+
 		closeConnection(pstmt, getConnection());
+
+		return result;
+		
 	} // writeBoard
-	
-	
 
 	@Override
 	public int notifyWriteBoard(NotifylistDTO notifyDTO, int notifyProductNum, String userid) throws Exception {
 
 		Connection conn = getConnection();
-		
+
 //		if (conn != null) {
 //			try {
 //				conn.setAutoCommit(false);
@@ -61,50 +70,44 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 //				e.printStackTrace();
 //			}
 //		}
-		
-		PreparedStatement pstmt = null;
-		
+
 		int result = 0;
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_WRITE_SQL")); 
 		
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_WRITE_SQL"));
+
 		pstmt.setInt(1, notifyProductNum);
 		pstmt.setString(2, notifyDTO.getNotifyreason());
 		pstmt.setString(3, userid);
-		
+
 		result = pstmt.executeUpdate();
-		
-		if(result > 0) {
-			System.out.println("신고글 DB에 저장 성공!!!");
-		}
-		
+
 		closeConnection(pstmt, conn);
 
 		return result;
-		
-	}
-	
+
+	} // notifyWriteBoard
+
 	@Override
 	public int get_Notifyid() throws Exception {
-		
+
 		Connection conn = ConnectionManager.getConnection();
-		
+
 		PreparedStatement pstmt = null;
-		
+
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_ID_SQL"));
-		
+
 		ResultSet rs = pstmt.executeQuery();
-		
-		int result = 0;
-		
+
+		int notifyid = 0;
+
 		if (rs != null && rs.next()) {
-			result = rs.getInt("notifyid");
-			System.out.println("result========>" + result);
+			notifyid = rs.getInt("notifyid");
 		}
-		
-		ConnectionManager.closeConnection(rs, pstmt, conn);
-		
-		return result; // notifyid 리턴함
-		
-	}
+
+		closeConnection(rs, pstmt, conn);
+
+		return notifyid;
+
+	} // get_Notifyid
 
 } // class

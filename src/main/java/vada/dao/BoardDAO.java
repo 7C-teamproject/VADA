@@ -14,7 +14,8 @@ public interface BoardDAO extends BoardService {
 	
 	public abstract void closeConnection(Statement stmt, Connection conn);
 	
+	public abstract void closeConnection(ResultSet rs, Statement stmt);
+
 	public abstract void closeConnection(ResultSet rs, Statement stmt, Connection conn);
 	
-	public abstract void closeConnection(ResultSet rs, Statement stmt);
 }

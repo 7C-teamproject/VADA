@@ -9,13 +9,20 @@ public class BoardImgDeleteDAOImpl extends AbstractBoardImgDAO {
 	
 	@Override
 	public int deleteBoardImg(int imgproductnum) throws Exception {
-		Connection conn =getConnection();
-		String sql = VADAConstants.props.getProperty("FILE_DELETE_SQL");
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		Connection conn = getConnection();
+		
+		// delete from img where imgproductnum=? 
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("DELETE_IMG_SQL"));
+		
 		pstmt.setInt(1, imgproductnum);
+		
 		int result = pstmt.executeUpdate();
+		
 		closeConnection(pstmt, conn);
+		
 		return result;
-	} // deleteBoardFile(int)
+		
+	} // deleteBoardFile
 
 } // class

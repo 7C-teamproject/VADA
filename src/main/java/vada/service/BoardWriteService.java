@@ -9,7 +9,7 @@ public interface BoardWriteService extends BoardService {
 	
 	public abstract int notifyWriteBoard(NotifylistDTO notifyDTO, int notifyProductNum,String userid) throws Exception;
 	
-	public abstract void writePrice(int productnum,int productprice) throws Exception;
+	public abstract int writePrice(int productnum,int productprice) throws Exception;
 
 	public abstract int get_Notifyid() throws Exception;
 

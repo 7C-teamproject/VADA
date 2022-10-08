@@ -12,29 +12,43 @@ import vada.dto.ImgDTO;
 public class BoardImgListDAOImpl extends AbstractBoardImgDAO {
 
 	@Override
-	public List<ImgDTO> listBoardImg(int productnum) throws Exception {
-		
+	public List<ImgDTO> getBoardImgList(int productnum) throws Exception {
+
 		Connection conn = getConnection();
-		String sql = VADAConstants.props.getProperty("FILE_LIST_SQL");
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		// select * from img where imgproductnum=? order by imgnum 
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_IMG_SQL"));
+
 		pstmt.setInt(1, productnum);
+		
 		ResultSet rs = pstmt.executeQuery();
-		List<ImgDTO> list = null;
-		if (rs!=null && rs.next()) {
-			list = new ArrayList<ImgDTO>();
+		
+		List<ImgDTO> imgDTOList = null;
+		
+		if (rs != null && rs.next()) {
+			
+			imgDTOList = new ArrayList<ImgDTO>();
+			
 			while (rs.next()) {
+				
 				ImgDTO imgDTO = new ImgDTO();
+				
 				imgDTO.setImgnum(rs.getInt("imgnum"));
 				imgDTO.setImgcname(rs.getString("imgcname"));
 				imgDTO.setImgsname(rs.getString("imgsname"));
 				imgDTO.setImgsize(rs.getInt("imgsize"));
-				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));	
-				list.add(imgDTO);
+				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
+				
+				imgDTOList.add(imgDTO);
+				
 			}
+			
 		}
-		closeConnection(rs, pstmt, conn);
-		return list;
 		
-	} // listBoardFile()
+		closeConnection(rs, pstmt, conn);
+		
+		return imgDTOList;
+
+	} // getBoardImgList
 
 } // class

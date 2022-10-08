@@ -10,18 +10,24 @@ public class BoardProductNumDAOImpl extends BoardDAOImpl implements BoardProduct
 
 	@Override
 	public int getProductNum() throws Exception {
-		
+
 		Connection conn = getConnection();
-		String sql = VADAConstants.props.getProperty("PRODUCT_NUM_SQL");
 		
-		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// select * from board order by productnum desc limit 1 
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + " order by productnum desc limit 1 ");
+	
 		ResultSet rs = pstmt.executeQuery();
-		int result = 0;
-		if(rs.next()) {
-			result = rs.getInt("productnum");
+		
+		int productnum = 0;
+		
+		if (rs.next()) {
+			productnum = rs.getInt("productnum");
 		}
+
 		closeConnection(rs, pstmt, conn);
-		return result;
-	} // getBID()
+
+		return productnum;
+
+	} // getProductNum
 
 } // class

@@ -6,11 +6,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardViewDAOImpl;
+import vada.dao.impl.BoardDetailDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ProductpriceDTO;
-import vada.service.BoardViewService;
+import vada.service.BoardDetailService;
 
 public class BoardDetailFormHandler implements CommandHandler{
 	
@@ -23,11 +23,11 @@ public class BoardDetailFormHandler implements CommandHandler{
 		BoardDTO boardDTO = new BoardDTO();
 		CategoryDTO categoryDTO = new CategoryDTO();
 
-		BoardViewService boardViewService = new BoardViewDAOImpl();
+		BoardDetailService boardDetailService = new BoardDetailDAOImpl();
 
 		Map<String, Object> map = null;
 		try {
-			map = boardViewService.viewBoard(Integer.parseInt(productnum));
+			map = boardDetailService.getBoardList(Integer.parseInt(productnum));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -40,9 +40,9 @@ public class BoardDetailFormHandler implements CommandHandler{
 		productpriceDTO = (ProductpriceDTO) map.get("ProductpriceDTO");
 		categoryDTO = (CategoryDTO) map.get("categoryDTO");
 
-		List list1 = (List) map.get("imglist1");
-		List list2 = (List) map.get("imglist2");
-		List list3 = (List) map.get("imglist3");
+		List imgsnameList = (List) map.get("imgsnameList");
+		List imgcnameList = (List) map.get("imgcnameList");
+		List imgsizeList = (List) map.get("imgsizeList");
 
 		request.setAttribute("boardDTO", boardDTO);
 		String reserveText = "판매중";
@@ -61,9 +61,9 @@ public class BoardDetailFormHandler implements CommandHandler{
 
 		request.setAttribute("categoryDTO", categoryDTO);
 
-		request.setAttribute("imglist1", list1); 
-		request.setAttribute("imglist2", list2); 
-		request.setAttribute("imglist3", list3); 
+		request.setAttribute("imgsnameList", imgsnameList); 
+		request.setAttribute("imgcnameList", imgcnameList); 
+		request.setAttribute("imgsizeList", imgsizeList); 
 
 		request.setAttribute("sellerid", boardDTO.getSellerid());
 		request.setAttribute("buyerid", boardDTO.getBuyerid());

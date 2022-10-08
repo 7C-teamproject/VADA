@@ -5,7 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
 <jsp:include page="top.jsp" />
 
 <main>
@@ -31,7 +30,7 @@
 						</tr>
 						<tr>
 							<td style="float: left">카테고리 : 
-							<select name="ca1" id="ca1" >
+							<select name="bcategorynum" id="bcategorynum" >
                 				<option value="1000" >전체</option>
                 				<c:forEach var="categoryDTO" items="${categoryDTOList}">
 	           						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
@@ -40,16 +39,16 @@
 								</c:forEach>
 							</select> &nbsp;&nbsp;
 							
-							<select name="bcategorynum" id="bcategorynum" >
+							<select name="bcategorynum2" id="bcategorynum2" >
                 				<option value="1000" >전체</option>
 							</select> &nbsp;&nbsp;
 							
 							<script src="http://code.jquery.com/jquery-latest.js"></script>
 							<script>
 								$(document).ready(function() {
-									$("#ca1").change(function(){
+									$("#bcategorynum").change(function(){
 										
-										$('#bcategorynum').children('option:not(:first)').remove();
+										$('#bcategorynum2').children('option:not(:first)').remove();
 										
 										var categoryappend = $(this).val().substring(0, 2);
 										
@@ -58,7 +57,7 @@
 										var categorynum = "${item.categorynum}";
 												
 											if(categorynum.match("^"+categoryappend) && categorynum!=$(this).val()) {
-												$('#bcategorynum').append($('<option>', {
+												$('#bcategorynum2').append($('<option>', {
 											        value: ${item.categorynum},
 											        text : '${item.categoryname}'
 											    }));

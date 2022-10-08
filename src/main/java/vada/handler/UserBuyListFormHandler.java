@@ -16,18 +16,20 @@ public class UserBuyListFormHandler implements CommandHandler {
 		
 		HttpSession session = request.getSession();
 		
-		BuyListSerive buylistService = new BuyListDAOImpl();
+		BuyListSerive buyListService = new BuyListDAOImpl();
 
 		List list = null;
 		
 		try {
-			list = buylistService.buylistadd((String) session.getAttribute("userid"));
+			list = buyListService.buyList((String) session.getAttribute("userid"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		request.setAttribute("list", list);
+		
 		return "jsp/userBuyListForm.jsp";
+		
 	}
 
 }
