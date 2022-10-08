@@ -35,7 +35,6 @@ public class BoardUpdateProcHandler implements CommandHandler {
 		try {
 			boardImgDeleteService.deleteBoardImg(productnum);
 		} catch (Exception e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -78,7 +77,6 @@ public class BoardUpdateProcHandler implements CommandHandler {
 				try {
 					boardImgWriteService.writeBoardImg(productnum, imgDTO);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} // 디비에 이미지 저장하는 impl 호출
 					
@@ -91,7 +89,6 @@ public class BoardUpdateProcHandler implements CommandHandler {
 		try {
 			result = boardUpdateService.updateBoard(productnum, boardDTO, productpriceDTO, categoryDTO);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

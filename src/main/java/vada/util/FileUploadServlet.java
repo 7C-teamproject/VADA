@@ -25,9 +25,6 @@ import vada.service.BoardImgService;
 
 public class FileUploadServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 14357642724634526L;
 
 	@Override
@@ -37,8 +34,10 @@ public class FileUploadServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		String command = req.getParameter("command"); 
+		System.out.println("command===========>" + req.getParameter("command"));
+		
+		String command = req.getParameter("command") == null ? "" : req.getParameter("command"); 
+		
 		if (command.equals("write")) {
 			process(req, resp, "/boardwriteproc.do", "IMG_UPLOAD_DIR");
 		} 

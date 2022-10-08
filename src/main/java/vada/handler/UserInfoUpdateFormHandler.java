@@ -28,20 +28,17 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 		try {
 			categoryDTOList = categoryService.listCategory();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	 	
 	 	request.setAttribute("categoryDTOList", categoryDTOList);
 	 	
 	 	String userid=(String)session.getAttribute("userid");
-		//System.out.println("id잘뜨니?----------------------------"+userid);
 	 	UserInfoUpdateservice userInfoUpdateservice = new UserInfoUpdateDAOImpl();
 	 	
 	 	try {
 			userDTO = userInfoUpdateservice.UserInfoSelect(userid);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	 	

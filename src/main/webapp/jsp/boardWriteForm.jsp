@@ -13,8 +13,9 @@
 	<div class="container">
 		<div class="row">
 		
-			<form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="utf-8">
-				<input type="hidden" name="command" value="write" />
+			<form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="UTF-8">
+         
+         	<input type="hidden" name="command" value="write" />
 				
 				<table class="table table-stripped" style="text-align: center; boarder: 1px solid #dddddd">
 					
@@ -30,8 +31,8 @@
 						</tr>
 						<tr>
 							<td style="float: left">카테고리 : 
-							<select name="ca1" id="ca1" onchange="changeSelect1();" >
-                				<option value="500" >전체</option>
+							<select name="ca1" id="ca1" >
+                				<option value="1000" >전체</option>
                 				<c:forEach var="categoryDTO" items="${categoryDTOList}">
 	           						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
 										<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
@@ -40,7 +41,7 @@
 							</select> &nbsp;&nbsp;
 							
 							<select name="bcategorynum" id="bcategorynum" >
-                				<option value="500" >전체</option>
+                				<option value="1000" >전체</option>
 							</select> &nbsp;&nbsp;
 							
 							<script src="http://code.jquery.com/jquery-latest.js"></script>

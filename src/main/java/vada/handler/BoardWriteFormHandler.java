@@ -19,7 +19,6 @@ public class BoardWriteFormHandler implements CommandHandler {
 		try {
 			categoryDTOList = categoryService.listCategory();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	 	request.setAttribute("categoryDTOList", categoryDTOList);

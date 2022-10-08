@@ -221,8 +221,7 @@ main {
 
 	<div class="list con">
 		<div class="container">
-			<table class="table table-stripped"
-				style="text-align: center; boarder: 1px solid #dddddd">
+			<table class="table table-stripped" style="text-align: center; boarder: 1px solid #dddddd">
 				<thead>
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center;">중고거래
@@ -259,8 +258,10 @@ main {
 		</ul>
 
 	</div>
-
-	<a id="write" href="/Vada/boardwriteform.do">글 등록</a>
+	
+	<div>
+		<a id="write" href="/Vada/boardwriteform.do">글 등록</a>
+	</div>
 	
 </main>
 
