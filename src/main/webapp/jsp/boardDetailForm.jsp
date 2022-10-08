@@ -4,7 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="vada.dto.CategoryDTO"%>
 <%@ page import="java.util.Map"%>
-<%@ page import="vada.dto.ProductpriceDTO"%>
+<%@ page import="vada.dto.ProductpriceDTO"%> 
 <%@ page import="vada.dto.BoardDTO"%>
 <%@ page import="vada.service.BoardViewService"%>
 <%@ page import="vada.dao.impl.BoardViewDAOImpl"%>

@@ -9,7 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="top.jsp" />
-
+ 
 <style>
 th, td {
 	border: 1px solid #000000;

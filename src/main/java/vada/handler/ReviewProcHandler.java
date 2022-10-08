@@ -15,7 +15,7 @@ public class ReviewProcHandler implements CommandHandler {
 		BoardReviewService boardReviewService = new BoardReviewDAOImpl();
 		BoardDTO boardDTO = new BoardDTO();
 		int productnum = Integer.parseInt(request.getParameter("productnum"));
-		
+		 
 		boardDTO.setReview(request.getParameter("review"));
 		boardDTO.setReviewscore(Integer.parseInt(request.getParameter("reviewscore")));
 		boardDTO.setProductnum(productnum);

@@ -7,7 +7,7 @@
 <jsp:useBean id="boardDTO" class="vada.dto.BoardDTO" />
 
 <jsp:include page="top.jsp" />
-
+ 
 
 <main>
 	<div class="container">

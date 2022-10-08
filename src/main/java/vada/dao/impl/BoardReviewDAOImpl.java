@@ -15,7 +15,7 @@ public class BoardReviewDAOImpl extends BoardDAOImpl implements BoardReviewDAO{
 
 //		pstmt.setString(1, "======리뷰써라");
 //		pstmt.setInt(2, 2);
-//		pstmt.setInt(3, 8);
+//		pstmt.setInt(3, 8);  
 		
 		
 		pstmt.setString(1, boardDTO.getReview());

@@ -10,5 +10,5 @@ public class ReviewFormHandler implements CommandHandler {
 
 		return "/jsp/reviewForm.jsp";
 	}
-
+ 
 }
