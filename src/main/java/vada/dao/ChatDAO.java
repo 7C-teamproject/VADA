@@ -1,10 +1,13 @@
 package vada.dao;
 
+import java.util.List;
+
 import vada.dto.KtuserchatroomDTO;
 import vada.service.ChatService;
 
 public interface ChatDAO extends ChatService {
-	public KtuserchatroomDTO ktchatroom(int  ktproductnum)throws Exception;
 	
-	public int chatBoard1(int productnum, 	KtuserchatroomDTO ktuserchatroomDTO) throws Exception;
+	public int ktchatBoard(int productnum, 	KtuserchatroomDTO ktuserchatroomDTO) throws Exception;
+	
+	public List<KtuserchatroomDTO> ktchatroomList(int productnum) throws Exception;
 }
