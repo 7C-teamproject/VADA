@@ -1,22 +1,14 @@
 package vada.dao.impl;
 
-import java.net.Inet4Address;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.protocol.Resultset;
-
 import vada.constants.VADAConstants;
 import vada.dao.ChatDAO;
-import vada.dto.ChatmsgDTO;
-import vada.dto.ImgDTO;
 import vada.dto.KtuserchatroomDTO;
-import vada.service.ChatService;
 
 public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 
@@ -45,7 +37,7 @@ public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 	}
 
 	
-	public List<KtuserchatroomDTO> ktchatroomList(int productnum) throws Exception {
+	public List<KtuserchatroomDTO> ktchatroomList(String ktuserid) throws Exception {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -56,8 +48,8 @@ public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 
 		pstmt = conn.prepareStatement(sql);
 
-		// SELECT_KTCHATROOM_SQL=select * from ktuserchatroom where ktuserid  =?
-		pstmt.setInt(1, productnum);
+		// SELECT_KTCHATROOM_SQL=select * from ktuserchatroom where productnum  =?
+		pstmt.setString(1, ktuserid);
 
 		rs = pstmt.executeQuery();
 		List<KtuserchatroomDTO> list = null;

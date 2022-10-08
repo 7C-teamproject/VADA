@@ -8,5 +8,5 @@ public interface ChatService extends BoardService {
 
 	public int ktchatBoard(int productnum, KtuserchatroomDTO ktuserchatroomDTO) throws Exception;
 
-	public List<KtuserchatroomDTO> ktchatroomList(int productnum) throws Exception;
+	public List<KtuserchatroomDTO> ktchatroomList(String ktuserid) throws Exception;
 }

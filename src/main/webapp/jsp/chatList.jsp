@@ -1,29 +1,31 @@
-<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="vada.dto.KtuserchatroomDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="vada.dto.ChatmsgDTO"%>
 <%@page import="vada.dao.ChatDAO"%>
 <%@page import="vada.dao.impl.ChatDAOImpl"%>
 <%@page import="vada.service.ChatService"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="top.jsp" />
-
-<%-- <jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  /> --%>
-
-<%-- <jsp:setProperty name="ktuserchatroomDTO" property="*" /> --%>
+<jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  />
+<jsp:setProperty name="ktuserchatroomDTO" property="*" />
 
 <%
 ChatService chatService =new ChatDAOImpl();
+String ktuserid   = request.getParameter("userid");
 
-KtuserchatroomDTO ktuserchatroomDTO = new KtuserchatroomDTO();
+ List<KtuserchatroomDTO> list = new ArrayList<KtuserchatroomDTO>();
 
-List<KtuserchatroomDTO> list = 
-//ktuserchatroomDTO= chatService.ktchatroomList(productnum);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
+ list=chatService.ktchatroomList(ktuserid);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
 
-pageContext.setAttribute("chatService",chatService);
-
+ pageContext.setAttribute("list",list);
 %>
+
+
 <main>
 
 	<div class="container-fluid px-4">
@@ -43,27 +45,28 @@ pageContext.setAttribute("chatService",chatService);
 					</colgroup>
 					<thead>
 						<tr>
-							<th>닉네임(ID)</th>
+							<th>채팅방 정보</th>
 							<th>시간</th>
 						</tr>
 					</thead>
 					<tbody>
+	  <c:forEach var="item" items="${list}" varStatus="status">
+	     <c:if test="${sessionScope.userid eq item.ktuserid }" >
 						<tr>
-							<td>nick1(id1)  ${ktuserchatroomDTO.ktuserid}</td>
-							<td>date1</td>
-						</tr>
-
-						<tr>
-							<td>nick2(id2)  ${ktuserchatroomDTO.sellerid}</td>
-							<td>date2</td>
+							<td>게시글명 : ${item.chatroomtitle } </td>
+							<td>${item.chatroomdate}</td>
 						</tr>
 						<tr>
-							<td>nick3(id3)</td>
-							<td>date3</td>
+							<td>MyID : ${item.ktuserid}</td>
 						</tr>
+						<tr>
+							<td>판매자ID : ${item.ktsellerid}</td>
+						</tr>
+						
+						</c:if>
+						</c:forEach>
 					</tbody>
 				</table>
-				
 			</div>
 		</div>
 	</div>

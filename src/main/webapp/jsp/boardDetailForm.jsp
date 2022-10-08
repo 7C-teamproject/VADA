@@ -164,7 +164,7 @@
 						</c:if>
 						<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 
-							<a href="#" class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
+							<a href=" /Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}"class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
 							<a href="/Vada/jsp/NoteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a>
 							<a class="btn btn-secondary"
 								style="float: right; margin-right: 5px;"
