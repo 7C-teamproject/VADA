@@ -75,7 +75,8 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 
 		conn = getConnection();
 
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_LIST_SQL"));
+		//select * from notifylist order by notifyid desc
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_LIST_SQL"));
 
 		rs = pstmt.executeQuery();
 

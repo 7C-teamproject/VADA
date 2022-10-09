@@ -18,7 +18,9 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
    public List<UserDTO> userLogin(String userid, String userpw) throws Exception {
       Connection conn = getConnection();
 
-      String sql = VADAConstants.props.getProperty("USER_LOGIN_SQL");
+      //SELECT_USER_LOGIN_SQL= select * from user where userid=? and userpw=? and adminyn=? 
+      //SELECT_USER_LOGIN_SQL= select * from user where adminyn='no' 
+      String sql = VADAConstants.props.getProperty("SELECT_USER_LOGIN_SQL");
 
       PreparedStatement pstmt = null;
       ResultSet rs = null;
@@ -50,7 +52,8 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
    public List<UserDTO> adminynLogin(String userid, String userpw) throws Exception {
      Connection conn = getConnection();
 
-      String sql = VADAConstants.props.getProperty("ADMIN_LOGIN_SQL");
+     //select * from user where adminyn='yes'
+      String sql = VADAConstants.props.getProperty("SELECT_ADMIN_LOGIN_SQL");
 
       PreparedStatement pstmt = null;
       ResultSet rs = null;

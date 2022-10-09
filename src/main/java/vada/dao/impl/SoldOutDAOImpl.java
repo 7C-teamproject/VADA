@@ -10,7 +10,9 @@ public class SoldOutDAOImpl extends BoardDAOImpl implements SoldOutDAO{
 	@Override
 	public int soldOut(String reserveid, int productnum) throws Exception {
 		
-		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("SOLDOUT_SQL"));
+		
+		//update board set buyerid=?, soldoutdate=now() where productnum=?
+		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("UPDATE_SOLDOUT_SQL"));
 
 		pstmt.setString(1, reserveid);
 		pstmt.setInt(2, productnum);

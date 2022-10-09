@@ -14,8 +14,8 @@ public class BoardImgViewDAOImpl extends AbstractBoardImgDAO {
 
 		Connection conn = getConnection();
 
-		//
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("FILE_VIEW_SQL"));
+		//select * from img where imgproductnum=? order by imgnum
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_FILE_VIEW_SQL"));
 
 		pstmt.setInt(1, imgnum);
 

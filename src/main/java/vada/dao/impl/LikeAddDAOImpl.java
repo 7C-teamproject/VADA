@@ -10,7 +10,8 @@ public class LikeAddDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 	@Override
 	public int likeAdd(String userid, int productnum) throws Exception {
 	
-		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("LIKE_ADD_SQL"));
+		//insert into likelist (likeuserid, likeproductnum, likedate) values (?, ?, now())
+		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("INSERT_LIKE_ADD_SQL"));
 		
 		pstmt.setString(1, userid);
 		pstmt.setInt(2, productnum);

@@ -27,7 +27,8 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 		
 		for(int productnum:list) {
 			Connection conn = getConnection();
-			String listSQL = VADAConstants.props.getProperty("LIKE_LIST_SQL");
+			//select * from board b inner join img i on b.productnum=i.imgproductnum inner join productprice p on p.productpricenum=b.productnum where i.imgnum=1 and b.productnum=?
+			String listSQL = VADAConstants.props.getProperty("SELECT_LIKE_LIST_SQL");
 
 			PreparedStatement pstmt = conn.prepareStatement(listSQL);
 			pstmt.setInt(1, productnum);
@@ -71,7 +72,8 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 		
 		Connection conn2 = getConnection();
 		
-		String getNum = VADAConstants.props.getProperty("LIKE_PRODUCT_NUM_SQL");
+		//select likeproductnum from likelist where likeuserid=?
+		String getNum = VADAConstants.props.getProperty("SELECT_LIKE_PRODUCT_NUM_SQL");
 		
 		PreparedStatement pstmt2 = conn2.prepareStatement(getNum);
 		

@@ -19,7 +19,7 @@ public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 		Connection conn = getConnection();
 
 		// select * from board where buyerid=? 
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + " where buyerid=? ");
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BUY_LIST_SQL") + " where buyerid=? ");
 
 		pstmt.setString(1, userid);
 

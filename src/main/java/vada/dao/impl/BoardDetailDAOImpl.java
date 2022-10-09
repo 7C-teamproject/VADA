@@ -165,11 +165,13 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 
 		conn = getConnection();
 		
-		PreparedStatement pstmt1 = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_VIEW_SQL"));
+		//select * from notifylist where notifyid=?
+		PreparedStatement pstmt1 = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_VIEW_SQL"));
 		
 		pstmt1.setInt(1, notifyid);
 
-		PreparedStatement pstmt2 = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_IMG_VIEW_SQL"));
+		//select * from notifyimg where notifyimgnotifyid=?
+		PreparedStatement pstmt2 = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_IMG_VIEW_SQL"));
 		
 		pstmt2.setInt(1, notifyid);
 
@@ -214,12 +216,14 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 		PreparedStatement pstmt = null;
 
 		if (command.equals("reserve")) {
-			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("YES_RESERVE_BOARD_SQL"));
+			//update board set reservationyn='yes', reserveid=? where productnum=?
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_YES_RESERVE_BOARD_SQL"));
 			pstmt.setString(1, userid);
 			pstmt.setInt(2, productnum);
 			
 		} else if(command.equals("cancel")){
-			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NO_RESERVE_BOARD_SQL"));
+			//update board set reservationyn='no', reserveid='default' where productnum=?
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_NO_RESERVE_BOARD_SQL"));
 			pstmt.setInt(1, productnum);
 			
 		}

@@ -15,8 +15,8 @@ public class BoardDeleteDAOImpl extends BoardDAOImpl implements BoardDeleteDAO {
 	public int deleteBoard(int productnum) throws Exception {
 
 		conn = getConnection();
-		
-		// delete from board where productnum=? 
+
+		// delete from board where productnum=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("DELETE_BOARD_SQL"));
 
 		pstmt.setInt(1, productnum);
@@ -33,8 +33,8 @@ public class BoardDeleteDAOImpl extends BoardDAOImpl implements BoardDeleteDAO {
 	public int deleteNotify(int notifyid) throws Exception {
 
 		conn = getConnection();
-		
-		// delete from notifylist where notifyid=? 
+
+		// delete from notifylist where notifyid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("DELETE_NOTIFYLIST_SQL"));
 
 		pstmt.setInt(1, notifyid);

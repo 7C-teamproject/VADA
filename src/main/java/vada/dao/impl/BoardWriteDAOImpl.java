@@ -23,7 +23,8 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 	public int writeBoard(BoardDTO boardDTO) throws Exception {
 
 		conn = getConnection();
-
+		
+		//insert into board (sellerid, title, wdate, content, bcategorynum, buyerid) values (?, ?, now(), ?, ?, 'default')
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("INSERT_BOARD_SQL"));
 
 		pstmt.setString(1, boardDTO.getSellerid());
@@ -73,7 +74,8 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 		int result = 0;
 		
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_WRITE_SQL"));
+		//insert into notifylist (notifyproductnum, notifyreason, notifyuserid, notifydate) values (?, ?, ?, now())
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("INSERT_NOTIFY_WRITE_SQL"));
 
 		pstmt.setInt(1, notifyProductNum);
 		pstmt.setString(2, notifyDTO.getNotifyreason());
@@ -94,7 +96,8 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 		PreparedStatement pstmt = null;
 
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_ID_SQL"));
+		//select notifyid from notifylist order by notifyid desc limit 1
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_ID_SQL"));
 
 		ResultSet rs = pstmt.executeQuery();
 

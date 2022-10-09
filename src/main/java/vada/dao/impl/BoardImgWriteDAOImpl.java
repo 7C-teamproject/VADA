@@ -41,8 +41,8 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 	public int notifyWriteBoardImg(int notifyid, NotifyimgDTO notifyImgDTO) throws Exception {
 		conn = getConnection();
 
-		// NOTIFY_IMG_WRITE_SQL
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NOTIFY_IMG_WRITE_SQL"));
+		// insert into notifyimg (notifyimgnotifyid, notifyimgnum, notifyimgsname, notifyimgsize, notifyimgcname, notifyimgdate) values (?, ?, ?, ?, ?, now())
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_IMG_WRITE_SQL"));
 		
 		pstmt.setInt(1, notifyid);
 		pstmt.setInt(2, notifyImgDTO.getNotifyimgnum());

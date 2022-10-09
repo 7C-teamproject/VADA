@@ -19,8 +19,9 @@ public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 		PreparedStatement pstmt1 = null;
 		int rs = 0;
 		conn = getConnection();
+		
+		//insert into ktuserchatroom values(?, ?, ?, ?, ?, ?)
 		String sql1 = VADAConstants.props.getProperty("INSERT_KTCHATROOM_SQL");
-//		insert into ktuserchatroom  (ktuserid  ,ktproductnum , ktsellerid , chatroomtitle , chatroomusercnt , chatroomdate) values( ? ,  ? ,  ? ,  ? , ? ,  ?);
 
 		pstmt1 = conn.prepareStatement(sql1);
 
@@ -44,11 +45,12 @@ public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 		ResultSet rs = null;
 		KtuserchatroomDTO ktuserchatroomDTO = null;
 		conn = getConnection();
+		
+		//select * from ktuserchatroom where ktuserid=?
 		String sql = VADAConstants.props.getProperty("SELECT_KTCHATROOM_SQL");
 
 		pstmt = conn.prepareStatement(sql);
 
-		// SELECT_KTCHATROOM_SQL=select * from ktuserchatroom where productnum  =?
 		pstmt.setString(1, ktuserid);
 
 		rs = pstmt.executeQuery();

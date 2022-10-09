@@ -13,7 +13,9 @@ public class SearchUserPWDAOImpl extends BoardDAOImpl implements SearchUserPWDAO
 	public String searchUserPW(String userid, String email) throws Exception {
 		Connection conn = getConnection();
 
-	      String sql = VADAConstants.props.getProperty("SEARCH_USERPW_SQL");
+		
+		//select * from user where userid=? and email=?
+	      String sql = VADAConstants.props.getProperty("SELECT_SEARCH_USERPW_SQL");
 
 	      PreparedStatement pstmt = null;
 	      ResultSet rs = null;

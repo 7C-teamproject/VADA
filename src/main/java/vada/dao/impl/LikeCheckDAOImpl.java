@@ -13,7 +13,8 @@ public class LikeCheckDAOImpl extends AbstractLikeDAO {
    @Override
    public List likeCheck(String userid) throws Exception {
 
-      PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("LIKE_CHECK_SQL"));
+	   //select * from likelist where likeuserid=?
+      PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("SELECT_LIKE_CHECK_SQL"));
       
       pstmt.setString(1, userid);
       ResultSet rs = pstmt.executeQuery(); // executeQuery() : select~~~,  executeUpdate() : insert~~, update~~

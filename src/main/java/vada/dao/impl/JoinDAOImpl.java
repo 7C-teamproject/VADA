@@ -15,7 +15,8 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 	
 		Connection conn = getConnection();
 		
-		String sql = VADAConstants.props.getProperty("JOIN_SQL");
+		//insert into user values (?, ?, ?, ?, ?, ?, ?, now(), ?, 'no', ?, ?, ?)
+		String sql = VADAConstants.props.getProperty("INSERT_JOIN_SQL");
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -46,7 +47,8 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 		
 		Connection conn = getConnection();
 		
-		String sql = VADAConstants.props.getProperty("CHECK_USERID_SQL");
+		//select userid from user
+		String sql = VADAConstants.props.getProperty("SELECT_CHECK_USERID_SQL");
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -74,7 +76,8 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 		
 		Connection conn = getConnection();
 		
-		String sql = VADAConstants.props.getProperty("CHECK_NICKNAME_SQL");
+		//select nickname from user
+		String sql = VADAConstants.props.getProperty("SELECT_CHECK_NICKNAME_SQL");
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		

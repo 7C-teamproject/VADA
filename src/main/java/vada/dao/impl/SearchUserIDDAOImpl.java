@@ -17,7 +17,8 @@ public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO
 		
 		Connection conn = getConnection();
 
-	      String sql = VADAConstants.props.getProperty("SEARCH_USERID_SQL");
+		//select * from user where name=? and email=?
+	      String sql = VADAConstants.props.getProperty("SELECT_SEARCH_USERID_SQL");
 
 	      PreparedStatement pstmt = null;
 	      ResultSet rs = null;

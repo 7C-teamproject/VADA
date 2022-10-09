@@ -19,11 +19,10 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 
 		UserDTO userDTO = new UserDTO();
 		Connection conn = getConnection();
-		//SELECT_USERINFO_UPDATE_SQL=select   userid, userpw, address, name, tel, email, nickname, detailaddress  
-		//              										from `user` where userid =?;  
 		PreparedStatement pstmt = null;
 		ResultSet result =null ;
 
+		//select userid, userpw, address, name, tel, email, nickname, detailaddress from `user` where userid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_USERINFO_UPDATE_SQL"));
 		pstmt.setString(1,userid);
 		
@@ -58,9 +57,8 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 		PreparedStatement pstmt = null;
 		int result =0 ;
 		
+		//update user set userpw=?, address=?, name=?, tel=?, email=?, nickname=?, detailaddress=? where userid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_USERINFO_UADATE_SQL"));
-		//UPDATE_USERINFO_UADATE_SQL=update user  set  userid=?, userpw=?, address=?, name=?, tel=?, email=?, nickname=?,
-		//													detailaddress =?  where  userid =?
 		System.out.println("@@@@@@@@@@@@@@@"+userDTO.getName());
 		System.out.println("UserDTO =========>" + userDTO);
 		pstmt.setString(1, userDTO.getUserpw());

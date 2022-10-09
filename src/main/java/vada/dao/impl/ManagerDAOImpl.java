@@ -19,7 +19,9 @@ public class ManagerDAOImpl extends BoardDAOImpl implements ManagerDAO {
 
    @Override
    public List<UserDTO> listBoard() throws Exception {
-      String prependSQL = VADAConstants.props.getProperty("MANAGER_SEARCH_SQL");
+	   
+	   //select * from user where adminyn='no' order by joindate desc
+      String prependSQL = VADAConstants.props.getProperty("SELECT_MANAGER_SEARCH_SQL");
 
       Connection conn = getConnection();
       PreparedStatement pstmt = conn.prepareStatement(prependSQL);
@@ -46,7 +48,8 @@ public class ManagerDAOImpl extends BoardDAOImpl implements ManagerDAO {
       Connection conn = getConnection();
       UserDTO boardDTO = new UserDTO();
 
-      PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("MANAGER_BLACK_CHANGE"));
+      //update `user` set blackyn=? where userid =?
+      PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_MANAGER_BLACK_CHANGE"));
       
       pstmt.setString(1, blackyn);
       pstmt.setString(2, userid);
