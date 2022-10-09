@@ -10,8 +10,8 @@ public class SearchIDProcHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		String email = request.getParameter("email");
-		String name = request.getParameter("username");
+		String email = request.getParameter("email")==null?"":request.getParameter("email");
+		String name = request.getParameter("username")==null?"":request.getParameter("username");
 
 		SearchUserIDService searchUserIDService = new SearchUserIDDAOImpl();
 

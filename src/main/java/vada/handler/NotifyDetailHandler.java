@@ -15,7 +15,7 @@ public class NotifyDetailHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
-		int notifyid = Integer.parseInt(request.getParameter("notifyid"));
+		int notifyid = Integer.parseInt(request.getParameter("notifyid") == null ? "" : (String) request.getParameter("notifyid"));
 
 		BoardDetailService notifyDetailService = new BoardDetailDAOImpl();
 

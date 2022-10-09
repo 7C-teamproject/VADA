@@ -10,6 +10,8 @@ public class BoardDeleteProcHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
+		
+		
 		int productnum = Integer.parseInt((String) request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
 		
 		try {

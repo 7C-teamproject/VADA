@@ -36,8 +36,8 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		request.setAttribute("productpriceDTO", productpriceDTO);
 
 		for (int i = 0; i < 3; i++) {
-			String imgcname = (String) request.getParameter("imgcname" + String.valueOf(i));
-			String imgsize = (String) request.getParameter("imgsize" + String.valueOf(i));
+			String imgcname = (String) request.getParameter("imgcname" + String.valueOf(i))==null?"":(String) request.getParameter("imgcname" + String.valueOf(i));
+			String imgsize = (String) request.getParameter("imgsize" + String.valueOf(i))==null?"":(String) request.getParameter("imgsize" + String.valueOf(i));
 
 			imgcnamelist.add(imgcname);
 			imgsizelist.add(imgsize);

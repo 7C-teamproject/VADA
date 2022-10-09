@@ -17,8 +17,8 @@ public class LoginProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		HttpSession session = request.getSession();
-		String userid = (String) request.getParameter("userid");
-		String userpw = (String) request.getParameter("userpw");
+		String userid = (String) request.getParameter("userid")==null?"":(String) request.getParameter("userid");
+		String userpw = (String) request.getParameter("userpw")==null?"":(String) request.getParameter("userpw");
 
 		LoginService loginService = new LoginDAOImpl();
 

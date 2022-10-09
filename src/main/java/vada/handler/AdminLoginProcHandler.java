@@ -17,8 +17,9 @@ public class AdminLoginProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
-		String userid = request.getParameter("aduserid");
-		String userpw = request.getParameter("aduserpw");
+		
+		String userid = request.getParameter("aduserid")==null? "" : request.getParameter("aduserid");
+		String userpw = request.getParameter("aduserpw")==null? "" : request.getParameter("aduserpw");
 
 		LoginService loginService = new LoginDAOImpl();
 

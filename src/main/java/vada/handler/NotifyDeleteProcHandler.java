@@ -11,8 +11,7 @@ public class NotifyDeleteProcHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
 		// 삭제할 게시물 productnum
-		int notifyid = Integer
-				.parseInt(request.getParameter("notifyid") == null ? "" : (String) request.getParameter("notifyid"));
+		int notifyid = Integer.parseInt(request.getParameter("notifyid") == null ? "" : (String) request.getParameter("notifyid"));
 
 		// 게시물 데이터 삭제
 		try {

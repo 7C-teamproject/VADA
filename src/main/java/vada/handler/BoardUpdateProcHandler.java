@@ -26,7 +26,7 @@ public class BoardUpdateProcHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
-		int productnum = Integer.parseInt(request.getParameter("productnum"));
+		int productnum = Integer.parseInt((String) request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
 
 		// 기존 이미지 삭제(DB)
 		BoardImgService boardImgDeleteService = new BoardImgDeleteDAOImpl();

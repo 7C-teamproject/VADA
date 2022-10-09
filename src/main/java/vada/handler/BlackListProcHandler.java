@@ -14,8 +14,8 @@ public class BlackListProcHandler implements CommandHandler {
 		System.out.println("listsize====>" + listsize);
 
 		for (int i = 0; i < listsize; i++) {
-			String buyerid = (String) request.getParameter(String.valueOf(i)); 
-			String blackyn = (String) request.getParameter("blackyn" + String.valueOf(i)); 
+			String buyerid = (String) request.getParameter(String.valueOf(i))==null?"":(String) request.getParameter(String.valueOf(i)); 
+			String blackyn = (String) request.getParameter("blackyn" + String.valueOf(i))==null?"":(String) request.getParameter("blackyn" + String.valueOf(i)); 
 
 			ManagerService managerService = new ManagerDAOImpl();
 			int result = 0;

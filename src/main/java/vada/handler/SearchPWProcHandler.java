@@ -10,8 +10,8 @@ public class SearchPWProcHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
-		String userid = request.getParameter("userid");
-		String email = request.getParameter("email");
+		String userid = request.getParameter("userid")==null?"":request.getParameter("userid");
+		String email = request.getParameter("email")==null?"":request.getParameter("email");
 
 		SearchUserPWService searchUserPWService = new SearchUserPWDAOImpl();
 

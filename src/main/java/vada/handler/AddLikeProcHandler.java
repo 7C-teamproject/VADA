@@ -17,7 +17,8 @@ public class AddLikeProcHandler implements CommandHandler {
 
 		HttpSession session = request.getSession();
 
-		int productnum = Integer.parseInt(request.getParameter("productnum"));
+		int productnum = Integer.parseInt((String) request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
+		
 		String userid = (String) session.getAttribute("userid");
 
 		LikeService likeService = new LikeCheckDAOImpl();

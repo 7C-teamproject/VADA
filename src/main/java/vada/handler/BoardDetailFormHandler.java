@@ -16,7 +16,7 @@ public class BoardDetailFormHandler implements CommandHandler{
 	
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
-		String productnum = (String) request.getParameter("productnum");
+		String productnum = (String) request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum");
 		System.out.println("productnum ==============> " + productnum);
 
 		ProductpriceDTO productpriceDTO = new ProductpriceDTO();

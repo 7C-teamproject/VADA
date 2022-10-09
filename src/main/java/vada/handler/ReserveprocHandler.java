@@ -13,7 +13,8 @@ public class ReserveprocHandler implements CommandHandler {
 
 		HttpSession session = request.getSession();
 
-		int productnum = Integer.parseInt(request.getParameter("productnum"));
+		int productnum = Integer.parseInt(request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
+		
 		String userid = (String) session.getAttribute("userid");
 		String command = request.getParameter("command") == null ? "" : request.getParameter("command");
 

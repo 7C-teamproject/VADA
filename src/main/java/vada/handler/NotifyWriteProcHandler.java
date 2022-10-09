@@ -25,8 +25,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		BoardWriteService notifyWriteService = new BoardWriteDAOImpl();
 		String userid = (String) session.getAttribute("userid");
 
-		int notifyProductNum = Integer.parseInt(request.getParameter("productnum")); // 게시물 ID 얻기
-
+		int notifyProductNum = Integer.parseInt(request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
 		NotifylistDTO notifyDTO = new NotifylistDTO();
 		notifyDTO.setNotifyreason(request.getParameter("notifyreason"));
 		
