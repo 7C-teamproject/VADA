@@ -5,6 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<!-- 게시판검색 결과창(리스트)을 띄우기 위한 폼 -->
+
 <jsp:include page="top.jsp" />
 
 <style>
@@ -157,7 +159,11 @@
 		<ul class="row" id="test">
 
 			<c:set var="listSize" value="${list.size()}" />
+			
+			<!-- 검색한 결과가 존재할때 -->
 			<c:if test="${fn:length(list) != 0}">
+			
+				<!-- 검색한 게시판의 카테고리/제목과 포함하는 데이터를 저장한 리스트 -->
 				<c:forEach var="item" items="${list}" varStatus="stat">
 					<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
 						<div class="img-box">
@@ -180,6 +186,8 @@
 
 
 			</c:if>
+			
+			<!-- 검색한 결과가 존재하지 않을때 -->
 			<c:if test="${fn:length(list) == 0}">
 				<h3 style="text-align: center;">'${param.searchText}' 검색결과 없음</h3>
 			</c:if>
