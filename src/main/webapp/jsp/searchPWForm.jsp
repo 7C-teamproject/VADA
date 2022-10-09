@@ -165,10 +165,10 @@ form .field input:focus::placeholder {
          
             <form method="post" action="/Vada/searchpwproc.do" class="searchid">
                <div class="field">
-                  <input type="text" name="email_id" placeholder="ID" required>
+                  <input type="text" name="userid" placeholder="ID" required>
                </div>
                <div class="field">
-                  <input type="text" name="username" placeholder="email"
+                  <input type="text" name="email" placeholder="email"
                      required>
                </div>
                <div class="pass-link">

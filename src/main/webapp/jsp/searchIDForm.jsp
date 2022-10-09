@@ -165,7 +165,7 @@ form .field input:focus::placeholder {
          
             <form method="post" action="/Vada/searchidproc.do" class="searchid">
                <div class="field">
-                  <input type="text" name="email_id" placeholder="email" required>
+                  <input type="text" name="email" placeholder="email" required>
                </div>
                <div class="field">
                   <input type="text" name="username" placeholder="이름"
