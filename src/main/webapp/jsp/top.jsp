@@ -160,7 +160,7 @@ label:before {
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
 					
-					<li><p class="dropdown-item">${sessionScope.nickname} 님</p></li>
+					<li><p class="dropdown-item">${sessionScope.dbusernickname} 님</p></li>
 					
 					<c:if test="${sessionScope.adminyn eq 'no'}">
 						<li><a class="dropdown-item" href="/Vada/likelistform.do">찜

@@ -114,11 +114,11 @@
 							href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
 							삭제</a>
 								
-						<c:if test="${boardDTO.reservation eq 'yes'} && ${boardDTO.buyerid ne 'default'}">
+						<c:if test="${boardDTO.reservation eq 'yes'}">
 						
 							<a class="btn btn-secondary" style="float: right"
 								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약 취소하기</a>
-							<br />
+							&nbsp;&nbsp;&nbsp;
 							
 							<a class="btn btn-secondary" style="float: right"
 								href="javascript:confirmCommand('soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매 완료 처리하기</a>
@@ -135,8 +135,8 @@
 							href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 							신고</a><br /> <br /> <br />
 						
-						<a class="btn btn-info" style="float: right color: red"
-							 href="/Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a>
+<!-- 						<a class="btn btn-info" style="float: right color: red" -->
+<%-- 							 href="/Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
 						
 						<a class="btn btn-info" style="float: right color: red"
 							href="/Vada/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" >
@@ -146,7 +146,7 @@
 							style="float: right; margin-right: 5px;"
 							href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
 						
-						<c:if test="${boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
+						<c:if test="${boardDTO.reservation eq 'no'}">
 							<a class="btn btn-secondary" style="float: right"
 								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매 예약</a>
 						</c:if>

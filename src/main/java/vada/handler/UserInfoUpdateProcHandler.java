@@ -25,8 +25,8 @@ public class UserInfoUpdateProcHandler implements CommandHandler {
 		userDTO.setEmail(request.getParameter("email"));
 		userDTO.setName(request.getParameter("name"));
 		userDTO.setInterestcategorynum(Integer.parseInt(request.getParameter("interestcategorynum")));
-		userDTO.setNickname("nickname");
-		userDTO.setTel("tel");
+		userDTO.setNickname(request.getParameter("nickname"));
+		userDTO.setTel(request.getParameter("tel"));
 		userDTO.setUserpw(request.getParameter("userpw"));
 		
 		
