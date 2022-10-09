@@ -18,10 +18,10 @@ public abstract class AbstractBoardImgDAO extends BoardDAOImpl implements BoardI
 		return null;
 	}
 
-//	@Override
-//	public int updateBoardImg(int userid, List<ImgDTO> imgDTOlist) throws Exception {
-//		return 0;
-//	}
+	@Override
+	public int updateBoardImg(int userid, List<ImgDTO> imgDTOlist) throws Exception {
+		return 0;
+	}
 
 	@Override
 	public ImgDTO viewBoardImg(int imgnum) throws Exception {

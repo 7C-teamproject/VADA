@@ -51,7 +51,7 @@ public class FileUploadServlet extends HttpServlet {
 			BoardImgService boardImgService = new BoardImgListDAOImpl();
 			List<ImgDTO> imgDTOList = null;
 			try {
-				imgDTOList = boardImgService.listBoardImg(Integer.parseInt(req.getParameter("productnum")));
+				imgDTOList = boardImgService.getBoardImgList(Integer.parseInt(req.getParameter("productnum")));
 				for (ImgDTO imgDTO : imgDTOList) {
 					File sfnFile = new File("C:/eclipse_workspace/Vada/src/main/webapp/"+imgDTO.getImgsname());
 					if (sfnFile.exists())
