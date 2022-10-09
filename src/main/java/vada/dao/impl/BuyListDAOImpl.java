@@ -17,9 +17,13 @@ public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 	public List<BoardDTO> buyList(String userid) throws Exception {
 
 		Connection conn = getConnection();
+		
+		StringBuffer whereSQLBuffer = new StringBuffer();
+		whereSQLBuffer.append(" where buyerid=? ");
+		String buyeridQuery = whereSQLBuffer.toString();
 
 		// select * from board where buyerid=? 
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BUY_LIST_SQL") + " where buyerid=? ");
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BUY_LIST_SQL") + buyeridQuery);
 
 		pstmt.setString(1, userid);
 

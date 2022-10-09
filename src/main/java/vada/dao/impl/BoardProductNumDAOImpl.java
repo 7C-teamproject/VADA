@@ -13,8 +13,12 @@ public class BoardProductNumDAOImpl extends BoardDAOImpl implements BoardProduct
 
 		Connection conn = getConnection();
 		
+		StringBuffer whereSQLBuffer = new StringBuffer();
+		whereSQLBuffer.append(" order by productnum desc limit 1 ");
+		String limitQuery = whereSQLBuffer.toString();
+		
 		// select * from board order by productnum desc limit 1 
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + " order by productnum desc limit 1 ");
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + limitQuery);
 	
 		ResultSet rs = pstmt.executeQuery();
 		

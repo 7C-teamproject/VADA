@@ -27,9 +27,13 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 	public List<Map> getBoardList() throws Exception {
 
 		conn = getConnection();
-
+		
+		StringBuffer whereSQLBuffer = new StringBuffer();
+		whereSQLBuffer.append(" order by wdate desc ");
+		String descQuery = whereSQLBuffer.toString();
+		
 		// select * from board b inner join img i on b.productnum=i.imgproductnum inner join productprice p on p.productpricenum=b.productnum where i.imgnum=1 order by wdate desc
-		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_IMG_PRICE_SQL") + " order by wdate desc ");
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_IMG_PRICE_SQL") + descQuery) ;
 
 		rs = pstmt.executeQuery();
 
