@@ -163,6 +163,7 @@ form .field input:focus::placeholder {
          
          <div class="form-inner">
          
+         	<!-- PW찾기를 위한 데이터 저장 폼 -->
             <form method="post" action="/Vada/searchpwproc.do" class="searchid">
                <div class="field">
                   <input type="text" name="userid" placeholder="ID" required>

@@ -14,6 +14,8 @@
 
    <div class="container">
       <div class="row">
+      
+      	<!-- 신고글 작성을 위한 데이터를 담은 폼 -->
          <form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="utf-8">
          
             <input type="hidden" name="command" value="notifyWrite" /> 

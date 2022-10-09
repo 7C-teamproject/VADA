@@ -11,24 +11,26 @@
 
 	<div class="container">
 		<div class="row">
-		
+			
+			<!-- 이미지 파일 서버에 저장하기 위해 서블릿으로 데이터 전송 / 게시글 데이터 저장 폼 -->
 			<form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="UTF-8">
          
+         	<!-- 글 작성 or 글 수정 인지 확인을 위한 데이터 -->
          	<input type="hidden" name="command" value="write" />
 				
 				<table class="table table-stripped" style="text-align: center; boarder: 1px solid #dddddd">
-					
 					<thead>
 						<tr>
 							<th colspan="2" style="background-color: #eeeeee; text-align: center;">글 작성하기</th>
 						</tr>
 					</thead>
-					
 					<tbody>
 						<tr>
 							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="20"></td>
 						</tr>
 						<tr>
+							
+							<!-- select 카테고리 시작 -->
 							<td style="float: left">카테고리 : 
 							<select name="bcategorynum" id="bcategorynum" >
                 				<option value="1000" >전체</option>
@@ -68,6 +70,8 @@
 								});
 							</script>
 						</tr>
+						<!-- select 카테고리 끝 -->
+						
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px"></textarea></td>
 						</tr>

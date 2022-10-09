@@ -12,8 +12,9 @@
 <main>
 	<div class="container">
 		<div class="row">
-			<form method="post"
-				action="/Vada/reviewproc.do?productnum=${param.productnum}">
+			
+			<!-- 리뷰작성을 위한 데이터를 담은 폼/ 게시글에 해당하는 게시판테이블에 리뷰작성 (리뷰테이블 따로 존재X) -->
+			<form method="post" action="/Vada/reviewproc.do?productnum=${param.productnum}">
 
 				<table class="table table-stripped"
 					style="text-align: center; boarder: 1px solid #dddddd">
@@ -32,14 +33,17 @@
 						</tr>
 						<tr>
 							<td>
-								<p style="float: left; font-size: 20px">별점 :</p> <select
-								name="reviewscore" style="float: right">
+								<p style="float: left; font-size: 20px">별점 :</p> 
+								
+								<!-- 별점에 해당하는 점수 -->
+								<select name="reviewscore" style="float: right">
 									<option value="1">★☆☆☆☆</option>
 									<option value="2">★★☆☆☆</option>
 									<option value="3">★★★☆☆</option>
 									<option value="4">★★★★☆</option>
 									<option value="5">★★★★★</option>
 							</select>
+							
 							</td>
 						</tr>
 					</tbody>

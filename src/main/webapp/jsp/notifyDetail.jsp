@@ -61,20 +61,23 @@
    </div>
    <div style="margin-left: 30%">
 
-<!-- 	이미지 슬라이드 -->
 		<div class="swiper-container">
 			<div class="swiper-wrapper">
+			
+				<!-- 신고글ID에 해당하는 이미지리스트를 받아서 출력 -->
 				<c:forEach var="item" items="${imglist}" varStatus="status">
 					<div class="swiper-slide">
 							<img src="../${item}">
 					</div>
 	           	</c:forEach>	
+	           	
 			</div>
 			<div class="swiper-pagination"></div>
 			<div class="swiper-button-next"></div>
 			<div class="swiper-button-prev"></div>
 		</div>
-		
+
+		<!-- 	이미지 슬라이드 스크립트 -->
 		<script>
 			new Swiper('.swiper-container', {
 				loop: true,
@@ -91,6 +94,7 @@
 		      });
 		</script>
 		
+			<!-- 신고글상세정보 Handler에서 처리된 notifylistDTO를 출력 -->
 			<div class="row">
 				<div class="col-md-6">
 					<h3>신고자ID : ${notifylistDTO.notifyuserid}</h3>

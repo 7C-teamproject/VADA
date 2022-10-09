@@ -46,16 +46,22 @@ table {
 						</tr>
 					</thead>
 					<tbody>
+					
+						<!-- 현재 사용자(세션ID)에 해당하는 구매목록 리스트 / buyerid가 사용자 ID와 같을 게시글 정보만 출력 -->
 						<c:forEach var="boardDTO" items="${list}" varStatus="stat">
 							<tr>
 								<td>${boardDTO.title}</td>
 								<td>${boardDTO.soldoutdate}</td>
 								<td>
 									<script src="/Vada/js/common.js"></script>
+									
+									<!-- 리뷰를 작성하지 않았다면 후기작성 버튼 출력O -->
 									<c:if test="${boardDTO.review eq null}">
 										<a class="btn btn-secondary"  style="float: right;"
 											href="javascript:confirmCommand('/Vada/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>									
 									</c:if>
+									
+									<!-- 리뷰를 작성했다면 후기작성 버튼 출력X -->
 									<c:if test="${boardDTO.review ne null}">
 										<a class="btn btn-secondary"  style="float: right;"
 											href="javascript:confirmCommand('/Vada/boarddetailform.do?productnum=${boardDTO.productnum}','해당 게시글로 이동');">작성한 후기 보러가기</a>									

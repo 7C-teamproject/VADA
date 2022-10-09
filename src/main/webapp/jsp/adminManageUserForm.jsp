@@ -61,7 +61,7 @@ th, td {
 									<td><input type="hidden" name="${status.index}" value="${userinfo.userid}" />${userinfo.userid}</td>	<!-- userid 출력 -->
 									<td>${userinfo.joindate}</td>		<!-- 회원가입 날짜 -->
 									<td><input type="checkbox" id="${status.index}" name="checkbox" value="${userinfo.blackyn}"/>		<!-- 블랙리스트 여부(체크박스)  -->
-										<c:if test="${userinfo.blackyn eq 'yes'}">checked</c:if>> 		<!-- 블랙리스트 여부가 yes이면 -->
+										<c:if test="${userinfo.blackyn eq 'yes'}"></c:if> 		<!-- 블랙리스트 여부가 yes이면 -->
 										<span id="blackyn${status.index}">${userinfo.blackyn}</span></td>	<!-- 체크박스를 체크상태로 유지 -->
 								</tr>
 								<input type="hidden" name="blackyn${status.index}" id="blackynparam${status.index}" value="${userinfo.blackyn}" />		<!-- 블랙리스트 여부 저장 태그-->

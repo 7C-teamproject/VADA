@@ -56,6 +56,7 @@ label {
 }
 </style>
 
+<!-- 우편번호 확인을 위한 API 시작 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 
@@ -84,6 +85,7 @@ label {
 	}
 	
 </script>
+<!-- 우편번호 확인을 위한 API 끝 -->
 
 <main>
 
@@ -127,6 +129,8 @@ label {
 		</div>
 		<div>
 			<lable>관심 카테고리 
+			
+				<!-- 카테고리 리스트 출력 시작 -->
 				<select name="ca1" id="cate1" >
                 	<option value="all" >전체</option>
                 	<c:forEach var="categoryDTO" items="${categoryDTOList}">
@@ -164,6 +168,8 @@ label {
 						});
 					});
 				</script>
+				<!-- 카테고리 리스트 출력 끝 -->
+				
 			</lable>
 		</div>
 		<div class="join_btn">

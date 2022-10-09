@@ -163,6 +163,7 @@ form .field input:focus::placeholder {
          
          <div class="form-inner">
          
+         	<!-- ID찾기를 위한 데이터 저장 폼 -->
             <form method="post" action="/Vada/searchidproc.do" class="searchid">
                <div class="field">
                   <input type="text" name="email" placeholder="email" required>

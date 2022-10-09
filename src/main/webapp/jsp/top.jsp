@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<!-- 모든 jsp의 기본 베이스가 되며 베이스의 윗부분 코드 -->
 <%
 	CategoryService categoryService = new CategoryListDAOImpl();
 	List<CategoryDTO> categoryDTOList = categoryService.getCategoryList();
@@ -76,7 +77,7 @@ label:before {
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Vada-중고거래</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -96,7 +97,7 @@ label:before {
 		</button>
 
 
-		<!-- Navbar Search-->
+		<!-- 검색 창 -->
 		<form
 			class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
 			action="/Vada/searchresultform.do" method="post">
@@ -104,46 +105,52 @@ label:before {
 			<div class="input-group" style="line-height: 20px">
 				<p style="color: white; margin-top: 15px;">카테고리 :</p>
 				&nbsp;&nbsp;
-				<lable style="margin-top: 12px"> <select name="categories1"
-					id="categories1">
-					<option value="1000">전체</option>
-					<c:forEach var="categoryDTO" items="${categoryDTOList}">
-						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}">
-							<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
-						</c:if>
-					</c:forEach>
-				</select> &nbsp;&nbsp; <select name="categories2" id="categories2">
-					<option value="1000">전체</option>
-				</select> &nbsp;&nbsp; <script src="http://code.jquery.com/jquery-latest.js"></script>
-				<script>
-								$(document).ready(function() {
-									$("#categories1").change(function(){
-										
-										$('#categories2').children('option:not(:first)').remove();
-										
-										var categoryappend = $(this).val().substring(0, 2);
-										
-										<c:forEach var="item" items="${categoryDTOList}">
+				<lable style="margin-top: 12px"> 
+				
+				<!-- 검색 창 카테고리 목록 출력 시작 -->
+					<select name="categories1"
+						id="categories1">
+						<option value="1000">전체</option>
+						<c:forEach var="categoryDTO" items="${categoryDTOList}">
+							<c:if test="${fn:contains(categoryDTO.categorynum, '00')}">
+								<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
+							</c:if>
+						</c:forEach>
+					</select> &nbsp;&nbsp; <select name="categories2" id="categories2">
+						<option value="1000">전체</option>
+					</select> &nbsp;&nbsp; <script src="http://code.jquery.com/jquery-latest.js"></script>
+					<script>
+									$(document).ready(function() {
+										$("#categories1").change(function(){
 											
-										var categorynum = "${item.categorynum}";
+											$('#categories2').children('option:not(:first)').remove();
+											
+											var categoryappend = $(this).val().substring(0, 2);
+											
+											<c:forEach var="item" items="${categoryDTOList}">
 												
-											if(categorynum.match("^"+categoryappend) && categorynum!=$(this).val()) {
-												$('#categories2').append($('<option>', {
-											        value: ${item.categorynum},
-											        text : '${item.categoryname}'
-											    }));
-											}
-	
-										</c:forEach>
+											var categorynum = "${item.categorynum}";
+													
+												if(categorynum.match("^"+categoryappend) && categorynum!=$(this).val()) {
+													$('#categories2').append($('<option>', {
+												        value: ${item.categorynum},
+												        text : '${item.categoryname}'
+												    }));
+												}
+		
+											</c:forEach>
+										});
 									});
-								});
-							</script> </lable>
+					</script> 
+				</lable>
+				<!-- 검색 창 카테고리 목록 출력 끝 -->
 
-				<!-- 				검색어 입력 텍스트 박스 -->
+				<!-- 검색어 입력 텍스트 박스 -->
 				<input class="form-control" name="searchText" value="${selected}"
 					type="text" placeholder="Search for..." aria-label="Search for..."
 					aria-describedby="btnNavbarSearch" />
-				<!--                검색 버튼(돋보기) -->
+					
+				<!-- 검색 버튼(돋보기) -->
 				<button class="btn btn-primary" id="btnNavbarSearch" type="button"
 					onclick="this.form.submit()">
 					<i class="fas fa-search"></i>
@@ -151,7 +158,7 @@ label:before {
 			</div>
 		</form>
 
-		<!-- Navbar-->
+		<!-- 사용자/관리자 사용가능 목록 창 -->
 		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
@@ -162,6 +169,7 @@ label:before {
 					
 					<li><p class="dropdown-item">${sessionScope.dbusernickname} 님</p></li>
 					
+					<!-- 관리자가 아닐때 찜/구매목록/쪽지함/회원정보 변경 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'no'}">
 						<li><a class="dropdown-item" href="/Vada/likelistform.do">찜
 								목록</a></li>
@@ -172,6 +180,8 @@ label:before {
 							href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
 					</c:if>
 					
+					
+					<!-- 관리자가 아닐때 회원관리/신고글 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'yes'}">
 						<li><a class="dropdown-item"
 							href="/Vada/adminmanageuserform.do">회원관리</a></li>
@@ -180,6 +190,8 @@ label:before {
 					</c:if>
 					
 					<li><hr class="dropdown-divider" /></li>
+					
+					<!-- 로그아웃목록은 관리자/사용자 모두 사용 -->
 					<li><a class="dropdown-item" href="/Vada/logout.do">로그아웃</a></li>
 					
 				</ul>

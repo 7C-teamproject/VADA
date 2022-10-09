@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-<%-- <jsp:include page="top.jsp" /> --%>
-
 <style>
 * {
    margin: 0;
@@ -150,6 +148,7 @@ form .field input:focus::placeholder {
    
 </script>
 
+<!-- 로그인 폼 -->
 <html>
 	<head>
 	</head>

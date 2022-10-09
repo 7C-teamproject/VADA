@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+		
+		
+		<!-- 모든 jsp의 기본 베이스가 되며 베이스의 아랫부분 코드 -->
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div class="d-flex align-items-center justify-content-between small">
