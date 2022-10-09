@@ -28,7 +28,7 @@
 			<c:set var="listSize" value="${list.size()}" />
 			<c:if test="${fn:length(list) != 0}">
 				<c:forEach var="item" items="${list}" varStatus="stat">
-					<li id="listid" class="cell">
+					<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
 						<div class="img-box">
 							<img class=imgfile src="/Vada/img${item.imgsname}">
 

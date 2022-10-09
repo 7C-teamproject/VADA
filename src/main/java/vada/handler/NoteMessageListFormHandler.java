@@ -9,27 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 import vada.dao.impl.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
 
-public class NoteMessageListFormHandler implements CommandHandler{
+public class NoteMessageListFormHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
 		NoteMessageDAOImpl noteMessageDAOImpl = new NoteMessageDAOImpl();
-		  List<NoteMessageDTO> listmessage = new ArrayList<NoteMessageDTO>();
-		   
-		   NoteMessageDTO noteMessageDTO = new NoteMessageDTO();
-		   noteMessageDTO.setNotetouserid(request.getParameter("notetouserid"));
-		   noteMessageDTO.setNotefromuserid(request.getParameter("notefromid"));
-		   noteMessageDTO.setMessage(request.getParameter("message"));
-		    
-		   
-		   
-		   if(noteMessageDTO!= null) {
-		      listmessage = noteMessageDAOImpl.showboard((String)request.getAttribute("userid"));
-		   }
-		request.setAttribute("listmessage", listmessage);
+		List<NoteMessageDTO> listmessage = new ArrayList<NoteMessageDTO>();
+
+		NoteMessageDTO noteMessageDTO = new NoteMessageDTO();
 		
-		return "jsp/NoteMessageListForm.jsp";
+		noteMessageDTO.setNotetouserid(request.getParameter("notetouserid"));
+		noteMessageDTO.setNotefromuserid(request.getParameter("notefromid"));
+		noteMessageDTO.setMessage(request.getParameter("message"));
+
+		if (noteMessageDTO != null) {
+			listmessage = noteMessageDAOImpl.showboard((String) request.getAttribute("userid"));
+		}
+		
+		request.setAttribute("listmessage", listmessage);
+
+		return "jsp/noteMessageListForm.jsp";
 	}
-	
+
 }

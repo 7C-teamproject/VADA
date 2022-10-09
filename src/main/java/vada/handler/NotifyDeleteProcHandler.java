@@ -21,7 +21,7 @@ public class NotifyDeleteProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 
-		return "/adminmanageuserform.do";
+		return "/adminmanagenotifyform.do";
 
 	}
 

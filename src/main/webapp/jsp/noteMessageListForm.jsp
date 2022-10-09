@@ -2,15 +2,11 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-   <div>
+
+<jsp:include page="top.jsp" />
+
+<main>
+	  <div>
       <div>
         
           <h2>${sessionScope.userid} 님에게 온 메시지 입니다.</h2>
@@ -64,6 +60,6 @@
    <br /><br />
    <button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/jsp/mainformindex.jsp'">메인으로 돌아가기</button>
 
-
-</body>
-</html>
+	
+</main>
+<jsp:include page="bottom.jsp" />

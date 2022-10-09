@@ -174,8 +174,7 @@
 
 			<c:forEach var="item" items="${boardList}" varStatus="stat">
 
-				<li id="listid" class="cell"
-					onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
+				<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
 					<div class="img-box">
 						<img class=imgfile src="/Vada/img${item.imgsname}" alt="">
 					</div>
