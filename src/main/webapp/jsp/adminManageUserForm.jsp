@@ -24,23 +24,6 @@ th, td {
 }
 </style>
 
-
-<%
-// ManagerService managerService = new ManagerDAOImpl();
-
-// //	String useridparam = "YEO";
-// String userid = (String)session.getAttribute("userid") == null ? "" : request.getParameter("userid");
-// if(userid=="") {
-// 	System.out.println("관리자로 로그인 해야함");
-// 	response.sendRedirect("/Vava/jsp/adminLoginForm.jsp");
-// }
-
-// List<UserDTO> list = managerService.listBoard(); // TODO useridparam 필요한지 확인
-
-// 	pageContext.setAttribute("list", list);
-	
-%>
-
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <main>
@@ -54,7 +37,7 @@ th, td {
 			</div>
 			<div class="card-body">
 			
-				<form action="/Vada/blacklistproc.do" method="Post">
+				<form action="/Vada/blacklistproc.do" method="Post">	<!-- 블랙리스트 데이터 저장 폼  -->
 				
 					<table>
 						<colgroup>
@@ -73,17 +56,18 @@ th, td {
 
 						<tbody>
 							<input type="hidden" name="listsize" value="${list.size()}" />
-							<c:forEach var="userinfo" items="${list}" varStatus="status">
+							<c:forEach var="userinfo" items="${list}" varStatus="status">		<!-- 회원가입유저 목록(userDTO)을 가지는 list를 userinfo 변수로 하나씩 사용 -->
 								<tr>
-									<td><input type="hidden" name="${status.index}" value="${userinfo.userid}" />${userinfo.userid}</td>
-									<td>${userinfo.joindate}</td>
-									<td><input type="checkbox" id="${status.index}" name="checkbox" value="${userinfo.blackyn}"
-										<c:if test="${userinfo.blackyn eq 'yes'}">checked</c:if>> 
-										<span id="blackyn${status.index}">${userinfo.blackyn}</span></td>
+									<td><input type="hidden" name="${status.index}" value="${userinfo.userid}" />${userinfo.userid}</td>	<!-- userid 출력 -->
+									<td>${userinfo.joindate}</td>		<!-- 회원가입 날짜 -->
+									<td><input type="checkbox" id="${status.index}" name="checkbox" value="${userinfo.blackyn}"/>		<!-- 블랙리스트 여부(체크박스)  -->
+										<c:if test="${userinfo.blackyn eq 'yes'}">checked</c:if>> 		<!-- 블랙리스트 여부가 yes이면 -->
+										<span id="blackyn${status.index}">${userinfo.blackyn}</span></td>	<!-- 체크박스를 체크상태로 유지 -->
 								</tr>
-								<input type="hidden" name="blackyn${status.index}" id="blackynparam${status.index}" value="${userinfo.blackyn}" />
+								<input type="hidden" name="blackyn${status.index}" id="blackynparam${status.index}" value="${userinfo.blackyn}" />		<!-- 블랙리스트 여부 저장 태그-->
 								
-								<script>
+								<!-- 체크되어 있으면 블랙리스트 여부 저장 태그 값 yes 아니면 no 값 -->
+							<script>		
 									$(document).ready(function() {
 										$("#${status.index}").change(function() {
 											if ($("#${status.index}").is(":checked")) {
@@ -99,16 +83,13 @@ th, td {
 								
 							</c:forEach>
 						</tbody>
-						
 					</table>
-
-					<input type="button" value="회원 정보 수정" onclick="this.form.submit()" />
-					
+					<input type="button" value="회원 정보 수정" onclick="this.form.submit()" />	<!-- 블랙리스트 처리 핸들러로 데이터를 전송 -->
 				</form>
 				
 			</div>
 		</div>
-			<a href = "/Vada/adminmanagenotifyform.do">신고글 관리페이지 이동</a>
+			<a href = "/Vada/adminmanagenotifyform.do">신고글 관리페이지 이동</a>		<!-- 신고글 관리페이지로 이동 -->
 	</div>
 
 </main>

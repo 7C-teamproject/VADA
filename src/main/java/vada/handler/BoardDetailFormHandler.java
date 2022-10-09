@@ -40,9 +40,9 @@ public class BoardDetailFormHandler implements CommandHandler{
 		productpriceDTO = (ProductpriceDTO) map.get("ProductpriceDTO");
 		categoryDTO = (CategoryDTO) map.get("categoryDTO");
 
-		List imgsnameList = (List) map.get("imgsnameList");
-		List imgcnameList = (List) map.get("imgcnameList");
-		List imgsizeList = (List) map.get("imgsizeList");
+//		List imgsnameList = (List) map.get("imgsnameList");
+		List imgDTOList = (List) map.get("imgDTOList");
+		
 
 		request.setAttribute("boardDTO", boardDTO);
 		String reserveText = "판매중";
@@ -56,28 +56,12 @@ public class BoardDetailFormHandler implements CommandHandler{
 			}
 		}
 		request.setAttribute("reserveText", reserveText);
-
 		request.setAttribute("productpriceDTO", productpriceDTO);
-
 		request.setAttribute("categoryDTO", categoryDTO);
-
-		request.setAttribute("imgsnameList", imgsnameList); 
-		request.setAttribute("imgcnameList", imgcnameList); 
-		request.setAttribute("imgsizeList", imgsizeList); 
-
+		request.setAttribute("imgDTOList", imgDTOList); 
 		request.setAttribute("sellerid", boardDTO.getSellerid());
 		request.setAttribute("buyerid", boardDTO.getBuyerid());
 
-		System.out.println("boardDTO ===========================> " + boardDTO);
-
-		request.setAttribute("productpriceDTO", productpriceDTO);
-		System.out.println("productpriceDTO ===========================> " + productpriceDTO);
-
-		request.setAttribute("categoryDTO", categoryDTO);
-		System.out.println("categoryDTO ===========================> " + categoryDTO);
-
-		request.setAttribute("reserveText", reserveText);
-		
 		return "jsp/boardDetailForm.jsp";
 		
 	}

@@ -53,12 +53,11 @@
 			<!-- 	이미지 슬라이드 -->
 			<div class="swiper-container" onclick="swiper()">
 				<div class="swiper-wrapper">
-					<c:forEach var="item" items="${imgsnameList}" varStatus="status">
+					<c:forEach var="imgDTO" items="${imgDTOList}" varStatus="status">		<!-- 이미지 데이터 저장 list -->
 						<div class="swiper-slide">
-							<img style="width: 100%; height: 100%;" src="/Vada/img${item}" name="img">
-							<input type="hidden" name="imgcname${status.index}"
-								value="${imgcnameList[status.index]}" /> <input type="hidden"
-								name="imgsize${status.index}" value="${imgsizeList[status.index]}" />
+							<img style="width: 100%; height: 100%;" src="/Vada/img${imgDTO.imgsname}" name="img">	<!-- 서버에 저장된 이미지 출력 -->
+							<input type="hidden" name="imgcname${status.index}" value="${imgDTO.imgcname}" /> 	<!-- 게시글 수정시 사용할 파일명 -->
+							<input type="hidden" name="imgsize${status.index}" value="${imgDTO.imgsize}" />		<!-- 게시글 수정시 사용할 파일크기 -->
 						</div>
 					</c:forEach>
 
@@ -84,11 +83,13 @@
 				});
 			</script>
 
+			<!-- 게시글 수정/삭제 시 confirm하는 스크립트 -->
 			<script src="/Vada/js/common.js"></script>
 			<div class="row">
 				<div class="col-md-6">
 				
 					<h3>
+						<!-- 게시판 제목 출력 / hidden 타입 Input는 수정 시 폼데이터로 title값 전송 -->
 						제목 : ${boardDTO.title}<input type="hidden" name="title" value="${boardDTO.title}" />
 					</h3>
 
@@ -101,7 +102,7 @@
 					<br />
 				
 				
-					<!-- 판매자가 로그인한 사용자일 떄 -->
+					<!-- 판매자가 로그인한 사용자일 떄 버튼 (수정/삭제/예약취소/판매완료)-->
 					<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
 						
 						<c:if test="${boardDTO.reservation eq 'no'}">
@@ -128,7 +129,7 @@
 						
 					</c:if>
 				
-					<!-- 판매자가 로그인한 사용자가 아닐 때 -->
+					<!-- 판매자가 로그인한 사용자가 아닐 때 버튼(신고/채팅/쪽지/찜/예약)-->
 					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 					
 						<a class="btn btn-secondary" style="float: right"

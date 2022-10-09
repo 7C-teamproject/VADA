@@ -98,9 +98,7 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 				categoryDTO.setCategoryname(rs2.getString("categoryname"));
 			}
 
-			List imgsnameList = new ArrayList();
-			List imgcnameList = new ArrayList();
-			List imgsizeList = new ArrayList();
+			List<ImgDTO> imgDTOList = new ArrayList<ImgDTO>();
 
 			while (rs3 != null && rs3.next()) {
 				imgDTO = new ImgDTO();
@@ -110,19 +108,14 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 				imgDTO.setImgcname(rs3.getString("imgcname"));
 				imgDTO.setImgsize(rs3.getInt("imgsize"));
 
-				imgsnameList.add(imgDTO.getImgsname());
-				imgcnameList.add(imgDTO.getImgcname());
-				imgsizeList.add(imgDTO.getImgsize());
-
+				imgDTOList.add(imgDTO);
 			}
 
 			map.put("boardDTO", boardDTO);
 			map.put("ProductpriceDTO", productDTO);
 			map.put("categoryDTO", categoryDTO);
 
-			map.put("imgsnameList", imgsnameList);
-			map.put("imgcnameList", imgcnameList);
-			map.put("imgsizeList", imgsizeList);
+			map.put("imgDTOList", imgDTOList);
 
 			conn.commit();
 

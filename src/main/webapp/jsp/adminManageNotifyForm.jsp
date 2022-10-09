@@ -40,12 +40,13 @@ th, td {
                </thead>
                
                <tbody>
-                  <c:set var="listSize" value="${list.size()}" />
-                  <c:forEach var="notifylistDTO" items="${list}" varStatus="stat">
+                  <c:forEach var="notifylistDTO" items="${list}" varStatus="stat">		
+                  <!-- 신고글 목록 핸들러에서 신고글 리스트를 받아오며 notifylistDTO라는 이름으로 notifylistDTO 객체를 하나씩 담는다 -->
                      <tr>
-                        <td>${notifylistDTO.notifyuserid}</td>
+                        <td>${notifylistDTO.notifyuserid}</td>		<!-- notifylistDTO에서 notifyuserid를 출력 -->
                         <td><a href="/Vada/notifydetail.do?notifyid=${notifylistDTO.notifyid}">${notifylistDTO.notifyreason}</a></td>
-                        <td>${notifylistDTO.notifydate}</td>
+                        <!-- 신고사유를 클릭하면 해당 신고사유에 해당하는 신고세부내용폼으로 이동 -->
+                        <td>${notifylistDTO.notifydate}</td>	<!-- 신고글 작성 날짜 데이터 -->
                      </tr>
                   </c:forEach>
                </tbody>
@@ -54,7 +55,7 @@ th, td {
             
          </div>
       </div>
-      <a href="/Vada/adminmanageuserform.do">회원 목록 이동</a>
+      <a href="/Vada/adminmanageuserform.do">회원 목록 이동</a>		<!-- 회원관리목록으로 이동 -->
    </div>
 
 </main>
