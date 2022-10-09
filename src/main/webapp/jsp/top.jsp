@@ -208,8 +208,8 @@ label:before {
 						<div class="sb-sidenav-menu-heading">Core</div>
 						<a class="nav-link" href="/Vada/mainform.do">
 							<div class="sb-nav-link-icon"></div> 중고거래
-						</a> <a class="nav-link" href="index.html">
-							<div class="sb-nav-link-icon"></div> 채팅
+						</a> <a class="nav-link" href="/Vada/notemessagelistform.do">
+							<div class="sb-nav-link-icon"></div>쪽지함
 						</a>
 
 					</div>
