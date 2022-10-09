@@ -40,28 +40,26 @@ public class LoginProcHandler implements CommandHandler {
 			blackyn = userDTO.getBlackyn();
 
 			if (userid.equals(dbuserid) && userpw.equals(dbuserpw)) {
-
 				flag = true;
 				System.out.println("nickname===========>" + dbusernickname);
-
 			}
 		}
 
-		if (flag) { // 로그인 성공 시
-
-			session.setAttribute("dbusernickname", dbusernickname);
-			session.setAttribute("userid", userid);
-			session.setAttribute("adminyn", adminyn);
-			url = "/mainform.do";
-
-		} else { // 로그인 실패 시
+		// 로그인 성공 시
+		if (flag) {
 			
+			// 로그인한 사용자가 블랙 리스트로 등록된 아이디면 로그인 불가능
 			if (blackyn.equals("yes")) {
 				url = "/jsp/blackIdLogin.jsp";
-			} else {
-				url = "/jsp/failedLogin.jsp";				
+			} else { // 블랙 리스트 회원이 아닌 일반 사용자 로그인 성공 시
+				session.setAttribute("dbusernickname", dbusernickname);
+				session.setAttribute("userid", userid);
+				session.setAttribute("adminyn", adminyn);
+				url = "/mainform.do";
 			}
-			
+
+		} else { // 로그인 실패 시
+			url = "/jsp/failedLogin.jsp";
 		}
 
 		return url;

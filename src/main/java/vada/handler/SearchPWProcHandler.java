@@ -18,7 +18,6 @@ public class SearchPWProcHandler implements CommandHandler {
 		String userpw = null;
 		try {
 			userpw = searchUserPWService.searchUserPW(userid, email);
-			request.setAttribute("userpw", userpw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -26,11 +25,11 @@ public class SearchPWProcHandler implements CommandHandler {
 		String url = "";
 
 		if (userpw == null) {
-			url = "/jsp/failedFindPW.jsp";
+			url = "jsp/failedFindPW.jsp";
 
 		} else {
-			url = "/jsp/findPWLogin.jsp";
-			
+			url = "jsp/findPWLogin.jsp?searchUserpw=" + userpw;
+
 		}
 		return url;
 	}

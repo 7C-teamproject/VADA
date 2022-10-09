@@ -18,7 +18,6 @@ public class SearchIDProcHandler implements CommandHandler {
 		String userid = null;
 		try {
 			userid = searchUserIDService.searchUserID(name, email);
-			request.setAttribute("userid", userid);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -26,12 +25,12 @@ public class SearchIDProcHandler implements CommandHandler {
 		String url = "";
 
 		if (userid == null) {
-			url = "/jsp/failedFindID.jsp";
+			url = "jsp/failedFindID.jsp";
 
 		} else {
-			url="/jsp/findIDLogin.jsp";
-			
+			url = "jsp/findIDLogin.jsp?searchUserid=" + userid;
 		}
+		
 		return url;
 	}
 }
