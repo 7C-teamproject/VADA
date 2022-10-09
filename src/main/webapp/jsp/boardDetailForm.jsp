@@ -104,31 +104,27 @@
 					<!-- 판매자가 로그인한 사용자일 떄 -->
 					<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
 						
-						<input type="button" class="btn btn-secondary"
-								onclick="this.form.submit()" value="글 수정">
-
+						<c:if test="${boardDTO.reservation eq 'no'}">
+							<input type="button" class="btn btn-secondary"
+									onclick="this.form.submit()" value="글 수정">
+						</c:if>
+						
 						<script src="/Vada/js/common.js"></script>
 						<a class="btn btn-secondary"
 							href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
 							삭제</a>
 								
-						<c:if test="${boardDTO.reservation eq 'yes'}">
+						<c:if test="${boardDTO.reservation eq 'yes'} && ${boardDTO.buyerid ne 'default'}">
+						
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약취소');">예약취소</a>
+								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약 취소하기</a>
 							<br />
-						</c:if>
-						
-						<!-- 판매완료 버튼 클릭 시 DB에 soldout 데이터 저장해야함 -->
-						
-						
-						
-						
-						
-						<c:if test="${boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
+							
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
+								href="javascript:confirmCommand('soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매 완료 처리하기</a>
+							<br />
+							
 						</c:if>
-						
 						
 					</c:if>
 				
@@ -152,7 +148,7 @@
 						
 						<c:if test="${boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
+								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매 예약</a>
 						</c:if>
 						
 						
@@ -176,43 +172,6 @@
 						</h3>
 					</c:if>
 					<br /> <br />
-					<p>
-					
-					
-						<!-- 로그인한 사용자가 작성한 게시글이면 글 수정/삭제 가능 -->
-<%-- 						<c:if test="${sessionScope.userid eq boardDTO.sellerid or sessionScope.adminyn eq 'yes'}"> --%>
-<!-- 							<input type="button" class="btn btn-secondary" -->
-<!-- 								onclick="this.form.submit()" value="글 수정"> -->
-
-<!-- 							<script src="/Vada/js/common.js"></script> -->
-<!-- 							<a class="btn btn-secondary" -->
-<%-- 								href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글 --%>
-<!-- 								삭제</a> -->
-								
-<!-- 							해당 게시글이 판매 완료 게시글 이면 "판매 완료" 출력 -->
-<%-- 							<c:if test="${empty boardDTO.soldoutdate}"> --%>
-<!-- 								<a class="btn btn-secondary" style="color: yellow" -->
-<%-- 									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a> --%>
-<%-- 							</c:if> --%>
-							
-<!-- 							해당 게시글이 예약중인 게시글 이면 "예약중" 출력 -->
-<%-- 							<c:if test="${boardDTO.reservation eq 'yes'}"> --%>
-<!-- 								<a class="btn btn-secondary" style="color: yellow" -->
-<%-- 									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">예약중</a> --%>
-<%-- 							</c:if> --%>
-<%-- 						</c:if> --%>
-						
-<!-- 						해당 게시글이 판매중이고, 현재 로그인 한 사용자가 아닌 다른 사람이 올린 게시글이면 채팅/쪽지/찜하기 가능 -->
-<%-- 						<c:if test="${!empty boardDTO.soldoutdate}"> --%>
-<%-- 							<c:if test="${sessionScope.userid ne boardDTO.sellerid}"> --%>
-<%-- 								<a href=" /Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}"class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a> --%>
-<%-- 								<a href="/Vada/jsp/NoteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a> --%>
-<!-- 								<a class="btn btn-secondary" -->
-<!-- 									style="float: right; margin-right: 5px;" -->
-<%-- 									href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a> --%>
-<%-- 							</c:if> --%>
-<%-- 						</c:if> --%>
-					</p>
 				</div>
 			</div>
 		</form>

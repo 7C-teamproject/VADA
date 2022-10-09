@@ -217,9 +217,11 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("YES_RESERVE_BOARD_SQL"));
 			pstmt.setString(1, userid);
 			pstmt.setInt(2, productnum);
-		} else {
+			
+		} else if(command.equals("cancel")){
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("NO_RESERVE_BOARD_SQL"));
 			pstmt.setInt(1, productnum);
+			
 		}
 
 		int result = pstmt.executeUpdate();
