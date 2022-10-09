@@ -3,6 +3,7 @@ package vada.handler;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,7 +30,12 @@ public class NoteMessageListFormHandler implements CommandHandler {
 		
 		request.setAttribute("listmessage", listmessage);
 
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/noteMessageListForm.jsp");
+		
+//		dispatcher.forward(request, response);
+		
 		return "jsp/noteMessageListForm.jsp";
+		
 	}
 
 }

@@ -41,7 +41,7 @@ public class NoteMessageServlet extends HttpServlet {
          System.out.println("메시지 전송 실패");
       }
       
-      resp.sendRedirect("/Vada/jsp/NoteMessageListForm.jsp");
+      resp.sendRedirect("notemessagelistform.do");
       
    }
 

@@ -46,7 +46,7 @@ public class LoginProcHandler implements CommandHandler {
 		String url = "";
 		if (flag) { // 로그인 성공 시
 
-			session.setAttribute("usernickname", dbusernickname);
+			session.setAttribute("nickname", dbusernickname);
 			session.setAttribute("userid", userid);
 			session.setAttribute("adminyn", adminyn);
 			url = "/mainform.do";

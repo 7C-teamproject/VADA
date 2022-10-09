@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Insert title here</title>
-</head>
-<body>
-   <div>
+    
+<jsp:include page="top.jsp" />
+
+<main>
+	  <div>
       <form action="/Vada/MessageServlet" method="post">
          <input type="hidden" name="productnum" value="${param.productnum}" />
          <input type="hidden" name="sellerid" value="${param.sellerid}" />
@@ -34,6 +32,7 @@
    
    </div>
 
-
-</body>
-</html>
+</main>
+ 
+ <jsp:include page="bottom.jsp" />
+ 

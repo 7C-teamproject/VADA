@@ -159,6 +159,9 @@ label:before {
 					class="fas fa-user fa-fw"></i></a>
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
+					
+					<li><p class="dropdown-item">${sessionScope.nickname} 님</p></li>
+					
 					<c:if test="${sessionScope.adminyn eq 'no'}">
 						<li><a class="dropdown-item" href="/Vada/likelistform.do">찜
 								목록</a></li>
@@ -168,15 +171,19 @@ label:before {
 						<li><a class="dropdown-item"
 							href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
 					</c:if>
+					
 					<c:if test="${sessionScope.adminyn eq 'yes'}">
 						<li><a class="dropdown-item"
 							href="/Vada/adminmanageuserform.do">회원관리</a></li>
 						<li><a class="dropdown-item"
 							href="/Vada/adminmanagenotifyform.do">신고글 목록</a></li>
 					</c:if>
+					
 					<li><hr class="dropdown-divider" /></li>
 					<li><a class="dropdown-item" href="/Vada/logout.do">로그아웃</a></li>
-				</ul></li>
+					
+				</ul>
+			</li>
 		</ul>
 
 	</nav>
