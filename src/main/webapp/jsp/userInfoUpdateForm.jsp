@@ -8,46 +8,124 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <style>
-select {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	font-family: "Noto Sansf KR", sans-serif;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #444;
-	background-color: #fff;
-	padding: .6em 1.4em .5em .8em;
-	margin: 0;
-	border: 1px solid #aaa;
-	border-radius: .5em;
-	box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
 }
 
-select:hover {
-	border-color: #888;
+html, body {
+	display: grid;
+	height: 100%; 
+	width: 100%; 
+	place-items: center;
 }
 
-select:focus {
-	border-color: #aaa;
-	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
-	box-shadow: 0 0 0 3px -moz-mac-focusring;
-	color: #222;
-	outline: none;
+::selection {
+   background: #1a75ff;
+   color: #fff;
 }
 
-select:disabled {
-	opacity: 0.5;
+.wrapper {
+   overflow: hidden;
+   width: 400px;
+   background: #fff;
+   padding: 30px;
+   border-radius: 15px;
+   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 }
 
-label {
-	font-family: "Noto Sans KR", sans-serif;
-	font-size: 1rem;
-	font-weight: 600;
-	line-height: 1.3;
-	color: #444;
-	margin-right: 0.5em;
+.wrapper .title-text {
+   display: flex;
+   width: 200%;
+}
+
+.wrapper .title {
+   width: 100%;
+   font-size: 35px;
+   font-weight: 600;
+   text-align: center;
+   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+input[type="radio"] {
+   display: none;
+}
+
+#login:checked ~ label.signup {
+   color: #000;
+}
+
+#login:checked ~ label.login {
+   cursor: default;
+   user-select: none;
+}
+
+.wrapper .form-container {
+   width: 100%;
+   overflow: hidden;
+}
+
+.form-container .form-inner {
+   display: flex;
+   width: 200%;
+}
+
+.form-container .form-inner form {
+   width: 50%;
+   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+   height: 50px;
+   width: auto;
+   margin-top: 20px;
+}
+
+.form-inner form .field input {
+   height: 100%;
+   width: auto;
+   outline: none;
+   padding-left: 15px;
+   border-radius: 15px;
+   border: 1px solid lightgrey;
+   border-bottom-width: 2px;
+   font-size: 17px;
+   transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+   border-color: #1a75ff;
+   /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+
+.form-inner form .field input::placeholder {
+   color: #999;
+   transition: all 0.3s ease;
+}
+
+form .field input:focus::placeholder {
+   color: #1a75ff;
+}
+
+.form-inner form .pass-link {
+   margin-top: 5px;
+}
+
+.form-inner form .signup-link {
+   text-align: center;
+   margin-top: 30px;
+}
+
+.form-inner form .pass-link a, .form-inner form .signup-link a {
+   color: #1a75ff;
+   text-decoration: none;
+}
+
+.form-inner form .pass-link a:hover, .form-inner form .signup-link a:hover
+   {
+   text-decoration: underline;
 }
 </style>
 
@@ -80,28 +158,37 @@ label {
 
 </script>
 
-<main>
-<h5>회원 정보 수정</h5>
+<html>
+	<head>
+	</head>
+	<body>
+<div class="wrapper">
+      <div class="form-container">
+         <div class="slide-controls">
+            <label for="login" style="font-weight: bold; font-size: 25px;">회원 정보 수정</label>
+         </div>
+         
+         <div class="form-inner">
 	<form name="join_form" action="/Vada/userinfoupdateproc.do" method="post">
+	
 		<div>
-			<label>아이디<input type="text" name="userid" id="uid" value="${userDTO.userid}"></label>
-			<button type="button" onclick="id_check();">중복확인</button>
+			아이디 : ${userDTO.userid}
 		</div>
-		<div>
-			<label>비밀번호<input type="password" name="userpw" id="pwd" placeholder="영문자+숫자+특수문자 조합" value="${userDTO.userpw}"/></label>
+		<div class="field">
+			비밀번호 : <input type="password" name="userpw" id="pwd" placeholder="영문자+숫자+특수문자 조합" value="${userDTO.userpw}"/>
 		</div>
-		<div>
-			<label>비밀번호 재확인<input type="password" name="pwd" id="repwd" value="${userDTO.userpw}"></label>
+		<div class="field">
+			비밀번호 재확인 : <input type="password" name="pwd" id="repwd" value="${userDTO.userpw}">
 		</div>
-		<div>
-			<label>이름<input type="text" name="name" id="uname" value="${userDTO.name}"></label>
+		<div class="field">
+			이름 : <input type="text" name="name" id="uname" value="${userDTO.name}">
+		</div><br />
+			<p>전화번호 : (※ "-"없이 숫자만 입력)</p>
+		<div class="field">
+			<input type="tel" name="tel" id="mobile" value="${userDTO.tel}">		  
 		</div>
-
-		<div>
-			<label>전화번호<input type="tel" name="tel" id="mobile" value="${userDTO.tel}"> ex "-"없이 숫자만 입력 </label>
-		</div>
-		<div>
-			<label>이메일<input type="text" name="email" id="email_id" value="${userDTO.email}">@</label> 
+		<div class="field">
+			이메일 : <input type="text" name="email" id="email_id" value="${userDTO.email}">@ <br />
 			<input type="text" name="email_add" id="email_add"> 
 			<select name="email_sel" id="email_sel" onchange="change_email();">
 				<option value="">직접입력</option>
@@ -109,27 +196,27 @@ label {
 				<option value="gmail.com">gmail</option>
 				<option value="nate.com">nate</option>
 			</select>
+		</div><br /><br />
+		<div class="field">
+			기본주소 : <button type="button" id="address_kakao">우편번호 찾기</button><br />
+			<input type="text" id="address" name="address"  value="${userDTO.address}" readonly>
+		</div><br />
+		<div class="field">
+			상세주소 : <input type="text" name="detailaddress" id="addr2" value="${userDTO.detailaddress}">
+		</div>
+		<div class="field">
+			닉네임 : <input type="text" name="nickname" id="nickname" value="${userDTO.nickname}">
 		</div>
 		<div>
-			<label>기본주소<input type="text" id="address" name="address"  value="${userDTO.address}"readonly></label>
-			<button type="button" id="address_kakao">우편번호 찾기</button>
-		</div>
-		<div>
-			<label>상세주소<input type="text" name="detailaddress" id="addr2" size="30" value="${userDTO.detailaddress}"></label>
-		</div>
-		<div>
-			<label>닉네임<input type="text" name="nickname" id="nickname" value="${userDTO.nickname}"></label>
-		</div>
-		<div>
-			<lable>관심 카테고리 
-				<select name="ca1" id="cate1" >
-                	<option value="1000" >전체</option>
-                	<c:forEach var="categoryDTO" items="${categoryDTOList}">
-	           			<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
-							<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
-						</c:if>
-					</c:forEach>
-				</select> &nbsp;&nbsp;
+			관심 카테고리 : 
+			<select name="ca1" id="cate1" >
+                <option value="1000" >전체</option>
+                <c:forEach var="categoryDTO" items="${categoryDTOList}">
+	           		<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
+						<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
+					</c:if>
+				</c:forEach>
+			</select> &nbsp;&nbsp;
 							
 				<select name="interestcategorynum" id="interestcategorynum" >
                 	<option value="1000" >전체</option>
@@ -161,12 +248,16 @@ label {
 				</script>
 			</lable>
 		</div>
-		<div class="join_btn">
+		<div class="signup-link">
 			<button type="button" onclick="history.back();">이전페이지로</button>
 			<button type="button" onclick="this.form.submit();">변경하기</button>
 		</div>
-	</form>
-
-</main>
+		
+		
+        </form>
+		</div>
+	</div>
+   </div>
+</body>
 
 <jsp:include page="bottom.jsp" />
