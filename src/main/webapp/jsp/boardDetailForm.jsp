@@ -87,25 +87,7 @@
 			<script src="/Vada/js/common.js"></script>
 			<div class="row">
 				<div class="col-md-6">
-					<a class="btn btn-secondary" style="float: right"
-						href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
-						신고</a><br /> <br /> <br />
-
-					<!-- 다른 사람이 올린 게시글이 예약중이 아니면 구매 예약 버튼 표시 -->
-					<c:if
-						test="${sessionScope.userid ne boardDTO.sellerid and boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
-						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
-					</c:if>
-					
-					<!-- 내가 예약한 게시글이면 예약 취소 버튼 표시 -->
-					<c:if test="${sessionScope.userid eq boardDTO.reserveid and boardDTO.reservation eq 'yes'}">
-						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약취소');">예약취소</a>
-						<br />
-					</c:if>
-					<br /> <br />
-					
+				
 					<h3>
 						제목 : ${boardDTO.title}<input type="hidden" name="title" value="${boardDTO.title}" />
 					</h3>
@@ -117,6 +99,66 @@
 					<h3>가격 :  <fmt:formatNumber value="${productpriceDTO.productprice}" pattern="#,###" />원</h3>
 					<input type="hidden" name="productprice" value="${productpriceDTO.productprice}" />
 					<br />
+				
+				
+					<!-- 판매자가 로그인한 사용자일 떄 -->
+					<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
+						
+						<input type="button" class="btn btn-secondary"
+								onclick="this.form.submit()" value="글 수정">
+
+						<script src="/Vada/js/common.js"></script>
+						<a class="btn btn-secondary"
+							href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
+							삭제</a>
+								
+						<c:if test="${boardDTO.reservation eq 'yes'}">
+							<a class="btn btn-secondary" style="float: right"
+								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약취소');">예약취소</a>
+							<br />
+						</c:if>
+						
+						<!-- 판매완료 버튼 클릭 시 DB에 soldout 데이터 저장해야함 -->
+						
+						
+						
+						
+						
+						<c:if test="${boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
+							<a class="btn btn-secondary" style="float: right"
+								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
+						</c:if>
+						
+						
+					</c:if>
+				
+					<!-- 판매자가 로그인한 사용자가 아닐 때 -->
+					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
+					
+						<a class="btn btn-secondary" style="float: right"
+							href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
+							신고</a><br /> <br /> <br />
+						
+						<a class="btn btn-info" style="float: right color: red"
+							 href="/Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a>
+						
+						<a class="btn btn-info" style="float: right color: red"
+							href="/Vada/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" >
+							쪽지 보내기&raquo;</a>
+						
+						<a class="btn btn-secondary"
+							style="float: right; margin-right: 5px;"
+							href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
+						
+						<c:if test="${boardDTO.reserveid eq 'default' and boardDTO.reservation eq 'no'}">
+							<a class="btn btn-secondary" style="float: right"
+								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매예약');">구매예약</a>
+						</c:if>
+						
+						
+					</c:if>
+					<br /> <br />
+			
 
 					<!-- 판매중/예약중/판매완료 상태 텍스트 출력 -->
 					<h3>(${reserveText})</h3>
@@ -135,40 +177,41 @@
 					</c:if>
 					<br /> <br />
 					<p>
-					<% // TODO 예약/판매중/판매완료 상태 처리해야함 %>
+					
+					
 						<!-- 로그인한 사용자가 작성한 게시글이면 글 수정/삭제 가능 -->
-						<c:if test="${sessionScope.userid eq boardDTO.sellerid or sessionScope.adminyn eq 'yes'}">
-							<input type="button" class="btn btn-secondary"
-								onclick="this.form.submit()" value="글 수정">
+<%-- 						<c:if test="${sessionScope.userid eq boardDTO.sellerid or sessionScope.adminyn eq 'yes'}"> --%>
+<!-- 							<input type="button" class="btn btn-secondary" -->
+<!-- 								onclick="this.form.submit()" value="글 수정"> -->
 
-							<script src="/Vada/js/common.js"></script>
-							<a class="btn btn-secondary"
-								href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
-								삭제</a>
+<!-- 							<script src="/Vada/js/common.js"></script> -->
+<!-- 							<a class="btn btn-secondary" -->
+<%-- 								href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글 --%>
+<!-- 								삭제</a> -->
 								
-							<!-- 해당 게시글이 판매 완료 게시글 이면 "판매 완료" 출력 -->
-							<c:if test="${empty boardDTO.soldoutdate}">
-								<a class="btn btn-secondary" style="color: yellow"
-									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a>
-							</c:if>
+<!-- 							해당 게시글이 판매 완료 게시글 이면 "판매 완료" 출력 -->
+<%-- 							<c:if test="${empty boardDTO.soldoutdate}"> --%>
+<!-- 								<a class="btn btn-secondary" style="color: yellow" -->
+<%-- 									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">판매완료</a> --%>
+<%-- 							</c:if> --%>
 							
-							<!-- 해당 게시글이 예약중인 게시글 이면 "예약중" 출력 -->
-							<c:if test="${boardDTO.reservation eq 'yes'}">
-								<a class="btn btn-secondary" style="color: yellow"
-									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">예약중</a>
-							</c:if>
-						</c:if>
+<!-- 							해당 게시글이 예약중인 게시글 이면 "예약중" 출력 -->
+<%-- 							<c:if test="${boardDTO.reservation eq 'yes'}"> --%>
+<!-- 								<a class="btn btn-secondary" style="color: yellow" -->
+<%-- 									href="javascript:confirmCommand('/Vada/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','구매');">예약중</a> --%>
+<%-- 							</c:if> --%>
+<%-- 						</c:if> --%>
 						
-						<!-- 해당 게시글이 판매중이고, 현재 로그인 한 사용자가 아닌 다른 사람이 올린 게시글이면 채팅/쪽지/찜하기 가능 -->
-						<c:if test="${!empty boardDTO.soldoutdate}">
-							<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
-								<a href=" /Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}"class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a>
-								<a href="/Vada/jsp/NoteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a>
-								<a class="btn btn-secondary"
-									style="float: right; margin-right: 5px;"
-									href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
-							</c:if>
-						</c:if>
+<!-- 						해당 게시글이 판매중이고, 현재 로그인 한 사용자가 아닌 다른 사람이 올린 게시글이면 채팅/쪽지/찜하기 가능 -->
+<%-- 						<c:if test="${!empty boardDTO.soldoutdate}"> --%>
+<%-- 							<c:if test="${sessionScope.userid ne boardDTO.sellerid}"> --%>
+<%-- 								<a href=" /Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}"class="btn btn-info" style="float: right color: red">채팅하기&raquo;</a> --%>
+<%-- 								<a href="/Vada/jsp/NoteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" class="btn btn-info" style="float: right color: red">쪽지 보내기&raquo;</a> --%>
+<!-- 								<a class="btn btn-secondary" -->
+<!-- 									style="float: right; margin-right: 5px;" -->
+<%-- 									href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a> --%>
+<%-- 							</c:if> --%>
+<%-- 						</c:if> --%>
 					</p>
 				</div>
 			</div>
