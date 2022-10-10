@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@page import="vada.dao.impl.CategoryListDAOImpl"%>
 <%@page import="vada.dto.CategoryDTO"%>
 <%@page import="java.util.List"%>
@@ -12,9 +12,9 @@
 
 <!-- 모든 jsp의 기본 베이스가 되며 베이스의 윗부분 코드 -->
 <%
-	CategoryService categoryService = new CategoryListDAOImpl();
-	List<CategoryDTO> categoryDTOList = categoryService.getCategoryList();
-	pageContext.setAttribute("categoryDTOList", categoryDTOList);
+CategoryService categoryService = new CategoryListDAOImpl();
+List<CategoryDTO> categoryDTOList = categoryService.getCategoryList();
+pageContext.setAttribute("categoryDTOList", categoryDTOList);
 %>
 
 <!DOCTYPE html>
@@ -92,7 +92,7 @@ label:before {
 			href="${webapproot}/mainform.do">VADA</a>
 		<!-- Sidebar Toggle-->
 
-			<i class="fas fa-bars"></i>
+		<i class="fas fa-bars"></i>
 		</button>
 
 
@@ -104,21 +104,18 @@ label:before {
 			<div class="input-group" style="line-height: 20px">
 				<p style="color: white; margin-top: 15px;">카테고리 :</p>
 				&nbsp;&nbsp;
-				<lable style="margin-top: 12px"> 
-				
-				<!-- 검색 창 카테고리 목록 출력 시작 -->
-					<select name="categories1"
-						id="categories1">
-						<option value="1000">전체</option>
-						<c:forEach var="categoryDTO" items="${categoryDTOList}">
-							<c:if test="${fn:contains(categoryDTO.categorynum, '00')}">
-								<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
-							</c:if>
-						</c:forEach>
-					</select> &nbsp;&nbsp; <select name="categories2" id="categories2">
-						<option value="1000">전체</option>
-					</select> &nbsp;&nbsp; <script src="http://code.jquery.com/jquery-latest.js"></script>
-					<script>
+				<lable style="margin-top: 12px"> <!-- 검색 창 카테고리 목록 출력 시작 -->
+				<select name="categories1" id="categories1">
+					<option value="1000">전체</option>
+					<c:forEach var="categoryDTO" items="${categoryDTOList}">
+						<c:if test="${fn:contains(categoryDTO.categorynum, '00')}">
+							<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
+						</c:if>
+					</c:forEach>
+				</select> &nbsp;&nbsp; <select name="categories2" id="categories2">
+					<option value="1000">전체</option>
+				</select> &nbsp;&nbsp; <script src="http://code.jquery.com/jquery-latest.js"></script>
+				<script>
 									$(document).ready(function() {
 										$("#categories1").change(function(){
 											
@@ -140,15 +137,14 @@ label:before {
 											</c:forEach>
 										});
 									});
-					</script> 
-				</lable>
+					</script> </lable>
 				<!-- 검색 창 카테고리 목록 출력 끝 -->
 
 				<!-- 검색어 입력 텍스트 박스 -->
 				<input class="form-control" name="searchText" value="${selected}"
 					type="text" placeholder="Search for..." aria-label="Search for..."
 					aria-describedby="btnNavbarSearch" />
-					
+
 				<!-- 검색 버튼(돋보기) -->
 				<button class="btn btn-primary" id="btnNavbarSearch" type="button"
 					onclick="this.form.submit()">
@@ -165,21 +161,24 @@ label:before {
 					class="fas fa-user fa-fw"></i></a>
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
-					
-					<li><p class="dropdown-item">${sessionScope.userid} 님</p></li>
-					
+
+					<li><p class="dropdown-item">${sessionScope.userid}님</p></li>
+
 					<!-- 관리자가 아닐때 찜/구매목록/쪽지함/회원정보 변경 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'no'}">
-						<li><a class="dropdown-item" href="${webapproot}/likelistform.do">찜
-								목록</a></li>
-						<li><a class="dropdown-item" href="${webapproot}/userbuylistform.do">구매
-								목록</a></li>
-						<li><a class="dropdown-item" href="${webapproot}/notemessagelistform.do">쪽지함</a></li>	
+						<li><a class="dropdown-item"
+							href="${webapproot}/myboardlist.do">내가 쓴 글</a></li>
+						<li><a class="dropdown-item"
+							href="${webapproot}/likelistform.do">찜 목록</a></li>
+						<li><a class="dropdown-item"
+							href="${webapproot}/userbuylistform.do">구매 목록</a></li>
+						<li><a class="dropdown-item"
+							href="${webapproot}/notemessagelistform.do">쪽지함</a></li>
 						<li><a class="dropdown-item"
 							href="${webapproot}/userinfoupdateform.do">회원정보 번경</a></li>
 					</c:if>
-					
-					
+
+
 					<!-- 관리자가 아닐때 회원관리/신고글 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'yes'}">
 						<li><a class="dropdown-item"
@@ -187,14 +186,13 @@ label:before {
 						<li><a class="dropdown-item"
 							href="${webapproot}/adminmanagenotifyform.do">신고글 목록</a></li>
 					</c:if>
-					
+
 					<li><hr class="dropdown-divider" /></li>
-					
+
 					<!-- 로그아웃목록은 관리자/사용자 모두 사용 -->
 					<li><a class="dropdown-item" href="${webapproot}/logout.do">로그아웃</a></li>
-					
-				</ul>
-			</li>
+
+				</ul></li>
 		</ul>
 
 	</nav>
