@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.JoinDAOImpl;
 import vada.dto.UserDTO;
+import vada.handler.CommandHandler;
 import vada.service.JoinService;
 
 // 회원가입 처리를 위한 핸들러
