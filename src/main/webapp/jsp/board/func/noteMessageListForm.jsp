@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 
 <link href="${webapproot}/css/table.css" rel="stylesheet" />
 
@@ -78,7 +78,7 @@
 						<td>${item.notefromuserid}</td>
 						<td>${item.message }</td>
 						<td>${item.m_date }</td>
-						<td><a href="${webapproot}/jsp/noteMessageAnswerForm.jsp?productnum=${item.noteproductnum}&notefromuserid=${item.notefromuserid}">답장</a></td>
+						<td><a href="${webapproot}/jsp/board/func/noteMessageAnswerForm.jsp?productnum=${item.noteproductnum}&notefromuserid=${item.notefromuserid}">답장</a></td>
 					</tr>
 				</c:if>
 			</c:forEach>
@@ -95,4 +95,4 @@
 
 
 </main>
-<jsp:include page="bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />

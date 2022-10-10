@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
  
-<jsp:include page="${webapproot}/jsp/top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 <main>
    <div class="container">
       <div class="row">
@@ -108,4 +108,4 @@
    </div>
 </main>
 
-<jsp:include page="${webapproot}/jsp/bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />

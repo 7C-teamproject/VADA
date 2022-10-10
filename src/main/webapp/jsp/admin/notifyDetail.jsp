@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<jsp:include page="${webapproot}/jsp/top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 
 <link href="${webapproot}/css/list.css" rel="stylesheet" />
 
@@ -79,4 +79,4 @@
 	
 </main>
 
-<jsp:include page="${webapproot}/jsp/bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />

@@ -26,7 +26,7 @@ public class NoteMessageListFormHandler implements CommandHandler {
 		
 		request.setAttribute("listmessage", listmessage);
 		
-		return "/jsp/noteMessageListForm.jsp";
+		return "/jsp/board/func/noteMessageListForm.jsp";
 		
 	} // process
 

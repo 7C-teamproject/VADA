@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<jsp:include page="${webapproot}/jsp/top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -135,7 +135,7 @@
 						
 						<c:if test="${boardDTO.buyerid eq 'default'}">
 						<a class="btn btn-info" style="float: right color: red"
-							href="${webapproot}/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}">
+							href="${webapproot}/jsp/board/func/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}">
 							쪽지 보내기&raquo;</a>
 						
 						<a class="btn btn-secondary"
@@ -184,4 +184,4 @@
 
 </main>
 
-<jsp:include page="${webapproot}/jsp/bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />
