@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +13,7 @@ import vada.dao.impl.BoardProductNumDAOImpl;
 import vada.dao.impl.BoardWriteDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.ImgDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardImgService;
 import vada.service.BoardWriteService;
 

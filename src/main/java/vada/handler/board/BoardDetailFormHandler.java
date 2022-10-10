@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +10,7 @@ import vada.dao.impl.BoardDetailDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ProductpriceDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardDetailService;
 
 // 게시글 세부정보 획득 핸들러

@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -17,10 +17,11 @@ import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ImgDTO;
 import vada.dto.ProductpriceDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardFileService;
 import vada.service.BoardImgService;
 import vada.service.BoardUpdateService;
-
+ 
 // 업데이트 폼에서 새로 수정된 데이터 처리를 위한 핸들러
 public class BoardUpdateProcHandler implements CommandHandler {
 

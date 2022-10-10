@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,10 @@ import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ImgDTO;
 import vada.dto.ProductpriceDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardFileService;
 import vada.service.CategoryService;
-
+ 
 // 게시글 업데이트 폼에 이전 데이터 출력을 위한 폼
 public class BoardUpdateFormHandler implements CommandHandler {
 

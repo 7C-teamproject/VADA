@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.CategoryListDAOImpl;
 import vada.dto.CategoryDTO;
+import vada.handler.CommandHandler;
 import vada.service.CategoryService;
 
 // 게시글 쓰기 폼 핸들러
