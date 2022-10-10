@@ -11,45 +11,41 @@ import vada.dao.impl.LoginDAOImpl;
 import vada.dto.UserDTO;
 import vada.service.LoginService;
 
+// 관리자 로그인 처리 핸들러
 public class AdminLoginProcHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
-		
-		String userid = request.getParameter("aduserid")==null? "" : request.getParameter("aduserid");
-		String userpw = request.getParameter("aduserpw")==null? "" : request.getParameter("aduserpw");
+
+		String userid = request.getParameter("aduserid") == null ? "" : request.getParameter("aduserid");
+		String userpw = request.getParameter("aduserpw") == null ? "" : request.getParameter("aduserpw");
 
 		LoginService loginService = new LoginDAOImpl();
 
-		List<UserDTO> list=null;
-		PrintWriter script = null;
+		UserDTO userDTO = null;
+
 		try {
-			list = loginService.adminynLogin(userid, userpw);
-			script = response.getWriter();
+			// userid와 userpw에 맞는 관리자 데이터를 받아옴
+			userDTO = loginService.adminynLogin(userid, userpw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		String url = "";
-		for (UserDTO userDTO : list) {
-			String dbuserid = userDTO.getUserid();
-			String dbuserpw = userDTO.getUserpw();
-			String dbadminyn = userDTO.getAdminyn();
 
-			if (userid.equals(dbuserid) && userpw.equals(dbuserpw)) {
-				url = "/adminmanageuserform.do";
-				session.setAttribute("adminyn", dbadminyn);
-				session.setAttribute("userid", userid);
-				System.out.println("adminyn===========>" + dbadminyn);
-
-			} else {
-				url = "/jsp/adminFailedLogin.jsp";
-			}
+		// 만약 관리자 아이디가 있다면
+		if (userid.equals(userDTO.getUserid()) && userpw.equals(userDTO.getUserpw())) {
+			url = "/adminmanageuserform.do";
+			session.setAttribute("adminyn", userDTO.getAdminyn());
+			session.setAttribute("userid", userid);
+		// 매칭되는 관리자 아이디가 없다면
+		} else {
+			url = "/jsp/adminFailedLogin.jsp";
 		}
 
 		return url;
-	}
+	} // process
 
-}
+} // AdminLoginProcHandler
