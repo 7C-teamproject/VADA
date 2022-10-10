@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board.func;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +13,7 @@ import vada.dao.impl.BoardWriteDAOImpl;
 import vada.dto.ImgDTO;
 import vada.dto.NotifyimgDTO;
 import vada.dto.NotifylistDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardImgService;
 import vada.service.BoardWriteService;
 

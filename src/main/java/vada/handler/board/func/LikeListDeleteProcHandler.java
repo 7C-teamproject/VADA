@@ -24,7 +24,7 @@ public class LikeListDeleteProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 
-		return "/likelistform.do";
+		return "/Vada/jsp/likeListFormIndex.jsp";
 	} // process
 
 } // LikeListDeleteProcHandler

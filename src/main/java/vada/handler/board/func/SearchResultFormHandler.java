@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.board.func;
 
 import java.util.List;
 import java.util.Map;
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardSearchListDAOImpl;
+import vada.handler.CommandHandler;
 
 // 검색결과를 보여주는 검색 결과 폼 핸들러
 public class SearchResultFormHandler implements CommandHandler {
