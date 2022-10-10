@@ -20,7 +20,7 @@ String ktuserid   = request.getParameter("userid");
 
  List<KtuserchatroomDTO> list = new ArrayList<KtuserchatroomDTO>();
 
- list=chatService.ktchatroomList(ktuserid);//TODO 수정 ㅅㄱ 디테일폼에서 넘겨와야함 ㅋ
+ list=chatService.ktchatroomList(ktuserid);
 
  pageContext.setAttribute("list",list);
 %>
