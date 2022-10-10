@@ -26,7 +26,7 @@ public class LikeListFormHandler implements CommandHandler {
 		   // DB에서 내 찜목록 받아와서 list에 저장
 		   List<Map> likeList = likeService.likeList(userid);
 		   
-		   request.setAttribute("list", likeList);
+		   request.setAttribute("likeList", likeList);
 		
 		
 		

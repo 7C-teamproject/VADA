@@ -50,7 +50,7 @@
 						</p>  
 						
 						<c:set var="sysYear">
-							<fmt:formatDate value="${itlikeDTOem.wdate}"
+							<fmt:formatDate value="${likeDTO.wdate}"
 								pattern="yyyy-MM-dd hh:mm:ss" />
 						</c:set>
 						
@@ -67,7 +67,7 @@
 			</c:if>
 			
 			<!-- 찜목록이 존재하지 않는다면 -->
-			<c:if test="${fn:length(list) == 0}">
+			<c:if test="${fn:length(likeList) == 0}">
 				<h3 style="text-align: center;">찜 목록이 없어요~</h3>
 				<br /><br /><br /><br />
 			</c:if>
