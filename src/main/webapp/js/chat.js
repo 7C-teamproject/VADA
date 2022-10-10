@@ -23,7 +23,7 @@ chat.ChatModel.prototype = {
 	login: function(nickName) {
 		
 		var params = "nickName="+encodeURIComponent(nickName);
-		new ajax.xhr.Request("/Vada/jsp/login.jsp", params, 
+		new ajax.xhr.Request("/Vada/jsp/board/func/chat/login.jsp", params, 
 			this.logedIn, "POST", this);
 	},
 	logedIn: function(req) {
@@ -43,7 +43,7 @@ chat.ChatModel.prototype = {
 	logout: function() {
 	
 		var params = "nickName="+encodeURIComponent(this.nickName);
-		new ajax.xhr.Request("/Vada/jsp/logout.jsp", params, 
+		new ajax.xhr.Request("/Vada/jsp/board/func/chat/logout.jsp", params, 
 			this.logedOut, "POST", this);
 	},
 	logedOut: function(req) {
@@ -60,7 +60,7 @@ chat.ChatModel.prototype = {
 			clearTimeout(this.loadMessageTimer);
 		}
 		var params = "lastMsgId="+this.lastMsgId;
-		new ajax.xhr.Request("/Vada/jsp/loadMessage.jsp", params, 
+		new ajax.xhr.Request("/Vada/jsp/board/func/chat/loadMessage.jsp", params, 
 			this.loadedMessage, "POST", this);
 	},
 	loadedMessage: function(req) {
@@ -103,7 +103,7 @@ chat.ChatModel.prototype = {
 		
 		var params = "nickName="+encodeURIComponent(this.nickName)+
 		             "&msg="+encodeURIComponent(msg);
-		new ajax.xhr.Request("/Vada/jsp/sendMessage.jsp", params, 
+		new ajax.xhr.Request("/Vada/jsp/board/func/chat/sendMessage.jsp", params, 
 			this.messageSended, "POST", this);
 	},
 	messageSended: function(req) {
