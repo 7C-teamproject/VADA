@@ -1,134 +1,170 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8"%>
+    
 <jsp:include page="top.jsp" />
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-
-<!-- 우편번호 확인을 위한 API 시작 -->
+<style>
+.validation_error {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff0000;
+  padding: 0 0 0 20px;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+$(function(){
 
-	// 우편번호 API
-	window.onload = function() {
-		document.getElementById("address_kakao").addEventListener("click", function() { // 주소입력칸을 클릭하면
-			new daum.Postcode({
-				oncomplete : function(data) { // 선택 시 입력값 세팅
-					document.getElementById("address").value = data.address; // 주소 넣기
-					document.querySelector("input[name=detailaddress]").focus(); // 상세입력 포커싱
-				}
-			}).open();
-		});
-	}
+	// 입력상자 클릭시 내용 비우기
+	$("input[type='text'], input[type='password']").click(function() {
+		this.value = '';
+	});
 
-	//이메일 옵션 선택후 주소 자동 완성
-	function change_email() {
-		var email_add = document.getElementById("email_add");
-		var email_sel = document.getElementById("email_sel");
+	 // 유효성검사 메세지 (한국어)
+	 $.extend($.validator.messages, {
+		required: "필수 입력 항목입니다!",
+		email: "유효하지 않은 이메일주소 입니다!",
+		url: "유효하지 않은 URL 입니다!",
+		date: "유효하지 않은 날짜형식 입니다!",
+		dateISO: "유효하지 않은 날짜형식(ISO) 입니다!",
+		number: "숫자(기호포함)만 입력해 주세요!",
+		digits: "숫자만 입력해 주세요!",
+		creditcard: "유효하지 않은 신용카드번호 입니다!",
+		equalTo: "비밀번호와 비밀번호확인이 일치하지 않습니다!",
+		maxlength: jQuery.validator.format("최대 {0}자로 입력해 주세요!"),
+		minlength: jQuery.validator.format("최소 {0}자를 입력해 주세요!"),
+		rangelength: jQuery.validator.format("{0}글자 이상 {1}글자 이하로 입력해 주세요!"),
+		max: jQuery.validator.format("{0}이상 입력해 주세요!"),
+		min: jQuery.validator.format("{0}이하로 입력해 주세요!"),
+		range: jQuery.validator.format("{0}이상 {1}이하 숫자를 입력해 주세요!")
+	});
 
-		//지금 골라진 옵션의 순서와 값 구하기
-		var idx = email_sel.options.selectedIndex;
-		var val = email_sel.options[idx].value;
+	// 정규표현식 유효성검사를 위한 메소드 추가
+	$.validator.addMethod("regex", 
+		function(value, element, regexpr) {
+			return regexpr.test(value); 
+		}
+	);
 
-		email_add.value = val;
-	}
+	// 유효성검사 (form엘리먼트의 name속성 값을 사용함)
+	$("form[name='joinForm']").validate({
+
+		debug: false, // true인 경우 서밋을 수행하지 않음 (디버그 모드),
+
+		errorPlacement: function(error, element) { // 유효성검사 실패시 에러 표시
+			var errorSelector = '.validation_error[for="' + element.attr('id') + '"]';
+			var $element = $(errorSelector);
+			$(errorSelector).html(error.html());
+		},
+
+		success: function(element){ // 유효성검사 성공시 에러 제거
+			element.html();                        
+		},
+
+		rules: { // 유효성 검사 규칙
+			userid: { // 필수, 4~12글자
+				required: true,
+				rangelength: [4, 12]
+			},
+			pwd: { // 필수, 8~15글자 (문자,숫자,특수문자 포함)
+				required: true,
+				regex: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/,
+				rangelength: [8, 15]
+			},
+			userpw: { // 필수, 8~15글자 (문자,숫자,특수문자 포함)
+				required: true,
+				regex: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/,
+				rangelength: [8, 15],
+				equalTo: "input[name='pwd']" // 비밀번호와 같으지 확인
+			},
+			name: { // 필수, 최소 2글자
+				required: true,
+				minlength: 2
+			},
+			tel: { // 필수, 000-0000-0000
+				required: true,
+				regex: /^\d{3}-\d{3,4}-\d{4}$/
+			},
+			email: { // 필수, 이메일 형식
+				required: true,
+				regex: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
+			}
+		},
+
+		messages: { // 유효성검사가 실패했을 때 메세지
+			userid: {
+				required: "아이디를 입력해 주세요!"
+			},
+			pwd: {
+				required: "비밀번호를 입력해 주세요!",
+				regex: "비밀번호확인 형식에 맞지 않습니다! (형식 : 문자,숫자,특수문자 포함 8~15글자)"
+			},
+			userpw: {
+				required: "비밀번호확인을 입력해 주세요!",
+				regex: "비밀번호확인 형식에 맞지 않습니다! (형식 : 문자,숫자,특수문자 포함 8~15글자)"
+			},
+			name: {
+				required: "이름을 입력해 주세요!"
+			},
+			tel: {
+				required: "휴대폰번호를 입력해 주세요!",
+				regex: "휴대폰번호 형식에 맞지 않습니다!  (형식 : 000-0000-0000)"
+			},
+			email: {
+				required: "이메일주소를 입력해 주세요!",
+				regex: "이메일주소 형식에 맞지 않습니다!"
+			}
+		},
+
+// 		submitHandler: function() { // 폼을 서밋하지 않고 AJAX로 처리할 때 사용, 실제 폼 서밋은 일어나지 않음
+// 			alert("유효성 검사 완료!");
+// 		}
+
+	});
 	
+});
+
+//우편번호 API
+window.onload = function() {
+	document.getElementById("address_kakao").addEventListener("click", function() { // 주소입력칸을 클릭하면
+		new daum.Postcode({
+			oncomplete : function(data) { // 선택 시 입력값 세팅
+				document.getElementById("address").value = data.address; // 주소 넣기
+				document.querySelector("input[name=detailaddress]").focus(); // 상세입력 포커싱
+			}
+		}).open();
+	});
+}
+
 </script>
-<!-- 우편번호 확인을 위한 API 끝 -->
 
 <main>
 
-	<form name="join_form" action="/Vada/joinProc.do" method="post">
-		<div>
-			<label>아이디<input type="text" name="userid" id="uid"></label>
-			<button type="button" onclick="id_check();">중복확인</button>
-		</div>
-		<div>
-			<label>비밀번호<input type="password" name="pwd" id="pwd" placeholder="영문자+숫자+특수문자 조합"></label>
-		</div>
-		<div>
-			<label>비밀번호 재확인<input type="password" name="userpw" id="repwd"></label>
-		</div>
-		<div>
-			<label>이름<input type="text" name="name" id="uname"></label>
-		</div>
-
-		<div>
-			<label>전화번호<input type="tel" name="tel" id="mobile"> ex "-"없이 숫자만 입력 </label>
-		</div>
-		<div>
-			<label>이메일<input type="text" name="email" id="email_id">@</label> 
-			<input type="text" name="email_add" id="email_add"> 
-			<select name="email_sel" id="email_sel" onchange="change_email();">
-				<option value="">직접입력</option>
-				<option value="naver.com">naver</option>
-				<option value="gmail.com">gmail</option>
-				<option value="nate.com">nate</option>
-			</select>
-		</div>
-		<div>
-			<label>기본주소<input type="text" id="address" name="address" readonly></label>
-			<button type="button" id="address_kakao">우편번호 찾기</button>
-		</div>
-		<div>
-			<label>상세주소<input type="text" name="detailaddress" id="addr2" size="30"></label>
-		</div>
-		<div>
-			<label>닉네임<input type="text" name="nickname" id="nickname"></label>
-		</div>
-		<div>
-			<lable>관심 카테고리 
-			
-				<!-- 카테고리 리스트 출력 시작 -->
-				<select name="ca1" id="cate1" >
-                	<option value="all" >전체</option>
-                	<c:forEach var="categoryDTO" items="${categoryDTOList}">
-	           			<c:if test="${fn:contains(categoryDTO.categorynum, '00')}" >
-							<option value="${categoryDTO.categorynum}">${categoryDTO.categoryname}</option>
-						</c:if>
-					</c:forEach>
-				</select> &nbsp;&nbsp;
-							
-				<select name="bcategorynum" id="cate2" >
-                	<option value="all" >전체</option>
-				</select> &nbsp;&nbsp;
-							
-				<script src="http://code.jquery.com/jquery-latest.js"></script>
-				<script>
-					$(document).ready(function() {
-						$("#cate1").change(function(){
-										
-							$('#cate2').children('option:not(:first)').remove();
-									
-							var categoryappend = $(this).val().substring(0, 2);
-										
-							<c:forEach var="item" items="${categoryDTOList}">
-											
-							var categorynum = "${item.categorynum}";
-												
-								if(categorynum.match("^"+categoryappend) && categorynum!=$(this).val()) {
-									$('#cate2').append($('<option>', {
-								        value: ${item.categorynum},
-								        text : '${item.categoryname}'
-								    }));
-								}
-	
-							</c:forEach>
-						});
-					});
-				</script>
-				<!-- 카테고리 리스트 출력 끝 -->
-				
-			</lable>
-		</div>
-		<div class="join_btn">
-			<button type="button" onclick="history.back();">이전페이지로</button>
-			<button type="button" onclick="this.form.submit();">가입하기</button>
-		</div>
+<div>
+	<!-- 실제 적용할때는 비밀번호는 input type="password"를 사용하고 모든 value는 삭제할 것! -->
+	<form name="joinForm" action="/Vada/joinproc.do" method="post">
+		* 아이디 <input type="text" name="userid" id="uid" value="4~12글자 " /><label for="uid" class="validation_error"></label><br />
+		* 비밀번호 <input type="text" name="pwd" id="upass" value="8~15글자 (문자, 숫자, 특수문자 포함)"/><label for="upass" class="validation_error"></label><br />
+		* 비밀번호확인 <input type="text" name="userpw" id="upassre" value="8~15글자 (문자, 숫자, 특수문자 포함)"/><label for="upassre" class="validation_error"></label><br />
+		* 이름 <input type="text" name="name" id="uname" value="2글자 이상"/><label for="uname" class="validation_error"></label><br />
+		* 전화번호 <input type="text" name="tel" id="usp" value="000-0000-0000"/><label for="usp" class="validation_error"></label><br />
+		* 이메일주소 <input type="text" name="email" id="uemail" value="a@a.com"/><label for="uemail" class="validation_error"></label><br />
+		* 기본주소<input type="text" id="address" name="address" readonly>
+			<button type="button" id="address_kakao">우편번호 찾기</button><br />
+		* 상세주소<input type="text" name="detailaddress" id="addr2" size="30"><label for="uaddr" class="validation_error"></label><br />
+		* 닉네임<input type="text" name="nickname" id="nickname"><label for="unickname" class="validation_error"></label><br />
+		<input type="submit" value="폼전송" />
+		
 	</form>
-
+	
+	</div>
+	
 </main>
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="bottom.jsp"></jsp:include>
