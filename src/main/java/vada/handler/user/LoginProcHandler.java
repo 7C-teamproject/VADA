@@ -38,7 +38,7 @@ public class LoginProcHandler implements CommandHandler {
 			
 			// 블랙 리스트 회원이 로그인 시
 			if (userDTO.getBlackyn().equals("yes")) {
-				url = "/jsp/user/blackIDLogin.jsp";
+				url = "/jsp/check/blackIDLogin.jsp";
 			} 
 			
 			// 블랙 리스트 회원이 아닌 일반 사용자 로그인 시

@@ -4,15 +4,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 <jsp:include page="/jsp/top.jsp" />
 
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <link href="${webapproot}/css/list.css" rel="stylesheet" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- 게시글 수정/삭제 시 confirm하는 스크립트 -->
+<script src="${webapproot}/js/common.js"></script>
 
 <main>
 
@@ -61,8 +61,6 @@
 				});
 			</script>
 
-			<!-- 게시글 수정/삭제 시 confirm하는 스크립트 -->
-			<script src="${webapproot}/js/common.js"></script>
 			<div class="row">
 				<div class="col-md-6">
 
@@ -91,22 +89,26 @@
 					<!-- 판매자가 로그인한 사용자일 떄 버튼 (수정/삭제/예약취소/판매완료)-->
 					<c:if test="${sessionScope.userid eq boardDTO.sellerid}">
 
+						<!-- 해당 게시글이 예약되지 않은 상태일 때만 게시글 수정 가능 -->
 						<c:if test="${boardDTO.reservation eq 'no'}">
 							<input type="button" class="btn btn-secondary"
 								onclick="this.form.submit()" value="글 수정">
 						</c:if>
 
-						<script src="${webapproot}/js/common.js"></script>
 						<a class="btn btn-secondary"
-							href="javascript:confirmCommand('${webapproot}/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
-							삭제</a>
-
+							href="javascript:confirmCommand('${webapproot}/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">
+							글 삭제
+						</a>
+						
+						<!-- 해당 게시글이 예약중이 상태 일 때 -->
 						<c:if test="${boardDTO.reservation eq 'yes'}">
 
+							<!-- 아직 판매 완료되지 않았을 때 -->
 							<c:if test="${boardDTO.buyerid eq 'default'}">
 								<a class="btn btn-secondary" style="float: right"
-									href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약
-									취소하기</a>
+									href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">
+									예약 취소하기
+								</a>
 							</c:if>
 
 							<c:if test="${empty boardDTO.soldoutdate}">
@@ -124,34 +126,35 @@
 					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('${webapproot}/jsp/board/func/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
-							신고</a>
-						<br />
-						<br />
-						<br />
+							href="javascript:confirmCommand('${webapproot}/jsp/board/func/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">
+							게시글 신고
+						</a>
+						<br /><br /><br />
 
 						<!-- 						<a class="btn btn-info" style="float: right color: red" -->
 						<%-- 							 href="${webapproot}/jsp/board/func/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
 						
+						<!-- 판매중 또는 예약중인 게시글이면 -->
 						<c:if test="${boardDTO.buyerid eq 'default'}">
-						<a class="btn btn-info" style="float: right color: red"
-							href="${webapproot}/jsp/board/func/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}">
-							쪽지 보내기&raquo;</a>
-						
-						<a class="btn btn-secondary"
-							style="float: right; margin-right: 5px;"
-							href="javascript:confirmCommand('${webapproot}/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
+							<a class="btn btn-info" style="float: right color: red"
+								href="${webapproot}/jsp/board/func/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}">
+								쪽지 보내기&raquo;</a>
+							
+							<a class="btn btn-secondary"
+								style="float: right; margin-right: 5px;"
+								href="javascript:confirmCommand('${webapproot}/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
 						</c:if>
 						
+						<!-- 예약되지 않은 게시글이면 -->
 						<c:if test="${boardDTO.reservation eq 'no'}">
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매
-								예약</a>
+								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">
+								구매 예약
+							</a>
 						</c:if>
-						
-
 
 					</c:if>
+					
 					<br /> <br />
 
 

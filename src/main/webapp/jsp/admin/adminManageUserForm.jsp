@@ -22,8 +22,7 @@
 			
 				<form action="${webapproot}/blacklistproc.do" method="Post">	<!-- 블랙리스트 데이터 저장 폼  -->
 				
-					<table style="border: 1px solid #000000;
-	text-align: center;">
+					<table style="border: 1px solid #000000; text-align: center;">
 						<colgroup>
 							<col width="500px" />
 							<col width="1500px" />
@@ -56,7 +55,7 @@
 								<input type="hidden" name="blackyn${status.index}" id="blackynparam${status.index}" value="${userinfo.blackyn}" />		<!-- 블랙리스트 여부 저장 태그-->
 								
 								<!-- 체크되어 있으면 블랙리스트 여부 저장 태그 값 yes 아니면 no 값 -->
-							<script>		
+								<script>		
 									$(document).ready(function() {
 										$("#${status.index}").change(function() {
 											if ($("#${status.index}").is(":checked")) {

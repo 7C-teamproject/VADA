@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.board.func.BuyListDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.board.func.BuyListSerive;
+import vada.service.board.func.BuyListService;
 
 // 유저 구매 목록 리스트를 보여주기 위한 핸들러
 public class UserBuyListFormHandler implements CommandHandler {
@@ -18,7 +18,7 @@ public class UserBuyListFormHandler implements CommandHandler {
 		
 		HttpSession session = request.getSession();
 		
-		BuyListSerive buyListService = new BuyListDAOImpl();
+		BuyListService buyListService = new BuyListDAOImpl();
 
 		List list = null;
 		

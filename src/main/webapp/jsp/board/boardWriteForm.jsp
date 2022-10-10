@@ -29,7 +29,7 @@
 						</tr>
 						<tr>
 							
-							<!-- select 카테고리 시작 -->
+							<!-- level1 카테고리를 클릭하면 level1에 해당하는 level2 카테고리를 출력함 -->
 							<td style="float: left">카테고리 : 
 							<select name="bcategorynum" id="bcategorynum" >
                 				<option value="1000" >전체</option>
@@ -67,16 +67,9 @@
 										</c:forEach>
 									});
 								});
-// 								var arr = new Array();
-// 								<c:forEach items="${categoryDTOList}" var="item">
-// 									arr.push({value: ${item.categorynum},
-// 											  text: '${item.categoryname}'	
-// 									});
-// 								</c:forEach>
 							</script>
 							
 						</tr>
-						<!-- select 카테고리 끝 -->
 						
 						<tr>
 							<td><textarea class="form-control" placeholder="글 내용" name="content" maxlength="2048" style="height: 350px"></textarea></td>

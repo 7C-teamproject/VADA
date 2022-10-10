@@ -1,8 +1,8 @@
-<%@page import="vada.dao.impl.ChatDAOImpl"%>
-<%@page import="vada.service.ChatService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@page import="vada.dao.impl.board.func.ChatDAOImpl"%>
+<%@page import="vada.service.board.func.ChatService"%>
     
 <jsp:useBean id="boardDTO" class="vada.dto.BoardDTO"  />
 
