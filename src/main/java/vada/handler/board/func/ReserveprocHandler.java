@@ -1,10 +1,11 @@
-package vada.handler;
+package vada.handler.board.func;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.BoardDetailDAOImpl;
+import vada.handler.CommandHandler;
 
 // 예약처리 핸들러
 public class ReserveprocHandler implements CommandHandler {
