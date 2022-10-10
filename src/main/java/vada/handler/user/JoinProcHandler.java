@@ -20,7 +20,7 @@ public class JoinProcHandler implements CommandHandler {
 
 		JoinService joinService = new JoinDAOImpl();
 
-		// userDTO 객체에 데이터 저장
+		// userDTO 객체에 회원가입 정보 저장
 		UserDTO userDTO = new UserDTO();
 		userDTO.setAddress(request.getParameter("address"));
 		userDTO.setDetailaddress(request.getParameter("detailaddress"));
@@ -40,27 +40,33 @@ public class JoinProcHandler implements CommandHandler {
 		int result = 0;
 		
 		try {
-			// 중복 아이디 검사
+			// 중복 아이디 검사, (T/F) 반환 -> true 면 중복 없음
 			checkUserID = joinService.checkUserid(userDTO.getUserid());
 
-			// 중복 닉네임 검사
+			// 중복 닉네임 검사, (T/F) 반환 -> true 면 중복 없음
 			checkNickName = joinService.checkUserid(userDTO.getNickname());
 			
 			// 중복된 ID와 닉네임이 없다면
 			if (checkUserID == true && checkNickName == true) {
-				// 회원 가입 처리
+				// 회원 가입 성공
 				result = joinService.join(userDTO);
 				url = "/jsp/loginForm.jsp";
-			} else if (checkUserID == false) {
-				url = "/jsp/duplicateUserInfo.jsp";
-			} else if (checkNickName == false) {
-				url = "/jsp/duplicateUserInfo.jsp";
-			}			
+			} 
+			// ID가 중복이면 회원가입 실패
+			else if (checkUserID == false) {
+				url = "/jsp/check/duplicateUserInfo.jsp";
+			} 
+			// 닉네임이 중복이면 회원가입 실패
+			else if (checkNickName == false) {
+				url = "/jsp/check/duplicateUserInfo.jsp";
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return url;
+		
 	} // process
 
 } // JoinProcHandler

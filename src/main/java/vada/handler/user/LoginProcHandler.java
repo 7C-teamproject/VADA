@@ -1,8 +1,5 @@
 package vada.handler.user;
 
-import java.io.PrintWriter;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,24 +21,28 @@ public class LoginProcHandler implements CommandHandler {
 
 		LoginService loginService = new LoginDAOImpl();
 
-		// 매칭된 유저정보를 userDTO에 저장
 		UserDTO userDTO = null;
+		
+		// 사용자가 입력한 아이디와 비밀번호에 매칭된 사용자 정보를 userDTO에 저장
 		userDTO = loginService.userLogin(userid, userpw);
 
 		String url = "";
 
-
-		// 유저 정보가 존재한다면
-		if (userDTO==null) {
-			url = "/jsp/failedLogin.jsp";
+		// 매칭된 사용자 정보가 없는 경우 로그인 실패
+		if (userDTO == null) {
+			url = "/jsp/check/failedLogin.jsp";
 		}
 
-		else if (userDTO!=null) {
+		// 매칭된 사용자 정보가 있는 경우
+		else if (userDTO != null) {
+			
+			// 블랙 리스트 회원이 로그인 시
 			if (userDTO.getBlackyn().equals("yes")) {
 				url = "/jsp/user/blackIDLogin.jsp";
-
-				// 블랙 리스트 회원이 아닌 일반 사용자 로그인 성공 시
-			} else {
+			} 
+			
+			// 블랙 리스트 회원이 아닌 일반 사용자 로그인 시
+			else {
 				request.setAttribute("msg", "로그인에 성공하셨습니다.");
 				session.setAttribute("dbusernickname", userDTO.getNickname());
 				session.setAttribute("userid", userDTO.getUserid());
@@ -51,6 +52,7 @@ public class LoginProcHandler implements CommandHandler {
 		}
 
 		return url;
+		
 	} // process
 
 } // LoginProcHandler
