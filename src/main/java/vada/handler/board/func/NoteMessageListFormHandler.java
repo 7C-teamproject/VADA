@@ -26,6 +26,10 @@ public class NoteMessageListFormHandler implements CommandHandler {
 		
 		request.setAttribute("listmessage", listmessage);
 		
+		for(NoteMessageDTO noteMessageDTO1 : listmessage) {
+			System.out.println("@@@@@@@@@@@date@@@@@@@"+noteMessageDTO1.getM_date());
+		}
+		
 		return "/jsp/board/func/noteMessageListForm.jsp";
 		
 	} // process

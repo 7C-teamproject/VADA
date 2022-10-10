@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import vada.constants.VADAConstants;
 import vada.dao.NoteMessageDAO;
@@ -24,8 +26,6 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 			pstmt.setString(1, noteMessageDTO.getNotefromuserid());
 			pstmt.setString(2, noteMessageDTO.getNotetouserid());
 			pstmt.setInt(3, noteMessageDTO.getNoteproductnum());
-			
-			System.out.println("aaaaaaaaaaaaaaaaaaaaaaa"+noteMessageDTO.getNoteproductnum());
 			pstmt.setString(4, noteMessageDTO.getMessage());
 
 			result = pstmt.executeUpdate();
@@ -52,17 +52,21 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 			// select * from notemessage
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_MESSAGE_SQL"));
 			rs = pstmt.executeQuery();
-
+			NoteMessageDTO noteMessageDTO = null;
+			
 			while (rs.next()) {
-				String notefromuserid = rs.getString("notefromuserid");
-				String dbnotetouserid = rs.getString("notetouserid");
-				int noteproductnum = rs.getInt("noteproductnum");
-				String message = rs.getString("message");
-				Timestamp m_date = rs.getTimestamp("m_date");
-
-				NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, dbnotetouserid, noteproductnum, message, m_date);
+				noteMessageDTO = new NoteMessageDTO();
+				noteMessageDTO.setNotefromuserid(rs.getString("notefromuserid"));
+				noteMessageDTO.setNotetouserid(rs.getString("notetouserid"));
+				noteMessageDTO.setNoteproductnum(rs.getInt("noteproductnum"));
+				noteMessageDTO.setMessage(rs.getString("message"));
+				noteMessageDTO.setM_date(rs.getTimestamp("m_date"));
 				list_message.add(noteMessageDTO);
-
+				SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(rs.getTimestamp("m_date"));
+				cal.add(Calendar.HOUR, 3);
+				noteMessageDTO.setM_date(Timestamp.valueOf(sdformat.format(cal.getTime())));  // 3시간 차 보정
 			}
 
 		} catch (Exception e) {

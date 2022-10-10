@@ -44,6 +44,7 @@ public class BoardDetailFormHandler implements CommandHandler {
 
 		// 기본 값은 판매중으로 텍스트 표시
 		String reserveText = "판매중";
+		
 		// 구매자아이디가 있다면
 		if (!boardDTO.getBuyerid().equals("default")) {
 			reserveText = "판매완료";
