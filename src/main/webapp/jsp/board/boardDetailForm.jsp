@@ -124,7 +124,7 @@
 					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('${webapproot}/jsp/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
+							href="javascript:confirmCommand('${webapproot}/jsp/board/func/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 							신고</a>
 						<br />
 						<br />
