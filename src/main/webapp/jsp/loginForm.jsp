@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-<link href="/Vada/css/login.css" rel="stylesheet" />
 
 <!-- 로그인 폼 -->
 <html>
 	<head>
+	<link href="/Vada/css/login.css" rel="stylesheet" />
 	</head>
 	<body>
 	<h1>VADA</h1>

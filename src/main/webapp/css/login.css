@@ -119,3 +119,14 @@ form .field input:focus::placeholder {
 	{
 	text-decoration: underline;
 }
+
+.validation_error {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff0000;
+  padding: 0 0 0 20px;
+}
+
+#layoutSidenav_content {
+	width: 100%;
+}
