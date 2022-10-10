@@ -102,7 +102,7 @@ public class BoardUpdateProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 
-		return "/jsp/mainformindex.jsp?productnum=" + productnum;
+		return "/jsp/mainFormIndex.jsp?productnum=" + productnum;
 	}
 
 }

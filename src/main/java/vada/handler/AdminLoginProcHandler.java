@@ -45,7 +45,7 @@ public class AdminLoginProcHandler implements CommandHandler {
 				System.out.println("adminyn===========>" + dbadminyn);
 
 			} else {
-				url = "/jsp/adminfailedLogin.jsp";
+				url = "/jsp/adminFailedLogin.jsp";
 			}
 		}
 

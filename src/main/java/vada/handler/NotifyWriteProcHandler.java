@@ -72,7 +72,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 			}
 		}
 
-		return "/jsp/mainformindex.jsp";
+		return "/jsp/mainFormIndex.jsp";
 	}
 
 }
