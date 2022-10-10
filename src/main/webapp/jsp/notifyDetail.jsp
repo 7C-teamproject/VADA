@@ -30,7 +30,7 @@
 				<!-- 신고글ID에 해당하는 이미지리스트를 받아서 출력 -->
 				<c:forEach var="item" items="${imglist}" varStatus="status">
 					<div class="swiper-slide">
-							<img src="../${item}">
+							<img src="${webapproot}/notifyimg${item}">
 					</div>
 	           	</c:forEach>	
 	           	

@@ -10,6 +10,7 @@ import javax.servlet.http.Part;
 
 import vada.dao.impl.BoardImgWriteDAOImpl;
 import vada.dao.impl.BoardWriteDAOImpl;
+import vada.dto.ImgDTO;
 import vada.dto.NotifyimgDTO;
 import vada.dto.NotifylistDTO;
 import vada.service.BoardImgService;
@@ -58,9 +59,11 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		// 신고 첨부파일 파일 처리
 		List<String> imgsnameList = (List<String>) request.getAttribute("imgsnameList");
 		int listIndex = 0;
+		NotifyimgDTO notifyImgDTO = null;
+		
 		for (Part part : parts) {
 			if (part.getHeader("Content-Disposition").contains("filename=") && part.getSize() > 0) {
-				NotifyimgDTO notifyImgDTO = new NotifyimgDTO();
+				notifyImgDTO = new NotifyimgDTO();
 				notifyImgDTO.setNotifyimgcname(part.getSubmittedFileName());
 				notifyImgDTO.setNotifyimgsname(imgsnameList.get(listIndex));
 				notifyImgDTO.setNotifyimgnum(listIndex + 1);
@@ -74,6 +77,22 @@ public class NotifyWriteProcHandler implements CommandHandler {
 			}
 		}
 
+		// 신고글 작성 시 이미지를 선택하지 않았을 때 default 이미지로 DB에 저장
+		if (listIndex == 0) {
+			notifyImgDTO = new NotifyimgDTO();
+			notifyImgDTO.setNotifyimgcname("no-image.jpg");
+			notifyImgDTO.setNotifyimgsname("img/no-image.jpg");
+			notifyImgDTO.setNotifyimgsize(1);
+			notifyImgDTO.setNotifyimgnum(1);
+			
+			try {
+				notifyImgService.notifyWriteBoardImg(notifyid, notifyImgDTO);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		
 		return "/jsp/mainFormIndex.jsp";
 		
 	} // process
