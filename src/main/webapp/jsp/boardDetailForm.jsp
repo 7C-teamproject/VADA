@@ -132,20 +132,23 @@
 
 						<!-- 						<a class="btn btn-info" style="float: right color: red" -->
 						<%-- 							 href="${webapproot}/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
-
+						
+						<c:if test="${boardDTO.buyerid eq 'default'}">
 						<a class="btn btn-info" style="float: right color: red"
 							href="${webapproot}/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}">
 							쪽지 보내기&raquo;</a>
-
+						
 						<a class="btn btn-secondary"
 							style="float: right; margin-right: 5px;"
 							href="javascript:confirmCommand('${webapproot}/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
-
+						</c:if>
+						
 						<c:if test="${boardDTO.reservation eq 'no'}">
 							<a class="btn btn-secondary" style="float: right"
 								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매
 								예약</a>
 						</c:if>
+						
 
 
 					</c:if>

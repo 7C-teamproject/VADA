@@ -4,5 +4,5 @@
 <!-- 로그인 실패시 alert처리를 위한 jsp -->
  <script>
  	alert("로그인 실패하셨습니다");
- 	location.href = "${webapproot}/jsp/loginForm.jsp"
+ 	location.href = "/Vada/jsp/loginForm.jsp"
  </script>
