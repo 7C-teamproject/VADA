@@ -28,7 +28,7 @@ public class SearchResultFormHandler implements CommandHandler {
 																							// 리스트
 
 		request.setAttribute("list", list); 
-		return "/jsp/searchResultForm.jsp";
+		return "/jsp/board/func/searchResultForm.jsp";
 	} // process
 
 } // SearchResultFormHandler

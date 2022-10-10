@@ -7,7 +7,7 @@
 
 <!-- 게시판검색 결과창(리스트)을 띄우기 위한 폼 -->
 
-<jsp:include page="top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 
 <link href="${webapproot}/css/list.css" rel="stylesheet" />
 
@@ -72,4 +72,4 @@
 
 </main>
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />
