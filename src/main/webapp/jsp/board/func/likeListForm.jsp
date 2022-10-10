@@ -47,7 +47,8 @@
 						</p>
 						
 						<p class="product-name">
-							${likeDTO.title}
+						
+							<a href="boarddetailform.do?productnum=${likeDTO.productnum}" >${likeDTO.title}</a>
 						</p>  
 						
 						<c:set var="sysYear">
