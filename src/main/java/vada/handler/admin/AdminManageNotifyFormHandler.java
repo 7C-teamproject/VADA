@@ -19,6 +19,6 @@ public class AdminManageNotifyFormHandler implements CommandHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/jsp/adminManageNotifyForm.jsp";
+		return "/jsp/admin/adminManageNotifyForm.jsp";
 	}
 }

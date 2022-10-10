@@ -3,7 +3,7 @@
  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="top.jsp" />
+<jsp:include page="${webapproot}/jsp/top.jsp" />
 
 <link href="${webapproot}/css/table.css" rel="stylesheet" />
 
@@ -54,4 +54,4 @@
 
 </main>
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="${webapproot}/jsp/bottom.jsp" />

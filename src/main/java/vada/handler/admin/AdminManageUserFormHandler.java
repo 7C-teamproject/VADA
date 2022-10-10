@@ -27,6 +27,6 @@ public class AdminManageUserFormHandler implements CommandHandler {
 		}
 		request.setAttribute("list", list);
 		
-		return "/jsp/adminManageUserForm.jsp";
+		return "/jsp/admin/adminManageUserForm.jsp";
 	}
 }

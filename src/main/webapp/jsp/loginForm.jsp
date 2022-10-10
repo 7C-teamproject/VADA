@@ -28,7 +28,7 @@
 							required>
 					</div>
 					<div class="pass-link">
-						<a href="${webapproot}/jsp/adminLoginForm.jsp">관리자용 로그인</a>
+						<a href="${webapproot}/jsp/admin/adminLoginForm.jsp">관리자용 로그인</a>
 					</div>
 					<div class="pass-link">
 						<a href="${webapproot}/jsp/searchIDForm.jsp">아이디 찾기</a>

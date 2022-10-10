@@ -28,7 +28,6 @@ public class AdminLoginProcHandler implements CommandHandler {
 		try {
 			userDTO = loginService.adminynLogin(userid, userpw);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -36,7 +35,7 @@ public class AdminLoginProcHandler implements CommandHandler {
 
 		// 만약 관리자 아이디가 없다면
 		if (userDTO == null) {
-			url = "/jsp/adminFailedLogin.jsp";
+			url = "/jsp/admin/adminFailedLogin.jsp";
 			// 매칭되는 관리자 아이디가 있다면
 		} else if (userDTO != null) {
 			url = "/adminmanageuserform.do";

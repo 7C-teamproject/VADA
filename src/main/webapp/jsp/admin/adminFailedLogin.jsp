@@ -3,5 +3,5 @@
 
  <script>
  	alert("관리자 로그인에 실패하셨습니다");
- 	location.href = "${webapproot}/jsp/adminLoginForm.jsp"
+ 	location.href = "${webapproot}/jsp/admin/adminLoginForm.jsp"
  </script>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<jsp:include page="top.jsp" />
+<jsp:include page="${webapproot}/jsp/top.jsp" />
 
 <link href="${webapproot}/css/table.css" rel="stylesheet" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -86,4 +86,4 @@
 
 
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="${webapproot}/jsp/bottom.jsp" />

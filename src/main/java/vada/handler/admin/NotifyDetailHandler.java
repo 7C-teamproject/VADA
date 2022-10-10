@@ -36,7 +36,7 @@ public class NotifyDetailHandler implements CommandHandler {
 		request.setAttribute("notifylistDTO", notifylistDTO);
 		request.setAttribute("imglist", list);
 
-		return "/jsp/notifyDetail.jsp";
+		return "/jsp/admin/notifyDetail.jsp";
 	} // process
 
 } // NotifyDetailHandler
