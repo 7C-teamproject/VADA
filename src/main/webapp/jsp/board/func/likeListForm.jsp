@@ -52,11 +52,11 @@
 						</p>  
 						
 						<c:set var="sysYear">
-							<fmt:formatDate value="${likeDTO.wdate}"
+							<fmt:formatDate value="${likeDTO.likedate}"
 								pattern="yyyy-MM-dd hh:mm:ss" />
 						</c:set>
 						
-						<div class="product-name">
+						<div class="product-date">
 							<c:out value="${sysYear}" />
 							<a class="btn btn-secondary" style="float: right;"
 								href="javascript:confirmCommand('${webapproot}/likelistdeleteproc.do?productnum=${likeDTO.productnum}','찜삭제');">찜 삭제</a>

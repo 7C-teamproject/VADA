@@ -12,6 +12,7 @@ import vada.constants.VADAConstants;
 import vada.dao.LikeAddDAO;
 import vada.dto.BoardDTO;
 import vada.dto.ImgDTO;
+import vada.dto.LikelistDTO;
 import vada.dto.ProductpriceDTO;
 
 public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
@@ -39,10 +40,17 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 			PreparedStatement pstmt = conn.prepareStatement(listSQL);
 			pstmt.setInt(1, productnum);
 			ResultSet rs = pstmt.executeQuery();
+			
+			//select * from likelist l where likeuserid = l.likeuserid and likeproductnum =?
+			String likeSQL = VADAConstants.props.getProperty("SELECT_LIKE_DATE_SQL");
+			PreparedStatement pstmt2 = conn.prepareStatement(likeSQL);
+			pstmt2.setInt(1, productnum);
+			ResultSet rs2 = pstmt2.executeQuery();
 
-			while (rs.next()) {
+			while (rs.next() & rs2.next()) {
 				boardMap = new HashMap<String, Object>();
 				
+				LikelistDTO likelistDTO = new LikelistDTO();
 				BoardDTO boardDTO = new BoardDTO();
 				ImgDTO imgDTO = new ImgDTO();
 				ProductpriceDTO productPriceDTO = new ProductpriceDTO();
@@ -51,6 +59,7 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				boardDTO.setWdate(rs.getTimestamp("wdate"));
 				boardDTO.setProductnum(rs.getInt("productnum"));
 				productPriceDTO.setProductprice(rs.getInt("productprice"));
+				likelistDTO.setLikedate(rs2.getTimestamp("likedate"));
 
 				imgDTO.setImgsname(rs.getString("imgsname"));
 				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
@@ -61,6 +70,7 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				boardMap.put("productprice", productPriceDTO.getProductprice());
 				boardMap.put("imgsname", imgDTO.getImgsname());
 				boardMap.put("imgproductnum", imgDTO.getImgproductnum());
+				boardMap.put("likedate", likelistDTO.getLikedate());
 
 				likeList.add(boardMap);
 
