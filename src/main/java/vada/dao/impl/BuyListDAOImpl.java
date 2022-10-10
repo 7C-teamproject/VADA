@@ -14,16 +14,13 @@ import vada.dto.BoardDTO;
 public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 
 	@Override
+	// 구매목록 리스트를 얻기 위한 메소드	
 	public List<BoardDTO> buyList(String userid) throws Exception {
-
-		Connection conn = getConnection();
 		
-		StringBuffer whereSQLBuffer = new StringBuffer();
-		whereSQLBuffer.append(" where buyerid=? ");
-		String buyeridQuery = whereSQLBuffer.toString();
+		Connection conn = getConnection();
 
-		// select * from board where buyerid=? 
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BUY_LIST_SQL") + buyeridQuery);
+		// select * from board where buyerid=?
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BUY_LIST_SQL"));
 
 		pstmt.setString(1, userid);
 

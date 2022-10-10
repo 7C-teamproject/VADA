@@ -14,7 +14,8 @@ public class ChatDAOImpl extends BoardDAOImpl implements ChatDAO {
 
 	@Override
 	public int ktchatBoard(int productnum, KtuserchatroomDTO ktuserchatroomDTO) throws Exception {
-
+	
+		
 		Connection conn = null;
 		PreparedStatement pstmt1 = null;
 		int rs = 0;

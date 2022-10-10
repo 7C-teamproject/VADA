@@ -10,6 +10,7 @@ import vada.dto.BoardDTO;
 
 public class BoardReviewDAOImpl extends BoardDAOImpl implements BoardReviewDAO {
 
+	// 리뷰를 수정하기 위한 메소드
 	public int updateBoardReview(BoardDTO boardDTO) throws Exception {
 
 		Connection conn = getConnection();

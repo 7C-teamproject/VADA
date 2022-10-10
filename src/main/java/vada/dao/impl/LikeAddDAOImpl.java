@@ -8,8 +8,9 @@ import vada.dao.LikeAddDAO;
 public class LikeAddDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 
 	@Override
+	// 찜목록추가를 위한 메소드
 	public int likeAdd(String userid, int productnum) throws Exception {
-	
+		
 		//insert into likelist (likeuserid, likeproductnum, likedate) values (?, ?, now())
 		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("INSERT_LIKE_ADD_SQL"));
 		

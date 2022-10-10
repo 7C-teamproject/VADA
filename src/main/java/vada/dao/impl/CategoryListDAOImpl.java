@@ -13,18 +13,21 @@ import vada.dto.CategoryDTO;
 public class CategoryListDAOImpl extends BoardDAOImpl implements CategoryListDAO {
 
 	@Override
+	// 카테고리 목록을 얻기 위한 메소드
 	public List<CategoryDTO> getCategoryList() throws Exception {
-
+		
 		Connection conn = getConnection();
 
 		// select * from categories
 		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_CATEGORY_SQL"));
 
-		ResultSet rs = pstmt.executeQuery(); // select ~~ 실행하는 문장 select 된 결과들이 rs에 저장됨
+		// select ~~ 실행하는 문장 select 된 결과들이 rs에 저장됨
+		ResultSet rs = pstmt.executeQuery(); 
 
 		List<CategoryDTO> categoryList = new ArrayList<CategoryDTO>();
 
-		while (rs != null && rs.next()) { // 카테고리 여러 개 꺼내기 위해서 while 반복문으로 꺼냄
+		// 카테고리 여러 개 꺼내기 위해서 while 반복문으로 꺼냄
+		while (rs != null && rs.next()) { 
 			
 			CategoryDTO categoyDTO = new CategoryDTO();
 			

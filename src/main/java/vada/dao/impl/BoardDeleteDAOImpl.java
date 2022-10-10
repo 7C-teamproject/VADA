@@ -12,7 +12,8 @@ public class BoardDeleteDAOImpl extends BoardDAOImpl implements BoardDeleteDAO {
 	PreparedStatement pstmt = null;
 
 	@Override
-	public int deleteBoard(int productnum) throws Exception {		// 제품번호에 해당하는 게시글 삭제
+	// 제품번호에 해당하는 게시글 삭제하는 파라미터 및 메소드
+	public int deleteBoard(int productnum) throws Exception {
 
 		conn = getConnection();
 
@@ -30,7 +31,8 @@ public class BoardDeleteDAOImpl extends BoardDAOImpl implements BoardDeleteDAO {
 	} // deleteBoard
 
 	@Override
-	public int deleteNotify(int notifyid) throws Exception {		// 신고글ID에 해당하는 게시글 삭제
+	// 신고글ID에 해당하는 게시글 삭제하는 파리미터 및 메소드
+	public int deleteNotify(int notifyid) throws Exception { 
 
 		conn = getConnection();
 

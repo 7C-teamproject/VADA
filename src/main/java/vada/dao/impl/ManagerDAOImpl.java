@@ -17,48 +17,50 @@ import vada.dto.UserDTO;
 
 public class ManagerDAOImpl extends BoardDAOImpl implements ManagerDAO {
 
-   @Override
-   public List<UserDTO> listBoard() throws Exception {
-	   
-	   //select * from user where adminyn='no' order by joindate desc
-      String prependSQL = VADAConstants.props.getProperty("SELECT_MANAGER_SEARCH_SQL");
+	@Override
+	//	관리자회원이 아닌 일반 회원정보들을 리스트를 얻기 위한 메소드
+	public List<UserDTO> listBoard() throws Exception {
+		
+		// select * from user where adminyn='no' order by joindate desc
+		String prependSQL = VADAConstants.props.getProperty("SELECT_MANAGER_SEARCH_SQL");
 
-      Connection conn = getConnection();
-      PreparedStatement pstmt = conn.prepareStatement(prependSQL);
-      ResultSet rs = pstmt.executeQuery();
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(prependSQL);
+		ResultSet rs = pstmt.executeQuery();
 
-      List<UserDTO> list = new ArrayList<UserDTO>();
-      while (rs.next()) {
-         UserDTO boardDTO = new UserDTO();
-         boardDTO.setUserid(rs.getString("userid"));
-         boardDTO.setJoindate(rs.getTimestamp("joindate"));
-         boardDTO.setBlackyn(rs.getString("blackyn"));
+		List<UserDTO> list = new ArrayList<UserDTO>();
+		while (rs.next()) {
+			UserDTO boardDTO = new UserDTO();
+			boardDTO.setUserid(rs.getString("userid"));
+			boardDTO.setJoindate(rs.getTimestamp("joindate"));
+			boardDTO.setBlackyn(rs.getString("blackyn"));
 
-         list.add(boardDTO);
-      }
+			list.add(boardDTO);
+		}
 
-      closeConnection(rs, pstmt, conn);
+		closeConnection(rs, pstmt, conn);
 
-      return list;
-   }
+		return list;
+	}
 
-   @Override
-   public int blackList(String userid, String blackyn) throws Exception {
+	@Override
+	// userid를 블랙리스트에 추가하기 위한 파라미터 및 메소드
+	public int blackList(String userid, String blackyn) throws Exception {
+		
+		Connection conn = getConnection();
+		UserDTO boardDTO = new UserDTO();
 
-      Connection conn = getConnection();
-      UserDTO boardDTO = new UserDTO();
+		// update `user` set blackyn=? where userid =?
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_MANAGER_BLACK_CHANGE"));
 
-      //update `user` set blackyn=? where userid =?
-      PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_MANAGER_BLACK_CHANGE"));
-      
-      pstmt.setString(1, blackyn);
-      pstmt.setString(2, userid);
-      
-      int result = pstmt.executeUpdate();
-      
-      closeConnection(pstmt, conn);
-      
-      return result;
-   }
-   
+		pstmt.setString(1, blackyn);
+		pstmt.setString(2, userid);
+
+		int result = pstmt.executeUpdate();
+
+		closeConnection(pstmt, conn);
+
+		return result;
+	}
+
 }

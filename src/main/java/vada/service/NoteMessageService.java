@@ -8,6 +8,6 @@ public interface NoteMessageService extends BoardService {
 
 	public abstract int insertMessage(NoteMessageDTO noteMessageDTO);
 
-	public abstract ArrayList<NoteMessageDTO> showboard(String notetouserid);
+	public abstract ArrayList<NoteMessageDTO> showMessage();
 
 }

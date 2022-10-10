@@ -9,23 +9,23 @@ import vada.constants.VADAConstants;
 
 public class LikeCheckDAOImpl extends AbstractLikeDAO {
 
-   
-   @Override
-   public List likeCheck(String userid) throws Exception {
+	@Override
+	// 한 아이디에 중복된 찜목록이 존재하는지 확인하기 위한 메소드
+	public List likeCheck(String userid) throws Exception {
+		
+		// select * from likelist where likeuserid=?
+		PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("SELECT_LIKE_CHECK_SQL"));
 
-	   //select * from likelist where likeuserid=?
-      PreparedStatement pstmt = getConnection().prepareStatement(VADAConstants.props.getProperty("SELECT_LIKE_CHECK_SQL"));
-      
-      pstmt.setString(1, userid);
-      ResultSet rs = pstmt.executeQuery(); // executeQuery() : select~~~,  executeUpdate() : insert~~, update~~
-      List list = new ArrayList();
-      while (rs.next()){
-         list.add(rs.getInt("likeproductnum"));
-      }
-   
-      closeConnection(rs, pstmt);
-      
-      return list;
-   }
-   
+		pstmt.setString(1, userid);
+		ResultSet rs = pstmt.executeQuery();
+		List list = new ArrayList();
+		while (rs.next()) {
+			list.add(rs.getInt("likeproductnum"));
+		}
+
+		closeConnection(rs, pstmt);
+
+		return list;
+	}
+
 }

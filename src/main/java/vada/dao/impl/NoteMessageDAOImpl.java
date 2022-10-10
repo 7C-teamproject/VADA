@@ -6,76 +6,69 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import vada.constants.VADAConstants;
 import vada.dao.NoteMessageDAO;
 import vada.dto.NoteMessageDTO;
 
-public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO{
+public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 
-   public int insertMessage(NoteMessageDTO noteMessageDTO) {
+	// 보낸쪽지 및 받은 쪽지 확인을 위해 DB에 저장하기 위한 메소드
+	public int insertMessage(NoteMessageDTO noteMessageDTO) {
+		
+		Connection conn = getConnection();
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			// insert into notemessage (notefromuserid, notetouserid, message, m_date) values(?, ?, ?, now())
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("MESSAGE_INSERT_SQL"));
 
-      Connection conn = getConnection();
-      PreparedStatement pstmt = null;
-      int result = 0;
-      try {
+			pstmt.setString(1, noteMessageDTO.getNotefromuserid());
+			pstmt.setString(2, noteMessageDTO.getNotetouserid());
+			pstmt.setString(3, noteMessageDTO.getMessage());
 
-         String sql = "insert into notemessage (notefromuserid, notetouserid, message, m_date) values(?, ?, ?, now())";
+			result = pstmt.executeUpdate();
 
-         pstmt = conn.prepareStatement(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection(pstmt, conn);
+		}
 
-         pstmt.setString(1, noteMessageDTO.getNotefromuserid());
-         pstmt.setString(2, noteMessageDTO.getNotetouserid());
-         pstmt.setString(3, noteMessageDTO.getMessage());
+		return result;
+	} // insertMessage
 
-         result = pstmt.executeUpdate();
+	// notetouserid에 매칭되는 메시지 데이터를 꺼내기 위한 파라미터이며 나에게 온 쪽지 목록을 출력하기 위한 메소드
+	public ArrayList<NoteMessageDTO> showMessage() {
+		
+		ArrayList<NoteMessageDTO> list_message = new ArrayList<NoteMessageDTO>();
 
-      } catch (Exception e) {
-         e.printStackTrace();
-      } finally {
-         closeConnection(pstmt, conn);
-      }
+		Connection conn = getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-      return result;
-   }
-   
-	   public ArrayList<NoteMessageDTO> showboard(String notetouserid) { //TODO 효주님 이거 뭥믜?
-      ArrayList<NoteMessageDTO> list_message = new ArrayList<NoteMessageDTO>();
-      
-      Connection conn = getConnection();
-      PreparedStatement pstmt = null;
-      ResultSet rs = null;
-      
-      try {
+		try {
+			// select * from notemessage
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("MESSAGE_SHOW_SQL"));
+			rs = pstmt.executeQuery();
 
-         String sql = " select * from notemessage ";
-//         NoteMessageDTO dto = new NoteMessageDTO();
+			while (rs.next()) {
+				String notefromuserid = rs.getString("notefromuserid");
+				String dbnotetouserid = rs.getString("notetouserid");
+				String message = rs.getString("message");
+				Timestamp m_date = rs.getTimestamp("m_date");
 
-         pstmt = conn.prepareStatement(sql);
-//         pstmt.setString(1, email);
-         rs = pstmt.executeQuery();
-         
-         while (rs.next()) {
-            
-//            int num = rs.getInt("num");
-            String notefromuserid = rs.getString("notefromuserid");
-            String dbnotetouserid = rs.getString("notetouserid");
-            String message = rs.getString("message");
-            Timestamp m_date = rs.getTimestamp("m_date");
-            
-            NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, dbnotetouserid, message, m_date);
-            list_message.add(noteMessageDTO);
-            
-         }
-         
-         System.out.println("list_message ===============>" + list_message);
+				NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, dbnotetouserid, message, m_date);
+				list_message.add(noteMessageDTO);
 
-      } catch (Exception e) {
-         e.printStackTrace();
-      } finally {
-         closeConnection(pstmt, conn);
-      }
-      
-      return list_message;
-      
-   }
+			}
 
-}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection(pstmt, conn);
+		}
+
+		return list_message;
+	} // showMessage
+
+} // class

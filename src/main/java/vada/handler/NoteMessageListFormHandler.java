@@ -25,14 +25,10 @@ public class NoteMessageListFormHandler implements CommandHandler {
 		noteMessageDTO.setMessage(request.getParameter("message"));
 
 		if (noteMessageDTO != null) {
-			listmessage = noteMessageDAOImpl.showboard((String) request.getAttribute("userid"));
+			listmessage = noteMessageDAOImpl.showMessage();
 		}
 		
 		request.setAttribute("listmessage", listmessage);
-
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/noteMessageListForm.jsp");
-		
-//		dispatcher.forward(request, response);
 		
 		return "jsp/noteMessageListForm.jsp";
 		

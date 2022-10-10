@@ -15,8 +15,9 @@ import vada.dto.UserDTO;
 public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdateDAO {
 
 	@Override
+	// 회원정보 수정을 위해 해당 세션ID에 해당하는 회원정보를 얻기 위한 파라미터 및 메소드
 	public UserDTO UserInfoSelect(String userid) throws SQLException {
-
+		
 		UserDTO userDTO = new UserDTO();
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
@@ -37,21 +38,20 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 			userDTO.setEmail(result.getString("email"));
 			userDTO.setNickname(result.getString("nickname"));
 			userDTO.setDetailaddress(result.getString("detailaddress"));
-//			userDTO.setInterestcategorynum(result.getInt("interestcategorynum"));
-			
-//			System.out.println("@@@@@@@@@@@@@"+result.getInt("interestcategorynum"));
+//			userDTO.setInterestcategorynum(result.getInt("interestcategorynum"));		//TODO 카테고리 추가해야함
 		}
 		
 		closeConnection(result, pstmt, conn);
 		
 		return userDTO;
-	}
+	} // UserInfoSelect
 	
 	
 	
 	@Override
+	// 회원정보를 수정할 유저데이터(userDTO)와 해당 userid를 받아와서 회원정보 업데이트 하기 위한 파라미터 및 메소드
 	public UserDTO UserInfoUpdate(String userid, UserDTO userDTO) throws SQLException {
-	
+		
 		Connection conn = getConnection();
 		
 		PreparedStatement pstmt = null;
@@ -59,8 +59,6 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 		
 		//update user set userpw=?, address=?, name=?, tel=?, email=?, nickname=?, detailaddress=? where userid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_USERINFO_UADATE_SQL"));
-		System.out.println("@@@@@@@@@@@@@@@"+userDTO.getName());
-		System.out.println("UserDTO =========>" + userDTO);
 		pstmt.setString(1, userDTO.getUserpw());
 		pstmt.setString(2, userDTO.getAddress());
 		pstmt.setString(3, userDTO.getName());
@@ -74,7 +72,6 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 		result = pstmt.executeUpdate();
 		closeConnection(pstmt, conn);
 		return userDTO;
-	}
-	
-	
-}
+		
+	} // UserInfoUpdate
+} // class

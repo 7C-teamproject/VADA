@@ -9,16 +9,13 @@ import vada.dao.BoardProductNumDAO;
 public class BoardProductNumDAOImpl extends BoardDAOImpl implements BoardProductNumDAO {
 
 	@Override
+	// 게시글 작성 시 이미지와 게시글 매칭을 위해 필요한 마지막 제품넘버를 얻는 메소드 
 	public int getProductNum() throws Exception {
 
 		Connection conn = getConnection();
 		
-		StringBuffer whereSQLBuffer = new StringBuffer();
-		whereSQLBuffer.append(" order by productnum desc limit 1 ");
-		String limitQuery = whereSQLBuffer.toString();
-		
 		// select * from board order by productnum desc limit 1 
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL") + limitQuery);
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_SQL"));
 	
 		ResultSet rs = pstmt.executeQuery();
 		

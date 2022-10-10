@@ -15,7 +15,8 @@ import vada.dto.NotifylistDTO;
 import vada.util.ConnectionManager;
 
 public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
-
+	// 게시글 테이블 작성을 위한 메소드
+	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 
@@ -42,6 +43,7 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 	@Override
 	public int writePrice(int productnum, int productprice) throws Exception {
+		// 게시글 테이블 작성 후 제품 가격 테이블 처리를 위한 메소드
 		
 		conn = getConnection();
 
@@ -61,7 +63,8 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 	@Override
 	public int notifyWriteBoard(NotifylistDTO notifyDTO, int notifyProductNum, String userid) throws Exception {
-
+	// 신고글 작성을 위한 메소드
+			
 		Connection conn = getConnection();
 
 //		if (conn != null) {
@@ -91,7 +94,8 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 	@Override
 	public int get_Notifyid() throws Exception {
-
+	// 신고글 작성 후 신고글ID와 이미지를 매칭시키기 위해 마지막 신고글ID를 얻기 위한 메소드
+		
 		Connection conn = ConnectionManager.getConnection();
 
 		PreparedStatement pstmt = null;

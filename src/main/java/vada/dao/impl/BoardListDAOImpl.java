@@ -24,6 +24,7 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 	ResultSet rs = null;
 
 	@Override
+	// 게시글 리스트를 얻는 메소드
 	public List<Map> getBoardList() throws Exception {
 
 		conn = getConnection();
@@ -74,7 +75,8 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 		return boardList;
 
 	} // getBoardList
-
+	
+	// 신고 게시글 리스트를 얻는 메소드
 	public List<NotifylistDTO> notifyListBoard() throws Exception {
 
 		conn = getConnection();

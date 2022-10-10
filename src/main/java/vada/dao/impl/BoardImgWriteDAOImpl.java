@@ -14,7 +14,8 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 	PreparedStatement pstmt = null;
 
 	@Override
-	public int writeBoardImg(int imgproductnum, ImgDTO imgDTO) throws Exception {	// 게시글에 해당하는 이미지를 insert하기 위한 imgproductum(productnum) , imgDTO 파라미터
+	// 게시글에 해당하는 이미지를 insert하기 위한 imgproductum(productnum) , imgDTO 파라미터
+	public int writeBoardImg(int imgproductnum, ImgDTO imgDTO) throws Exception {
 
 		conn = getConnection();
 
@@ -37,8 +38,9 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 		return result;
 
 	} // writeBoardImg
-
-	public int notifyWriteBoardImg(int notifyid, NotifyimgDTO notifyImgDTO) throws Exception {		// 신고 게시글에 해당하는 신고 이미지를 insert하기 위한 notifyid , notifyImgDTO 파라미터
+	
+	// 신고 게시글에 해당하는 신고 이미지를 insert하기 위한 notifyid , notifyImgDTO 파라미터
+	public int notifyWriteBoardImg(int notifyid, NotifyimgDTO notifyImgDTO) throws Exception {
 		conn = getConnection();
 
 		// insert into notifyimg (notifyimgnotifyid, notifyimgnum, notifyimgsname, notifyimgsize, notifyimgcname, notifyimgdate) values (?, ?, ?, ?, ?, now())

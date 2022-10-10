@@ -13,8 +13,9 @@ import vada.dto.ProductpriceDTO;
 public class BoardUpdateDAOImpl extends BoardDAOImpl implements BoardUpdateDAO {
 
 	@Override
+	//	게시글 수정을 위한 메소드
 	public int updateBoard(int productnum, BoardDTO boardDTO, ProductpriceDTO productpriceDTO, CategoryDTO categoryDTO) {
-
+		
 		Connection conn = getConnection();
 
 		// setAutoCommit(false)로 설정 : 트랜잭션이 끝날 때까지 commit 하지 않음

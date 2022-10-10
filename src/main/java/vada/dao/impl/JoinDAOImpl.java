@@ -11,8 +11,9 @@ import vada.dto.UserDTO;
 public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 	
 	@Override
+	// 회원가입 테이블 작성을 위한 user정보를 담은 파라미터 및 메소드
 	public int join(UserDTO userDTO) throws Exception {
-	
+		
 		Connection conn = getConnection();
 		
 		//insert into user values (?, ?, ?, ?, ?, ?, ?, now(), ?, 'no', ?, ?, ?)
@@ -27,8 +28,8 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 		pstmt.setString(5, userDTO.getEmail());
 		pstmt.setString(6, userDTO.getTel());
 		pstmt.setString(7, userDTO.getNickname());
-		pstmt.setString(8, "noneip");
-		pstmt.setString(9, "no");
+		pstmt.setString(8, "noneip");		// 채팅 진행시 필요한 IP
+		pstmt.setString(9, "no");		// 관리자인지 아닌지
 		pstmt.setString(10, userDTO.getName());
 		pstmt.setInt(11, userDTO.getInterestcategorynum());
 		
@@ -42,6 +43,7 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 	
 	@Override
 	public boolean checkUserid(String userid) throws Exception {
+	// 중복아이디 회원 검사를 위한 메소드
 		
 		boolean flag = false;
 		
@@ -56,22 +58,24 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 		
 		while (rs.next()) {
 			if(rs.getString("userid").equals(userid)) {
-				System.out.println("중복 아이디 존재함 - 회원가입 실패");
+			// 회원가입 실패
 				flag = false;
 				break;
 			}
 			else {
-				System.out.println("중복 아이디 없음 - 회원가입 성공");
+			// 회원가입 성공
 				flag = true;
 			}
 		}
-		System.out.println("flag=======>" + flag);
+		
 		closeConnection(pstmt, conn);
 		return flag;
 	}
 	
 	@Override
 	public boolean checkNickname(String nickname) throws Exception {
+	// 중복 닉네임 검사를 위한 메소드
+		
 		boolean flag = false;
 		
 		Connection conn = getConnection();
@@ -85,16 +89,15 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 		
 		while (rs.next()) {
 			if(rs.getString("nickname").equals(nickname)) {
-				System.out.println("중복 닉네임 존재함 - 회원가입 실패");
+			// 회원가입 실패
 				flag = false;
 				break;
 			}
 			else {
-				System.out.println("중복 닉네임 없음 - 회원가입 성공");
+			// 회원가입 성공
 				flag = true;
 			}
 		}
-		System.out.println("flag=======>" + flag);
 		closeConnection(pstmt, conn);
 		return flag;
 	}

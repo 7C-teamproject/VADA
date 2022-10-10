@@ -22,7 +22,8 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 	Connection conn = null;
 
 	@Override
-	public Map<String, Object> getBoardList(int productnum) throws Exception {		// 제품번호에 해당하는 게시글을 select하기 위한 파라미터
+	// 제품번호에 해당하는 게시글을 select하기 위한 파라미터 및 메소드
+	public Map<String, Object> getBoardList(int productnum) throws Exception {		
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -154,7 +155,8 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 	} // viewBoard
 
 	@Override
-	public Map<String, Object> notifyView(int notifyid) throws Exception {		// 신고글ID에 해당하는 신고글 select 위한 파라미터
+	// 신고글ID에 해당하는 신고글 select 위한 파라미터
+	public Map<String, Object> notifyView(int notifyid) throws Exception {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
@@ -204,7 +206,8 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 	} // notifyView
 	
 	@Override
-	public int reserveBoard(int productnum, String command, String userid) throws Exception {	//TODO 왜필요한지 모르겠음
+	//TODO 왜필요한지 모르겠음
+	public int reserveBoard(int productnum, String command, String userid) throws Exception {
 		
 		conn = getConnection();
 

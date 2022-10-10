@@ -13,8 +13,9 @@ import vada.dto.UserDTO;
 public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO {
 
 	@Override
+	// 아이디 찾기 위한 메소드로써 이름과 이메일로 찾기 위한 파라미터
 	public String searchUserID(String name, String email) throws Exception {
-
+		
 		Connection conn = getConnection();
 
 		// select * from user where name=? and email=?
@@ -40,5 +41,5 @@ public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO
 		
 		return dbuserid;
 
-	}
-}
+	} // searchUserID
+} // class

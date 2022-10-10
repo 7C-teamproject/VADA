@@ -17,15 +17,21 @@ import vada.dto.ProductpriceDTO;
 public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 
 	@Override
+	// 찜목록 리스트를 불러오기 위한 메소드
 	public List<Map> likeList(String userid) throws Exception {
+		
+		// 현재 세션ID에 해당하는 제품 넘버리스트 획득
+		List<Integer> likeProductNumList = get_Productnum(userid);
 
-		List<Integer> list = get_Productnum(userid);
+		// 찜목록 게시글에 필요한 정보들을 담은 Map타입 boardMap을 담기 위한 리스트 
+		List<Map> likeList = new ArrayList<Map>(); 
 		
-		List<Map> list2 = new ArrayList<Map>();
+		// BoardDTO, ImgDTO, ProductpriceDTO에서 필요한 데이터들만 얻기위한 Map타입 
+		Map<String, Object> boardMap = null;
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		for(int productnum:list) {
+		// 찜목록의 제품 넘버 리스트에 해당하는 게시글 데이터들을 모두 얻기 위한 for 문
+		for(int productnum:likeProductNumList) {
+			
 			Connection conn = getConnection();
 			//select * from board b inner join img i on b.productnum=i.imgproductnum inner join productprice p on p.productpricenum=b.productnum where i.imgnum=1 and b.productnum=?
 			String listSQL = VADAConstants.props.getProperty("SELECT_LIKE_LIST_SQL");
@@ -35,6 +41,8 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
+				boardMap = new HashMap<String, Object>();
+				
 				BoardDTO boardDTO = new BoardDTO();
 				ImgDTO imgDTO = new ImgDTO();
 				ProductpriceDTO productPriceDTO = new ProductpriceDTO();
@@ -47,29 +55,27 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				imgDTO.setImgsname(rs.getString("imgsname"));
 				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
 
-				Map<String, Object> map2 = new HashMap<String, Object>();
+				boardMap.put("title", boardDTO.getTitle());
+				boardMap.put("wdate", boardDTO.getWdate());
+				boardMap.put("productnum", boardDTO.getProductnum());
+				boardMap.put("productprice", productPriceDTO.getProductprice());
+				boardMap.put("imgsname", imgDTO.getImgsname());
+				boardMap.put("imgproductnum", imgDTO.getImgproductnum());
 
-				map2.put("title", boardDTO.getTitle());
-				map2.put("wdate", boardDTO.getWdate());
-				map2.put("productnum", boardDTO.getProductnum());
-				map2.put("productprice", productPriceDTO.getProductprice());
-				map2.put("imgsname", imgDTO.getImgsname());
-				map2.put("imgproductnum", imgDTO.getImgproductnum());
-
-				list2.add(map2);
+				likeList.add(boardMap);
 
 			}
 			closeConnection(rs, pstmt, conn);
 		}
 		
-		System.out.println(list2);
 
-		return list2;
+		return likeList;
 	} // listBoard
 	
 	@Override
+	// LikeList를 불러오기 위해 현재 세션에 해당하는 제품넘버를 얻는 메소드	
 	public List<Integer> get_Productnum(String userid) throws Exception {
-		
+	
 		Connection conn2 = getConnection();
 		
 		//select likeproductnum from likelist where likeuserid=?
@@ -81,15 +87,15 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 		
 		ResultSet rs2 = pstmt2.executeQuery();
 		
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> likeProductNumList = new ArrayList<Integer>();
 		
 		while (rs2.next()){
-			list.add(rs2.getInt("likeproductnum"));
+			likeProductNumList.add(rs2.getInt("likeproductnum"));
 		}
 		
 		closeConnection(rs2, pstmt2, conn2);
 		
-		return list;
+		return likeProductNumList;
 		
 	}
 	

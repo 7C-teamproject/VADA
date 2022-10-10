@@ -15,8 +15,9 @@ import vada.dto.BoardDTO;
 public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchListDAO {
 
 	@Override
+	// 카테고리 및 검색 키워드에 매칭되는 게시글을 얻기 위한 메소드
 	public List<Map> searchBoard(String level1Category, String level2Category, String searchText) throws Exception {
-
+		
 		StringBuffer whereSQLBuffer = new StringBuffer();
 
 		// 전체 검색(카테고리1을 선택 안 했을 때)
@@ -52,17 +53,17 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
 
 		Connection conn = getConnection();
 		
-		// select * from board
+		// select * from board b inner join img i on b.productnum=i.imgproductnum inner join productprice p on p.productpricenum=b.productnum where i.imgnum=1 and searchQuery
 		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_BOARD_IMG_PRICE_SQL") + searchQuery);
 
 		ResultSet rs = pstmt.executeQuery();
 
+		// Map 타입 boardMap을 하나씩 리스트로 담기 위한 ArrayList
 		List<Map> boardList = new ArrayList<Map>();
 
 		while (rs.next()) {
-
-			BoardDTO boardDTO = new BoardDTO();
-
+			
+			// BoardDTO, BoardPrice, ImgDTO 세가지 객체의 필요한 데이터들만 담기 위한 map 타입 boardMap
 			Map<String, Object> boardMap = new HashMap<String, Object>();
 
 			boardMap.put("title", rs.getString("title"));
