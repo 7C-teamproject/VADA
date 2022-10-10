@@ -9,9 +9,18 @@ public class NoteMessageDTO {
 	private String notetouserid;
 	private String message;
 	private Timestamp m_date;
-
+	private int noteproductnum;
+	
 	public NoteMessageDTO() {
-   }
+	}
+
+	public int getNoteproductnum() {
+		return noteproductnum;
+	}
+
+	public void setNoteproductnum(int noteproductnum) {
+		this.noteproductnum = noteproductnum;
+	}
 
 	public int getMessagenum() {
 		return messagenum;
@@ -53,23 +62,25 @@ public class NoteMessageDTO {
 		this.m_date = m_date;
 	}
 
-public NoteMessageDTO(String notefromuserid, String notetouserid, String message, Timestamp m_date) {
+public NoteMessageDTO(String notefromuserid, String notetouserid, int noteproductnum, String message, Timestamp m_date) {
       this.notefromuserid = notefromuserid;
       this.notetouserid = notetouserid;
+      this.noteproductnum = noteproductnum;
       this.message = message;
       this.m_date = m_date;
    }
 
-	public NoteMessageDTO(String notefromuserid, String notetouserid, String message) {
+	public NoteMessageDTO(String notefromuserid, String notetouserid, int noteproductnum, String message) {
       this.notefromuserid = notefromuserid;
       this.notetouserid = notetouserid;
+      this.noteproductnum = noteproductnum;
       this.message = message;
    }
 
 	@Override
 	public String toString() {
 		return "NoteMessageDTO [messagenum=" + messagenum + ", notefromuserid=" + notefromuserid + ", notetouserid="
-				+ notetouserid + ", message=" + message + ", m_date=" + m_date + "]";
+				+ notetouserid + ", noteproductnum=" + noteproductnum + ", message=" + message + ", m_date=" + m_date + "]";
 	}
 
 

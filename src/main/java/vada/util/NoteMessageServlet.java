@@ -1,6 +1,7 @@
 package vada.util;
 
 import java.io.IOException;
+import java.security.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,27 +11,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.NoteMessageDAOImpl;
-import vada.dto.BoardDTO;
 import vada.dto.NoteMessageDTO;
 
 @WebServlet("/MessageServlet")
 public class NoteMessageServlet extends HttpServlet {
 
-   @Override
+	private static final long serialVersionUID = 4694849259129370580L;
+
+@Override
    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 	  HttpSession session = req.getSession();
 	   
       String notefromuserid = (String) session.getAttribute("userid");
       String notetouserid = req.getParameter("sellerid");
-      int productnum = Integer.parseInt(req.getParameter("productnum"));
-      String message = req.getParameter("message");
-         
-      System.out.println(notefromuserid);
-      System.out.println(notetouserid);
-      System.out.println(message);
+      int noteproductnum = Integer.parseInt(req.getParameter("productnum"));
+      String message = req.getParameter("message"); 
       
-      NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, notetouserid, message);
+//      System.out.println(notefromuserid);
+//      System.out.println(notetouserid);
+//      System.out.println(noteproductnum);
+//      System.out.println(message);
+      
+      NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, notetouserid, noteproductnum, message);
       NoteMessageDAOImpl noteMessageDAOImpl = new NoteMessageDAOImpl();
       
       int result = noteMessageDAOImpl.insertMessage(noteMessageDTO);

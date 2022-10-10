@@ -3,7 +3,6 @@ package vada.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,17 +19,11 @@ public class NoteMessageListFormHandler implements CommandHandler {
 
 		NoteMessageDTO noteMessageDTO = new NoteMessageDTO();
 		
-		noteMessageDTO.setNotetouserid(request.getParameter("notetouserid"));
-		noteMessageDTO.setNotefromuserid(request.getParameter("notefromid"));
-		noteMessageDTO.setMessage(request.getParameter("message"));
-
-		if (noteMessageDTO != null) {
-			listmessage = noteMessageDAOImpl.showMessage();
-		}
+		listmessage = noteMessageDAOImpl.showMessage();		
 		
 		request.setAttribute("listmessage", listmessage);
 		
-		return "jsp/noteMessageListForm.jsp";
+		return "/jsp/noteMessageListForm.jsp";
 		
 	}
 

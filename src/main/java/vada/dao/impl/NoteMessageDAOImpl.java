@@ -19,12 +19,14 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			// insert into notemessage (notefromuserid, notetouserid, message, m_date) values(?, ?, ?, now())
-			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("MESSAGE_INSERT_SQL"));
-
+			// "insert into notemessage (notefromuserid, notetouserid, noteproductnum, message, m_date) values(?, ?, ?, ?, now())"
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("INSERT_MESSAGE_SQL"));
 			pstmt.setString(1, noteMessageDTO.getNotefromuserid());
 			pstmt.setString(2, noteMessageDTO.getNotetouserid());
-			pstmt.setString(3, noteMessageDTO.getMessage());
+			pstmt.setInt(3, noteMessageDTO.getNoteproductnum());
+			
+			System.out.println("aaaaaaaaaaaaaaaaaaaaaaa"+noteMessageDTO.getNoteproductnum());
+			pstmt.setString(4, noteMessageDTO.getMessage());
 
 			result = pstmt.executeUpdate();
 
@@ -48,16 +50,17 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 
 		try {
 			// select * from notemessage
-			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("MESSAGE_SHOW_SQL"));
+			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_MESSAGE_SQL"));
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				String notefromuserid = rs.getString("notefromuserid");
 				String dbnotetouserid = rs.getString("notetouserid");
+				int noteproductnum = rs.getInt("noteproductnum");
 				String message = rs.getString("message");
 				Timestamp m_date = rs.getTimestamp("m_date");
 
-				NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, dbnotetouserid, message, m_date);
+				NoteMessageDTO noteMessageDTO = new NoteMessageDTO(notefromuserid, dbnotetouserid, noteproductnum, message, m_date);
 				list_message.add(noteMessageDTO);
 
 			}

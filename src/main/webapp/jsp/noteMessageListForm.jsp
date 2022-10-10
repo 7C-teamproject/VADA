@@ -7,7 +7,7 @@
 
 <link href="${webapproot}/css/table.css" rel="stylesheet" />
 
-<main>
+<main style="padding: 0px 10% 0px 10%;">
 	<div>
 		<div>
 
@@ -28,7 +28,7 @@
 				<col width="400px" />
 			</colgroup>
 			<tr>
-				<th>보내는 사람</th>
+				<th>게시글</th>
 				<th>받는 사람</th>
 				<th>내용</th>
 				<th>시간</th>
@@ -37,7 +37,8 @@
 			<c:forEach var="item" items="${listmessage}" varStatus="status">
 				<c:if test="${sessionScope.userid eq item.notefromuserid }">
 					<tr>
-						<td>${item.notefromuserid}</td>
+						<td><a href="/Vada/boarddetailform.do?productnum=${item.noteproductnum}">
+					${item.noteproductnum}</a></td>
 						<td>${item.notetouserid}</td>
 						<td>${item.message}</td>
 						<td>${item.m_date}</td>
@@ -61,8 +62,8 @@
 				<col width="400px" />
 			</colgroup>
 			<tr>
+				<th>게시글</th>
 				<th>보내는 사람</th>
-				<th>받는 사람</th>
 				<th>내용</th>
 				<th>시간</th>
 			</tr>
@@ -70,7 +71,8 @@
 			<c:forEach var="item" items="${listmessage}" varStatus="status">
 				<c:if test="${sessionScope.userid eq item.notetouserid }">
 					<tr>
-						<td>${item.notefromuserid}</td>
+						<td><a href="/Vada/boarddetailform.do?productnum=${item.noteproductnum}">
+					${item.noteproductnum}</a></td>
 						<td>${item.notetouserid }</td>
 						<td>${item.message }</td>
 						<td>${item.m_date }</td>
