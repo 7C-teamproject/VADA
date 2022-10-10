@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-<jsp:include page="top.jsp" />
+<jsp:include page="${webapproot}/jsp/top.jsp" />
 
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -184,4 +184,4 @@
 
 </main>
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="${webapproot}/jsp/bottom.jsp" />

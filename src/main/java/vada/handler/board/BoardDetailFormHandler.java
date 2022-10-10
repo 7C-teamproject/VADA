@@ -64,7 +64,7 @@ public class BoardDetailFormHandler implements CommandHandler {
 		request.setAttribute("categoryDTO", categoryDTO);
 		request.setAttribute("imgDTOList", imgDTOList);
 
-		return "/jsp/boardDetailForm.jsp";
+		return "/jsp/board/boardDetailForm.jsp";
 		
 	} // process
 } // BoardDetailFormHandler
