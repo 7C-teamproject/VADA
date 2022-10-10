@@ -148,6 +148,7 @@
 								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매
 								예약</a>
 						</c:if>
+						
 
 
 					</c:if>
