@@ -34,7 +34,7 @@
 				<c:forEach var="likeDTO" items="${likeList}" varStatus="stat">
 
 					<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
-					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${likeDTO.productnum}'">
+					<li id="listid" style="list-style: none;" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${likeDTO.productnum}'">
 					
 						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
