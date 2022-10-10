@@ -1,9 +1,10 @@
-package vada.handler;
+package vada.handler.admin;
  
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardDeleteDAOImpl;
+import vada.handler.CommandHandler;
 
 // 신고글 삭제 핸들러
 public class NotifyDeleteProcHandler implements CommandHandler {

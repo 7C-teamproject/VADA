@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.admin;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardDetailDAOImpl;
 import vada.dto.NotifylistDTO;
+import vada.handler.CommandHandler;
 import vada.service.BoardDetailService;
 
 // 신고글 세부정보 폼 핸들러

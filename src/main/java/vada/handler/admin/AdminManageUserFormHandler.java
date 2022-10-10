@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.admin;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.ManagerDAOImpl;
 import vada.dto.UserDTO;
+import vada.handler.CommandHandler;
 import vada.service.ManagerService;
 
 // 관리자만 사용가능한 회원정보관리 폼 핸들러

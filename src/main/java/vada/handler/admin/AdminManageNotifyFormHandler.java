@@ -1,9 +1,10 @@
-package vada.handler;
+package vada.handler.admin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardListDAOImpl;
+import vada.handler.CommandHandler;
 import vada.service.BoardListService;
 
 // 관리자만 확인할 수 있는 신고목록 폼 핸들러
