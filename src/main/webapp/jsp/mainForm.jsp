@@ -7,7 +7,6 @@
 <jsp:include page="top.jsp" />
 
 <link href="${webapproot}/css/list.css" rel="stylesheet" />
-
 <!-- 메인 폼 (게시글 리스트 폼) -->
 <main>
 
@@ -32,7 +31,7 @@
 			<c:forEach var="item" items="${boardList}" varStatus="stat">
 
 				<!-- 게시글 세부정보 확인을 위해 게시글 제품번호 데이터 전송 및 폼이동 -->
-				<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
+				<li id="listid_ul" style="list-style: none;" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 					
 					<div class="img-box">
 					
