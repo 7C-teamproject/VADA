@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<jsp:include page="top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -131,4 +131,4 @@
 </main>
 
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />

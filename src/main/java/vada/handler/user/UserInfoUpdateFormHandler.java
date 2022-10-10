@@ -47,7 +47,7 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 		}
 	 	
 	 	request.setAttribute("userDTO", userDTO);
-		return "/jsp/userInfoUpdateForm.jsp";
+		return "/jsp/user/userInfoUpdateForm.jsp";
 	} // process
 
 } // UserInfoUpdateFormHandler

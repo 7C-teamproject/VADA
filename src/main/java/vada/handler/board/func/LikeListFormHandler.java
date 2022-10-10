@@ -32,7 +32,7 @@ public class LikeListFormHandler implements CommandHandler {
 		
 		
 		
-		return "/jsp/likeListForm.jsp";
+		return "/jsp/board/func/likeListForm.jsp";
 		
 	} // process
 
