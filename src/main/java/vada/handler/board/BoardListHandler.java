@@ -30,7 +30,7 @@ public class BoardListHandler implements CommandHandler {
 
 		request.setAttribute("boardList", boardList);
 		
-		return "/jsp/mainForm.jsp";
+		return "/jsp/board/mainForm.jsp";
 		
 	} // process
 	
