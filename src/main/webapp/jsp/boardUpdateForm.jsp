@@ -102,6 +102,7 @@
                </tbody>
             </table>
             <input type="submit" class="btn btn-primary pull-right" value="수정">
+            <button type="button" class="btn btn-primary pull-right" onclick="history.back();">취소</button>
          </form>
       </div>
    </div>
