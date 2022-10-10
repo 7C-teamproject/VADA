@@ -67,7 +67,14 @@
 										</c:forEach>
 									});
 								});
+// 								var arr = new Array();
+// 								<c:forEach items="${categoryDTOList}" var="item">
+// 									arr.push({value: ${item.categorynum},
+// 											  text: '${item.categoryname}'	
+// 									});
+// 								</c:forEach>
 							</script>
+							
 						</tr>
 						<!-- select 카테고리 끝 -->
 						

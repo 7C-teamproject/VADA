@@ -6,13 +6,7 @@
 
 <jsp:include page="top.jsp" />
 
-<style>
-th, td {
-	border: 1px solid #000000;
-	text-align: center;
-}
-</style>
-
+<link href="/Vada/css/table.css" rel="stylesheet" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <main>
@@ -28,7 +22,8 @@ th, td {
 			
 				<form action="/Vada/blacklistproc.do" method="Post">	<!-- 블랙리스트 데이터 저장 폼  -->
 				
-					<table>
+					<table style="border: 1px solid #000000;
+	text-align: center;">
 						<colgroup>
 							<col width="500px" />
 							<col width="1500px" />
@@ -73,6 +68,7 @@ th, td {
 							</c:forEach>
 						</tbody>
 					</table>
+					<br />
 					<input type="button" value="회원 정보 수정" onclick="this.form.submit()" />	<!-- 블랙리스트 처리 핸들러로 데이터를 전송 -->
 				</form>
 				

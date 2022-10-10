@@ -6,7 +6,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="../css/list.css" rel="stylesheet" />
+<link href="/Vada/css/list.css" rel="stylesheet" />
 
 <!-- 메인 폼 (게시글 리스트 폼) -->
 <main>
