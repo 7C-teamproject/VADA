@@ -51,14 +51,14 @@ public class DBCPInitServlet extends HttpServlet {
 			poolConfig.setMinIdle(4);
 			poolConfig.setMaxTotal(50);
 
-			GenericObjectPool<PoolableConnection> connectionPool = new GenericObjectPool<>(poolableConnFactory,
-					poolConfig);
+			GenericObjectPool<PoolableConnection> connectionPool = new GenericObjectPool(poolableConnFactory, poolConfig);
 			poolableConnFactory.setPool(connectionPool);
 
 			Class.forName((String) DBConnPoolConstants.props.get("JDBC_POOLING_DRIVER_NAME"));
 
 			PoolingDriver driver = (PoolingDriver) DriverManager.getDriver((String)DBConnPoolConstants.props.get("JDBC_POOLING_DRIVER"));
 			driver.registerPool((String)DBConnPoolConstants.props.get("JDBC_POOL_NAME"), connectionPool);
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
