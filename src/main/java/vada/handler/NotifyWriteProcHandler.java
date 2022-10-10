@@ -49,7 +49,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		
 		// 이미지 쓰기 Impl 생성
 		BoardImgService notifyImgService = new BoardImgWriteDAOImpl();
-		Collection<Part> parts = null;
+		Collection<Part> parts = null; 
 		try {
 			parts = request.getParts();
 		} catch (Exception ex) {
