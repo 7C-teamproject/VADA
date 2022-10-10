@@ -131,7 +131,7 @@
 						<br />
 
 						<!-- 						<a class="btn btn-info" style="float: right color: red" -->
-						<%-- 							 href="${webapproot}/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
+						<%-- 							 href="${webapproot}/jsp/board/func/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
 						
 						<c:if test="${boardDTO.buyerid eq 'default'}">
 						<a class="btn btn-info" style="float: right color: red"

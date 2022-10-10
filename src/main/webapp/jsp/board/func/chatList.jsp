@@ -10,7 +10,7 @@
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<jsp:include page="top.jsp" />
+<jsp:include page="/jsp/top.jsp" />
 <jsp:useBean id="ktuserchatroomDTO" class="vada.dto.KtuserchatroomDTO"  />
 <jsp:setProperty name="ktuserchatroomDTO" property="*" />
 
@@ -73,4 +73,4 @@ String ktuserid   = request.getParameter("userid");
 
 </main>
 
-<jsp:include page="bottom.jsp" />
+<jsp:include page="/jsp/bottom.jsp" />
