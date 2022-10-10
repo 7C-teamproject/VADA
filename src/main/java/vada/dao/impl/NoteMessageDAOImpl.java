@@ -68,7 +68,6 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 				cal.add(Calendar.HOUR, 3);
 				noteMessageDTO.setM_date(Timestamp.valueOf(sdformat.format(cal.getTime())));  // 3시간 차 보정
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
