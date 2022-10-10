@@ -64,7 +64,7 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		
 		request.setAttribute("categoryDTOList", categoryDTOList);
 
-		return "/jsp/boardUpdateForm.jsp";
+		return "/jsp/board/boardUpdateForm.jsp";
 		
 	} // process
 

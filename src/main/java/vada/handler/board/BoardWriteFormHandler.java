@@ -26,6 +26,6 @@ public class BoardWriteFormHandler implements CommandHandler {
 		}
 	 	request.setAttribute("categoryDTOList", categoryDTOList);
 
-		return "/jsp/boardWriteForm.jsp";
+		return "/jsp/board/boardWriteForm.jsp";
 	}
 }
