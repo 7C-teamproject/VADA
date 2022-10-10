@@ -1,7 +1,9 @@
-package vada.util;
+package vada.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import vada.util.DB;
  
 public class DBTest {
 	public static void main(String[] args) {
