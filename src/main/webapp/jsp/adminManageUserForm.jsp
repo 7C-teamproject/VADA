@@ -6,7 +6,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/table.css" rel="stylesheet" />
+<link href="${webapproot}/css/table.css" rel="stylesheet" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <main>
@@ -20,7 +20,7 @@
 			</div>
 			<div class="card-body">
 			
-				<form action="/Vada/blacklistproc.do" method="Post">	<!-- 블랙리스트 데이터 저장 폼  -->
+				<form action="${webapproot}/blacklistproc.do" method="Post">	<!-- 블랙리스트 데이터 저장 폼  -->
 				
 					<table style="border: 1px solid #000000;
 	text-align: center;">
@@ -74,7 +74,7 @@
 				
 			</div>
 		</div>
-			<a href = "/Vada/adminmanagenotifyform.do">신고글 관리페이지 이동</a>		<!-- 신고글 관리페이지로 이동 -->
+			<a href = "${webapproot}/adminmanagenotifyform.do">신고글 관리페이지 이동</a>		<!-- 신고글 관리페이지로 이동 -->
 	</div>
 
 </main>

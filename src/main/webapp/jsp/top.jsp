@@ -81,7 +81,7 @@ label:before {
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="/Vada/css/style.css" rel="stylesheet" />
+<link href="${webapproot}/css/style.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -89,7 +89,7 @@ label:before {
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" style="font-size: 30px"
-			href="/Vada/mainform.do">VADA</a>
+			href="${webapproot}/mainform.do">VADA</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -100,7 +100,7 @@ label:before {
 		<!-- 검색 창 -->
 		<form
 			class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-			action="/Vada/searchresultform.do" method="post">
+			action="${webapproot}/searchresultform.do" method="post">
 
 			<div class="input-group" style="line-height: 20px">
 				<p style="color: white; margin-top: 15px;">카테고리 :</p>
@@ -167,32 +167,32 @@ label:before {
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
 					
-					<li><p class="dropdown-item">${sessionScope.dbusernickname} 님</p></li>
+					<li><p class="dropdown-item">${sessionScope.userid} 님</p></li>
 					
 					<!-- 관리자가 아닐때 찜/구매목록/쪽지함/회원정보 변경 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'no'}">
-						<li><a class="dropdown-item" href="/Vada/likelistform.do">찜
+						<li><a class="dropdown-item" href="${webapproot}/likelistform.do">찜
 								목록</a></li>
-						<li><a class="dropdown-item" href="/Vada/userbuylistform.do">구매
+						<li><a class="dropdown-item" href="${webapproot}/userbuylistform.do">구매
 								목록</a></li>
-						<li><a class="dropdown-item" href="/Vada/notemessagelistform.do">쪽지함</a></li>	
+						<li><a class="dropdown-item" href="${webapproot}/notemessagelistform.do">쪽지함</a></li>	
 						<li><a class="dropdown-item"
-							href="/Vada/userinfoupdateform.do">회원정보 번경</a></li>
+							href="${webapproot}/userinfoupdateform.do">회원정보 번경</a></li>
 					</c:if>
 					
 					
 					<!-- 관리자가 아닐때 회원관리/신고글 목록 -->
 					<c:if test="${sessionScope.adminyn eq 'yes'}">
 						<li><a class="dropdown-item"
-							href="/Vada/adminmanageuserform.do">회원관리</a></li>
+							href="${webapproot}/adminmanageuserform.do">회원관리</a></li>
 						<li><a class="dropdown-item"
-							href="/Vada/adminmanagenotifyform.do">신고글 목록</a></li>
+							href="${webapproot}/adminmanagenotifyform.do">신고글 목록</a></li>
 					</c:if>
 					
 					<li><hr class="dropdown-divider" /></li>
 					
 					<!-- 로그아웃목록은 관리자/사용자 모두 사용 -->
-					<li><a class="dropdown-item" href="/Vada/logout.do">로그아웃</a></li>
+					<li><a class="dropdown-item" href="${webapproot}/logout.do">로그아웃</a></li>
 					
 				</ul>
 			</li>
@@ -206,9 +206,9 @@ label:before {
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="/Vada/mainform.do">
+						<a class="nav-link" href="${webapproot}/mainform.do">
 							<div class="sb-nav-link-icon"></div> 중고거래
-						</a> <a class="nav-link" href="/Vada/notemessagelistform.do">
+						</a> <a class="nav-link" href="${webapproot}/notemessagelistform.do">
 							<div class="sb-nav-link-icon"></div>쪽지함
 						</a>
 

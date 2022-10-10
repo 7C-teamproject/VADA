@@ -7,8 +7,8 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/list.css" rel="stylesheet" />
-<script src="/Vada/js/common.js"></script>
+<link href="${webapproot}/css/list.css" rel="stylesheet" />
+<script src="${webapproot}/js/common.js"></script>
 
 <main>
 
@@ -34,7 +34,7 @@
 				<c:forEach var="item" items="${list}" varStatus="stat">
 
 					<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
-					<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
+					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 					
 						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
@@ -57,7 +57,7 @@
 						<div class="product-name">
 							<c:out value="${sysYear}" />
 							<a class="btn btn-secondary" style="float: right;"
-								href="javascript:confirmCommand('/Vada/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
+								href="javascript:confirmCommand('${webapproot}/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
 						</div>
 
 					</li>
@@ -72,7 +72,7 @@
 				<br /><br /><br /><br />
 			</c:if>
 			
-			<button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/mainform.do'">메인으로 돌아가기</button>
+			<button type="button" class="btn btn-primary pull-right" onclick="location.href='${webapproot}/mainform.do'">메인으로 돌아가기</button>
 			
 		</ul>
 

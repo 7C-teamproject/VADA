@@ -5,7 +5,7 @@
 <!-- 로그인 폼 -->
 <html>
 	<head>
-	<link href="/Vada/css/login.css" rel="stylesheet" />
+	<link href="${webapproot}/css/login.css" rel="stylesheet" />
 	</head>
 	<body>
 	<h1>VADA</h1>
@@ -17,7 +17,7 @@
          
          <div class="form-inner">
          
-            <form method="post" action="/Vada/loginproc.do" class="login">
+            <form method="post" action="${webapproot}/loginproc.do" class="login">
                <div class="field">
                   <input type="text" name="userid" placeholder="ID" required>
                </div>
@@ -26,20 +26,20 @@
                      required>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/jsp/adminLoginForm.jsp">관리자용 로그인</a>
+                  <a href="${webapproot}/jsp/adminLoginForm.jsp">관리자용 로그인</a>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/jsp/searchIDForm.jsp">아이디 찾기</a>
+                  <a href="${webapproot}/jsp/searchIDForm.jsp">아이디 찾기</a>
                </div>
                 <div class="pass-link">
-                  <a href="/Vada/jsp/searchPWForm.jsp">비밀번호 찾기</a>
+                  <a href="${webapproot}/jsp/searchPWForm.jsp">비밀번호 찾기</a>
                </div>
                <div class="field btn">
                   <div class="btn-layer"></div>
                   <input type="submit" value="Login">
                </div>
                <div class="signup-link">
-                  <a href="/Vada/joinform.do">회원가입 하기</a>
+                  <a href="${webapproot}/joinform.do">회원가입 하기</a>
                </div>
             </form>
 

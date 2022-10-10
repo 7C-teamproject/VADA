@@ -6,7 +6,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/list.css" rel="stylesheet" />
+<link href="${webapproot}/css/list.css" rel="stylesheet" />
 
 <!-- 메인 폼 (게시글 리스트 폼) -->
 <main>
@@ -32,12 +32,12 @@
 			<c:forEach var="item" items="${boardList}" varStatus="stat">
 
 				<!-- 게시글 세부정보 확인을 위해 게시글 제품번호 데이터 전송 및 폼이동 -->
-				<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
+				<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 					
 					<div class="img-box">
 					
 						<!-- 이미지 저장시 가장 첫번째로 등록된 이미지를 리스트에 출력 -->
-						<img class=imgfile src="/Vada/img${item.imgsname}" alt="">
+						<img class=imgfile src="${webapproot}/img${item.imgsname}" alt="">
 					</div>
 					
 					<p class="product-price">
@@ -62,7 +62,7 @@
 		</ul>
 	</div>
 	<div>
-		<a id="write" href="/Vada/boardwriteform.do">글 등록</a>
+		<a id="write" href="${webapproot}/boardwriteform.do">글 등록</a>
 	</div>
 
 </main>

@@ -4,5 +4,5 @@
 <!-- 회원ID 찾았을때 ID alert 출력을 위한 jsp -->
 <script>
 	alert("회원님의 아이디는 ${param.searchUserid} 입니다.");
-	location.href="/Vada/jsp/loginForm.jsp"
+	location.href="${webapproot}/jsp/loginForm.jsp"
 </script>

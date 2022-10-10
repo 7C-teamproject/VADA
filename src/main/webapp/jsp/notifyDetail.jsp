@@ -7,7 +7,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/list.css" rel="stylesheet" />
+<link href="${webapproot}/css/list.css" rel="stylesheet" />
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -63,17 +63,17 @@
 					<h3>신고자ID : ${notifylistDTO.notifyuserid}</h3>
 					<h3>신고내용</h3><textarea style="width: 100%">${notifylistDTO.notifyreason}</textarea><br />
 					<h3>신고날짜 : ${notifylistDTO.notifydate}</h3>
-					<h3>원본게시물 : <a href="/Vada/boarddetailform.do?productnum=${notifylistDTO.notifyproductnum}">
+					<h3>원본게시물 : <a href="${webapproot}/boarddetailform.do?productnum=${notifylistDTO.notifyproductnum}">
 					${notifylistDTO.notifyproductnum}</a>
 					</h3>
 					<br />
 					<p>
-						<a href="/Vada/notifydeleteproc.do?notifyid=${notifylistDTO.notifyid}" class="btn btn-secondary">글 삭제</a> 
+						<a href="${webapproot}/notifydeleteproc.do?notifyid=${notifylistDTO.notifyid}" class="btn btn-secondary">글 삭제</a> 
 					</p>
 				</div>
 			</div>
 
-		<a href="/Vada/adminmanagenotifyform.do" class="btn btn-secondary" >신고글 목록</a>
+		<a href="${webapproot}/adminmanagenotifyform.do" class="btn btn-secondary" >신고글 목록</a>
 		
 	</div>
 	

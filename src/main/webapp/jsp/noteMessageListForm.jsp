@@ -5,7 +5,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/table.css" rel="stylesheet" />
+<link href="${webapproot}/css/table.css" rel="stylesheet" />
 
 <main>
 	<div>
@@ -83,7 +83,7 @@
 
 		<br /> <br />
 		<button type="button" class="btn btn-primary pull-right"
-			onclick="location.href='/Vada/mainform.do'">메인으로
+			onclick="location.href='${webapproot}/mainform.do'">메인으로
 			돌아가기</button>
 
 	</div>

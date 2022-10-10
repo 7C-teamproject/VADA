@@ -9,7 +9,7 @@
    <div class="container">
       <div class="row">
       
-         <form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="utf-8">
+         <form method="post" action="${webapproot}/fileupload" enctype="multipart/form-data" accept-charset="utf-8">
          
          	<input type="hidden" name="command" value="update" />
          	<input type="hidden" name="productnum" value="${boardDTO.productnum}"/>

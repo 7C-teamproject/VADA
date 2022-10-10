@@ -7,7 +7,7 @@
 	
 <html>
 	<head>
-	<link href="/Vada/css/login.css" rel="stylesheet" />
+	<link href="${webapproot}/css/login.css" rel="stylesheet" />
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
@@ -146,7 +146,7 @@
          
 		<div class="form-inner">
 		
-			<form name="joinForm" action="/Vada/joinproc.do" method="post">
+			<form name="joinForm" action="${webapproot}/joinproc.do" method="post">
 				* 아이디 <input type="text" name="userid" id="uid" placeholder="4~12글자 " /><br /><label for="uid" class="validation_error"></label><br />
 				* 비밀번호 <input type="password" name="pwd" id="upass" placeholder="8~15글자 (문자, 숫자, 특수문자 포함)"/><br /><label for="upass" class="validation_error"></label><br />
 				* 비밀번호확인 <input type="password" name="userpw" id="upassre" placeholder="8~15글자 (문자, 숫자, 특수문자 포함)"/><br /><label for="upassre" class="validation_error"></label><br />

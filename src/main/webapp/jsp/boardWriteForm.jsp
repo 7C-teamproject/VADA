@@ -12,7 +12,7 @@
 		<div class="row">
 			
 			<!-- 이미지 파일 서버에 저장하기 위해 서블릿으로 데이터 전송 / 게시글 데이터 저장 폼 -->
-			<form method="post" action="/Vada/fileupload" enctype="multipart/form-data" accept-charset="UTF-8">
+			<form method="post" action="${webapproot}/fileupload" enctype="multipart/form-data" accept-charset="UTF-8">
          
          	<!-- 글 작성 or 글 수정 인지 확인을 위한 데이터 -->
          	<input type="hidden" name="command" value="write" />

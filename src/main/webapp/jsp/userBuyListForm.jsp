@@ -5,7 +5,7 @@
 
 <jsp:include page="top.jsp" />
  
-<link href="/Vada/css/table.css" rel="stylesheet" />
+<link href="${webapproot}/css/table.css" rel="stylesheet" />
 
 <main>
 
@@ -39,18 +39,18 @@
 								<td>${boardDTO.title}</td>
 								<td>${boardDTO.soldoutdate}</td>
 								<td>
-									<script src="/Vada/js/common.js"></script>
+									<script src="${webapproot}/js/common.js"></script>
 									
 									<!-- 리뷰를 작성하지 않았다면 후기작성 버튼 출력O -->
 									<c:if test="${boardDTO.review eq null}">
 										<a class="btn btn-secondary"  style="float: right;"
-											href="javascript:confirmCommand('/Vada/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>									
+											href="javascript:confirmCommand('${webapproot}/reviewform.do?productnum=${boardDTO.productnum}','후기작성');">후기작성</a>									
 									</c:if>
 									
 									<!-- 리뷰를 작성했다면 후기작성 버튼 출력X -->
 									<c:if test="${boardDTO.review ne null}">
 										<a class="btn btn-secondary"  style="float: right;"
-											href="javascript:confirmCommand('/Vada/boarddetailform.do?productnum=${boardDTO.productnum}','해당 게시글로 이동');">작성한 후기 보러가기</a>									
+											href="javascript:confirmCommand('${webapproot}/boarddetailform.do?productnum=${boardDTO.productnum}','해당 게시글로 이동');">작성한 후기 보러가기</a>									
 									</c:if>
 								</td>
 							</tr>
@@ -59,7 +59,7 @@
 				</table>
 			</div>
 		</div>
-		<a href="/Vada/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
+		<a href="${webapproot}/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
 	</div>
 
 </main>

@@ -11,13 +11,13 @@
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<link href="/Vada/css/list.css" rel="stylesheet" />
+<link href="${webapproot}/css/list.css" rel="stylesheet" />
 
 <main>
 
 	<div style="margin-left: 25%">
 
-		<form action="/Vada/boardupdateform.do" method="post">
+		<form action="${webapproot}/boardupdateform.do" method="post">
 			<input type="hidden" name="productnum" value="${boardDTO.productnum}" />
 
 			<!-- 	이미지 슬라이드 -->
@@ -25,7 +25,7 @@
 				<div class="swiper-wrapper">
 					<c:forEach var="imgDTO" items="${imgDTOList}" varStatus="status">		<!-- 이미지 데이터 저장 list -->
 						<div class="swiper-slide">
-							<img style="width: 100%; height: 100%;" src="/Vada/img${imgDTO.imgsname}" name="img">	<!-- 서버에 저장된 이미지 출력 -->
+							<img style="width: 100%; height: 100%;" src="${webapproot}/img${imgDTO.imgsname}" name="img">	<!-- 서버에 저장된 이미지 출력 -->
 							<input type="hidden" name="imgcname${status.index}" value="${imgDTO.imgcname}" /> 	<!-- 게시글 수정시 사용할 파일명 -->
 							<input type="hidden" name="imgsize${status.index}" value="${imgDTO.imgsize}" />		<!-- 게시글 수정시 사용할 파일크기 -->
 						</div>
@@ -54,7 +54,7 @@
 			</script>
 
 			<!-- 게시글 수정/삭제 시 confirm하는 스크립트 -->
-			<script src="/Vada/js/common.js"></script>
+			<script src="${webapproot}/js/common.js"></script>
 			<div class="row">
 				<div class="col-md-6">
 				
@@ -80,15 +80,15 @@
 									onclick="this.form.submit()" value="글 수정">
 						</c:if>
 						
-						<script src="/Vada/js/common.js"></script>
+						<script src="${webapproot}/js/common.js"></script>
 						<a class="btn btn-secondary"
-							href="javascript:confirmCommand('/Vada/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
+							href="javascript:confirmCommand('${webapproot}/boarddeleteproc.do?productnum=${boardDTO.productnum}','게시글 삭제');">글
 							삭제</a>
 								
 						<c:if test="${boardDTO.reservation eq 'yes'}">
 						
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약 취소하기</a>
+								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약 취소하기</a>
 							&nbsp;&nbsp;&nbsp;
 							
 							<a class="btn btn-secondary" style="float: right"
@@ -103,23 +103,23 @@
 					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 					
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/jsp/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
+							href="javascript:confirmCommand('${webapproot}/jsp/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 							신고</a><br /> <br /> <br />
 						
 <!-- 						<a class="btn btn-info" style="float: right color: red" -->
-<%-- 							 href="/Vada/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
+<%-- 							 href="${webapproot}/jsp/chatList.jsp?productnum=${boardDTO.productnum}&userid=${sessionScope.userid}">채팅하기&raquo;</a> --%>
 						
 						<a class="btn btn-info" style="float: right color: red"
-							href="/Vada/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" >
+							href="${webapproot}/jsp/noteMessageWriteForm.jsp?productnum=${boardDTO.productnum}&sellerid=${boardDTO.sellerid}" >
 							쪽지 보내기&raquo;</a>
 						
 						<a class="btn btn-secondary"
 							style="float: right; margin-right: 5px;"
-							href="javascript:confirmCommand('/Vada/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
+							href="javascript:confirmCommand('${webapproot}/addlikeproc.do?productnum=${boardDTO.productnum}','찜');">찜하기</a>
 						
 						<c:if test="${boardDTO.reservation eq 'no'}">
 							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('/Vada/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매 예약</a>
+								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=reserve','구매 예약 신청');">구매 예약</a>
 						</c:if>
 						
 						
@@ -148,7 +148,7 @@
 		</form>
 		
 		<div>		
-			<a href="/Vada/mainform.do" class="btn btn-secondary">메인 화면으로 돌아가기</a>
+			<a href="${webapproot}/mainform.do" class="btn btn-secondary">메인 화면으로 돌아가기</a>
 		</div>
 
 	</div>

@@ -3,14 +3,14 @@
 
 <jsp:include page="top.jsp" />
 
-<script src="/Vada/js/common.js"></script>
+<script src="${webapproot}/js/common.js"></script>
  
 <main>
 	<div class="container">
 		<div class="row">
 			
 			<!-- 리뷰작성을 위한 데이터를 담은 폼/ 게시글에 해당하는 게시판테이블에 리뷰작성 (리뷰테이블 따로 존재X) -->
-			<form method="post" action="/Vada/reviewproc.do?productnum=${param.productnum}">
+			<form method="post" action="${webapproot}/reviewproc.do?productnum=${param.productnum}">
 
 				<table class="table table-stripped"
 					style="text-align: center; boarder: 1px solid #dddddd">
@@ -45,7 +45,7 @@
 					</tbody>
 				</table>
 			
-            <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('/Vada/reviewproc.do?productnum=${param.productnum}','후기작성');">
+            <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('${webapproot}/reviewproc.do?productnum=${param.productnum}','후기작성');">
              <button type="button" class="btn btn-primary pull-right" onclick="history.back();">구매목록</button>
 			</form>
 		</div>

@@ -4,5 +4,5 @@
 <!-- PW 찾기 실패시 alert 처리를 위한-->
  <script>
  	alert("ID/이메일을 확인해주세요");
-	location.href = "/Vada/jsp/searchPWForm.jsp"
+	location.href = "${webapproot}/jsp/searchPWForm.jsp"
  </script>

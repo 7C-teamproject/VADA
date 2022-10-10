@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<link href="/Vada/css/login.css" rel="stylesheet" />
+<link href="${webapproot}/css/login.css" rel="stylesheet" />
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -45,7 +45,7 @@
          </div>
          
          <div class="form-inner">
-	<form name="join_form" action="/Vada/userinfoupdateproc.do" method="post">
+	<form name="join_form" action="${webapproot}/userinfoupdateproc.do" method="post">
 	
 		<div>
 			아이디 : ${userDTO.userid}

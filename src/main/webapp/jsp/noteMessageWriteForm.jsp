@@ -7,7 +7,7 @@
 	  <div>
 	  
 	  <!-- 메시지 작성을 위한 데이터 저장 폼 -->
-      <form action="/Vada/MessageServlet" method="post">
+      <form action="${webapproot}/MessageServlet" method="post">
          <input type="hidden" name="productnum" value="${param.productnum}" />
          <input type="hidden" name="sellerid" value="${param.sellerid}" />
          

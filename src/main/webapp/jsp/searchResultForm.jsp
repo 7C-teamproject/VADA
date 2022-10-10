@@ -9,7 +9,7 @@
 
 <jsp:include page="top.jsp" />
 
-<link href="/Vada/css/list.css" rel="stylesheet" />
+<link href="${webapproot}/css/list.css" rel="stylesheet" />
 
 <main>
 
@@ -36,9 +36,9 @@
 			
 				<!-- 검색한 게시판의 카테고리/제목과 포함하는 데이터를 저장한 리스트 -->
 				<c:forEach var="item" items="${list}" varStatus="stat">
-					<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
+					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 						<div class="img-box">
-							<img class=imgfile src="/Vada/img${item.imgsname}">
+							<img class=imgfile src="${webapproot}/img${item.imgsname}">
 
 						</div>
 						<p class="product-price">
@@ -66,7 +66,7 @@
 		</ul>
 	</div>
 	<div>
-		<a href="/Vada/mainform.do" class="btn btn-secondary"
+		<a href="${webapproot}/mainform.do" class="btn btn-secondary"
 			style="float: right;">메인화면으로 돌아가기</a>
 	</div>
 

@@ -5,8 +5,8 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>채팅</title>
-	<script type="text/javascript" src="/Vada/js/ajax.js"></script>
-	<script type="text/javascript" src="/Vada/js/chat.js"></script>
+	<script type="text/javascript" src="${webapproot}/js/ajax.js"></script>
+	<script type="text/javascript" src="${webapproot}/js/chat.js"></script>
 	<script type="text/javascript">
 	window.onload = function() {
 		var chatting = new chat.Chat();

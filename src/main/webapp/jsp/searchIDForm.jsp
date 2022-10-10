@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-	<link href="/Vada/css/login.css" rel="stylesheet" />
+	<link href="${webapproot}/css/login.css" rel="stylesheet" />
 	</head>
 	<body>
 	<h1>VADA</h1>
@@ -17,7 +17,7 @@
          <div class="form-inner">
          
          	<!-- ID찾기를 위한 데이터 저장 폼 -->
-            <form method="post" action="/Vada/searchidproc.do" class="searchid">
+            <form method="post" action="${webapproot}/searchidproc.do" class="searchid">
                <div class="field">
                   <input type="text" name="email" placeholder="email" required>
                </div>
@@ -26,7 +26,7 @@
                      required>
                </div>
                <div class="pass-link">
-                  <a href="/Vada/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
+                  <a href="${webapproot}/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
                </div>
                <div class="field btn">
                   <div class="btn-layer"></div>
