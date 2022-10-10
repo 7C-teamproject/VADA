@@ -2,8 +2,8 @@ package vada.handler.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
-import vada.dao.impl.BoardDeleteDAOImpl;
+
+import vada.dao.impl.board.crud.BoardDeleteDAOImpl;
 import vada.handler.CommandHandler;
 
 // 게시글 삭제 처리 핸들러

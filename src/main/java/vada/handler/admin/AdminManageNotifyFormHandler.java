@@ -3,9 +3,9 @@ package vada.handler.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardListDAOImpl;
+import vada.dao.impl.board.crud.BoardListDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.BoardListService;
+import vada.service.board.crud.BoardListService;
 
 // 관리자만 확인할 수 있는 신고목록 폼 핸들러
 public class AdminManageNotifyFormHandler implements CommandHandler {

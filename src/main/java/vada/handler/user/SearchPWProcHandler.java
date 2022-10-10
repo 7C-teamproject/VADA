@@ -3,9 +3,9 @@ package vada.handler.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.SearchUserPWDAOImpl;
+import vada.dao.impl.user.search.SearchUserPWDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.SearchUserPWService;
+import vada.service.user.search.SearchUserPWService;
 
 // 비밀번호 찾기 처리 핸들러
 public class SearchPWProcHandler implements CommandHandler {

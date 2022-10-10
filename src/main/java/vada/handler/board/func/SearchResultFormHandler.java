@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardSearchListDAOImpl;
+import vada.dao.impl.board.func.BoardSearchListDAOImpl;
 import vada.handler.CommandHandler;
 
 // 검색결과를 보여주는 검색 결과 폼 핸들러
@@ -18,7 +18,7 @@ public class SearchResultFormHandler implements CommandHandler {
 		String cate2 = request.getParameter("categories2") == null ? "" : request.getParameter("categories2");
 		String searchText = request.getParameter("searchText") == null ? "" : request.getParameter("searchText");
 
-		List<Map> list = null;
+		List<Map<String, Object>> list = null;
 		try {
 			// 상/하위 카테고리 및 검색어 키워드에 맞는 데이터를 list에 저장
 			list = new BoardSearchListDAOImpl().searchBoard(cate1, cate2, searchText);

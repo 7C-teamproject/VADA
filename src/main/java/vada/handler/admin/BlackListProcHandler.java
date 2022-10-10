@@ -3,9 +3,9 @@ package vada.handler.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.ManagerDAOImpl;
+import vada.dao.impl.board.admin.ManagerDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.ManagerService;
+import vada.service.board.admin.ManagerService;
 
 // 유저 블랙리스트 처리 핸들러
 public class BlackListProcHandler implements CommandHandler {

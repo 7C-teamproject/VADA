@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vada.dao.impl.BuyListDAOImpl;
+import vada.dao.impl.board.func.BuyListDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.BuyListSerive;
+import vada.service.board.func.BuyListSerive;
 
 // 유저 구매 목록 리스트를 보여주기 위한 핸들러
 public class UserBuyListFormHandler implements CommandHandler {

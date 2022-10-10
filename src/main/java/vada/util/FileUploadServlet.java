@@ -15,13 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import org.apache.catalina.connector.Request;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import vada.constants.CommonConstants;
-import vada.dao.impl.BoardImgListDAOImpl;
+import vada.dao.impl.board.img.BoardImgListDAOImpl;
 import vada.dto.ImgDTO;
-import vada.service.BoardImgService;
+import vada.service.board.img.BoardImgService;
 
 public class FileUploadServlet extends HttpServlet {
 

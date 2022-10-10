@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@page import="vada.dao.impl.CategoryListDAOImpl"%>
+	
+<%@page import="vada.dao.impl.board.func.CategoryListDAOImpl"%>
+<%@page import="vada.service.board.func.CategoryService"%>
 <%@page import="vada.dto.CategoryDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="vada.service.CategoryService"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

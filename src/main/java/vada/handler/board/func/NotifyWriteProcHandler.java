@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import vada.dao.impl.BoardImgWriteDAOImpl;
-import vada.dao.impl.BoardWriteDAOImpl;
-import vada.dto.ImgDTO;
+import vada.dao.impl.board.crud.BoardWriteDAOImpl;
+import vada.dao.impl.board.img.BoardImgWriteDAOImpl;
 import vada.dto.NotifyimgDTO;
 import vada.dto.NotifylistDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardImgService;
-import vada.service.BoardWriteService;
+import vada.service.board.crud.BoardWriteService;
+import vada.service.board.img.BoardImgService;
 
 // 신고글 쓰기 처리 핸들러
 public class NotifyWriteProcHandler implements CommandHandler {

@@ -6,10 +6,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardDetailDAOImpl;
+import vada.dao.impl.board.crud.BoardDetailDAOImpl;
 import vada.dto.NotifylistDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardDetailService;
+import vada.service.board.crud.BoardDetailService;
 
 // 신고글 세부정보 폼 핸들러
 public class NotifyDetailHandler implements CommandHandler {

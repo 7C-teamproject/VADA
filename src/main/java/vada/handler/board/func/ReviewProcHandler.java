@@ -3,10 +3,10 @@ package vada.handler.board.func;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardReviewDAOImpl;
+import vada.dao.impl.board.func.BoardReviewDAOImpl;
 import vada.dto.BoardDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardReviewService;
+import vada.service.board.func.BoardReviewService;
 
 // 리뷰 처리 핸들러
 public class ReviewProcHandler implements CommandHandler {

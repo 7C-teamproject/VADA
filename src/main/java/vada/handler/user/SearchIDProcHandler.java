@@ -3,9 +3,9 @@ package vada.handler.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.SearchUserIDDAOImpl;
+import vada.dao.impl.user.search.SearchUserIDDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.SearchUserIDService;
+import vada.service.user.search.SearchUserIDService;
 
 // ID찾기 처리 핸들러
 public class SearchIDProcHandler implements CommandHandler {

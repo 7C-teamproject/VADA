@@ -4,10 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vada.dao.impl.LoginDAOImpl;
+import vada.dao.impl.user.sign.LoginDAOImpl;
 import vada.dto.UserDTO;
 import vada.handler.CommandHandler;
-import vada.service.LoginService;
+import vada.service.user.sign.LoginService;
 
 // 관리자 로그인 처리 핸들러
 public class AdminLoginProcHandler implements CommandHandler {

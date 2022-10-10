@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.NoteMessageDAOImpl;
+import vada.dao.impl.board.func.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
 import vada.handler.CommandHandler;
 

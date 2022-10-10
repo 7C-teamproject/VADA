@@ -5,10 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.CategoryListDAOImpl;
+import vada.dao.impl.board.func.CategoryListDAOImpl;
 import vada.dto.CategoryDTO;
 import vada.handler.CommandHandler;
-import vada.service.CategoryService;
+import vada.service.board.func.CategoryService;
 
 // 게시글 쓰기 폼 핸들러
 public class BoardWriteFormHandler implements CommandHandler {

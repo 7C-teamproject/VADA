@@ -6,12 +6,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.BoardDetailDAOImpl;
+import vada.dao.impl.board.crud.BoardDetailDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ProductpriceDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardDetailService;
+import vada.service.board.crud.BoardDetailService;
 
 // 게시글 세부정보 획득 핸들러
 public class BoardDetailFormHandler implements CommandHandler {

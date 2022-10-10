@@ -5,16 +5,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
 
-import vada.dao.impl.CategoryListDAOImpl;
+import vada.dao.impl.board.func.CategoryListDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
-import vada.dto.ImgDTO;
 import vada.dto.ProductpriceDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardFileService;
-import vada.service.CategoryService;
+import vada.service.board.func.CategoryService;
  
 // 게시글 업데이트 폼에 이전 데이터 출력을 위한 폼
 public class BoardUpdateFormHandler implements CommandHandler {

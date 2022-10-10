@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import vada.constants.VADAConstants;
 import vada.dao.BoardProductNumDAO;
+import vada.dao.impl.board.BoardDAOImpl;
 
 public class BoardProductNumDAOImpl extends BoardDAOImpl implements BoardProductNumDAO {
 

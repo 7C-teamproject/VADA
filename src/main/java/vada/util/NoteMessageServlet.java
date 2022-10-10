@@ -1,7 +1,6 @@
 package vada.util;
 
 import java.io.IOException;
-import java.security.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vada.dao.impl.NoteMessageDAOImpl;
+import vada.dao.impl.board.func.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
 
 @WebServlet("/MessageServlet")

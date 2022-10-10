@@ -5,10 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vada.dao.impl.CategoryListDAOImpl;
+import vada.dao.impl.board.func.CategoryListDAOImpl;
 import vada.dto.CategoryDTO;
 import vada.handler.CommandHandler;
-import vada.service.CategoryService;
+import vada.service.board.func.CategoryService;
 
 // 관심카테고리를 설정하기 위해 카테고리 목록을 보여주기 위한 회원가입 폼 핸들러
 public class JoinFormHandler implements CommandHandler {

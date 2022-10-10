@@ -4,23 +4,21 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import vada.dao.impl.BoardImgDeleteDAOImpl;
-import vada.dao.impl.BoardImgWriteDAOImpl;
-import vada.dao.impl.BoardUpdateDAOImpl;
+import vada.dao.impl.board.crud.BoardUpdateDAOImpl;
+import vada.dao.impl.board.img.BoardImgDeleteDAOImpl;
+import vada.dao.impl.board.img.BoardImgWriteDAOImpl;
 import vada.dto.BoardDTO;
 import vada.dto.CategoryDTO;
 import vada.dto.ImgDTO;
 import vada.dto.ProductpriceDTO;
 import vada.handler.CommandHandler;
-import vada.service.BoardFileService;
-import vada.service.BoardImgService;
-import vada.service.BoardUpdateService;
+import vada.service.board.crud.BoardUpdateService;
+import vada.service.board.img.BoardImgService;
  
 // 업데이트 폼에서 새로 수정된 데이터 처리를 위한 핸들러
 public class BoardUpdateProcHandler implements CommandHandler {

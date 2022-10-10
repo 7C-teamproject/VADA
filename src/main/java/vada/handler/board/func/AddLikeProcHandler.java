@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import vada.dao.impl.LikeAddDAOImpl;
-import vada.dao.impl.LikeCheckDAOImpl;
+import vada.dao.impl.board.func.LikeAddDAOImpl;
+import vada.dao.impl.board.func.LikeCheckDAOImpl;
 import vada.handler.CommandHandler;
-import vada.service.LikeService;
+import vada.service.board.func.LikeService;
 
 // 찜목록 추가 핸들러
 public class AddLikeProcHandler implements CommandHandler {

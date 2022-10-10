@@ -1,12 +1,11 @@
+<%@page import="vada.service.board.func.ChatService"%>
+<%@page import="vada.dao.impl.board.func.ChatDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vada.dto.KtuserchatroomDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="vada.dto.ChatmsgDTO"%>
-<%@page import="vada.dao.ChatDAO"%>
-<%@page import="vada.dao.impl.ChatDAOImpl"%>
-<%@page import="vada.service.ChatService"%>
 	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
