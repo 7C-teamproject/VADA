@@ -20,7 +20,6 @@ public class LikeListDeleteProcHandler implements CommandHandler {
 			// 찜목록 삭제
 			new LikeListDeleteDAOImpl().likeDelete(userid, productnum);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
