@@ -6,127 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<style>
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: 'Poppins', sans-serif;
-}
-
-html, body {
-	display: grid;
-	height: 100%; 
-	width: 100%; 
-	place-items: center;
-}
-
-::selection {
-   background: #1a75ff;
-   color: #fff;
-}
-
-.wrapper {
-   overflow: hidden;
-   width: 400px;
-   background: #fff;
-   padding: 30px;
-   border-radius: 15px;
-   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-}
-
-.wrapper .title-text {
-   display: flex;
-   width: 200%;
-}
-
-.wrapper .title {
-   width: 100%;
-   font-size: 35px;
-   font-weight: 600;
-   text-align: center;
-   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-input[type="radio"] {
-   display: none;
-}
-
-#login:checked ~ label.signup {
-   color: #000;
-}
-
-#login:checked ~ label.login {
-   cursor: default;
-   user-select: none;
-}
-
-.wrapper .form-container {
-   width: 100%;
-   overflow: hidden;
-}
-
-.form-container .form-inner {
-   display: flex;
-   width: 200%;
-}
-
-.form-container .form-inner form {
-   width: 50%;
-   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.form-inner form .field {
-   height: 50px;
-   width: auto;
-   margin-top: 20px;
-}
-
-.form-inner form .field input {
-   height: 100%;
-   width: auto;
-   outline: none;
-   padding-left: 15px;
-   border-radius: 15px;
-   border: 1px solid lightgrey;
-   border-bottom-width: 2px;
-   font-size: 17px;
-   transition: all 0.3s ease;
-}
-
-.form-inner form .field input:focus {
-   border-color: #1a75ff;
-   /* box-shadow: inset 0 0 3px #fb6aae; */
-}
-
-.form-inner form .field input::placeholder {
-   color: #999;
-   transition: all 0.3s ease;
-}
-
-form .field input:focus::placeholder {
-   color: #1a75ff;
-}
-
-.form-inner form .pass-link {
-   margin-top: 5px;
-}
-
-.form-inner form .signup-link {
-   text-align: center;
-   margin-top: 30px;
-}
-
-.form-inner form .pass-link a, .form-inner form .signup-link a {
-   color: #1a75ff;
-   text-decoration: none;
-}
-
-.form-inner form .pass-link a:hover, .form-inner form .signup-link a:hover
-   {
-   text-decoration: underline;
-}
-</style>
+<link href="/Vada/css/login.css" rel="stylesheet" />
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -157,11 +37,8 @@ form .field input:focus::placeholder {
 
 </script>
 
-<html>
-	<head>
-	</head>
-	<body>
-<div class="wrapper">
+<main>
+	<div class="wrapper" style="margin: 0;">
       <div class="form-container">
          <div class="slide-controls">
             <label for="login" style="font-weight: bold; font-size: 25px;">회원 정보 수정</label>
@@ -175,39 +52,32 @@ form .field input:focus::placeholder {
 		</div>
 		<div class="field">
 			비밀번호 : <input type="password" name="userpw" id="pwd" placeholder="영문자+숫자+특수문자 조합" value="${userDTO.userpw}"/>
-		</div>
-		<div class="field">
-			비밀번호 재확인 : <input type="password" name="pwd" id="repwd" value="${userDTO.userpw}">
-		</div>
-		<div class="field">
-			이름 : <input type="text" name="name" id="uname" value="${userDTO.name}">
 		</div><br />
-			<p>전화번호 : (※ "-"없이 숫자만 입력)</p>
+		<div class="field">
+			<p>비밀번호 재확인 : </p><input type="password" name="pwd" id="repwd" value="${userDTO.userpw}">
+		</div><br />
+		<div class="field">
+			<p>이름 : </p><input type="text" name="name" id="uname" value="${userDTO.name}">
+		</div><br /><br />
+			<p>전화번호 : </p>
 		<div class="field">
 			<input type="tel" name="tel" id="mobile" value="${userDTO.tel}">		  
 		</div>
 		<div class="field">
-			이메일 : <input type="text" name="email" id="email_id" value="${userDTO.email}">@ <br />
-			<input type="text" name="email_add" id="email_add"> 
-			<select name="email_sel" id="email_sel" onchange="change_email();">
-				<option value="">직접입력</option>
-				<option value="naver.com">naver</option>
-				<option value="gmail.com">gmail</option>
-				<option value="nate.com">nate</option>
-			</select>
-		</div><br /><br />
+			<p>이메일 : </p><input type="text" name="email" id="email_id" value="${userDTO.email}">
+		</div><br />
 		<div class="field">
-			기본주소 : <button type="button" id="address_kakao">우편번호 찾기</button><br />
+			<p>기본주소 : <button type="button" id="address_kakao">우편번호 찾기</button></p>
 			<input type="text" id="address" name="address"  value="${userDTO.address}" readonly>
 		</div><br />
 		<div class="field">
-			상세주소 : <input type="text" name="detailaddress" id="addr2" value="${userDTO.detailaddress}">
-		</div>
+			<p>상세주소 : </p><input type="text" name="detailaddress" id="addr2" value="${userDTO.detailaddress}">
+		</div><br />
 		<div class="field">
-			닉네임 : <input type="text" name="nickname" id="nickname" value="${userDTO.nickname}">
-		</div>
+			<p>닉네임 : </p><input type="text" name="nickname" id="nickname" value="${userDTO.nickname}">
+		</div><br /><br />
 		<div>
-			관심 카테고리 : 
+			<p>관심 카테고리 : </p>
 			<select name="ca1" id="cate1" >
                 <option value="1000" >전체</option>
                 <c:forEach var="categoryDTO" items="${categoryDTOList}">
@@ -257,6 +127,8 @@ form .field input:focus::placeholder {
 		</div>
 	</div>
    </div>
-</body>
+	
+</main>
+
 
 <jsp:include page="bottom.jsp" />

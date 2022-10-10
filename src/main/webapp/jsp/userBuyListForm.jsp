@@ -5,16 +5,7 @@
 
 <jsp:include page="top.jsp" />
  
-<style>
-th, td {
-	border: 1px solid #000000;
-	text-align: center;
-	margin-left: 15%;
-}
-table {
-	width: 100%;
-}
-</style>
+<link href="/Vada/css/table.css" rel="stylesheet" />
 
 <main>
 

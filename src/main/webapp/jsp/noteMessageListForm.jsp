@@ -4,16 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="top.jsp" />
-<style>
-table {
-	margin: 0px 5% 0px 5%;
-}
 
-th, td {
-	border: 1px solid #000000;
-	text-align: center;
-}
-</style>
+<link href="/Vada/css/table.css" rel="stylesheet" />
+
 <main>
 	<div>
 		<div>

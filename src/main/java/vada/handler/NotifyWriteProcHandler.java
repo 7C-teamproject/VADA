@@ -33,7 +33,6 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		try {
 			result = notifyWriteService.notifyWriteBoard(notifyDTO, notifyProductNum, userid);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		
@@ -41,7 +40,6 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		try {
 			notifyid = notifyWriteService.get_Notifyid();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

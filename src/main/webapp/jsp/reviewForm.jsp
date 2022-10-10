@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <jsp:include page="top.jsp" />
+
+<script src="/Vada/js/common.js"></script>
  
 <main>
 	<div class="container">
@@ -44,7 +44,7 @@
 						</tr>
 					</tbody>
 				</table>
-	<script src="/Vada/js/common.js"></script>
+			
             <input type="submit" class="btn btn-primary pull-right" value="후기작성" onclick="javascript:confirmCommand('/Vada/reviewproc.do?productnum=${param.productnum}','후기작성');">
              <button type="button" class="btn btn-primary pull-right" onclick="history.back();">구매목록</button>
 			</form>

@@ -7,36 +7,7 @@
 
 <jsp:include page="top.jsp" />
 
-<style>
-.container>img {
-	width: 10%;
-}
-
-.swiper-container {
-	height: 200px;
-	width: 630px;
-	position: relative;
-	overflow: hidden;
-	list-style: none;
-	z-index: 1;
-	padding-bottom: 30px;
-}
-
-.swiper-slide {
-	text-align: center;
-/* 	display: flex; /* 내용을 중앙정렬 하기위해 flex 사용 */ */
-	align-items: center; /* 위아래 기준 중앙정렬 */
-	justify-content: center; /* 좌우 기준 중앙정렬 */
-	display: inline;
-}
-
-.swiper-slide img {
-	max-width: 100%;
-	height: auto;
- 	display: block;
- 	padding-left: 200px;
-}
-</style>
+<link href="/Vada/css/list.css" rel="stylesheet" />
 
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
