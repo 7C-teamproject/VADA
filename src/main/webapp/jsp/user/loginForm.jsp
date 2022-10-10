@@ -31,10 +31,10 @@
 						<a href="${webapproot}/jsp/admin/adminLoginForm.jsp">관리자용 로그인</a>
 					</div>
 					<div class="pass-link">
-						<a href="${webapproot}/jsp/searchIDForm.jsp">아이디 찾기</a>
+						<a href="${webapproot}/jsp/user/searchIDForm.jsp">아이디 찾기</a>
 					</div>
 					<div class="pass-link">
-						<a href="${webapproot}/jsp/searchPWForm.jsp">비밀번호 찾기</a>
+						<a href="${webapproot}/jsp/user/searchPWForm.jsp">비밀번호 찾기</a>
 					</div>
 					<div class="field btn">
 						<div class="btn-layer"></div>
