@@ -30,7 +30,7 @@ public class BoardImgListDAOImpl extends AbstractBoardImgDAO {
 			
 			imgDTOList = new ArrayList<ImgDTO>();
 			
-			// ImgDTO에 저장
+			// 제품 번호에 해당하는 이미지 데이터를 ImgDTO에 저장
 			while (rs.next()) {
 				
 				ImgDTO imgDTO = new ImgDTO();

@@ -76,7 +76,5 @@ public class BuyListDAOImpl extends BoardDAOImpl implements BuyListDAO {
 		return boardList;
 	
 	} // buyList
-	
-	
 
 } // class

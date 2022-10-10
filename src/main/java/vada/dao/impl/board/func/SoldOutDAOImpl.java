@@ -22,7 +22,9 @@ public class SoldOutDAOImpl extends BoardDAOImpl implements SoldOutDAO {
 		int result = pstmt.executeUpdate();
 
 		closeConnection(pstmt, getConnection());
+		
 		return result;
 
 	} // soldOut
+	
 } // class

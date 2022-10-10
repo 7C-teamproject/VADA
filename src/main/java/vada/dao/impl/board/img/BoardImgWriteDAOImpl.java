@@ -13,8 +13,8 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 
+	// 게시글에 해당하는 이미지를 insert하기 위한 imgproductum(productnum), imgDTO 파라미터
 	@Override
-	// 게시글에 해당하는 이미지를 insert하기 위한 imgproductum(productnum) , imgDTO 파라미터
 	public int writeBoardImg(int imgproductnum, ImgDTO imgDTO) throws Exception {
 
 		conn = getConnection();
@@ -39,7 +39,8 @@ public class BoardImgWriteDAOImpl extends AbstractBoardImgDAO {
 
 	} // writeBoardImg
 	
-	// 신고 게시글에 해당하는 신고 이미지를 insert하기 위한 notifyid , notifyImgDTO 파라미터
+	// 신고 게시글에 해당하는 신고 이미지를 insert하기 위한 notifyid, notifyImgDTO 파라미터
+	@Override
 	public int notifyWriteBoardImg(int notifyid, NotifyimgDTO notifyImgDTO) throws Exception {
 		conn = getConnection();
 

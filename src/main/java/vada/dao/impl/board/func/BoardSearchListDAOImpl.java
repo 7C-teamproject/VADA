@@ -15,8 +15,8 @@ import vada.dto.BoardDTO;
 
 public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchListDAO {
 
-	@Override
 	// 카테고리 및 검색 키워드에 매칭되는 게시글을 얻기 위한 메소드
+	@Override
 	public List<Map<String, Object>> searchBoard(String level1Category, String level2Category, String searchText) throws Exception {
 		
 		StringBuffer whereSQLBuffer = new StringBuffer();

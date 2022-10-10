@@ -38,9 +38,9 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 	} // writeBoard
 
+	// 게시글 테이블 작성 후 제품 가격 테이블 처리를 위한 메소드
 	@Override
 	public int writePrice(int productnum, int productprice) throws Exception {
-		// 게시글 테이블 작성 후 제품 가격 테이블 처리를 위한 메소드
 		
 		conn = getConnection();
 
@@ -58,19 +58,11 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 		
 	} // writeBoard
 
+	// 신고글 작성을 위한 메소드
 	@Override
 	public int notifyWriteBoard(NotifylistDTO notifyDTO, int notifyProductNum, String userid) throws Exception {
-	// 신고글 작성을 위한 메소드
 			
-		Connection conn = getConnection();
-
-//		if (conn != null) {
-//			try {
-//				conn.setAutoCommit(false);
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		conn = getConnection();
 
 		int result = 0;
 		
@@ -89,15 +81,13 @@ public class BoardWriteDAOImpl extends BoardDAOImpl implements BoardWriteDAO {
 
 	} // notifyWriteBoard
 
+	// 신고글 작성 후 신고글 ID와 이미지를 매칭시키기 위해 마지막 신고글 ID를 얻기 위한 메소드
 	@Override
 	public int get_Notifyid() throws Exception {
-	// 신고글 작성 후 신고글ID와 이미지를 매칭시키기 위해 마지막 신고글ID를 얻기 위한 메소드
 		
-		Connection conn = ConnectionManager.getConnection();
+		conn = ConnectionManager.getConnection();
 
-		PreparedStatement pstmt = null;
-
-		//select notifyid from notifylist order by notifyid desc limit 1
+		// select notifyid from notifylist order by notifyid desc limit 1
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_ID_SQL"));
 
 		ResultSet rs = pstmt.executeQuery();

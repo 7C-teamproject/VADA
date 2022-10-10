@@ -13,15 +13,18 @@ import vada.dto.UserDTO;
 
 public class ManagerDAOImpl extends BoardDAOImpl implements ManagerDAO {
 
-	@Override
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	
 	// 관리자 회원이 아닌 일반 회원정보들을 리스트를 얻기 위한 메소드
+	@Override
 	public List<UserDTO> listBoard() throws Exception {
 
 		// select * from user where adminyn='no' order by joindate desc
 		String prependSQL = VADAConstants.props.getProperty("SELECT_MANAGER_SEARCH_SQL");
 
-		Connection conn = getConnection();
-		PreparedStatement pstmt = conn.prepareStatement(prependSQL);
+		conn = getConnection();
+		pstmt = conn.prepareStatement(prependSQL);
 		ResultSet rs = pstmt.executeQuery();
 
 		List<UserDTO> list = new ArrayList<UserDTO>();
@@ -39,15 +42,15 @@ public class ManagerDAOImpl extends BoardDAOImpl implements ManagerDAO {
 		return list;
 	}
 
-	@Override
 	// userid를 블랙리스트에 추가하기 위한 파라미터 및 메소드
+	@Override
 	public int blackList(String userid, String blackyn) throws Exception {
 
-		Connection conn = getConnection();
+		conn = getConnection();
 		UserDTO boardDTO = new UserDTO();
 
 		// update `user` set blackyn=? where userid =?
-		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_MANAGER_BLACK_CHANGE"));
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_MANAGER_BLACK_CHANGE"));
 
 		pstmt.setString(1, blackyn);
 		pstmt.setString(2, userid);

@@ -16,6 +16,7 @@ import vada.dto.NoteMessageDTO;
 public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 
 	// 보낸쪽지 및 받은 쪽지 확인을 위해 DB에 저장하기 위한 메소드
+	@Override
 	public int insertMessage(NoteMessageDTO noteMessageDTO) {
 		
 		Connection conn = getConnection();
@@ -38,9 +39,11 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 		}
 
 		return result;
+		
 	} // insertMessage
 
 	// notetouserid에 매칭되는 메시지 데이터를 꺼내기 위한 파라미터이며 나에게 온 쪽지 목록을 출력하기 위한 메소드
+	@Override
 	public ArrayList<NoteMessageDTO> showMessage() {
 		
 		ArrayList<NoteMessageDTO> list_message = new ArrayList<NoteMessageDTO>();
@@ -76,6 +79,7 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 		}
 
 		return list_message;
+		
 	} // showMessage
 
 } // class

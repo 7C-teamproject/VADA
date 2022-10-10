@@ -10,8 +10,8 @@ import vada.dao.board.func.LikeAddDAO;
 
 public class LikeCheckDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 
-	@Override
 	// 한 아이디에 중복된 찜목록이 존재하는지 확인하기 위한 메소드
+	@Override
 	public List likeCheck(String userid) throws Exception {
 		
 		// select * from likelist where likeuserid=?

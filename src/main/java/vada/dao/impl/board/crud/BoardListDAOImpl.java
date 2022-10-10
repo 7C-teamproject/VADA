@@ -75,6 +75,7 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 
 	} // getBoardList
 	
+	@Override
 	// 신고 게시글 리스트를 얻는 메소드
 	public List<NotifylistDTO> notifyListBoard() throws Exception {
 

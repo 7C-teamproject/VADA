@@ -10,19 +10,17 @@ import vada.dao.user.search.SearchUserIDDAO;
 
 public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO {
 
-	@Override
 	// 아이디 찾기 위한 메소드로써 이름과 이메일로 찾기 위한 파라미터
+	@Override
 	public String searchUserID(String name, String email) throws Exception {
 		
 		Connection conn = getConnection();
 
-		// select * from user where name=? and email=?
-		String sql = VADAConstants.props.getProperty("SELECT_SEARCH_USERID_SQL");
-
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		pstmt = conn.prepareStatement(sql);
+		// select * from user where name=? and email=?
+		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_SEARCH_USERID_SQL"));
 
 		pstmt.setString(1, name);
 		pstmt.setString(2, email);
@@ -31,7 +29,6 @@ public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO
 		String dbuserid = null;
 
 		if (rs.next()) {
-
 			dbuserid = rs.getString("userid");
 		}
 
@@ -40,4 +37,5 @@ public class SearchUserIDDAOImpl extends BoardDAOImpl implements SearchUserIDDAO
 		return dbuserid;
 
 	} // searchUserID
+	
 } // class

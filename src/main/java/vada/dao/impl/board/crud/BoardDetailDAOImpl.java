@@ -22,8 +22,8 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 
 	Connection conn = null;
 
-	@Override
 	// 제품번호에 해당하는 게시글을 select하기 위한 파라미터 및 메소드
+	@Override
 	public Map<String, Object> getBoardList(int productnum) throws Exception {		
 
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -155,20 +155,20 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 
 	} // viewBoard
 
-	@Override
 	// 신고글ID에 해당하는 신고글 select 위한 파라미터
+	@Override
 	public Map<String, Object> notifyView(int notifyid) throws Exception {
 
 		Map<String, Object> map = new HashMap<String, Object>();
 
 		conn = getConnection();
 		
-		//select * from notifylist where notifyid=?
+		// select * from notifylist where notifyid=?
 		PreparedStatement pstmt1 = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_VIEW_SQL"));
 		
 		pstmt1.setInt(1, notifyid);
 
-		//select * from notifyimg where notifyimgnotifyid=?
+		// select * from notifyimg where notifyimgnotifyid=?
 		PreparedStatement pstmt2 = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_NOTIFY_IMG_VIEW_SQL"));
 		
 		pstmt2.setInt(1, notifyid);
@@ -206,22 +206,25 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 		
 	} // notifyView
 	
+	// 예약 및 예약 취소 버튼 클릭을 처리하는 메소드
 	@Override
-	// 예약인지 예약취소인지 확인하기 위한 command와 제품넘버에 해당하는 게시글에 유저 아이디를 저장 하는 메소드
 	public int reserveBoard(int productnum, String command, String userid) throws Exception {
 		
 		conn = getConnection();
 
 		PreparedStatement pstmt = null;
 
+		// 예약 버튼을 클릭하면 reservationyn 을 yes로 변경
 		if (command.equals("reserve")) {
-			//update board set reservationyn='yes', reserveid=? where productnum=?
+			// update board set reservationyn='yes', reserveid=? where productnum=?
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_YES_RESERVE_BOARD_SQL"));
 			pstmt.setString(1, userid);
 			pstmt.setInt(2, productnum);
 			
-		} else if(command.equals("cancel")){
-			//update board set reservationyn='no', reserveid='default' where productnum=?
+		} 
+		// 예약 취소 버튼을 클릭하면 reservationyn 을 no로 변경
+		else if(command.equals("cancel")){
+			// update board set reservationyn='no', reserveid='default' where productnum=?
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_NO_RESERVE_BOARD_SQL"));
 			pstmt.setInt(1, productnum);
 			

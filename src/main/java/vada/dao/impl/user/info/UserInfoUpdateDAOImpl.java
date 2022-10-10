@@ -12,22 +12,22 @@ import vada.dto.UserDTO;
 
 public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdateDAO {
 
-	@Override
 	// 회원정보 수정을 위해 해당 세션ID에 해당하는 회원정보를 얻기 위한 파라미터 및 메소드
+	@Override
 	public UserDTO UserInfoSelect(String userid) throws SQLException {
-		
+
 		UserDTO userDTO = new UserDTO();
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
-		ResultSet result =null ;
+		ResultSet result = null;
 
-		//select userid, userpw, address, name, tel, email, nickname, detailaddress from `user` where userid=?
+		// select userid, userpw, address, name, tel, email, nickname, detailaddress from `user` where userid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_USERINFO_UPDATE_SQL"));
-		pstmt.setString(1,userid);
-		
+		pstmt.setString(1, userid);
+
 		result = pstmt.executeQuery();
-		
-		if(result.next()) {
+
+		if (result.next()) {
 			userDTO.setUserid(result.getString("userid"));
 			userDTO.setUserpw(result.getString("userpw"));
 			userDTO.setAddress(result.getString("address"));
@@ -38,24 +38,24 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 			userDTO.setDetailaddress(result.getString("detailaddress"));
 //			userDTO.setInterestcategorynum(result.getInt("interestcategorynum"));		//TODO 카테고리 추가해야함
 		}
-		
+
 		closeConnection(result, pstmt, conn);
-		
+
 		return userDTO;
+		
 	} // UserInfoSelect
-	
-	
-	
-	@Override
+
 	// 회원정보를 수정할 유저데이터(userDTO)와 해당 userid를 받아와서 회원정보 업데이트 하기 위한 파라미터 및 메소드
+	@Override
 	public UserDTO UserInfoUpdate(String userid, UserDTO userDTO) throws SQLException {
-		
+
 		Connection conn = getConnection();
-		
+
 		PreparedStatement pstmt = null;
-		int result =0 ;
-		
-		//update user set userpw=?, address=?, name=?, tel=?, email=?, nickname=?, detailaddress=? where userid=?
+		int result = 0;
+
+		// update user set userpw=?, address=?, name=?, tel=?, email=?, nickname=?,
+		// detailaddress=? where userid=?
 		pstmt = conn.prepareStatement(VADAConstants.props.getProperty("UPDATE_USERINFO_UADATE_SQL"));
 		pstmt.setString(1, userDTO.getUserpw());
 		pstmt.setString(2, userDTO.getAddress());
@@ -65,11 +65,13 @@ public class UserInfoUpdateDAOImpl extends BoardDAOImpl implements UserInfoUpdat
 		pstmt.setString(6, userDTO.getNickname());
 		pstmt.setString(7, userDTO.getDetailaddress());
 		pstmt.setString(8, userid);
-		
-		
+
 		result = pstmt.executeUpdate();
-		closeConnection(pstmt, conn);
-		return userDTO;
 		
+		closeConnection(pstmt, conn);
+		
+		return userDTO;
+
 	} // UserInfoUpdate
+	
 } // class
