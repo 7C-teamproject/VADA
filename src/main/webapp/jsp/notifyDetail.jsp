@@ -1,15 +1,7 @@
-<%@page import="vada.dto.NotifylistDTO"%>
-<%@page import="vada.dao.impl.BoardDetailDAOImpl"%>
-<%@page import="vada.service.BoardDetailService"%>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
-<%@page import="vada.dao.impl.BoardListDAOImpl"%>
-<%@page import="vada.service.BoardListService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 

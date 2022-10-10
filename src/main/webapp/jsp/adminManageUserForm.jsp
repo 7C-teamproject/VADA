@@ -1,17 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
-<%@ page import="vada.dto.UserDTO"%>
-<%@ page import="com.mysql.cj.protocol.a.NativeConstants.StringLengthDataType"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.List"%>
-<%@ page import="vada.service.ManagerService"%>
-<%@ page import="java.util.HashMap"%>
-<%@ page import="java.util.Map"%>
-<%@ page import="vada.dao.impl.ManagerDAOImpl"%>
-<%@ page import="vada.dao.ManagerDAO"%>
-<%@ page import="vada.dao.LoginDAO"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 

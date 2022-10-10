@@ -90,7 +90,7 @@ th, td {
 
 		<br /> <br />
 		<button type="button" class="btn btn-primary pull-right"
-			onclick="location.href='/Vada/jsp/mainformindex.jsp'">메인으로
+			onclick="location.href='/Vada/mainform.do'">메인으로
 			돌아가기</button>
 
 	</div>

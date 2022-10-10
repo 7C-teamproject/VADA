@@ -2,13 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<jsp:useBean id="boardDTO" class="vada.dto.BoardDTO" />
 
 <jsp:include page="top.jsp" />
  
-
 <main>
 	<div class="container">
 		<div class="row">

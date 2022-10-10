@@ -1,12 +1,7 @@
-<%@page import="java.util.List"%>
-<%@page import="vada.dto.BoardDTO"%>
-<%@page import="vada.dao.impl.BuyListDAOImpl"%>
-<%@page import="vada.service.BuyListSerive"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="top.jsp" />
  
@@ -73,7 +68,7 @@ table {
 				</table>
 			</div>
 		</div>
-		<a href="/Vada/jsp/mainformindex.jsp" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
+		<a href="/Vada/mainform.do" class="btn btn-secondary" style="float:right;">메인화면으로 돌아가기</a>
 	</div>
 
 </main>

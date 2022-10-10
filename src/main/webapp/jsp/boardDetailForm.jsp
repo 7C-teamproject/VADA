@@ -178,7 +178,7 @@
 		</form>
 		
 		<div>		
-			<a href="/Vada/jsp/mainformindex.jsp" class="btn btn-secondary">메인 화면으로 돌아가기</a>
+			<a href="/Vada/mainform.do" class="btn btn-secondary">메인 화면으로 돌아가기</a>
 		</div>
 
 	</div>

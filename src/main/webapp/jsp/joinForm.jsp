@@ -1,16 +1,10 @@
-<%@page import="vada.dto.CategoryDTO"%>
-<%@page import="java.util.List"%>
-<%@page import="vada.dao.impl.CategoryListDAOImpl"%>
-<%@page import="vada.service.CategoryService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="top.jsp" />
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 
 <style>
 select {
