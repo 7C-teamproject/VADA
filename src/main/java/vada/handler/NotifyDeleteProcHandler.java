@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardDeleteDAOImpl;
 
+// 신고글 삭제 핸들러
 public class NotifyDeleteProcHandler implements CommandHandler {
 
 	@Override
@@ -22,6 +23,6 @@ public class NotifyDeleteProcHandler implements CommandHandler {
 
 		return "/adminmanagenotifyform.do";
 
-	}
+	} // process
 
-}
+} // NotifyDeleteProcHandler

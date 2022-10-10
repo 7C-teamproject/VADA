@@ -21,19 +21,13 @@ public class BlackListProcHandler implements CommandHandler {
 			ManagerService managerService = new ManagerDAOImpl();
 			int result = 0;
 			try {
+				// user테이블에 블랙리스트 여부에 yes 또는 no 로 등록
 				result = managerService.blackList(buyerid, blackyn);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
-			if (result != 0) {
-//				System.out.println("블랙리스트 여부 디비에 저장 성공!!!!!!!!!");
-			} else {
-//				System.out.println("블랙리스트 여부 디비에 저장 실패!!!!!!!!!");
-			}
-
 		}
-
 		return "/adminmanageuserform.do";
 
 	}

@@ -16,6 +16,7 @@ import vada.dto.ImgDTO;
 import vada.service.BoardImgService;
 import vada.service.BoardWriteService;
 
+// 글쓰기 처리 핸들러
 public class BoardWriteProcHandler implements CommandHandler {
 
 	@Override
@@ -29,8 +30,10 @@ public class BoardWriteProcHandler implements CommandHandler {
 		boardDTO.setTitle(request.getParameter("title"));
 		boardDTO.setContent(request.getParameter("content"));
 
+		// 상위 카테고리가 1000(전체) 이면 전체에 해당하는 키워드넘버(1000) 으로 지정
 		if (request.getParameter("bcategorynum2").equals("1000")) {
 			boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum")));
+		// 아니라면 하위 카테고리 넘버로 지정
 		} else {
 			boardDTO.setBcategorynum(Integer.parseInt(request.getParameter("bcategorynum2")));
 		}
@@ -92,6 +95,6 @@ public class BoardWriteProcHandler implements CommandHandler {
 		}
 
 		return "/jsp/mainFormIndex.jsp";
-	}
+	} // process
 
-}
+} // BoardWriteProcHandler

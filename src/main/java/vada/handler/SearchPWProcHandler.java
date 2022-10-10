@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import vada.dao.impl.SearchUserPWDAOImpl;
 import vada.service.SearchUserPWService;
 
+// 비밀번호 찾기 처리 핸들러
 public class SearchPWProcHandler implements CommandHandler {
 
 	@Override
@@ -17,6 +18,7 @@ public class SearchPWProcHandler implements CommandHandler {
 
 		String userpw = null;
 		try {
+			// 아이디와 비밀번호 모두 만족하는 userpw 획득
 			userpw = searchUserPWService.searchUserPW(userid, email);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,5 +34,5 @@ public class SearchPWProcHandler implements CommandHandler {
 
 		}
 		return url;
-	}
-}
+	} // process
+} // SearchPWProcHandler

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.BoardDetailDAOImpl;
 
+// 예약처리 핸들러
 public class ReserveprocHandler implements CommandHandler {
 
 	@Override
@@ -18,15 +19,14 @@ public class ReserveprocHandler implements CommandHandler {
 		String userid = (String) session.getAttribute("userid");
 		String command = request.getParameter("command") == null ? "" : request.getParameter("command");
 
-		System.out.println("@@@@@@@@@@" + command);
-
 		try {
+			// 제품예약인지 예약취소인지 확인하는 command, 게시글번호(제품번호)에 해당하는 예약자에 userid 저장
 			int result = new BoardDetailDAOImpl().reserveBoard(productnum, command, userid);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} // TODO 나중 수정
+		}
 
-		return "boarddetailform.do";
-	}
+		return "/boarddetailform.do";
+	} // process
 
-}
+} // ReserveprocHandler

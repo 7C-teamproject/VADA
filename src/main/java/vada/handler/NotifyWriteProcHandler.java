@@ -15,14 +15,13 @@ import vada.dto.NotifylistDTO;
 import vada.service.BoardImgService;
 import vada.service.BoardWriteService;
 
+// 신고글 쓰기 처리 핸들러
 public class NotifyWriteProcHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
-		
-		BoardWriteService notifyWriteService = new BoardWriteDAOImpl();
 		String userid = (String) session.getAttribute("userid");
 
 		int notifyProductNum = Integer.parseInt(request.getParameter("productnum") == null ? "" : (String) request.getParameter("productnum"));
@@ -30,7 +29,10 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		notifyDTO.setNotifyreason(request.getParameter("notifyreason"));
 		
 		int result = 0; // DB 작성완료시 0<result
+		
+		BoardWriteService notifyWriteService = new BoardWriteDAOImpl();
 		try {
+			// 신고 게시글 쓰기
 			result = notifyWriteService.notifyWriteBoard(notifyDTO, notifyProductNum, userid);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,11 +40,13 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		
 		int notifyid = 0;
 		try {
+			// 신고 게시글 마지막 ID 획득
 			notifyid = notifyWriteService.get_Notifyid();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+		// 이미지 쓰기 Impl 생성
 		BoardImgService notifyImgService = new BoardImgWriteDAOImpl();
 		Collection<Part> parts = null;
 		try {
@@ -71,6 +75,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		}
 
 		return "/jsp/mainFormIndex.jsp";
-	}
+		
+	} // process
 
-}
+} // NotifyWriteProcHandler

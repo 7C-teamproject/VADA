@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+// 로그아웃 처리 핸들러
 public class LogOutHandler implements CommandHandler {
 
 	@Override
@@ -14,15 +15,10 @@ public class LogOutHandler implements CommandHandler {
 		
 		HttpSession session = request.getSession();
 		
+		// 세션 초기화
 		session.invalidate();
 		
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그아웃이 완료되었습니다')");
-		script.println("history.back()");
-		script.println("</script>");
-		
-		return "/jsp/loginForm.jsp";
+		return "/jsp/logOutAlert.jsp";
 	}
 
 }

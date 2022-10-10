@@ -3,6 +3,7 @@ package vada.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// 리뷰 작성 폼 핸들러
 public class ReviewFormHandler implements CommandHandler {
 
 	@Override

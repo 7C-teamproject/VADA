@@ -11,6 +11,7 @@ import vada.dao.impl.JoinDAOImpl;
 import vada.dto.UserDTO;
 import vada.service.JoinService;
 
+// 회원가입 처리를 위한 핸들러
 public class JoinProcHandler implements CommandHandler {
 
 	@Override
@@ -18,6 +19,7 @@ public class JoinProcHandler implements CommandHandler {
 
 		JoinService joinService = new JoinDAOImpl();
 
+		// userDTO 객체에 데이터 저장
 		UserDTO userDTO = new UserDTO();
 		userDTO.setAddress(request.getParameter("address"));
 		userDTO.setDetailaddress(request.getParameter("detailaddress"));
@@ -37,31 +39,27 @@ public class JoinProcHandler implements CommandHandler {
 		int result = 0;
 		
 		try {
+			// 중복 아이디 검사
 			checkUserID = joinService.checkUserid(userDTO.getUserid());
 
+			// 중복 닉네임 검사
 			checkNickName = joinService.checkUserid(userDTO.getNickname());
-
+			
+			// 중복된 ID와 닉네임이 없다면
 			if (checkUserID == true && checkNickName == true) {
-				System.out.println("중복 아이디 없음 - 회원가입 성공");
+				// 회원 가입 처리
 				result = joinService.join(userDTO);
 				url = "/jsp/loginForm.jsp";
 			} else if (checkUserID == false) {
-				System.out.println("중복 아이디 존재함 - 회원가입 실패");
 				url = "/jsp/duplicateUserInfo.jsp";
 			} else if (checkNickName == false) {
-				System.out.println("중복 닉네임 존재함 - 회원가입 실패");
 				url = "/jsp/duplicateUserInfo.jsp";
-			}
-
-			if(result == 0) {
-				System.out.println("회원가입 실패 -- DB 저장할 떄 오류 발생");
-			}
-			
+			}			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return url;
-	}
+	} // process
 
-}
+} // JoinProcHandler

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import vada.dao.impl.BoardListDAOImpl;
 import vada.service.BoardListService;
  
+// 메인 폼 핸들러
 public class MainFormHandler implements CommandHandler {
 
 	@Override
@@ -21,6 +22,7 @@ public class MainFormHandler implements CommandHandler {
 		List<Map> boardList = null;
 		
 		try {
+			// 모든 게시글 리스트 저장
 			boardList = boardListService.getBoardList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -28,7 +30,8 @@ public class MainFormHandler implements CommandHandler {
 
 		request.setAttribute("boardList", boardList);
 		
-		return "jsp/mainForm.jsp";
-	}
+		return "/jsp/mainForm.jsp";
+		
+	} // process
 	
-}
+} // MainFormHandler

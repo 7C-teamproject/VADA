@@ -27,37 +27,37 @@
 		<ul class="row" id="test">
 			
 			
-			<c:set var="listSize" value="${list.size()}" />
+			<c:set var="listSize" value="${likeList.size()}" />
 			
 			<!-- User의 찜목록이 존재한다면 -->
-			<c:if test="${fn:length(list) != 0}">
-				<c:forEach var="item" items="${list}" varStatus="stat">
+			<c:if test="${fn:length(likeList) != 0}">
+				<c:forEach var="likeDTO" items="${likeList}" varStatus="stat">
 
 					<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
-					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
+					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${likeDTO.productnum}'">
 					
 						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
-							<img class=imgfile src="${item.imgsname}" alt="">
+							<img class=imgfile src="${likeDTO.imgsname}" alt="">
 						</div>
 						
 						<p class="product-price">
-							가격 : <fmt:formatNumber value="${item.productprice}" pattern="#,###" />원
+							가격 : <fmt:formatNumber value="${likeDTO.productprice}" pattern="#,###" />원
 						</p>
 						
 						<p class="product-name">
-							${item.title}
+							${likeDTO.title}
 						</p>  
 						
 						<c:set var="sysYear">
-							<fmt:formatDate value="${item.wdate}"
+							<fmt:formatDate value="${itlikeDTOem.wdate}"
 								pattern="yyyy-MM-dd hh:mm:ss" />
 						</c:set>
 						
 						<div class="product-name">
 							<c:out value="${sysYear}" />
 							<a class="btn btn-secondary" style="float: right;"
-								href="javascript:confirmCommand('${webapproot}/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
+								href="javascript:confirmCommand('${webapproot}/likelistdeleteproc.do?productnum=${likeDTO.productnum}','찜삭제');">찜 삭제</a>
 						</div>
 
 					</li>

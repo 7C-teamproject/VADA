@@ -13,6 +13,7 @@ import vada.dto.UserDTO;
 import vada.service.CategoryService;
 import vada.service.UserInfoUpdateservice;
 
+// 유저 정보 수정 폼 핸들러
 public class UserInfoUpdateFormHandler implements CommandHandler {
 
 	@Override
@@ -22,9 +23,9 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 		
 		UserDTO userDTO = new UserDTO();
 		
+		// 관심 카테고리를 설정하기위해 카테고리 목록을 출력
+		List<CategoryDTO> categoryDTOList = null;
 	 	CategoryService categoryService = new CategoryListDAOImpl();
-	 	
-	 	List<CategoryDTO> categoryDTOList = null;
 		try {
 			categoryDTOList = categoryService.getCategoryList();
 		} catch (Exception e1) {
@@ -33,10 +34,12 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 	 	
 	 	request.setAttribute("categoryDTOList", categoryDTOList);
 	 	
+	 	// 유저 아이디 세션에 저장
 	 	String userid=(String)session.getAttribute("userid");
 	 	UserInfoUpdateservice userInfoUpdateservice = new UserInfoUpdateDAOImpl();
 	 	
 	 	try {
+	 		// 현재 세션ID에 해당하는 유저 정보를 획득
 			userDTO = userInfoUpdateservice.UserInfoSelect(userid);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,6 +47,6 @@ public class UserInfoUpdateFormHandler implements CommandHandler {
 	 	
 	 	request.setAttribute("userDTO", userDTO);
 		return "/jsp/userInfoUpdateForm.jsp";
-	}
+	} // process
 
-}
+} // UserInfoUpdateFormHandler

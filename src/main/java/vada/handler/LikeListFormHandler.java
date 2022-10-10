@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import vada.dao.impl.LikeListDAOImpl;
 import vada.service.LikeService;
 
+// 내 찜목록 리스트를 보여주기 위한 핸들러
 public class LikeListFormHandler implements CommandHandler {
 
 	@Override
@@ -19,17 +20,19 @@ public class LikeListFormHandler implements CommandHandler {
 		HttpSession session = request.getSession();
 		
 		   String userid= (String)session.getAttribute("userid");   
-		   // 게시글 출력
+		   
 		   LikeService likeService = new LikeListDAOImpl();
 		   
-		   List<Map> list = likeService.likeList(userid);
+		   // DB에서 내 찜목록 받아와서 list에 저장
+		   List<Map> likeList = likeService.likeList(userid);
 		   
-		   request.setAttribute("list", list);
+		   request.setAttribute("list", likeList);
 		
 		
 		
 		
 		return "/jsp/likeListForm.jsp";
-	}
+		
+	} // process
 
-}
+} // LikeListFormHandler

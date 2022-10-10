@@ -206,7 +206,7 @@ public class BoardDetailDAOImpl extends BoardDAOImpl implements BoardDetailDAO {
 	} // notifyView
 	
 	@Override
-	//TODO 왜필요한지 모르겠음
+	// 예약인지 예약취소인지 확인하기 위한 command와 제품넘버에 해당하는 게시글에 유저 아이디를 저장 하는 메소드
 	public int reserveBoard(int productnum, String command, String userid) throws Exception {
 		
 		conn = getConnection();

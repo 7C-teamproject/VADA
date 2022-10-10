@@ -15,12 +15,15 @@ import vada.dto.ProductpriceDTO;
 import vada.service.BoardFileService;
 import vada.service.CategoryService;
 
+// 게시글 업데이트 폼에 이전 데이터 출력을 위한 폼
 public class BoardUpdateFormHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
 		
+		// 이미지 파일 이름 담는 리스트
 		List imgcnamelist = new ArrayList();
+		// 이미지 사이즈 담는 리스트
 		List imgsizelist = new ArrayList();
 		
 		BoardDTO boardDTO = new BoardDTO();
@@ -35,6 +38,7 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		request.setAttribute("boardDTO", boardDTO);
 		request.setAttribute("productpriceDTO", productpriceDTO);
 
+		// 이미지의 파일명과 사이즈를 리스트에 담음
 		for (int i = 0; i < 3; i++) {
 			String imgcname = (String) request.getParameter("imgcname" + String.valueOf(i))==null?"":(String) request.getParameter("imgcname" + String.valueOf(i));
 			String imgsize = (String) request.getParameter("imgsize" + String.valueOf(i))==null?"":(String) request.getParameter("imgsize" + String.valueOf(i));
@@ -51,6 +55,7 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		List<CategoryDTO> categoryDTOList = null;
 		
 		try {
+			// 모든 카테고리를 받아옴
 			categoryDTOList = categoryService.getCategoryList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,6 +64,7 @@ public class BoardUpdateFormHandler implements CommandHandler {
 		request.setAttribute("categoryDTOList", categoryDTOList);
 
 		return "/jsp/boardUpdateForm.jsp";
-	}
+		
+	} // process
 
-}
+} // BoardUpdateFormHandler

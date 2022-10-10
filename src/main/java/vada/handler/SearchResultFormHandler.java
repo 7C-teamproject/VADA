@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardSearchListDAOImpl;
 
+// 검색결과를 보여주는 검색 결과 폼 핸들러
 public class SearchResultFormHandler implements CommandHandler {
 
 	@Override
@@ -18,6 +19,7 @@ public class SearchResultFormHandler implements CommandHandler {
 
 		List<Map> list = null;
 		try {
+			// 상/하위 카테고리 및 검색어 키워드에 맞는 데이터를 list에 저장
 			list = new BoardSearchListDAOImpl().searchBoard(cate1, cate2, searchText);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,6 +28,6 @@ public class SearchResultFormHandler implements CommandHandler {
 
 		request.setAttribute("list", list); 
 		return "/jsp/searchResultForm.jsp";
-	}
+	} // process
 
-}
+} // SearchResultFormHandler

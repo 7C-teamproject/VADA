@@ -10,6 +10,7 @@ import vada.dao.impl.BoardDetailDAOImpl;
 import vada.dto.NotifylistDTO;
 import vada.service.BoardDetailService;
 
+// 신고글 세부정보 폼 핸들러
 public class NotifyDetailHandler implements CommandHandler {
 
 	@Override
@@ -34,9 +35,7 @@ public class NotifyDetailHandler implements CommandHandler {
 		request.setAttribute("notifylistDTO", notifylistDTO);
 		request.setAttribute("imglist", list);
 
-		System.out.println("@@@@@@@@@@@@@@@@@List" + list);
+		return "/jsp/notifyDetail.jsp";
+	} // process
 
-		return "jsp/notifyDetail.jsp";
-	}
-
-}
+} // NotifyDetailHandler

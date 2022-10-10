@@ -9,6 +9,7 @@ import vada.dao.impl.CategoryListDAOImpl;
 import vada.dto.CategoryDTO;
 import vada.service.CategoryService;
 
+// 관심카테고리를 설정하기 위해 카테고리 목록을 보여주기 위한 회원가입 폼 핸들러
 public class JoinFormHandler implements CommandHandler {
 
 	@Override
@@ -17,6 +18,7 @@ public class JoinFormHandler implements CommandHandler {
 		CategoryService categoryService = new CategoryListDAOImpl();
 		List<CategoryDTO> categoryDTOList = null;
 		try {
+			// 카테고리 목록 불러오기
 			categoryDTOList = categoryService.getCategoryList();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -24,6 +26,6 @@ public class JoinFormHandler implements CommandHandler {
 		request.setAttribute("categoryDTOList", categoryDTOList);
 
 		return "/jsp/joinForm.jsp";
-	}
+	} // process
   
-}
+} // JoinFormHandler

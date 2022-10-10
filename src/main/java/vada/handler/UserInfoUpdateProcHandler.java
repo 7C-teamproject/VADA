@@ -11,6 +11,7 @@ import vada.dao.impl.UserInfoUpdateDAOImpl;
 import vada.dto.UserDTO;
 import vada.service.UserInfoUpdateservice;
 
+// 유저 정보 수정 처리를 위한 핸들러
 public class UserInfoUpdateProcHandler implements CommandHandler {
 
 	@Override
@@ -20,6 +21,7 @@ public class UserInfoUpdateProcHandler implements CommandHandler {
 		
 		UserDTO userDTO = new UserDTO();
 		
+		// 유저 폼에서 넘어온 데이터를 userDTO 객체에 저장
 		userDTO.setAddress(request.getParameter("address"));
 		userDTO.setDetailaddress(request.getParameter("detailaddress"));
 		userDTO.setEmail(request.getParameter("email"));
@@ -32,19 +34,15 @@ public class UserInfoUpdateProcHandler implements CommandHandler {
 		
 		UserInfoUpdateservice userInfoUpdateservice = new UserInfoUpdateDAOImpl();
 	    String userid=(String)session.getAttribute("userid");
-	    System.out.println("UserDTO Proc.jsp : " + userDTO);
 	    
 	    try {
+	    	// 현재 세션ID에 해당하는 유저 정보 수정
 			userInfoUpdateservice.UserInfoUpdate(userid, userDTO);
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
-
-//	    RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/loginForm.jsp");
-//		dispatcher.forward(request, response);
-
 		return "/jsp/mainFormIndex.jsp";
-	}
+	} // process
 
-}
+} // UserInfoUpdateProcHandler

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import vada.dao.impl.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
 
+// 쪽지 리스트 출력 핸들러
 public class NoteMessageListFormHandler implements CommandHandler {
 
 	@Override
@@ -19,12 +20,13 @@ public class NoteMessageListFormHandler implements CommandHandler {
 
 		NoteMessageDTO noteMessageDTO = new NoteMessageDTO();
 		
+		// 쪽지목록 listmessage 리스트에 저장
 		listmessage = noteMessageDAOImpl.showMessage();		
 		
 		request.setAttribute("listmessage", listmessage);
 		
 		return "/jsp/noteMessageListForm.jsp";
 		
-	}
+	} // process
 
-}
+} // NoteMessageListFormHandler
