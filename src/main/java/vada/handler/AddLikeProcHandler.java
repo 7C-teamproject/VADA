@@ -1,4 +1,4 @@
-package vada.handler.board.func;
+package vada.handler;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.LikeAddDAOImpl;
 import vada.dao.impl.LikeCheckDAOImpl;
-import vada.handler.CommandHandler;
 import vada.service.LikeService;
 
 // 찜목록 추가 핸들러

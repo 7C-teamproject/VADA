@@ -1,4 +1,4 @@
-package vada.handler.user;
+package vada.handler;
 
 import java.sql.SQLException;
 
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.UserInfoUpdateDAOImpl;
 import vada.dto.UserDTO;
-import vada.handler.CommandHandler;
 import vada.service.UserInfoUpdateservice;
 
 // 유저 정보 수정 처리를 위한 핸들러

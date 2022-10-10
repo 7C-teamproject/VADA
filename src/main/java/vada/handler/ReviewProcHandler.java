@@ -1,11 +1,10 @@
-package vada.handler.board.func;
+package vada.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardReviewDAOImpl;
 import vada.dto.BoardDTO;
-import vada.handler.CommandHandler;
 import vada.service.BoardReviewService;
 
 // 리뷰 처리 핸들러

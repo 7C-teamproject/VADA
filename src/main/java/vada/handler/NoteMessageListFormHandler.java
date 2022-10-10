@@ -1,4 +1,4 @@
-package vada.handler.board.func;
+package vada.handler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.NoteMessageDAOImpl;
 import vada.dto.NoteMessageDTO;
-import vada.handler.CommandHandler;
 
 // 쪽지 리스트 출력 핸들러
 public class NoteMessageListFormHandler implements CommandHandler {

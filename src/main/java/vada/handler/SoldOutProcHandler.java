@@ -1,10 +1,9 @@
-package vada.handler.board.func;
+package vada.handler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.SoldOutDAOImpl;
-import vada.handler.CommandHandler;
 import vada.service.SoldOutService;
 
 // 판매완료 처리 핸들러

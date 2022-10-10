@@ -1,4 +1,4 @@
-package vada.handler.user;
+package vada.handler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,8 +6,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import vada.handler.CommandHandler;
 
 // 로그아웃 처리 핸들러
 public class LogOutHandler implements CommandHandler {

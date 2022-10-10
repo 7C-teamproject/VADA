@@ -1,4 +1,4 @@
-package vada.handler.user;
+package vada.handler;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import vada.dao.impl.LoginDAOImpl;
 import vada.dto.UserDTO;
-import vada.handler.CommandHandler;
 import vada.service.LoginService;
 
 // 로그인 처리 핸들러
