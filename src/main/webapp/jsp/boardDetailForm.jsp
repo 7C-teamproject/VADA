@@ -133,7 +133,7 @@
 					<c:if test="${sessionScope.userid ne boardDTO.sellerid}">
 					
 						<a class="btn btn-secondary" style="float: right"
-							href="javascript:confirmCommand('/Vada/notifywriteform.do?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
+							href="javascript:confirmCommand('/Vada/jsp/notifyWriteForm.jsp?productnum=${boardDTO.productnum}&title=${boardDTO.title}','게시글 신고');">게시글
 							신고</a><br /> <br /> <br />
 						
 <!-- 						<a class="btn btn-info" style="float: right color: red" -->
