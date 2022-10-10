@@ -7,9 +7,8 @@ import vada.service.UserInfoUpdateservice;
 
 public interface UserInfoUpdateDAO extends UserInfoUpdateservice {
 	
-	
-	public UserDTO UserInfoSelect(String userid) throws Exception ;
+	public abstract UserDTO UserInfoSelect(String userid) throws Exception ;
 
-	public UserDTO UserInfoUpdate(String userid, UserDTO userDTO) throws SQLException;
+	public abstract UserDTO UserInfoUpdate(String userid, UserDTO userDTO) throws SQLException;
 
 }

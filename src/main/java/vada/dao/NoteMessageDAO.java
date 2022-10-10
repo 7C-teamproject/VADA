@@ -7,8 +7,8 @@ import vada.service.NoteMessageService;
 
 public interface NoteMessageDAO extends NoteMessageService{
 	
-	public int insertMessage(NoteMessageDTO noteMessageDTO);
+	public abstract int insertMessage(NoteMessageDTO noteMessageDTO);
 	
-	public ArrayList<NoteMessageDTO> showboard(String notetouserid);
+	public abstract ArrayList<NoteMessageDTO> showboard(String notetouserid);
 
 }

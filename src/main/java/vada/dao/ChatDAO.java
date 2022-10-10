@@ -7,7 +7,7 @@ import vada.service.ChatService;
 
 public interface ChatDAO extends ChatService {
 	
-	public int ktchatBoard(int productnum, 	KtuserchatroomDTO ktuserchatroomDTO) throws Exception;
+	public abstract int ktchatBoard(int productnum, 	KtuserchatroomDTO ktuserchatroomDTO) throws Exception;
 	
-	public List<KtuserchatroomDTO> ktchatroomList(String ktuserid) throws Exception;
+	public abstract List<KtuserchatroomDTO> ktchatroomList(String ktuserid) throws Exception;
 }

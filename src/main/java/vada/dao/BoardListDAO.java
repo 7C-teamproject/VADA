@@ -11,6 +11,6 @@ public interface BoardListDAO extends BoardListService {
 	
 	public abstract List<Map> getBoardList() throws Exception;	
 	
-	public List<NotifylistDTO> notifyListBoard() throws Exception;
+	public abstract List<NotifylistDTO> notifyListBoard() throws Exception;
 
 }

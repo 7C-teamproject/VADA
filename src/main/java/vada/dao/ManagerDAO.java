@@ -11,6 +11,6 @@ public interface ManagerDAO extends ManagerService {
 	
 	public abstract List<UserDTO> listBoard() throws Exception;
 	
-	public int blackList(String userid, String blackyn) throws Exception;
+	public abstract int blackList(String userid, String blackyn) throws Exception;
 
 }

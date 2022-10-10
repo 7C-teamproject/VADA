@@ -4,6 +4,6 @@ import vada.dto.BoardDTO;
 
 public interface BoardReviewService extends BoardService{
 	
-	public int updateBoardReview(BoardDTO boardDTO) throws Exception;
+	public abstract int updateBoardReview(BoardDTO boardDTO) throws Exception;
 
 }

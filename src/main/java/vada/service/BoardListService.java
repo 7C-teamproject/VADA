@@ -9,7 +9,7 @@ import vada.dto.NotifylistDTO;
 public interface BoardListService extends BoardService {
 
 	public abstract List<Map> getBoardList() throws Exception;
-	
-	public List<NotifylistDTO> notifyListBoard() throws Exception;
-	
+
+	public abstract List<NotifylistDTO> notifyListBoard() throws Exception;
+
 }

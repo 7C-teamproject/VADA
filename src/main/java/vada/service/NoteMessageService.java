@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import vada.dto.NoteMessageDTO;
 
 public interface NoteMessageService extends BoardService {
-	
-public int insertMessage(NoteMessageDTO noteMessageDTO);
-	
-	public ArrayList<NoteMessageDTO> showboard(String notetouserid);
+
+	public abstract int insertMessage(NoteMessageDTO noteMessageDTO);
+
+	public abstract ArrayList<NoteMessageDTO> showboard(String notetouserid);
 
 }
