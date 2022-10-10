@@ -3,7 +3,7 @@
 //import java.sql.Connection;
 //import java.sql.PreparedStatement;
 //import java.util.List;
-//
+//TODO 안쓰는 자바
 //import vada.constants.VADAConstants;
 //import vada.dto.ImgDTO;
 //import vada.service.BoardImgService;

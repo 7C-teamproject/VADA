@@ -12,7 +12,7 @@ import vada.dto.ImgDTO;
 public class BoardImgListDAOImpl extends AbstractBoardImgDAO {
 
 	@Override
-	public List<ImgDTO> getBoardImgList(int productnum) throws Exception {
+	public List<ImgDTO> getBoardImgList(int productnum) throws Exception {		// 제품번호에 해당하는 이미지를 select 하기 위한 파라미터 
 
 		Connection conn = getConnection();
 		
@@ -29,6 +29,7 @@ public class BoardImgListDAOImpl extends AbstractBoardImgDAO {
 			
 			imgDTOList = new ArrayList<ImgDTO>();
 			
+			// ImgDTO에 저장
 			while (rs.next()) {
 				
 				ImgDTO imgDTO = new ImgDTO();

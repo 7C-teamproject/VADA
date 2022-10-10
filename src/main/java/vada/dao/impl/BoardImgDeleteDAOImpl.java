@@ -8,7 +8,7 @@ import vada.constants.VADAConstants;
 public class BoardImgDeleteDAOImpl extends AbstractBoardImgDAO {
 	
 	@Override
-	public int deleteBoardImg(int imgproductnum) throws Exception {
+	public int deleteBoardImg(int imgproductnum) throws Exception {		// 이미지번호에 해당하는 이미지를 Delete 하기 위한 파라미터
 		
 		Connection conn = getConnection();
 		
