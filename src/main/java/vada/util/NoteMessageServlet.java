@@ -24,7 +24,7 @@ public class NoteMessageServlet extends HttpServlet {
 	  HttpSession session = req.getSession();
 	   
       String notefromuserid = (String) session.getAttribute("userid");
-      String notetouserid = req.getParameter("sellerid");
+      String notetouserid = req.getParameter("notetouserid");
       int noteproductnum = Integer.parseInt(req.getParameter("productnum"));
       String message = req.getParameter("message"); 
       

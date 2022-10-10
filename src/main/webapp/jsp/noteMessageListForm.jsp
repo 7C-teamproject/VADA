@@ -58,14 +58,16 @@
 			<colgroup>
 				<col width="200px" />
 				<col width="200px" />
-				<col width="1000px" />
+				<col width="700px" />
 				<col width="400px" />
+				<col width="300px" />
 			</colgroup>
 			<tr>
 				<th>게시글</th>
 				<th>보내는 사람</th>
 				<th>내용</th>
 				<th>시간</th>
+				<th>답장</th>
 			</tr>
 
 			<c:forEach var="item" items="${listmessage}" varStatus="status">
@@ -73,9 +75,10 @@
 					<tr>
 						<td><a href="/Vada/boarddetailform.do?productnum=${item.noteproductnum}">
 					${item.noteproductnum}</a></td>
-						<td>${item.notetouserid }</td>
+						<td>${item.notefromuserid}</td>
 						<td>${item.message }</td>
 						<td>${item.m_date }</td>
+						<td><a href="${webapproot}/jsp/noteMessageAnswerForm.jsp?productnum=${item.noteproductnum}&notefromuserid=${item.notefromuserid}">답장</a></td>
 					</tr>
 				</c:if>
 			</c:forEach>
