@@ -91,9 +91,11 @@
 								href="javascript:confirmCommand('${webapproot}/reserveproc.do?productnum=${boardDTO.productnum}&command=cancel','예약 취소');">예약 취소하기</a>
 							&nbsp;&nbsp;&nbsp;
 							
-							<a class="btn btn-secondary" style="float: right"
-								href="javascript:confirmCommand('soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매 완료 처리하기</a>
-							<br />
+							<c:if test="${empty boardDTO.soldoutdate}">
+								<a class="btn btn-secondary" style="float: right"
+									href="javascript:confirmCommand('soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매 완료 처리하기</a>
+								<br />
+							</c:if>
 							
 						</c:if>
 						
