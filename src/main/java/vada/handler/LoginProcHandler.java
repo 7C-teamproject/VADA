@@ -22,28 +22,31 @@ public class LoginProcHandler implements CommandHandler {
 		String userpw = (String) request.getParameter("userpw") == null ? "" : (String) request.getParameter("userpw");
 
 		LoginService loginService = new LoginDAOImpl();
-		
+
 		// 매칭된 유저정보를 userDTO에 저장
-		UserDTO userDTO = loginService.userLogin(userid, userpw);
-		
+		UserDTO userDTO = null;
+		userDTO = loginService.userLogin(userid, userpw);
+
 		String url = "";
 
+
 		// 유저 정보가 존재한다면
-		if (userid.equals(userDTO.getUserid()) && userpw.equals(userDTO.getUserpw())) {
-			// 블랙 리스트가 맞다면
-			if (userDTO.getBlackyn().equals("yes")) {
-				url = "/jsp/blackIdLogin.jsp";
-		
-			// 블랙 리스트 회원이 아닌 일반 사용자 로그인 성공 시
-			} else { 
-			session.setAttribute("dbusernickname", userDTO.getNickname());
-			session.setAttribute("userid", userDTO.getUserid());
-			session.setAttribute("adminyn", userDTO.getAdminyn());
-			url = "/mainform.do";
-			}
-		}
-		else { // 로그인 실패 시
+		if (userDTO==null) {
 			url = "/jsp/failedLogin.jsp";
+		}
+
+		else if (userDTO!=null) {
+			if (userDTO.getBlackyn().equals("yes")) {
+				url = "/jsp/blackIDLogin.jsp";
+
+				// 블랙 리스트 회원이 아닌 일반 사용자 로그인 성공 시
+			} else {
+				request.setAttribute("msg", "로그인에 성공하셨습니다.");
+				session.setAttribute("dbusernickname", userDTO.getNickname());
+				session.setAttribute("userid", userDTO.getUserid());
+				session.setAttribute("adminyn", userDTO.getAdminyn());
+				url = "/mainform.do";
+			}
 		}
 
 		return url;

@@ -54,16 +54,12 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
 		Connection conn = getConnection();
 
 		// select * from user where adminyn='yes' and userid = ? and userpw = ?
-		String sql = VADAConstants.props.getProperty("SELECT_ADMIN_LOGIN_SQL");
-
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_ADMIN_LOGIN_SQL"));
 		
 		pstmt.setString(1, userid);
 		pstmt.setString(2, userpw);
 		ResultSet rs = pstmt.executeQuery();
-		
-		pstmt = conn.prepareStatement(sql);
-		
+
 		UserDTO userDTO = null;
 		while (rs.next()) {
 			userDTO = new UserDTO();
