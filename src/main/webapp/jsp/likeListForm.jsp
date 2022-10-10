@@ -8,6 +8,7 @@
 <jsp:include page="top.jsp" />
 
 <link href="/Vada/css/list.css" rel="stylesheet" />
+<script src="/Vada/js/common.js"></script>
 
 <main>
 
@@ -32,48 +33,47 @@
 			<c:if test="${fn:length(list) != 0}">
 				<c:forEach var="item" items="${list}" varStatus="stat">
 
-					<li id="listid" class="cell">
+					<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
+					<li id="listid" class="cell" onclick="location.href='/Vada/boarddetailform.do?productnum=${item.productnum}'">
+					
+						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
-						
-							<!-- 첫번째 이미지파일을 출력 -->
 							<img class=imgfile src="${item.imgsname}" alt="">
 						</div>
-						<h4>
-							가격 :
-							<fmt:formatNumber value="${item.productprice}" pattern="#,###" />
-							원
-						</h4>
-						<div class="product-price">
-							
-							<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
-							<a href="/Vada/boarddetailform.do?productnum=${item.productnum}">${item.title}</a>
-						</div> <c:set var="sysYear">
+						
+						<p class="product-price">
+							가격 : <fmt:formatNumber value="${item.productprice}" pattern="#,###" />원
+						</p>
+						
+						<p class="product-name">
+							${item.title}
+						</p>  
+						
+						<c:set var="sysYear">
 							<fmt:formatDate value="${item.wdate}"
 								pattern="yyyy-MM-dd hh:mm:ss" />
 						</c:set>
+						
 						<div class="product-name">
 							<c:out value="${sysYear}" />
-
-							<script src="/Vada/js/common.js"></script>
 							<a class="btn btn-secondary" style="float: right;"
-								href="javascript:confirmCommand('/Vada/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜
-								삭제</a>
+								href="javascript:confirmCommand('/Vada/likelistdeleteproc.do?productnum=${item.productnum}','찜삭제');">찜 삭제</a>
 						</div>
 
 					</li>
 
 				</c:forEach>
 			
-			<!-- 찜목록이 존재하지 않는다면 -->
 			</c:if>
+			
+			<!-- 찜목록이 존재하지 않는다면 -->
 			<c:if test="${fn:length(list) == 0}">
 				<h3 style="text-align: center;">찜 목록이 없어요~</h3>
-				<br />
-				<br />
-				<br />
-				<br />
+				<br /><br /><br /><br />
 			</c:if>
+			
 			<button type="button" class="btn btn-primary pull-right" onclick="location.href='/Vada/mainform.do'">메인으로 돌아가기</button>
+			
 		</ul>
 
 	</div>
