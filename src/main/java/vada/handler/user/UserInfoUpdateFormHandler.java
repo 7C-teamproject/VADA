@@ -1,4 +1,4 @@
-package vada.handler;
+package vada.handler.user;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import vada.dao.impl.CategoryListDAOImpl;
 import vada.dao.impl.UserInfoUpdateDAOImpl;
 import vada.dto.CategoryDTO;
 import vada.dto.UserDTO;
+import vada.handler.CommandHandler;
 import vada.service.CategoryService;
 import vada.service.UserInfoUpdateservice;
 
