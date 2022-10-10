@@ -29,11 +29,11 @@ public class SearchIDProcHandler implements CommandHandler {
 
 		// 유저 아이디가 없다면
 		if (userid == null) {
-			url = "jsp/failedFindID.jsp";
+			url = "jsp/check/failedFindID.jsp";
 
 		// 유저 아이디가 있다면
 		} else {
-			url = "jsp/findIDLogin.jsp?searchUserid=" + userid;
+			url = "jsp/check/findIDLogin.jsp?searchUserid=" + userid;
 		}
 		
 		return url;

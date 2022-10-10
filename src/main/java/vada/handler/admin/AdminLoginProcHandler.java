@@ -35,7 +35,7 @@ public class AdminLoginProcHandler implements CommandHandler {
 
 		// 만약 관리자 아이디가 없다면
 		if (userDTO == null) {
-			url = "/jsp/admin/adminFailedLogin.jsp";
+			url = "/jsp/check/adminFailedLogin.jsp";
 			// 매칭되는 관리자 아이디가 있다면
 		} else if (userDTO != null) {
 			url = "/adminmanageuserform.do";

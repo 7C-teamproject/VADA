@@ -28,10 +28,10 @@ public class SearchPWProcHandler implements CommandHandler {
 		String url = "";
 
 		if (userpw == null) {
-			url = "jsp/failedFindPW.jsp";
+			url = "jsp/check/failedFindPW.jsp";
 
 		} else {
-			url = "jsp/findPWLogin.jsp?searchUserpw=" + userpw;
+			url = "jsp/check/findPWLogin.jsp?searchUserpw=" + userpw;
 
 		}
 		return url;
