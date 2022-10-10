@@ -27,7 +27,7 @@
 						<input type="submit" value="Login">			<!-- 관리자 로그인 처리 핸들러로 데이터 전송 -->
 					</div>
 					<div class="signup-link">
-                		<a href="${webapproot}/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>		<!-- 로그인 폼으로 돌아가기 -->
+                		<a href="${webapproot}/jsp/user/loginForm.jsp">로그인 화면으로 돌아가기</a>		<!-- 로그인 폼으로 돌아가기 -->
 					</div>
 			</form>
 					

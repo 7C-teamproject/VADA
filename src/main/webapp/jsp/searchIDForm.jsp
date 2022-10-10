@@ -26,7 +26,7 @@
                      required>
                </div>
                <div class="pass-link">
-                  <a href="${webapproot}/jsp/loginForm.jsp">로그인 화면으로 돌아가기</a>
+                  <a href="${webapproot}/jsp/user/loginForm.jsp">로그인 화면으로 돌아가기</a>
                </div>
                <div class="field btn">
                   <div class="btn-layer"></div>

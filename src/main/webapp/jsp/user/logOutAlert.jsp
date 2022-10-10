@@ -3,5 +3,5 @@
 <!-- 로그아웃시 alert처리를 위한 jsp -->
  <script>
  	alert("로그아웃 하셨습니다.");
- 	location.href = "/Vada/jsp/loginForm.jsp"
+ 	location.href = "/Vada/jsp/user/loginForm.jsp"
  </script>

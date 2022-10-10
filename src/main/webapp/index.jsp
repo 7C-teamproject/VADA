@@ -3,5 +3,5 @@
 <c:set var="webapproot" value="/Vada" scope="application" />
 
 <script>
-	location.href="${webapproot}/jsp/loginForm.jsp";
+	location.href="${webapproot}/jsp/user/loginForm.jsp";
 </script>

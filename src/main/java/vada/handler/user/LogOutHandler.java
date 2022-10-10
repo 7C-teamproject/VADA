@@ -20,7 +20,7 @@ public class LogOutHandler implements CommandHandler {
 		// 세션 초기화
 		session.invalidate();
 		
-		return "/jsp/logOutAlert.jsp";
+		return "/jsp/user/logOutAlert.jsp";
 	}
 
 }

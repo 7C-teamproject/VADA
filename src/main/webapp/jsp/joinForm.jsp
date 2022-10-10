@@ -163,7 +163,7 @@
                </div>
                
                <div class="pass-link">
-                  <a href="${webapproot}/jsp/loginForm.jsp">로그인 화면으로 이동</a>
+                  <a href="${webapproot}/jsp/user/loginForm.jsp">로그인 화면으로 이동</a>
                </div>
 			</form>
 		
