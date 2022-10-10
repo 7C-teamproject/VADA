@@ -94,7 +94,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 
 		}
 		
-		return "/jsp/mainFormIndex.jsp";
+		return "/jsp/board/mainFormIndex.jsp";
 		
 	} // process
 

@@ -95,7 +95,7 @@ public class BoardWriteProcHandler implements CommandHandler {
 			e.printStackTrace();
 		}
 
-		return "/jsp/mainFormIndex.jsp";
+		return "/jsp/board/mainFormIndex.jsp";
 	} // process
 
 } // BoardWriteProcHandler

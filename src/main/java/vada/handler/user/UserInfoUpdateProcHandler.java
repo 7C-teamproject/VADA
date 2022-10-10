@@ -43,7 +43,7 @@ public class UserInfoUpdateProcHandler implements CommandHandler {
 
 			e.printStackTrace();
 		}
-		return "/jsp/mainFormIndex.jsp";
+		return "/jsp/board/mainFormIndex.jsp";
 	} // process
 
 } // UserInfoUpdateProcHandler
