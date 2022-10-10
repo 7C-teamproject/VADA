@@ -1,6 +1,5 @@
-package vada.handler;
+package vada.handler.board;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
@@ -8,10 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import vada.dao.impl.BoardListDAOImpl;
+import vada.handler.CommandHandler;
 import vada.service.BoardListService;
  
 // 메인 폼 핸들러
-public class MainFormHandler implements CommandHandler {
+public class BoardListHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) {
