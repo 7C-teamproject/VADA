@@ -111,7 +111,7 @@
 
 							<c:if test="${empty boardDTO.soldoutdate}">
 								<a class="btn btn-secondary" style="float: right"
-									href="javascript:confirmCommand('soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매
+									href="javascript:confirmCommand('${webapproot}/soldoutproc.do?productnum=${boardDTO.productnum}&reserveid=${boardDTO.reserveid}','판매 완료 처리');">판매
 									완료 처리하기</a>
 								<br />
 							</c:if>
