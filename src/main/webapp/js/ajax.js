@@ -9,7 +9,7 @@ ajax.xhr.Request = function(url, params, callback, method, applyObj) {
 	this.applyObj = (applyObj == null) ? null : applyObj;
 	
 	this.send();
-}
+} 
 ajax.xhr.Request.prototype = {
 	getXMLHttpRequest: function() {
 		if (window.ActiveXObject) {
@@ -151,7 +151,7 @@ ajax.GUI.getStyle = function(el, property) {
 	} else if (el.currentStyle && el.currentStyle[property]) {
 		value = el.currentStyle[property];
 	} else if ( dv && dv.getComputedStyle ) {
-		// ´ë¹®ÀÚ¸¦ ¼Ò¹®ÀÚ·Î º¯È¯ÇÏ°í ±× ¾Õ¿¡ '-'¸¦ ºÙÀÎ´Ù.
+		// ï¿½ë¹®ï¿½Ú¸ï¿½ ï¿½Ò¹ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½È¯ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½Õ¿ï¿½ '-'ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 		var converted = '';
 		for(i = 0, len = property.length;i < len; ++i) {
 			if (property.charAt(i) == property.charAt(i).toUpperCase()) {
@@ -169,7 +169,7 @@ ajax.GUI.getStyle = function(el, property) {
 }
 
 ajax.GUI.getXY = function(el) {
-	// elÀº ¹®¼­¿¡ Æ÷ÇÔµÇ¾î ÀÖ¾î¾ß ÇÏ°í, È­¸é¿¡ º¸¿©¾ß ÇÑ´Ù.
+	// elï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ï°ï¿½, È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	if (el.parentNode === null || el.style.display == 'none') {
 		return false;
 	}
@@ -178,10 +178,10 @@ ajax.GUI.getXY = function(el) {
 	var pos = [];
 	var box;
 	
-	if (document.getBoxObjectFor) { // gecko ¿£Áø ±â¹Ý
+	if (document.getBoxObjectFor) { // gecko ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		box = document.getBoxObjectFor(el);
 		pos = [box.x, box.y];
-	} else { // ±âÅ¸ ºê¶ó¿ìÀú
+	} else { // ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		pos = [el.offsetLeft, el.offsetTop];
 		parent = el.offsetParent;
 		if (parent != el) {
@@ -191,8 +191,8 @@ ajax.GUI.getXY = function(el) {
 				parent = parent.offsetParent;
 			}
 		}
-		// ¿ÀÆä¶ó¿Í »çÆÄ¸®ÀÇ 'absolute' postionÀÇ °æ¿ì
-		// bodyÀÇ offsetTopÀ» Àß¸ø °è»êÇÏ¹Ç·Î º¸Á¤ÇØ¾ß ÇÑ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ 'absolute' postionï¿½ï¿½ ï¿½ï¿½ï¿½
+		// bodyï¿½ï¿½ offsetTopï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
 		var ua = navigator.userAgent.toLowerCase();
 		if (
 			ua.indexOf('opera') != -1
@@ -205,8 +205,8 @@ ajax.GUI.getXY = function(el) {
 	if (el.parentNode) { parent = el.parentNode; }
 	else { parent = null; }
 	
-	// body ¶Ç´Â html ÀÌ¿ÜÀÇ ºÎ¸ð ³ëµå Áß¿¡ ½ºÅ©·ÑµÇ¾î ÀÖ´Â
-	// ¿µ¿ªÀÌ ÀÖ´Ù¸é ¾Ë¸Â°Ô Ã³¸®ÇÑ´Ù.
+	// body ï¿½Ç´ï¿½ html ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½Å©ï¿½ÑµÇ¾ï¿½ ï¿½Ö´ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½Ë¸Â°ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½.
 	while (parent && parent.tagName != 'BODY' && parent.tagName != 'HTML') {
 		pos[0] -= parent.scrollLeft;
 		pos[1] -= parent.scrollTop;

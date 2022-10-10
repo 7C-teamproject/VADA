@@ -73,7 +73,7 @@ chat.ChatModel.prototype = {
 					var lastMsgId = parseInt(
 						xmlDoc.getElementsByTagName("lastMsgId")
 						      .item(0).firstChild.nodeValue
-					);
+					); 
 					if (lastMsgId != 0) {
 						this.lastMsgId = lastMsgId;
 					}

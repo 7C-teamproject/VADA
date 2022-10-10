@@ -25,7 +25,7 @@
 		
 		if (lastMsgId == 0) {
 			rs = stmt.executeQuery("select max(chatmsgid) from chatmsg");
-			
+			  
 			if (rs.next()) {
 				newLastMsgId = rs.getInt(1);
 			}
