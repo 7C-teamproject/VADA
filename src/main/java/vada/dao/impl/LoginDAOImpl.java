@@ -17,22 +17,20 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
 	@Override
 	// 유저 아이디와 패스워드가 user테이블에 존재하는지 확인하기 위한 파라미터
 	// 로그인을 하기 위한 메소드
-	public List<UserDTO> userLogin(String userid, String userpw) throws Exception {		
+	public UserDTO userLogin(String userid, String userpw) throws Exception {		
 		
 		Connection conn = getConnection();
 
-		// SELECT_USER_LOGIN_SQL= select * from user where adminyn='no'
+		// select * from user where adminyn='no' and userid = ? and userpw = ?
 		String sql = VADAConstants.props.getProperty("SELECT_USER_LOGIN_SQL");
 
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-
-		pstmt = conn.prepareStatement(sql);
-
-		List<UserDTO> list = new ArrayList<UserDTO>();
-
-		rs = pstmt.executeQuery();
-
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, userid);
+		pstmt.setString(2, userpw);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
 		UserDTO userDTO = null;
 		while (rs.next()) {
 			userDTO = new UserDTO();
@@ -42,31 +40,30 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
 			userDTO.setAdminyn(rs.getString("adminyn"));
 			userDTO.setBlackyn(rs.getString("blackyn"));
 			userDTO.setCurrentip(rs.getString("currentip"));
-			list.add(userDTO);
 		}
 
 		closeConnection(rs, pstmt, conn);
-		return list;
-	}
+		return userDTO;
+	} // userLogin
 
 	@Override
 	// 관리자 아이디와 패스워드가 user테이블에 adminyn='yes' 상태로 존재하는지 확인하기 위한 파라미터
 	// 관리자 로그인을 위한 메소드
-	public List<UserDTO> adminynLogin(String userid, String userpw) throws Exception {
+	public UserDTO adminynLogin(String userid, String userpw) throws Exception {
 		
 		Connection conn = getConnection();
 
-		// select * from user where adminyn='yes'
+		// select * from user where adminyn='yes' and userid = ? and userpw = ?
 		String sql = VADAConstants.props.getProperty("SELECT_ADMIN_LOGIN_SQL");
 
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		
+		pstmt.setString(1, userid);
+		pstmt.setString(2, userpw);
+		ResultSet rs = pstmt.executeQuery();
+		
 		pstmt = conn.prepareStatement(sql);
-
-		List<UserDTO> list = new ArrayList<UserDTO>();
-
-		rs = pstmt.executeQuery();
-
+		
 		UserDTO userDTO = null;
 		while (rs.next()) {
 			userDTO = new UserDTO();
@@ -76,11 +73,10 @@ public class LoginDAOImpl extends BoardDAOImpl implements LoginDAO {
 			userDTO.setAdminyn(rs.getString("adminyn"));
 			userDTO.setBlackyn(rs.getString("blackyn"));
 
-			list.add(userDTO);
 		}
 
 		closeConnection(rs, pstmt, conn);
-		return list;
+		return userDTO;
 
-	}
-}
+	} // adminynLogin
+} // class

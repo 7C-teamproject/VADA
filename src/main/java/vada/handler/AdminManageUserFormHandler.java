@@ -11,29 +11,20 @@ import vada.dao.impl.ManagerDAOImpl;
 import vada.dto.UserDTO;
 import vada.service.ManagerService;
 
+// 관리자만 사용가능한 회원정보관리 폼 핸들러
 public class AdminManageUserFormHandler implements CommandHandler {
 
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		ManagerService managerService = new ManagerDAOImpl();
-
-		HttpSession session = request.getSession();
-		
-		String userid = (String) session.getAttribute("userid") == null ? "" : request.getParameter("userid");
-		if (userid == "") {
-			System.out.println("관리자로 로그인 해야함");
-		}
-
 		List<UserDTO> list = null;
 		try {
+			// 유저정보 리스트를 받음
 			list = managerService.listBoard();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} // TODO useridparam 필요한지 확인
-
+		}
 		request.setAttribute("list", list);
-		
 		
 		return "/jsp/adminManageUserForm.jsp";
 	}
