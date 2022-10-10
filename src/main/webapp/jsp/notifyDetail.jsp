@@ -21,7 +21,7 @@
             </tr>
          </thead>
       </table>
-   </div> 
+   </div>  
    <div style="margin-left: 30%">
 
 		<div class="swiper-container">

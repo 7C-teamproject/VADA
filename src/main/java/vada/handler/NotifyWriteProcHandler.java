@@ -52,7 +52,7 @@ public class NotifyWriteProcHandler implements CommandHandler {
 		Collection<Part> parts = null; 
 		try {
 			parts = request.getParts();
-		} catch (Exception ex) {
+		} catch (Exception ex) { 
 
 		}
 
