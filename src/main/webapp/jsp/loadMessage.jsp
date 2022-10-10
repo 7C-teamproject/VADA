@@ -5,7 +5,7 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "vada.util.DB" %>
 <%@ page import = "vada.util.Util" %>
-<%
+<% 
 	request.setCharacterEncoding("utf-8");
 	int lastMsgId = Integer.parseInt(request.getParameter("lastMsgId"));
 	List messageList = new ArrayList();

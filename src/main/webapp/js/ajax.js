@@ -1,6 +1,6 @@
 var ajax = {};
 ajax.xhr = {};
-
+ 
 ajax.xhr.Request = function(url, params, callback, method, applyObj) {
 	this.url = url;
 	this.params = params;

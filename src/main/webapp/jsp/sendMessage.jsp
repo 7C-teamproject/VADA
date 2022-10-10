@@ -5,7 +5,7 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "vada.util.DB" %>
 <%@ page import = "vada.util.Util" %>
-<%
+<% 
 
  	Timestamp timestamp=new Timestamp(System.currentTimeMillis());
 	request.setCharacterEncoding("utf-8");

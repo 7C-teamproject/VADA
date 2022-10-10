@@ -1,5 +1,5 @@
 package vada.util;
-
+ 
 public class Util {
 	public static String toJS(String str) {
 		return str.replace("\\", "\\\\")

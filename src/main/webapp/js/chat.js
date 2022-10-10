@@ -1,5 +1,5 @@
 var chat = {};
-
+  
 chat.LOGIN_SUCCESS = 0x01;
 chat.LOGIN_ERROR = 0x02;
 chat.MESSAGE_LOADED_SUCCESS = 0x04;
