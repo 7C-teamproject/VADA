@@ -88,7 +88,6 @@
 				href="${webapproot}/categoryboardform.do?category=${categoryNum}&pageNum=${startPage+pageBlock}">Next</a>
 		</c:if>
 	</div>
-
 </main>
 
 <jsp:include page="/jsp/bottom.jsp" />
