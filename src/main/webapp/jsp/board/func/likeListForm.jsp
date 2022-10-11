@@ -73,7 +73,7 @@
 				<br /><br /><br /><br />
 			</c:if>
 			
-			<button type="button" class="btn btn-primary pull-right" onclick="location.href='${webapproot}/mainform.do'">메인으로 돌아가기</button>
+			<button class="btn btn-primary pull-right" onclick="location.href='${webapproot}/mainform.do'">메인으로 돌아가기</button>
 			
 		</ul>
 
