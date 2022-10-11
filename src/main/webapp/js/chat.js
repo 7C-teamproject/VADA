@@ -318,7 +318,7 @@ chat.ChatUI.prototype = {
 	},
 	hiddenChat: function() {
 		this.chatWinDiv.style.visibility = 'hidden';
-	},
+	}, 
 	processError: function(type, errMsg) {
 		if (type == chat.LOGIN_ERROR) {
 			alert("로그인 에러가 발생하였습니다!:"+errMsg);
