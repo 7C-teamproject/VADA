@@ -28,7 +28,7 @@ public class CategoryBoardFormHandler implements CommandHandler {
 		
 		int cnt = 0;
 		try {
-			cnt = list.size()-1;
+			cnt = list.size();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
