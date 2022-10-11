@@ -205,21 +205,22 @@ label:before {
 						<a class="nav-link" href="${webapproot}/mainform.do">
 							<div class="sb-nav-link-icon"></div> 중고거래
 						</a> 
-						<a class="nav-link" href="${webapproot}/categoryboardform.do?category=1">
-							<div class="sb-nav-link-icon"></div> 패션의류
+						<a style="font-size: 14px;" class="nav-link" href="${webapproot}/categoryboardform.do?category=1">
+							<div class="sb-nav-link-icon"></div> &nbsp패션의류
 						</a> 
-						<a class="nav-link" href="${webapproot}/categoryboardform.do?category=2">
-							<div class="sb-nav-link-icon"></div> 가전/디지털
+						<a style="font-size: 14px;" class="nav-link" href="${webapproot}/categoryboardform.do?category=2">
+							<div class="sb-nav-link-icon"></div> &nbsp가전/디지털
 						</a> 
-						<a class="nav-link" href="${webapproot}/categoryboardform.do?category=3">
-							<div class="sb-nav-link-icon"></div> 반려동물용품
+						<a style="font-size: 14px;" class="nav-link" href="${webapproot}/categoryboardform.do?category=3">
+							<div class="sb-nav-link-icon"></div> &nbsp반려동물용품
 						</a> 
-						<a class="nav-link" href="${webapproot}/categoryboardform.do?category=4">
-							<div class="sb-nav-link-icon"></div> 취미/도서/문구
+						<a style="font-size: 14px;" class="nav-link" href="${webapproot}/categoryboardform.do?category=4">
+							<div class="sb-nav-link-icon"></div> &nbsp취미/도서/문구
 						</a> 
-						<a class="nav-link" href="${webapproot}/categoryboardform.do?category=5">
-							<div class="sb-nav-link-icon"></div> 기타
+						<a style="font-size: 14px;" class="nav-link" href="${webapproot}/categoryboardform.do?category=5">
+							<div class="sb-nav-link-icon"></div> &nbsp기타
 						</a> 
+						</br>
 						<a class="nav-link" href="${webapproot}/notemessagelistform.do">
 							<div class="sb-nav-link-icon"></div>쪽지함
 						</a>
