@@ -39,7 +39,7 @@
 					
 						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
-							<img class=imgfile src="${webapproot}/img${likeDTO.imgsname}" alt="">
+							<img class=imgfile src="${webapproot}/img/${likeDTO.imgcname}" alt="">
 						</div>
 						
 						<p class="product-price">

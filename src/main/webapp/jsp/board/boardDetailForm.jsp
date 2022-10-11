@@ -29,7 +29,7 @@
 						<div class="swiper-slide">
 							<!-- 서버에 저장된 이미지 출력 -->
 							<img style="width: 100%; height: 100%;"
-								src="${webapproot}/img${imgDTO.imgcname}" name="img">
+								src="${webapproot}/img/${imgDTO.imgcname}" name="img">
 							<!-- 게시글 수정시 사용할 파일명 -->
 							<input type="hidden" name="imgcname${status.index}"
 								value="${imgDTO.imgcname}" />
@@ -71,7 +71,7 @@
 					</h3>
 
 					<h3>내용</h3>
-					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
+					<textarea readonly style="width: 100%" rows="15" name="content">${boardDTO.content}</textarea>
 					<br />
 					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
 					<input type="hidden" name="bcategorynum"

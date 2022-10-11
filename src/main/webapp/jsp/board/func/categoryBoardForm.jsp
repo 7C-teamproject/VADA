@@ -37,7 +37,7 @@
 				<c:forEach var="item" items="${list}" varStatus="stat">
 					<li id="listid" class="cell" onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 						<div class="img-box">
-							<img class=imgfile src="${webapproot}/img${item.imgsname}">
+							<img class=imgfile src="${webapproot}/img/${item.imgcname}">
 
 						</div>
 						<p class="product-price">
