@@ -37,7 +37,7 @@
 				<!-- 검색한 게시판의 카테고리/제목과 포함하는 데이터를 저장한 리스트 -->
 				<c:forEach var="item" items="${list}" varStatus="stat">
 					<c:if test="${(pageNum*pageSize)-pageSize-1<stat.index and pageNum*pageSize>stat.index}">
-						<li id="listid" class="cell"
+						<li id="listid" class="cell" style="list-style: none;"
 							onclick="location.href='${webapproot}/boarddetailform.do?productnum=${item.productnum}'">
 							<div class="img-box">
 								<img class=imgfile src="${webapproot}/img/${item.imgcname}">
