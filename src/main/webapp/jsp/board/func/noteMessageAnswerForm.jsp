@@ -15,7 +15,7 @@
             <input readonly="readonly" type="text" id="toid" name="notetouserid" value="${param.notefromuserid}"/> <!--  받는 사람 ID (판매자 ID) -->
          </div>
          
-         <div>
+         <div> 
             <input type="hidden" id="fromid" name="notefromid"/>	<!-- 보내는 사람 ID (유저 ID) -->
          </div>
          
