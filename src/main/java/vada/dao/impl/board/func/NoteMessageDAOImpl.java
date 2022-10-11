@@ -66,11 +66,6 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 				noteMessageDTO.setMessage(rs.getString("message"));
 				noteMessageDTO.setM_date(rs.getTimestamp("m_date"));
 				list_message.add(noteMessageDTO);
-				SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(rs.getTimestamp("m_date"));
-				cal.add(Calendar.HOUR, 3);
-				noteMessageDTO.setM_date(Timestamp.valueOf(sdformat.format(cal.getTime())));  // 3시간 차 보정
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
