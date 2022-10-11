@@ -75,7 +75,6 @@
 				</c:forEach>
 
 			</c:if>
-
 			<!-- 찜목록이 존재하지 않는다면 -->
 			<c:if test="${fn:length(likeList) == 0}">
 				<h3 style="text-align: center;">찜 목록이 없어요~</h3>
