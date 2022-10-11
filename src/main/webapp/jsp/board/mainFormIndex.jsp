@@ -12,4 +12,3 @@
 <c:if test="${param.productnum ne null}">
 	<c:redirect url="/boarddetailform.do?productnum=${param.productnum }" />
 </c:if>
- 
