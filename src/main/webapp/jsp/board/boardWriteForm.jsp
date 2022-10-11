@@ -25,7 +25,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="20"></td>
+							<td><input type="text" class="form-control" placeholder="글 제목" name="title" ></td>
 						</tr>
 						<tr>
 							

@@ -27,15 +27,15 @@
 					<c:forEach var="imgDTO" items="${imgDTOList}" varStatus="status">
 						<!-- 이미지 데이터 저장 list -->
 						<div class="swiper-slide">
-							<img style="width: 100%; height: 100%;"
-								src="${webapproot}/img${imgDTO.imgsname}" name="img">
 							<!-- 서버에 저장된 이미지 출력 -->
+							<img style="width: 100%; height: 100%;"
+								src="${webapproot}/img${imgDTO.imgcname}" name="img">
+							<!-- 게시글 수정시 사용할 파일명 -->
 							<input type="hidden" name="imgcname${status.index}"
 								value="${imgDTO.imgcname}" />
-							<!-- 게시글 수정시 사용할 파일명 -->
+							<!-- 게시글 수정시 사용할 파일크기 -->
 							<input type="hidden" name="imgsize${status.index}"
 								value="${imgDTO.imgsize}" />
-							<!-- 게시글 수정시 사용할 파일크기 -->
 						</div>
 					</c:forEach>
 
