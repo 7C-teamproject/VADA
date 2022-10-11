@@ -19,7 +19,7 @@
 			<thead>
 				<tr>
 					<th colspan="2"
-						style="background-color: #eeeeee; text-align: center;"></th>
+						style="background-color: #eeeeee; text-align: center;">중고거래 게시판</th>
 				</tr>
 			</thead>
 		</table>
