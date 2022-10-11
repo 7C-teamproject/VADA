@@ -34,6 +34,11 @@ chat.ChatModel.prototype = {
 				                       .item(0).firstChild.nodeValue;
 				
 				this.notify(chat.LOGIN_SUCCESS);
+				
+				// TODO
+				// 기존 데이터베이스의 채팅을 가져온다.
+				// IS_OPEND false
+				
 				this.loadMessage();
 			} else {
 				this.notify(chat.LOGIN_ERROR, req.status);
@@ -55,6 +60,7 @@ chat.ChatModel.prototype = {
 			}
 		}
 	},
+	
 	loadMessage: function() {
 		if (this.loadMessageTimer != null) {
 			clearTimeout(this.loadMessageTimer);
@@ -105,6 +111,7 @@ chat.ChatModel.prototype = {
 		             "&msg="+encodeURIComponent(msg);
 		new ajax.xhr.Request("/Vada/jsp/board/func/chat/sendMessage.jsp", params, 
 			this.messageSended, "POST", this);
+		
 	},
 	messageSended: function(req) {
 		if (req.readyState == 4) {
@@ -217,10 +224,10 @@ chat.ChatUI.prototype = {
 
 		loginWinDiv.style.border = "1px solid #000";
 		loginWinDiv.style.position = 'absolute';
-		loginWinDiv.style.width = '600px';
-		loginWinDiv.style.height = '600px';
-		loginWinDiv.style.left = '40%';
-		loginWinDiv.style.top = '20%';
+		loginWinDiv.style.width = '400px';
+		loginWinDiv.style.height = '400px';
+		loginWinDiv.style.left = '20px';
+		loginWinDiv.style.top = '10px';
 		
 		document.body.appendChild(loginWinDiv);
 		
@@ -252,13 +259,11 @@ chat.ChatUI.prototype = {
 		
 		chatWinDiv.style.border = "1px solid #000";
 		chatWinDiv.style.position = 'absolute';
-		chatWinDiv.style.width = '600px';
-		chatWinDiv.style.height = '450px';
-		chatWinDiv.style.left = '40%';
-		chatWinDiv.style.top = '20%';
+		chatWinDiv.style.width = '400px';
+		chatWinDiv.style.height = '400px';
+		chatWinDiv.style.left = '20px';
+		chatWinDiv.style.top = '10px';
 		chatWinDiv.style.visibility = 'hidden';
-		
-
 		
 		document.body.appendChild(chatWinDiv);
 		

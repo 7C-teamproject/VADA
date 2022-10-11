@@ -9,7 +9,7 @@
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	request.setCharacterEncoding("utf-8");
 	String nickName = request.getParameter("nickName");
-	String msg = request.getParameter("msg");
+	String msg = "[" + nickName + "] " + request.getParameter("msg") + timestamp;
 	String message = Inet4Address.getLocalHost().getHostAddress() + timestamp + "[" + nickName + "] " + msg;
 	
 	Connection conn = null;
