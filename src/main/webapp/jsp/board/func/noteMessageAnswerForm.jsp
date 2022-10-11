@@ -15,7 +15,7 @@
             <input readonly="readonly" type="text" id="toid" name="notetouserid" value="${param.notefromuserid}"/> <!--  받는 사람 ID (판매자 ID) -->
          </div>
          
-         <div>
+         <div> 
             <input type="hidden" id="fromid" name="notefromid"/>	<!-- 보내는 사람 ID (유저 ID) -->
          </div>
          
@@ -25,8 +25,8 @@
          </div>
          
          <ul class="actions">
-            <li><input type="submit" value="Send Message" /></li>
-            <li><input type="reset" value="Clear" /></li>
+            <li><input type="submit" value="답장하기" /></li>
+            <li><input type="reset" value="내용지우기" /></li>
          
          </ul>
       </form>
