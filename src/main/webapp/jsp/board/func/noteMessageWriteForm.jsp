@@ -21,14 +21,15 @@
          </div>
          
          <div>
-            <lable for="message">Message</lable>
-            <textarea id="message" rows="6" name="message"></textarea>
+            <lable for="message">&nbsp;&nbsp;쪽지 내용</lable>
+            <textarea id="message" rows="20" name="message"></textarea>
          </div>
          
          <ul class="actions">
-            <li><input type="submit" value="Send Message" /></li>
-            <li><input type="reset" value="Clear" /></li>
-         
+            <li><input type="submit" value="쪽지 보내기" /></li>
+            <li><input type="reset" value="내용지우기" /></li>
+            <li><input type="button" value="이전페이지로" onclick="history.back();"/></li>
+            
          </ul>
       </form>
    

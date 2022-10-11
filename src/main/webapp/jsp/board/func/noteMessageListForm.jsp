@@ -11,7 +11,7 @@
 	<div>
 		<div>
 
-			<h2>${sessionScope.userid}님의쪽지함</h2>
+			<h2><< ${sessionScope.userid} 님의 쪽지함 >></h2>
 
 		</div>
 
