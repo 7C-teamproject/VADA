@@ -25,8 +25,8 @@
          </div>
          
          <ul class="actions">
-            <li><input type="submit" value="Send Message" /></li>
-            <li><input type="reset" value="Clear" /></li>
+            <li><input type="submit" value="답장하기" /></li>
+            <li><input type="reset" value="내용지우기" /></li>
          
          </ul>
       </form>
