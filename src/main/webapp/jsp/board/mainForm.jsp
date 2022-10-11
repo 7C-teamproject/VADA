@@ -71,13 +71,13 @@
 		<a id="write" href="${webapproot}/boardwriteform.do">글 등록</a>
 	</div>
 
-	<div align="center">
+	<div align="center" style="board: 1px solid gray">
 		<c:if test="${startPage>pageBlock}">
 			<a href="${webapproot}/mainform.do?pageNum=${startPage-pageBlock}">Prev</a>
 		</c:if>
 
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href="${webapproot}/mainform.do?pageNum=${i}" style="text-size: 15px;">${i}</a>
+			<a href="${webapproot}/mainform.do?pageNum=${i}" style="text-size: 15px; color: black;">${i}</a>
 		</c:forEach>
 
 		<c:if test="${endPage<pageCount}">
