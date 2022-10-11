@@ -46,7 +46,7 @@ public class JoinProcHandler implements CommandHandler {
 			if (checkUserID == true && checkNickName == true) {
 				// 회원 가입 성공
 				result = joinService.join(userDTO);
-				url = "/Vada/jsp/user/loginForm.jsp";
+				url = "/jsp/user/loginForm.jsp";
 			} 
 			// ID가 중복이면 회원가입 실패
 			else if (checkUserID == false) {
