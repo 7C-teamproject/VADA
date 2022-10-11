@@ -72,7 +72,7 @@
 		<a href="${webapproot}/mainform.do" class="btn btn-secondary"
 			style="float: right;">메인화면으로 돌아가기</a>
 	</div>
-	<div>
+	<div align="center" style="board: 1px solid gray">
 		<c:if test="${startPage>pageBlock}">
 			<a
 				href="${webapproot}/categoryboardform.do?category=${categoryNum}&pageNum=${startPage-pageBlock}">Prev</a>
