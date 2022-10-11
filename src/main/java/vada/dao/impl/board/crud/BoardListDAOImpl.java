@@ -52,6 +52,7 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 			productPriceDTO.setProductprice(rs.getInt("productprice"));
 
 			imgDTO.setImgsname(rs.getString("imgsname"));
+			imgDTO.setImgcname(rs.getString("imgcname"));
 			imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
 
 			Map<String, Object> boardMap = new HashMap<String, Object>();
@@ -63,6 +64,7 @@ public class BoardListDAOImpl extends BoardDAOImpl implements BoardListDAO {
 			boardMap.put("productprice", productPriceDTO.getProductprice());
 			
 			boardMap.put("imgsname", imgDTO.getImgsname());
+			boardMap.put("imgcname", imgDTO.getImgcname());
 			boardMap.put("imgproductnum", imgDTO.getImgproductnum());
 
 			boardList.add(boardMap);
