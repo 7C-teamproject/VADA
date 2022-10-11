@@ -224,6 +224,9 @@ label:before {
 						<a class="nav-link" href="${webapproot}/notemessagelistform.do">
 							<div class="sb-nav-link-icon"></div>쪽지함
 						</a>
+						<a class="nav-link" href="${webapproot}/jsp/board/func/chat/chatClient.jsp">
+							<div class="sb-nav-link-icon"></div>채팅하기
+						</a>
 
 					</div>
 				</div>
