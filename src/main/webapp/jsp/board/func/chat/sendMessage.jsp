@@ -9,7 +9,7 @@
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	request.setCharacterEncoding("utf-8");
 	String nickName = request.getParameter("nickName");
-	String msg = "[" + nickName + "] " + request.getParameter("msg") + timestamp;
+	String msg = "[" + nickName + "] " + request.getParameter("msg") + "<br />" + timestamp;
 	String message = Inet4Address.getLocalHost().getHostAddress() + timestamp + "[" + nickName + "] " + msg;
 	
 	Connection conn = null;
@@ -20,12 +20,13 @@
 	try {
 		conn = DB.getConnection();
 		pstmt = conn.prepareStatement(
-		"insert into chatmsg(chatmsguserid, chatmsgproductnum, chatmsgsellerid, chatmsgdate, msg) values (?, 1, ?, now(), ?)");
-	
-		pstmt.setString(1, (String) session.getAttribute("userid"));
-		pstmt.setString(2, "default");
-		pstmt.setString(3, msg);
-	
+		"insert into chatmsglog(chatmsglogroomnum, fromid, toid, chatmsglogdate, msg) values (?, ?, ?, now(), ?)" );
+		
+		pstmt.setInt(1, 1);
+		pstmt.setString(2, nickName);
+		pstmt.setString(3, "default");
+		pstmt.setString(4, msg);
+		
 		pstmt.executeUpdate();
 	
 	} catch (SQLException ex) {
