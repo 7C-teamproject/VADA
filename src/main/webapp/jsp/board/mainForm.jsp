@@ -42,7 +42,7 @@
 					<div class="img-box">
 					
 						<!-- 이미지 저장시 가장 첫번째로 등록된 이미지를 리스트에 출력 -->
-						<img class=imgfile src="${webapproot}/img${item.imgcname}" alt="">
+						<img class=imgfile src="${webapproot}/img/${item.imgcname}" alt="">
 					</div>
 					
 					<p class="product-price">
