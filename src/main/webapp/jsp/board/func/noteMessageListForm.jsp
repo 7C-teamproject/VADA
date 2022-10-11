@@ -78,11 +78,12 @@
 					${item.noteproductnum}</a></td>
 						<td>${item.notefromuserid}</td>
 						<td>${item.message }</td>
-						<c:set var="sysYear">
+						<td>
+							<c:set var="sysYear">
 							<fmt:formatDate value="${item.m_date}" pattern="yyyy-MM-dd hh:mm" />
-						</c:set>
-						<c:out value="${sysYear}" />
-						
+							</c:set>
+							<c:out value="${sysYear}" />
+						</td>
 						<td><a href="${webapproot}/jsp/board/func/noteMessageAnswerForm.jsp?productnum=${item.noteproductnum}&notefromuserid=${item.notefromuserid}">답장</a></td>
 					</tr>
 				</c:if>
