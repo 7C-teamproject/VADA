@@ -316,7 +316,7 @@ chat.ChatUI.prototype = {
 		this.chatWinDiv.style.visibility = 'visible';
 		this.messageInput.focus();
 	},
-	hiddenChat: function() {
+	hiddenChat: function() { 
 		this.chatWinDiv.style.visibility = 'hidden';
 	}, 
 	processError: function(type, errMsg) {
