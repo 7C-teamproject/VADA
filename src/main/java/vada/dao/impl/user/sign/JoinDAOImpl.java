@@ -70,6 +70,7 @@ public class JoinDAOImpl extends BoardDAOImpl implements JoinDAO {
 
 		closeConnection(pstmt, conn);
 		
+		System.out.println("@@@@@@@@@@@@@@"+flag);
 		return flag;
 		
 	} // checkUserid

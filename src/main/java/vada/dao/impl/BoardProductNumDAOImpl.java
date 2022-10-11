@@ -31,5 +31,28 @@ public class BoardProductNumDAOImpl extends BoardDAOImpl implements BoardProduct
 		return productnum;
 
 	} // getProductNum
+	
+	@Override
+	// 페이징처리를 위해 모든 게시글 수를 얻는 메소드 
+	public int allProductCount() throws Exception {
+
+		Connection conn = getConnection();
+		
+		// select count(*) from board
+		PreparedStatement pstmt = conn.prepareStatement(VADAConstants.props.getProperty("ALL_PRODUCT_COUNT"));
+	
+		ResultSet rs = pstmt.executeQuery();
+		
+		int productCount = 0;
+		
+		if (rs.next()) {
+			productCount = rs.getInt(1);
+		}
+
+		closeConnection(rs, pstmt, conn);
+
+		return productCount;
+
+	} // allProductCount
 
 } // class
