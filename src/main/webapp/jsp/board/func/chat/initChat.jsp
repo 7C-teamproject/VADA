@@ -24,7 +24,7 @@
 		stmt = conn.createStatement();
 		
 		if (lastMsgId == 0) {
-			rs = stmt.executeQuery(" select max(chatmsgid) from chatmsg ");
+			rs = stmt.executeQuery("select max(chatmsgid) from chatmsg");
 			  
 			if (rs.next()) {
 				newLastMsgId = rs.getInt(1);
@@ -33,7 +33,7 @@
 			
 		} else {
 			// 새로 쓴 메시지 가져옴
-			rs = stmt.executeQuery(" select * from chatmsg where chatmsgid > " + lastMsgId + " order by chatmsgdate ");
+			rs = stmt.executeQuery(" select * from chatmsg ");
 			while(rs.next()) {
 				messageList.add(rs.getString("msg"));
 				newLastMsgId = rs.getInt("chatmsgid");
