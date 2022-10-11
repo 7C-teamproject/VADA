@@ -224,10 +224,10 @@ chat.ChatUI.prototype = {
 
 		loginWinDiv.style.border = "1px solid #000";
 		loginWinDiv.style.position = 'absolute';
-		loginWinDiv.style.width = '400px';
-		loginWinDiv.style.height = '400px';
-		loginWinDiv.style.left = '20px';
-		loginWinDiv.style.top = '10px';
+		loginWinDiv.style.width = '600px';
+		loginWinDiv.style.height = '600px';
+		loginWinDiv.style.left = '40%';
+		loginWinDiv.style.top = '20%';
 		
 		document.body.appendChild(loginWinDiv);
 		
@@ -259,10 +259,10 @@ chat.ChatUI.prototype = {
 		
 		chatWinDiv.style.border = "1px solid #000";
 		chatWinDiv.style.position = 'absolute';
-		chatWinDiv.style.width = '400px';
-		chatWinDiv.style.height = '400px';
-		chatWinDiv.style.left = '20px';
-		chatWinDiv.style.top = '10px';
+		chatWinDiv.style.width = '600px';
+		chatWinDiv.style.height = '450px';
+		chatWinDiv.style.left = '40%';
+		chatWinDiv.style.top = '20%';
 		chatWinDiv.style.visibility = 'hidden';
 		
 		document.body.appendChild(chatWinDiv);
