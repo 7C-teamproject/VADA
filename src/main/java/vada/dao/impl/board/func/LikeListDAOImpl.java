@@ -3,7 +3,10 @@ package vada.dao.impl.board.func;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +16,7 @@ import vada.dao.board.func.LikeAddDAO;
 import vada.dto.BoardDTO;
 import vada.dto.ImgDTO;
 import vada.dto.LikelistDTO;
+import vada.dto.NoteMessageDTO;
 import vada.dto.ProductpriceDTO;
 
 public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
@@ -58,6 +62,7 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				BoardDTO boardDTO = new BoardDTO();
 				ImgDTO imgDTO = new ImgDTO();
 				ProductpriceDTO productPriceDTO = new ProductpriceDTO();
+				NoteMessageDTO noteMessageDTO = new NoteMessageDTO();
 
 				boardDTO.setTitle(rs.getString("title"));
 				boardDTO.setWdate(rs.getTimestamp("wdate"));
@@ -68,7 +73,6 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				imgDTO.setImgsname(rs.getString("imgsname"));
 				imgDTO.setImgcname(rs.getString("imgcname"));
 				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
-
 				boardMap.put("title", boardDTO.getTitle());
 				boardMap.put("wdate", boardDTO.getWdate());
 				boardMap.put("productnum", boardDTO.getProductnum());
@@ -77,7 +81,12 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				boardMap.put("imgcname", imgDTO.getImgcname());
 				boardMap.put("imgproductnum", imgDTO.getImgproductnum());
 				boardMap.put("likedate", likelistDTO.getLikedate());
-
+//				SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//				Calendar cal = Calendar.getInstance();
+//				cal.setTime(rs2.getTimestamp("likedate"));
+//				cal.add(Calendar.HOUR, 3);
+//				noteMessageDTO.setM_date(Timestamp.valueOf(sdformat.format(cal.getTime()))); 
+//				boardMap.put("likedate", noteMessageDTO.getM_date());
 				likeList.add(boardMap);
 
 			}
