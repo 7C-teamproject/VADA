@@ -57,7 +57,6 @@ public class NoteMessageDAOImpl extends BoardDAOImpl implements NoteMessageDAO {
 			pstmt = conn.prepareStatement(VADAConstants.props.getProperty("SELECT_MESSAGE_SQL"));
 			rs = pstmt.executeQuery();
 			NoteMessageDTO noteMessageDTO = null;
-			
 			while (rs.next()) {
 				noteMessageDTO = new NoteMessageDTO();
 				noteMessageDTO.setNotefromuserid(rs.getString("notefromuserid"));

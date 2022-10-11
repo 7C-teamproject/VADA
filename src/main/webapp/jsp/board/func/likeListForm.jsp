@@ -51,7 +51,6 @@
 									pattern="#,###" />
 								원
 							</p>
-
 							<p class="product-name">${likeDTO.title}</p>
 
 							<c:set var="sysYear">

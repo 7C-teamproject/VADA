@@ -13,7 +13,6 @@ import vada.service.board.func.LikeService;
 
 // 내 찜목록 리스트를 보여주기 위한 핸들러
 public class LikeListFormHandler implements CommandHandler {
-
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
