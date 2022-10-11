@@ -35,16 +35,17 @@ margin-right: 16%;
             <p for="message" align="left" >쪽지 내용</p>
             <textarea id="message" rows="15" name="message" style="width:300px"></textarea>
          </div>
-         
-         <ul class="actions">
-            <p></p>
-            <input type="submit" value="쪽지 보내기" />
-            <p></p>
-            <input type="reset" value="내용지우기" />
-            <p></p>
+
+			<div style="padding-left:16%">
+	            <input type="submit" value="쪽지 보내기"  />
+	            <p></p>
+	            <input type="reset" value="내용지우기" />			
+			</div>         
+			
+			<div style='margin:-75px; float: left;margin-left:7px;'>
             <input type="button" value="이전페이지로" onclick="history.back();"/>
             
-         </ul>
+            </div>
       </form>
    
    </div>
