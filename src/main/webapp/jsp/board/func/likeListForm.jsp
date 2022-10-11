@@ -25,7 +25,6 @@
 				</thead>
 			</table>
 		</div>
-		
 		<ul class="row" id="test">
 			
 			
@@ -33,11 +32,10 @@
 			
 			<!-- User의 찜목록이 존재한다면 -->
 			<c:if test="${fn:length(likeList) != 0}">
-				<!-- 사용자가 찜한 게시글 수 만큼 반복 -->
 				<c:forEach var="likeDTO" items="${likeList}" varStatus="stat">
 
 					<!-- 해당 찜게시글에 해당하는 폼으로 이동 -->
-					<li id="listid" style="list-style: none;" class="cell" >
+					<li id="listid" style="list-style: none;" class="cell"  onclick="location.href='${webapproot}/boarddetailform.do?productnum=${likeDTO.productnum}'">
 					
 						<!-- 첫번째 이미지파일을 출력 -->
 						<div class="img-box">
@@ -49,8 +47,7 @@
 						</p>
 						
 						<p class="product-name">
-						
-							<a href="boarddetailform.do?productnum=${likeDTO.productnum}" >${likeDTO.title}</a>
+							${likeDTO.title}
 						</p>  
 						
 						<c:set var="sysYear">
