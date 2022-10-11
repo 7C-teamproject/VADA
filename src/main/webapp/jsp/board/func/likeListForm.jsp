@@ -55,7 +55,7 @@
 
 							<c:set var="sysYear">
 								<fmt:formatDate value="${likeDTO.likedate}"
-									pattern="yyyy-MM-dd hh:mm:ss" />
+									pattern="yyyy-MM-dd hh:mm" />
 							</c:set>
 
 							<div class="product-date">

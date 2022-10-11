@@ -202,7 +202,6 @@ label:before {
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading">Core</div>
 						<a class="nav-link" href="${webapproot}/mainform.do">
 							<div class="sb-nav-link-icon"></div> 중고거래
 						</a> 

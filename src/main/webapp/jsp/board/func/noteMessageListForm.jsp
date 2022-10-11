@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <jsp:include page="/jsp/top.jsp" />
 
@@ -77,7 +78,11 @@
 					${item.noteproductnum}</a></td>
 						<td>${item.notefromuserid}</td>
 						<td>${item.message }</td>
-						<td>${item.m_date }</td>
+						<c:set var="sysYear">
+							<fmt:formatDate value="${item.m_date}" pattern="yyyy-MM-dd hh:mm" />
+						</c:set>
+						<c:out value="${sysYear}" />
+						
 						<td><a href="${webapproot}/jsp/board/func/noteMessageAnswerForm.jsp?productnum=${item.noteproductnum}&notefromuserid=${item.notefromuserid}">답장</a></td>
 					</tr>
 				</c:if>

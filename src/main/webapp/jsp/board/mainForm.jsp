@@ -54,7 +54,7 @@
 					</p> 
 					
 					<c:set var="sysYear">
-						<fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd hh:mm:ss" />
+						<fmt:formatDate value="${item.wdate}" pattern="yyyy-MM-dd hh:mm" />
 					</c:set>
 					
 					<p class="product-date">
