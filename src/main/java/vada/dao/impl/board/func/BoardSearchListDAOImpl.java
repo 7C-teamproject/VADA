@@ -75,6 +75,7 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
 			boardMap.put("productnum", rs.getInt("productnum"));
 			boardMap.put("wdate", rs.getTimestamp("wdate"));
 			boardMap.put("imgsname", rs.getString("imgsname"));
+			boardMap.put("imgcname", rs.getString("imgcname"));
 			boardMap.put("productprice", rs.getInt("productprice"));
 
 			boardList.add(boardMap);
@@ -121,6 +122,7 @@ public class BoardSearchListDAOImpl extends BoardDAOImpl implements BoardSearchL
 			boardMap.put("productnum", rs.getInt("productnum"));
 			boardMap.put("wdate", rs.getTimestamp("wdate"));
 			boardMap.put("imgsname", rs.getString("imgsname"));
+			boardMap.put("imgcname", rs.getString("imgcname"));
 			boardMap.put("productprice", rs.getInt("productprice"));
 
 			boardList.add(boardMap);

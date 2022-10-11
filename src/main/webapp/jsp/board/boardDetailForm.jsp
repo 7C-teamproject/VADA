@@ -71,7 +71,7 @@
 					</h3>
 
 					<h3>내용</h3>
-					<textarea readonly style="width: 100%" name="content">${boardDTO.content}</textarea>
+					<textarea readonly style="width: 100%" rows="15" name="content">${boardDTO.content}</textarea>
 					<br />
 					<h3>카테고리 : ${categoryDTO.categoryname}</h3>
 					<input type="hidden" name="bcategorynum"

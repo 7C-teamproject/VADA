@@ -66,6 +66,7 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				likelistDTO.setLikedate(rs2.getTimestamp("likedate"));
 
 				imgDTO.setImgsname(rs.getString("imgsname"));
+				imgDTO.setImgcname(rs.getString("imgcname"));
 				imgDTO.setImgproductnum(rs.getInt("imgproductnum"));
 
 				boardMap.put("title", boardDTO.getTitle());
@@ -73,6 +74,7 @@ public class LikeListDAOImpl extends AbstractLikeDAO implements LikeAddDAO {
 				boardMap.put("productnum", boardDTO.getProductnum());
 				boardMap.put("productprice", productPriceDTO.getProductprice());
 				boardMap.put("imgsname", imgDTO.getImgsname());
+				boardMap.put("imgcname", imgDTO.getImgcname());
 				boardMap.put("imgproductnum", imgDTO.getImgproductnum());
 				boardMap.put("likedate", likelistDTO.getLikedate());
 
